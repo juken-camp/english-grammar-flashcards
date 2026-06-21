@@ -590,7 +590,8 @@ function recompute(opts){
 /* ---- 単元タグHTML ---- */
 function unitTagsHTML(no,max){
   var arr=cardUnits[no]||[];if(!arr.length)return '';
-  var multi=Object.keys(textbooks).length>1;
+  if(st.book){arr=arr.filter(function(x){return x.book===st.book.book;});if(!arr.length)return '';}
+  var multi=!st.book && Object.keys(textbooks).length>1;
   var show=arr.slice(0,max);
   var h=show.map(function(x){return '<span class="utag"><span class="bk">📕</span>'+(multi?esc(bookShort(x.book))+' ':'')+'中'+x.g+' '+esc(x.u)+'</span>';}).join('');
   if(arr.length>max)h+='<span class="utag">+'+(arr.length-max)+'</span>';
