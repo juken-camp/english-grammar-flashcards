@@ -320,7 +320,8 @@ button{font-family:inherit;cursor:pointer}
 .modebar{display:inline-flex;flex:0 0 auto;gap:3px;background:var(--surface);border-radius:11px;padding:3px;margin:0}
 .modeseg{flex:0 0 auto;border:none;background:transparent;color:var(--dim);font-weight:800;font-size:12.5px;padding:6px 11px;border-radius:8px;letter-spacing:.2px;transition:.15s;display:flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap}
 .modeseg.on{background:var(--card);color:var(--purple);box-shadow:var(--sh)}
-.formula-main{font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:800;font-size:25px;line-height:1.5;color:var(--text);text-align:center;padding:26px 14px 22px;letter-spacing:.3px}
+.formula-main{font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:800;font-size:25px;line-height:1.5;color:var(--text);text-align:center;padding:26px 14px 22px;letter-spacing:.3px;word-break:keep-all;overflow-wrap:break-word}
+.formula-main .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 7px;margin:0 2px;line-height:1.25}
 .formula-main b{color:var(--purple)}
 .formula-link{display:inline-flex;align-items:center;gap:7px;width:100%;justify-content:center;border:1.5px solid var(--purple-l);background:var(--purple-bg);color:var(--purple);font-weight:800;font-size:14px;padding:13px 14px;border-radius:14px;line-height:1.4;text-align:center;cursor:pointer;transition:.15s}
 .formula-link:active{transform:scale(.98)}
@@ -562,10 +563,10 @@ var formulas=[
  {s:"ずっと〜し続けている（動作）",f:"<b>have been</b> + 動詞のing",c:46,l:"現在完了進行形"},
  {s:"〜している（名詞を説明）",f:"名詞 + <b>動詞のing</b> + 語句",c:47,l:"現在分詞の後置修飾"},
  {s:"〜された（名詞を説明）",f:"名詞 + <b>過去分詞</b> + 語句",c:48,l:"過去分詞の後置修飾"},
- {s:"〜する（人）",f:"人 + <b>who</b> + 動詞 〜",c:49,l:"関係代名詞 who（主格）"},
- {s:"〜する（物）",f:"物 + <b>which / that</b> + 動詞 〜",c:49,l:"関係代名詞 which（主格）"},
- {s:"（人）が〜する（物）",f:"名詞 <b>(which / that)</b> + 主語 + 動詞",c:50,l:"関係代名詞（目的格・省略可）"},
- {s:"〜が…な（人）",f:"名詞 + <b>whose</b> + 名詞 〜",c:51,l:"関係代名詞 whose（所有格）"},
+ {s:"〜する（人）",f:"<span class='ant'>人</span> + <b>who</b> + 動詞 〜",c:49,l:"関係代名詞 who（主格）"},
+ {s:"〜する（物）",f:"<span class='ant'>物</span> + <b>which / that</b> + 動詞 〜",c:49,l:"関係代名詞 which（主格）"},
+ {s:"（人）が〜する（物）",f:"<span class='ant'>名詞</span> <b>(which / that)</b> + 主語 + 動詞",c:50,l:"関係代名詞（目的格・省略可）"},
+ {s:"〜が…な（人）",f:"<span class='ant'>名詞</span> + <b>whose</b> + 名詞 〜",c:51,l:"関係代名詞 whose（所有格）"},
  {s:"…すぎて〜できない",f:"<b>too</b> + 形容詞 + <b>to</b> + 動詞の原形",c:52,l:"too 〜 to …"},
  {s:"〜するのに十分…",f:"形容詞 + <b>enough to</b> + 動詞の原形",c:52,l:"〜 enough to …"},
  {s:"（人）に〜させる",f:"<b>make / let</b> + 人 + 動詞の原形",c:53,l:"使役動詞（make / let）"},
@@ -582,8 +583,8 @@ var formulas=[
  {s:"〜ならいいのに（願望）",f:"<b>I wish</b> + 主語 + 過去形（<b>could</b>）",c:58,l:"I wish + 仮定法"},
  {s:"とても〜なので…",f:"<b>so</b> + 形容詞・副詞 + <b>that</b> + 主語 + 動詞",c:59,l:"so 〜 that …"},
  {s:"とても〜な（名詞）なので…",f:"<b>such (a)</b> + 形容詞 + 名詞 + <b>that</b> …",c:59,l:"such 〜 that …"},
- {s:"〜する（場所）",f:"場所 + <b>where</b> + 主語 + 動詞",c:60,l:"関係副詞 where"},
- {s:"〜する（時）",f:"時 + <b>when</b> + 主語 + 動詞",c:60,l:"関係副詞 when"},
+ {s:"〜する（場所）",f:"<span class='ant'>場所</span> + <b>where</b> + 主語 + 動詞",c:60,l:"関係副詞 where"},
+ {s:"〜する（時）",f:"<span class='ant'>時</span> + <b>when</b> + 主語 + 動詞",c:60,l:"関係副詞 when"},
  {s:"〜すること／〜するもの",f:"<b>what</b> + 主語 + 動詞",c:60,l:"関係代名詞 what"}
 ];
 formulas.forEach(function(f,i){f.id='f'+(i+1);f.no=i+1;f.gr=(grammarRef[f.c-1]||{}).gr||'中1';});
