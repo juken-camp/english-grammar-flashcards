@@ -879,11 +879,11 @@ el.indexScrim.addEventListener('click',function(){closeSheet(el.indexSheet,el.in
 
 /* ---- 教科書シート（教科書→学年→単元） ---- */
 var bookSel={book:null,sels:new Set()};
-function buildBook(){
+function buildBook(keep){
   var books=Object.keys(textbooks);
   var html='<div class="book-intro">テストの<b>範囲</b>をタップして選び、下の「この範囲を表示」を押すと、その文法カードだけ並びます。単元の下の<b>P1・P2…（Part）</b>で細かく指定もできます。学年をまたいでもOK。</div>';
   if(books.length===0){html+='<div class="idx-empty">教科書が登録されていません。</div>';el.bookBody.innerHTML=html;return;}
-  bookSel={book:(st.book&&textbooks[st.book.book]?st.book.book:books[0]),sels:new Set(st.book?st.book.sels:[])};
+  if(!keep||!textbooks[bookSel.book]){bookSel={book:(st.book&&textbooks[st.book.book]?st.book.book:books[0]),sels:new Set(st.book?st.book.sels:[])};}
   if(books.length>1){html+='<div class="bk-tabs">'+books.map(function(b){return '<button class="bk-tab'+(b===bookSel.book?' on':'')+'" data-book="'+esc(b)+'">'+esc(b)+'</button>';}).join('')+'</div>';}
   else{html+='<div class="bk-grade" style="margin-top:2px"><span class="gpill" style="background:var(--text);color:#fff;font-weight:800">📘 '+esc(books[0])+'</span></div>';}
   html+=renderBookGrades();
@@ -937,7 +937,7 @@ function wireGrades(){
   };});
 }
 function wireBook(){
-  Array.prototype.forEach.call(el.bookBody.querySelectorAll('.bk-tab'),function(t){t.onclick=function(){bookSel.book=t.getAttribute('data-book');bookSel.sels=new Set();buildBook();};});
+  Array.prototype.forEach.call(el.bookBody.querySelectorAll('.bk-tab'),function(t){t.onclick=function(){bookSel.book=t.getAttribute('data-book');bookSel.sels=new Set();buildBook(true);};});
   wireGrades();
   var show=$('bkShow'),save=$('bkSave'),clr=$('bkClear');
   if(show)show.onclick=function(){if(bookSel.sels.size===0)return;applyBookSel();closeSheet(el.bookSheet,el.bookScrim);};
