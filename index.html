@@ -79,9 +79,6 @@ button{font-family:inherit;cursor:pointer}
 
 /* ===== STAGE ===== */
 .stage{flex:1 1 auto;position:relative;display:flex;align-items:center;justify-content:center;padding:18px 16px 8px;min-height:0}
-.deck-shadow{position:absolute;top:18px;bottom:8px;left:50%;width:calc(100% - 44px);max-width:430px;border-radius:var(--r);background:var(--card);box-shadow:0 6px 18px rgba(120,90,170,.10)}
-.deck-shadow.s1{opacity:.7;transform:translateX(-50%) translateY(12px) scale(.97)}
-.deck-shadow.s2{opacity:.42;transform:translateX(-50%) translateY(24px) scale(.94)}
 
 .card{position:relative;width:100%;max-width:440px;height:100%;perspective:1400px;touch-action:pan-y;will-change:transform;outline:none;user-select:none;-webkit-user-select:none}
 .card:focus-visible{border-radius:var(--r);box-shadow:0 0 0 3px var(--purple-l)}
@@ -359,8 +356,6 @@ button{font-family:inherit;cursor:pointer}
 
 <!-- ===== STAGE ===== -->
 <div class="stage" id="stage">
-  <div class="deck-shadow s2"></div>
-  <div class="deck-shadow s1"></div>
   <div class="card" id="card" tabindex="0" role="group" aria-roledescription="フラッシュカード" aria-label="英文法フラッシュカード">
     <div class="card-inner" id="cardInner">
       <!-- FRONT -->
@@ -519,7 +514,7 @@ var el={
 
 /* ---- 状態・保存 ---- */
 var LS_MASTER='gc_master_v1', LS_HINT='gc_hint_v1', LS_SETS='gc_sets_v1', LS_ACTIVE='gc_active_v1';
-var st={grade:'all',q:'',shuffle:false,review:false,book:null,idx:0,flip:false,activeTab:'__all'};
+var st={grade:'all',q:'',shuffle:false,review:false,book:null,idx:0,flip:false,activeTab:null};
 var mastered=loadSet(LS_MASTER);
 var savedSets=loadJSON(LS_SETS,[]);
 var deck=[]; var shuffleOrder=null;
@@ -606,8 +601,6 @@ function render(){
   var total=deck.length, has=total>0;
   el.empty.style.display=has?'none':'flex';
   el.card.style.visibility=has?'visible':'hidden';
-  document.querySelector('.deck-shadow.s1').style.visibility=has?'visible':'hidden';
-  document.querySelector('.deck-shadow.s2').style.visibility=has?'visible':'hidden';
   el.counter.firstChild.textContent=has?(st.idx+1)+' / '+total:'0 / 0';
   el.masterBtn.style.visibility=has?'visible':'hidden';
   updateChips();
@@ -663,7 +656,7 @@ function updateChips(){
 
 /* ---- タブ（保存セット） ---- */
 function renderTabs(){
-  var html='<button class="tab'+(st.activeTab==='__all'?' on':'')+'" data-tab="__all">すべて<span class="cnt">'+grammarRef.length+'</span></button>';
+  var html='';
   savedSets.forEach(function(s){
     html+='<button class="tab'+(st.activeTab===s.id?' on':'')+'" data-tab="'+s.id+'">'+esc(s.name)+'<span class="cnt">'+countSet(s)+'</span><span class="tab-edit" data-edit="'+s.id+'">✎</span></button>';
   });
@@ -674,10 +667,10 @@ function highlightTabs(){
   Array.prototype.forEach.call(el.tabs.querySelectorAll('.tab'),function(t){
     var id=t.getAttribute('data-tab');
     t.classList.toggle('on', id===st.activeTab);
-    if(id&&id!=='__all'&&id!=='__add'){var s=savedSets.find(function(x){return x.id===id;});var c=t.querySelector('.cnt');if(s&&c)c.textContent=countSet(s);}
+    if(id&&id!=='__add'){var s=savedSets.find(function(x){return x.id===id;});var c=t.querySelector('.cnt');if(s&&c)c.textContent=countSet(s);}
   });
 }
-function applyAll(){st.book=null;st.grade='all';st.q='';el.search.value='';el.searchWrap.classList.remove('has');st.review=false;st.activeTab='__all';recompute({reset:true});}
+function applyAll(){st.book=null;st.grade='all';st.q='';el.search.value='';el.searchWrap.classList.remove('has');st.review=false;st.activeTab=null;recompute({reset:true});}
 function applySet(s,silent){
   st.book=s.book?{book:s.book.book,sels:s.book.sels.slice()}:null;
   st.grade=s.grade||'all';st.q=s.q||'';el.search.value=st.q;el.searchWrap.classList.toggle('has',!!st.q);st.review=!!s.review;
@@ -689,8 +682,7 @@ el.tabs.addEventListener('click',function(e){
   if(ed){e.stopPropagation();openSaveEdit(ed.getAttribute('data-edit'));return;}
   var t=e.target.closest('.tab');if(!t)return;
   var id=t.getAttribute('data-tab');
-  if(id==='__all')applyAll();
-  else if(id==='__add')openSaveNew();
+  if(id==='__add')openSaveNew();
   else{var s=savedSets.find(function(x){return x.id===id;});if(s)applySet(s);}
 });
 
@@ -821,7 +813,7 @@ el.masterBtn.addEventListener('click',function(){
 /* ---- 検索・チップ ---- */
 el.search.addEventListener('input',function(){st.q=el.search.value.trim();el.searchWrap.classList.toggle('has',el.search.value.length>0);st.activeTab=null;recompute({reset:true});});
 el.searchClear.addEventListener('click',function(){el.search.value='';st.q='';el.searchWrap.classList.remove('has');st.activeTab=null;recompute({reset:true});el.search.focus();});
-el.chips.addEventListener('click',function(e){var c=e.target.closest('.chip[data-grade]');if(!c)return;st.grade=c.getAttribute('data-grade');st.activeTab=null;recompute({reset:true});});
+el.chips.addEventListener('click',function(e){var c=e.target.closest('.chip[data-grade]');if(!c)return;var g=c.getAttribute('data-grade');if(g==='all'){applyAll();}else{st.grade=g;st.activeTab=null;recompute({reset:true});}});
 el.shuffleBtn.addEventListener('click',function(){st.shuffle=!st.shuffle;if(st.shuffle)makeShuffle();recompute({reset:true});toast(st.shuffle?'シャッフルしました 🔀':'順番を元に戻しました');});
 el.reviewBtn.addEventListener('click',function(){st.review=!st.review;st.activeTab=null;recompute({reset:true});if(st.review&&deck.length===0)toast('未習得のカードはありません 🎉');else toast(st.review?'まだ覚えていないカードだけ表示':'すべてのカードを表示');});
 el.emptyReset.addEventListener('click',function(){applyAll();});
@@ -978,7 +970,7 @@ renderTabs();
 var act='';try{act=localStorage.getItem(LS_ACTIVE)||'';}catch(e){}
 var startSet=savedSets.find(function(x){return x.id===act;});
 if(startSet)applySet(startSet,true);
-else{st.activeTab='__all';recompute({reset:true});}
+else{st.activeTab=null;recompute({reset:true});}
 renderTabs();
 </script>
 </body>
