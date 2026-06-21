@@ -81,6 +81,7 @@ button{font-family:inherit;cursor:pointer}
 .stage{flex:1 1 auto;position:relative;display:flex;align-items:center;justify-content:center;padding:12px 16px 8px;min-height:0}
 
 .card{position:relative;width:100%;max-width:440px;height:100%;perspective:1400px;touch-action:pan-y;will-change:transform;outline:none;user-select:none;-webkit-user-select:none}
+.card-inner,.face,.front-top,.front-body,.front-topic,.front-ja,.front-sents,.back-head,.back-topic,.back-scroll{touch-action:pan-y}
 .card:focus-visible{border-radius:var(--r);box-shadow:0 0 0 3px var(--purple-l)}
 .back-scroll{user-select:text;-webkit-user-select:text}
 .card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.85,.25,1)}
@@ -977,14 +978,14 @@ el.card.addEventListener('pointerdown',function(e){
 el.card.addEventListener('pointermove',function(e){
   if(!drag.on||e.pointerId!==drag.id)return;
   drag.dx=e.clientX-drag.x0;drag.dy=e.clientY-drag.y0;
-  if(drag.lock===null&&(Math.abs(drag.dx)>7||Math.abs(drag.dy)>7)){drag.lock=Math.abs(drag.dx)>Math.abs(drag.dy)?'h':'v';if(drag.lock==='h'){try{el.card.setPointerCapture(drag.id)}catch(_){}}}
+  if(drag.lock===null&&(Math.abs(drag.dx)>5||Math.abs(drag.dy)>5)){drag.lock=Math.abs(drag.dx)>=Math.abs(drag.dy)?'h':'v';if(drag.lock==='h'){try{el.card.setPointerCapture(drag.id)}catch(_){}}}
   if(drag.lock==='h'){var dx=drag.dx;el.card.style.transform='translateX('+dx+'px) rotate('+(dx*0.04)+'deg)';el.card.style.opacity=String(Math.max(.5,1-Math.abs(dx)/620));}
 });
 function endDrag(e){
   if(!drag.on)return;drag.on=false;
   var dt=Date.now()-drag.t0,dx=drag.dx,dy=drag.dy,ax=Math.abs(dx),ay=Math.abs(dy),lock=drag.lock;drag.lock=null;
   try{el.card.releasePointerCapture(e.pointerId)}catch(_){}
-  if(lock==='h'){var vel=ax/Math.max(dt,1);if(ax>72||vel>0.55)animateNav(dx<0?1:-1);else snapBack();}
+  if(lock==='h'){var vel=ax/Math.max(dt,1);if(ax>55||vel>0.45)animateNav(dx<0?1:-1);else snapBack();}
   else if(ax<8&&ay<8&&dt<320){snapBack();flip();}
   else snapBack();
 }
