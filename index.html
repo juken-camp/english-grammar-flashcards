@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -112,6 +112,7 @@ button{font-family:inherit;cursor:pointer}
 .back-head{flex:0 0 auto;display:flex;align-items:center;gap:9px;padding:13px 16px;border-bottom:1px solid var(--surface);background:var(--card)}
 .back-topic{font-weight:800;font-size:15.5px;color:var(--purple);line-height:1.3}
 .back-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 16px 22px;transform:translateZ(0)}
+.back-scroll.fm{display:flex;flex-direction:column;justify-content:center}
 .back-scroll::-webkit-scrollbar{width:5px}
 .back-scroll::-webkit-scrollbar-thumb{background:var(--purple-l);border-radius:3px}
 .rule{font-size:13.5px;line-height:1.85;color:var(--dim)}
@@ -761,6 +762,7 @@ function render(){
   el.backTopic.textContent=g.t;
   el.backUnits.innerHTML=unitTagsHTML(g.no,8);
   el.rule.innerHTML=g.d;
+  el.backScroll.classList.remove('fm');
   el.exBlock.style.display='';
   el.ex.innerHTML=g.e.replace(/\n/g,'<br>');
   el.tbSentences.innerHTML=textbookSentencesHTML(g.no);
@@ -785,6 +787,7 @@ function renderFormula(){
   el.rule.innerHTML='<div class="formula-main">'+f.f+'</div><button class="formula-link no-swipe" data-card="'+f.c+'">📖 '+esc(f.l)+'<span class="arr">→</span></button>';
   el.exBlock.style.display='none';
   el.ex.innerHTML=''; el.tbSentences.innerHTML='';
+  el.backScroll.classList.add('fm');
   el.backScroll.scrollTop=0;
   el.cardInner.classList.toggle('flipped',st.flip);
   var m=mastered.has('F:'+f.id);
