@@ -533,6 +533,7 @@ function pickSentence(g){var list=bookSentences[g.no]||[];if(!list.length)return
 function frontSentences(g){var list=bookSentences[g.no]||[];if(!list.length)return [];if(st.book){var s=pickSentence(g);return s?[s]:[];}var seen={},out=[];list.forEach(function(s){if(!seen[s.b]){seen[s.b]=1;out.push(s);}});return out;}
 function textbookSentencesHTML(no){
   var list=bookSentences[no]||[];if(!list.length)return '';
+  if(st.book){list=list.filter(function(s){return s.b===st.book.book;});if(!list.length)return '';}
   var byBook={};list.forEach(function(s){(byBook[s.b]=byBook[s.b]||[]).push(s);});
   var html='<div class="tb-sec"><div class="tb-sec-h"><span>📕 教科書の基本文</span><span class="tb-cnt">'+list.length+'文</span></div>';
   Object.keys(byBook).forEach(function(book){
