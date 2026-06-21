@@ -78,7 +78,7 @@ button{font-family:inherit;cursor:pointer}
 .chip-sep{flex:0 0 auto;width:1px;align-self:stretch;background:var(--border);margin:4px 1px}
 
 /* ===== STAGE ===== */
-.stage{flex:1 1 auto;position:relative;display:flex;align-items:center;justify-content:center;padding:18px 16px 8px;min-height:0}
+.stage{flex:1 1 auto;position:relative;display:flex;align-items:center;justify-content:center;padding:12px 16px 8px;min-height:0}
 
 .card{position:relative;width:100%;max-width:440px;height:100%;perspective:1400px;touch-action:pan-y;will-change:transform;outline:none;user-select:none;-webkit-user-select:none}
 .card:focus-visible{border-radius:var(--r);box-shadow:0 0 0 3px var(--purple-l)}
@@ -315,8 +315,8 @@ button{font-family:inherit;cursor:pointer}
 .save-del{flex:0 0 auto;background:var(--ng-bg);color:var(--ng);padding:14px 18px}
 .save-cancel{flex:0 0 auto;background:var(--surface);color:var(--dim);padding:14px 18px}
 /* ===== 公式モード ===== */
-.modebar{display:flex;gap:6px;background:var(--surface);border-radius:13px;padding:4px;margin-bottom:9px}
-.modeseg{flex:1;border:none;background:transparent;color:var(--dim);font-weight:800;font-size:13.5px;padding:9px 6px;border-radius:10px;letter-spacing:.3px;transition:.15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.modebar{display:inline-flex;flex:0 0 auto;gap:3px;background:var(--surface);border-radius:11px;padding:3px;margin:0}
+.modeseg{flex:0 0 auto;border:none;background:transparent;color:var(--dim);font-weight:800;font-size:12.5px;padding:6px 11px;border-radius:8px;letter-spacing:.2px;transition:.15s;display:flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap}
 .modeseg.on{background:var(--card);color:var(--purple);box-shadow:var(--sh)}
 .formula-main{font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:800;font-size:25px;line-height:1.5;color:var(--text);text-align:center;padding:26px 14px 22px;letter-spacing:.3px}
 .formula-main b{color:var(--purple)}
@@ -343,11 +343,12 @@ button{font-family:inherit;cursor:pointer}
       </button>
     </div>
   </div>
-  <div class="modebar" id="modebar">
-    <button class="modeseg on" data-mode="grammar">📖 文法カード</button>
-    <button class="modeseg" data-mode="formula">⚡ 公式カード</button>
-  </div>
   <div class="toolbar" id="toolbar">
+    <div class="modebar" id="modebar">
+      <button class="modeseg on" data-mode="grammar">📖 文法</button>
+      <button class="modeseg" data-mode="formula">⚡ 公式</button>
+    </div>
+    <span class="chip-sep"></span>
     <div class="chips" id="chips" style="display:contents">
       <button class="chip" data-grade="all">すべて</button>
       <button class="chip" data-grade="中1">中1</button>
@@ -774,7 +775,7 @@ function renderFormula(){
   var f=deck[st.idx], c=gcls(f.gr), total=deck.length;
   el.frontAccent.className='front-accent '+c;
   el.frontGrade.className='grade-tab '+c; el.frontGrade.textContent=f.gr;
-  el.frontNo.textContent='公式';
+  el.frontNo.textContent='公式 #'+f.no;
   el.frontTopic.textContent=f.s;
   el.frontTopic.style.fontSize = f.s.length>20 ? '21px' : f.s.length>13 ? '24px' : '';
   el.frontSents.className='front-sents'; el.frontSents.innerHTML='';
