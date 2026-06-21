@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#FFF8FC">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -29,7 +29,7 @@
   --g1c:#D4507A;--g1bg:#FFE0EC;--g2c:#4A7FD4;--g2bg:#D9E8FF;--g3c:#2E8A5A;--g3bg:#DCF5E8;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0;height:100%}
+html,body{margin:0;padding:0;height:100%;touch-action:manipulation}
 body{
   font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);
   height:100dvh;display:flex;flex-direction:column;overflow:hidden;
@@ -42,12 +42,14 @@ button{font-family:inherit;cursor:pointer}
 /* ===== TOP BAR ===== */
 .top{flex:0 0 auto;padding:10px 14px 6px;background:linear-gradient(180deg,var(--bg) 70%,rgba(255,248,252,0));z-index:20}
 .titlebar{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
-.brand{display:flex;align-items:baseline;gap:8px}
-.brand .jp{font-weight:800;font-size:18px;letter-spacing:.5px}
-.brand .en{font-family:'Outfit',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
-.iconbtn{width:38px;height:38px;border-radius:12px;border:1.5px solid var(--surface);background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--dim);box-shadow:var(--sh)}
+.brand{display:flex;align-items:baseline;gap:8px;min-width:0}
+.brand .jp{font-weight:800;font-size:17px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{width:36px;height:36px;border-radius:11px;border:1.5px solid var(--surface);background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--dim);box-shadow:var(--sh)}
 .iconbtn:active{transform:scale(.93)}
 .iconbtn svg{width:20px;height:20px}
+.iconbtn.master{color:#2E8A6A;border-color:var(--mint-l);background:var(--mint-bg)}
+.iconbtn.master.on{background:var(--mint);border-color:var(--mint);color:#fff}
+.iconbtn.master svg{width:18px;height:18px}
 
 /* search */
 .search{display:flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid var(--surface);border-radius:14px;padding:0 12px;height:42px;box-shadow:var(--sh);margin-bottom:9px}
@@ -59,6 +61,8 @@ button{font-family:inherit;cursor:pointer}
 
 /* filter chips row (scrollable) */
 .chips{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.toolbar{display:flex;align-items:center;gap:7px;overflow-x:auto;scrollbar-width:none;padding:0 0 9px}
+.toolbar::-webkit-scrollbar{display:none}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:0 0 auto;border:1.5px solid var(--surface);background:var(--card);color:var(--dim);font-size:13px;font-weight:700;padding:7px 13px;border-radius:20px;white-space:nowrap;box-shadow:var(--sh);display:flex;align-items:center;gap:5px;transition:.15s}
 .chip:active{transform:scale(.95)}
@@ -110,7 +114,7 @@ button{font-family:inherit;cursor:pointer}
 .back{transform:rotateY(180deg);align-items:stretch}
 .back-head{flex:0 0 auto;display:flex;align-items:center;gap:9px;padding:13px 16px;border-bottom:1px solid var(--surface);background:var(--card)}
 .back-topic{font-weight:800;font-size:15.5px;color:var(--purple);line-height:1.3}
-.back-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 16px 18px;transform:translateZ(0)}
+.back-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 16px 22px;transform:translateZ(0)}
 .back-scroll::-webkit-scrollbar{width:5px}
 .back-scroll::-webkit-scrollbar-thumb{background:var(--purple-l);border-radius:3px}
 .rule{font-size:13.5px;line-height:1.85;color:var(--dim)}
@@ -122,7 +126,6 @@ button{font-family:inherit;cursor:pointer}
 .spk{margin-left:auto;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--purple-l);background:var(--card);color:var(--purple);font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .spk:active{background:var(--purple-bg);transform:scale(.9)}
 .spk.playing{background:var(--purple);color:#fff;border-color:var(--purple)}
-.back-foot{flex:0 0 auto;text-align:center;padding:10px;color:var(--muted);font-size:11.5px;border-top:1px solid var(--surface);background:var(--card)}
 /* textbook basic sentences on back */
 .tb-sec{margin-top:16px;border-top:1px dashed var(--border);padding-top:14px}
 .tb-sec-h{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;font-weight:800;color:#7a5fc0;margin-bottom:10px}
@@ -183,21 +186,8 @@ button{font-family:inherit;cursor:pointer}
 .empty .sub{font-size:13px;color:var(--muted)}
 .empty button{margin-top:6px;border:none;background:var(--purple);color:#fff;font-weight:700;font-size:14px;padding:11px 22px;border-radius:14px;box-shadow:var(--sh)}
 
-/* ===== BOTTOM BAR ===== */
-.bottom{flex:0 0 auto;padding:8px 16px 12px}
-.progress{height:5px;background:var(--surface);border-radius:3px;overflow:hidden;margin-bottom:11px}
-.progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--purple));border-radius:3px;transition:width .35s ease}
-.navrow{display:flex;align-items:center;gap:10px}
-.navbtn{width:46px;height:46px;border-radius:14px;border:1.5px solid var(--surface);background:var(--card);color:var(--purple);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh);flex:0 0 auto}
-.navbtn:active{transform:scale(.92);background:var(--purple-bg)}
-.navbtn svg{width:22px;height:22px}
-.navbtn:disabled{opacity:.4}
-.counter{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;color:var(--text)}
-.counter small{display:block;font-family:'Noto Sans JP';font-size:10.5px;color:var(--muted);font-weight:500;margin-top:1px;letter-spacing:.5px}
-.masterbtn{flex:0 0 auto;display:flex;align-items:center;gap:6px;border:1.5px solid var(--mint-l);background:var(--mint-bg);color:#2E8A6A;font-weight:700;font-size:13px;padding:0 14px;height:46px;border-radius:14px;box-shadow:var(--sh);white-space:nowrap}
-.masterbtn svg{width:17px;height:17px}
-.masterbtn:active{transform:scale(.96)}
-.masterbtn.on{background:var(--mint);border-color:var(--mint);color:#fff}
+/* deck position counter (in header) */
+.counter{flex:0 0 auto;font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;color:var(--dim);white-space:nowrap;letter-spacing:.3px}
 
 /* ===== SHEETS ===== */
 .scrim{position:fixed;inset:0;background:rgba(60,46,80,.34);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40;backdrop-filter:blur(2px)}
@@ -242,18 +232,6 @@ button{font-family:inherit;cursor:pointer}
 .book-apply:disabled{opacity:.45;box-shadow:none}
 .book-clear{background:var(--surface);color:var(--dim);flex:0 0 auto;padding:13px 18px}
 
-/* hint */
-.hint{position:fixed;inset:0;z-index:60;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(45,33,64,.55);backdrop-filter:blur(3px);color:#fff;text-align:center;padding:30px;gap:18px}
-.hint.on{display:flex}
-.hint .swipe-demo{width:70px;height:70px;display:flex;align-items:center;justify-content:center;font-size:38px;animation:swipeHand 2s ease-in-out infinite}
-@keyframes swipeHand{0%,100%{transform:translateX(-26px) rotate(-8deg)}50%{transform:translateX(26px) rotate(8deg)}}
-.hint h3{font-size:18px;font-weight:800;margin:0}
-.hint p{font-size:14px;line-height:1.9;margin:0;opacity:.95}
-.hint .row{display:flex;gap:20px;margin-top:4px}
-.hint .row div{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12.5px;opacity:.9}
-.hint .row .em{font-size:26px}
-.hint button{margin-top:10px;border:none;background:#fff;color:var(--purple);font-weight:800;font-size:15px;padding:13px 34px;border-radius:16px}
-
 /* toast */
 .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translate(-50%,16px);background:rgba(45,33,64,.92);color:#fff;font-size:13px;font-weight:600;padding:10px 18px;border-radius:14px;opacity:0;pointer-events:none;transition:.25s;z-index:55;white-space:nowrap}
 .toast.on{opacity:1;transform:translate(-50%,0)}
@@ -267,7 +245,7 @@ button{font-family:inherit;cursor:pointer}
 @media (min-width:480px){.front-topic{font-size:30px}}
 
 /* ===== tabs (saved sets) ===== */
-.tb-actions{display:flex;gap:8px}
+.tb-actions{display:flex;gap:6px;align-items:center}
 .tabs{display:flex;gap:7px;overflow-x:auto;padding:0 0 9px;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:0 0 auto;display:flex;align-items:center;gap:6px;border:1.5px solid var(--surface);background:var(--card);color:var(--dim);font-size:13px;font-weight:700;padding:8px 14px;border-radius:13px;white-space:nowrap;box-shadow:var(--sh);transition:.15s}
@@ -346,29 +324,36 @@ button{font-family:inherit;cursor:pointer}
 <!-- ===== TOP ===== -->
 <div class="top">
   <div class="titlebar">
-    <div class="brand"><span class="jp">英文法フラッシュカード</span><span class="en">Grammar Flashcards</span></div>
+    <div class="brand"><span class="jp">英文法フラッシュカード</span></div>
     <div class="tb-actions">
+      <span class="counter" id="counter">0 / 0</span>
+      <button class="iconbtn master" id="masterBtn" aria-pressed="false" aria-label="このカードを覚えた">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </button>
       <button class="iconbtn" id="bookBtn" aria-label="教科書の範囲" style="font-size:18px">📚</button>
       <button class="iconbtn" id="listBtn" aria-label="カード一覧を開く">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="8" y1="18" x2="20" y2="18"/><circle cx="3.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
       </button>
     </div>
   </div>
-  <div class="tabs" id="tabs"></div>
+  <div class="toolbar" id="toolbar">
+    <div class="chips" id="chips" style="display:contents">
+      <button class="chip" data-grade="all">すべて</button>
+      <button class="chip" data-grade="中1">中1</button>
+      <button class="chip" data-grade="中2">中2</button>
+      <button class="chip" data-grade="中3">中3</button>
+      <span class="chip-sep"></span>
+      <button class="chip tool" id="shuffleBtn"><span class="dot">🔀</span>シャッフル</button>
+      <button class="chip tool" id="reviewBtn"><span class="dot">📍</span>復習</button>
+      <span id="bookActiveSlot" style="display:contents"></span>
+    </div>
+    <span class="chip-sep"></span>
+    <div class="tabs" id="tabs" style="display:contents"></div>
+  </div>
   <div class="search" id="searchWrap">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35" stroke-linecap="round"/></svg>
     <input type="search" id="search" placeholder="文法を検索（例: 現在完了, who, 比較）" autocomplete="off" enterkeyhint="search">
     <button class="clr" id="searchClear" aria-label="検索をクリア">✕</button>
-  </div>
-  <div class="chips" id="chips">
-    <button class="chip" data-grade="all">すべて</button>
-    <button class="chip" data-grade="中1">中1</button>
-    <button class="chip" data-grade="中2">中2</button>
-    <button class="chip" data-grade="中3">中3</button>
-    <span class="chip-sep"></span>
-    <button class="chip tool" id="shuffleBtn"><span class="dot">🔀</span>シャッフル</button>
-    <button class="chip tool" id="reviewBtn"><span class="dot">📍</span>復習</button>
-    <span id="bookActiveSlot" style="display:contents"></span>
   </div>
 </div>
 
@@ -405,7 +390,6 @@ button{font-family:inherit;cursor:pointer}
           </div>
           <div id="tbSentences"></div>
         </div>
-        <div class="back-foot">タップで戻る ・ ← → でめくる</div>
       </div>
     </div>
   </div>
@@ -415,20 +399,6 @@ button{font-family:inherit;cursor:pointer}
     <div class="msg">該当する文法カードがありません</div>
     <div class="sub">検索語や絞り込みを変えてみてください</div>
     <button id="emptyReset">絞り込みを解除</button>
-  </div>
-</div>
-
-<!-- ===== BOTTOM ===== -->
-<div class="bottom">
-  <div class="progress"><span id="progressBar"></span></div>
-  <div class="navrow">
-    <button class="navbtn" id="prevBtn" aria-label="前のカード"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-    <div class="counter" id="counter">0 / 0<small id="counterSub">カード</small></div>
-    <button class="masterbtn" id="masterBtn" aria-pressed="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      <span id="masterLbl">覚えた</span>
-    </button>
-    <button class="navbtn" id="nextBtn" aria-label="次のカード"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
   </div>
 </div>
 
@@ -472,17 +442,6 @@ button{font-family:inherit;cursor:pointer}
       <button class="save-ok" id="saveOk">保存</button>
     </div>
   </div>
-</div>
-
-<!-- ===== HINT ===== -->
-<div class="hint" id="hint">
-  <div class="swipe-demo">👉</div>
-  <h3>指でスライドしてめくる</h3>
-  <div class="row">
-    <div><span class="em">↔️</span>スワイプで<br>次／前のカード</div>
-    <div><span class="em">👆</span>タップで<br>解説の表裏</div>
-  </div>
-  <button id="hintClose">はじめる</button>
 </div>
 
 <!-- ===== TOAST ===== -->
@@ -551,11 +510,11 @@ var el={
   card:$('card'),cardInner:$('cardInner'),
   frontAccent:$('frontAccent'),frontGrade:$('frontGrade'),frontNo:$('frontNo'),frontTopic:$('frontTopic'),frontSents:$('frontSents'),
   backGrade:$('backGrade'),backTopic:$('backTopic'),backUnits:$('backUnits'),rule:$('rule'),ex:$('ex'),tbSentences:$('tbSentences'),backScroll:$('backScroll'),speakBtn:$('speakBtn'),
-  prevBtn:$('prevBtn'),nextBtn:$('nextBtn'),counter:$('counter'),progressBar:$('progressBar'),masterBtn:$('masterBtn'),
+  counter:$('counter'),masterBtn:$('masterBtn'),
   listBtn:$('listBtn'),indexScrim:$('indexScrim'),indexSheet:$('indexSheet'),indexClose:$('indexClose'),indexBody:$('indexBody'),indexCount:$('indexCount'),
   bookScrim:$('bookScrim'),bookSheet:$('bookSheet'),bookClose:$('bookClose'),bookBody:$('bookBody'),
   saveScrim:$('saveScrim'),saveSheet:$('saveSheet'),saveClose:$('saveClose'),saveTitle:$('saveTitle'),saveInput:$('saveInput'),savePreview:$('savePreview'),saveDel:$('saveDel'),saveCancel:$('saveCancel'),saveOk:$('saveOk'),
-  hint:$('hint'),hintClose:$('hintClose'),toast:$('toast'),live:$('live')
+  toast:$('toast'),live:$('live')
 };
 
 /* ---- 状態・保存 ---- */
@@ -650,8 +609,6 @@ function render(){
   document.querySelector('.deck-shadow.s1').style.visibility=has?'visible':'hidden';
   document.querySelector('.deck-shadow.s2').style.visibility=has?'visible':'hidden';
   el.counter.firstChild.textContent=has?(st.idx+1)+' / '+total:'0 / 0';
-  el.progressBar.style.width=has?((st.idx+1)/total*100)+'%':'0%';
-  el.prevBtn.disabled=el.nextBtn.disabled=!has;
   el.masterBtn.style.visibility=has?'visible':'hidden';
   updateChips();
   if(!has){el.live.textContent='カードがありません';return;}
@@ -853,8 +810,6 @@ function endDrag(e){
 }
 el.card.addEventListener('pointerup',endDrag);
 el.card.addEventListener('pointercancel',function(){if(!drag.on)return;drag.on=false;drag.lock=null;snapBack();});
-el.prevBtn.addEventListener('click',function(){animateNav(-1);});
-el.nextBtn.addEventListener('click',function(){animateNav(1);});
 
 el.masterBtn.addEventListener('click',function(){
   var g=deck[st.idx];if(!g)return;var was=mastered.has(g.t);
@@ -895,9 +850,9 @@ el.backScroll.addEventListener('click',function(e){
 });
 
 /* ---- キーボード ---- */
-function sheetOpen(){return el.indexSheet.classList.contains('on')||el.bookSheet.classList.contains('on')||el.saveSheet.classList.contains('on')||el.hint.classList.contains('on');}
+function sheetOpen(){return el.indexSheet.classList.contains('on')||el.bookSheet.classList.contains('on')||el.saveSheet.classList.contains('on');}
 document.addEventListener('keydown',function(e){
-  if(sheetOpen()){if(e.key==='Escape'){closeSheet(el.indexSheet,el.indexScrim);closeSheet(el.bookSheet,el.bookScrim);closeSheet(el.saveSheet,el.saveScrim);el.hint.classList.remove('on');}return;}
+  if(sheetOpen()){if(e.key==='Escape'){closeSheet(el.indexSheet,el.indexScrim);closeSheet(el.bookSheet,el.bookScrim);closeSheet(el.saveSheet,el.saveScrim);}return;}
   if(e.target&&e.target.tagName==='INPUT')return;
   if(e.key==='ArrowLeft'){e.preventDefault();animateNav(-1);}
   else if(e.key==='ArrowRight'){e.preventDefault();animateNav(1);}
@@ -1017,8 +972,6 @@ el.bookScrim.addEventListener('click',function(){closeSheet(el.bookSheet,el.book
 /* ---- トースト・ヒント ---- */
 var toastT;
 function toast(msg){el.toast.textContent=msg;el.toast.classList.add('on');clearTimeout(toastT);toastT=setTimeout(function(){el.toast.classList.remove('on');},1800);}
-function maybeHint(){var seen;try{seen=localStorage.getItem(LS_HINT);}catch(e){}if(!seen)el.hint.classList.add('on');}
-el.hintClose.addEventListener('click',function(){el.hint.classList.remove('on');try{localStorage.setItem(LS_HINT,'1');}catch(e){}el.card.focus();});
 
 /* ---- 起動 ---- */
 renderTabs();
@@ -1027,7 +980,6 @@ var startSet=savedSets.find(function(x){return x.id===act;});
 if(startSet)applySet(startSet,true);
 else{st.activeTab='__all';recompute({reset:true});}
 renderTabs();
-maybeHint();
 </script>
 </body>
 </html>
