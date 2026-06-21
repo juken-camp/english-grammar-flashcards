@@ -652,7 +652,7 @@ function saveSet(k,s){try{localStorage.setItem(k,JSON.stringify(Array.from(s)))}
 function loadJSON(k,def){try{var v=JSON.parse(localStorage.getItem(k));return v||def}catch(e){return def}}
 function saveSets(){try{localStorage.setItem(LS_SETS,JSON.stringify(savedSets))}catch(e){}}
 function saveActive(){try{localStorage.setItem(LS_ACTIVE,st.activeTab||'')}catch(e){}}
-function saveMode(){try{localStorage.setItem(LS_MODE,st.mode)}catch(e){}}
+function saveModeLS(){try{localStorage.setItem(LS_MODE,st.mode)}catch(e){}}
 function mkey(item){return st.mode==='formula'?'F:'+item.id:item.t;}
 function strip(h){return h.replace(/<[^>]+>/g,' ');}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -801,7 +801,7 @@ function applyModeUI(){
   Array.prototype.forEach.call(el.modebar.querySelectorAll('.modeseg'),function(b){b.classList.toggle('on',b.getAttribute('data-mode')===st.mode);});
 }
 function jumpToCard(no){
-  st.mode='grammar'; saveMode();
+  st.mode='grammar'; saveModeLS();
   st.grade='all'; st.q=''; el.search.value=''; el.searchWrap.classList.remove('has');
   st.book=null; st.activeTab=null; st.review=false; shuffleOrder=null;
   applyModeUI();
@@ -1003,7 +1003,7 @@ el.reviewBtn.addEventListener('click',function(){st.review=!st.review;st.activeT
 el.modebar.addEventListener('click',function(e){
   var b=e.target.closest('.modeseg');if(!b)return;
   var m=b.getAttribute('data-mode');if(m===st.mode)return;
-  st.mode=m;saveMode();
+  st.mode=m;saveModeLS();
   st.book=null;st.activeTab=null;st.idx=0;st.flip=false;shuffleOrder=null;
   applyModeUI();recompute({reset:true});
   toast(m==='formula'?'公式カードに切り替えました ⚡':'文法カードに切り替えました 📖');
