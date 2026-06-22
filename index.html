@@ -344,6 +344,14 @@ button{font-family:inherit;cursor:pointer}
 .formula-link:active{transform:scale(.98)}
 .formula-link .arr{font-weight:900;font-size:16px}
 .formula-hint{text-align:center;color:var(--muted);font-size:11.5px;font-weight:700;letter-spacing:1px;margin-top:14px}
+.rel-sec{margin-top:18px}
+.rel-h{font-weight:800;font-size:12.5px;color:var(--purple);margin-bottom:10px;letter-spacing:.04em}
+.rel-list{display:flex;flex-direction:column;gap:8px}
+.rel-card{display:block;width:100%;text-align:left;border:1.5px solid var(--purple-l);background:#fff;border-radius:12px;padding:10px 13px;cursor:pointer;transition:.15s}
+.rel-card:active{transform:scale(.98);background:var(--purple-bg)}
+.rel-card .rel-no{display:inline-block;font-size:10.5px;color:var(--dim);font-weight:600;font-family:'Outfit'}
+.rel-card .rel-s{display:block;font-weight:700;font-size:14px;color:var(--text);margin-top:3px;line-height:1.4}
+.rel-card .rel-f{display:block;font-size:11.5px;color:var(--purple);margin-top:5px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -712,6 +720,20 @@ function tplIrreg(){
     '<div class="iv-grp">A-B-C型（すべて違う）</div><div class="iv-list">'+row(abc)+'</div></div>';
 }
 function expandTpl(html){return html.replace(/\{\{TPL:be\}\}/g,tplBe()).replace(/\{\{TPL:pron\}\}/g,tplPron()).replace(/\{\{TPL:art\}\}/g,tplArt()).replace(/\{\{TPL:irreg\}\}/g,tplIrreg());}
+function relatedFormulasHTML(f){
+  var sibs=formulas.filter(function(x){return x.c===f.c && x.no!==f.no;});
+  if(!sibs.length)return '';
+  var html='<div class="rel-sec"><div class="rel-h">📐 同じ文法事項の他の公式 ('+sibs.length+')</div><div class="rel-list">';
+  sibs.forEach(function(s){
+    html+='<button class="rel-card no-swipe" data-fno="'+s.no+'">';
+    html+='<span class="rel-no">公式 #'+s.no+'</span>';
+    html+='<span class="rel-s">'+s.s+'</span>';
+    html+='<span class="rel-f">'+s.f+'</span>';
+    html+='</button>';
+  });
+  html+='</div></div>';
+  return html;
+}
 function pickSentence(g){var list=bookSentences[g.no]||[];if(!list.length)return null;if(st.book){var sels=st.book.sels,best=null,bestSc=-1;list.forEach(function(s){if(s.b!==st.book.book)return;var sc=0;sels.forEach(function(sel){var p=sel.split('|');if(+p[0]===s.g&&p[1]===s.u){if(p.length===3){if(s.p===p[2])sc=Math.max(sc,2);}else sc=Math.max(sc,1);}});if(sc>bestSc){bestSc=sc;best=s;}});if(best)return best;}return list[0];}
 function frontSentences(g){var list=bookSentences[g.no]||[];if(!list.length)return [];if(st.book){var s=pickSentence(g);return s?[s]:[];}var seen={},out=[];list.forEach(function(s){if(!seen[s.b]){seen[s.b]=1;out.push(s);}});return out;}
 function textbookSentencesHTML(no){
@@ -869,8 +891,8 @@ function renderFormula(){
   el.frontSents.className='front-sents'; el.frontSents.innerHTML='';
   el.backGrade.className='grade-tab small '+c; el.backGrade.textContent=f.gr;
   el.backTopic.innerHTML=f.s.replace(FN,'');
-  el.backUnits.innerHTML='';
-  el.rule.innerHTML='<div class="formula-main">'+f.f+'</div><button class="formula-link no-swipe" data-card="'+f.c+'">📖 '+esc(f.l)+'<span class="arr">→</span></button>';
+  el.backUnits.innerHTML=unitTagsHTML(f.c,8);
+  el.rule.innerHTML='<div class="formula-main">'+f.f+'</div><button class="formula-link no-swipe" data-card="'+f.c+'">📖 '+esc(f.l)+'<span class="arr">→</span></button>'+relatedFormulasHTML(f);
   el.exBlock.style.display='none';
   el.ex.innerHTML=''; el.tbSentences.innerHTML='';
   el.backScroll.classList.add('fm');
@@ -1151,6 +1173,20 @@ el.speakBtn.addEventListener('click',function(e){e.stopPropagation();var g=deck[
 el.backScroll.addEventListener('click',function(e){
   var fl=e.target.closest('.formula-link');
   if(fl){e.stopPropagation();jumpToCard(parseInt(fl.getAttribute('data-card'),10));return;}
+  var rc=e.target.closest('.rel-card');
+  if(rc){
+    e.stopPropagation();
+    var fno=parseInt(rc.getAttribute('data-fno'),10);
+    var i=deck.findIndex(function(x){return x.no===fno;});
+    if(i>=0){st.idx=i;st.flip=true;render();}
+    else{
+      st.book=null;st.activeTab=null;
+      recompute({reset:false});
+      var j=deck.findIndex(function(x){return x.no===fno;});
+      if(j>=0){st.idx=j;st.flip=true;render();toast('範囲を解除して移動しました');}
+    }
+    return;
+  }
   var sp=e.target.closest('.spk-s');
   if(sp){e.stopPropagation();speakEn(sp.getAttribute('data-en'),sp);return;}
   var tg=e.target.closest('.tb-ex-toggle');
