@@ -353,13 +353,17 @@ button{font-family:inherit;cursor:pointer}
 .rel-card:active{transform:scale(.98);background:var(--purple-bg)}
 .rel-card .rel-no{display:inline-block;font-size:10.5px;color:var(--dim);font-weight:600;font-family:'Outfit'}
 .rel-card .rel-s{display:block;font-weight:700;font-size:14px;color:var(--text);margin-top:3px;line-height:1.4}
+.rel-card .rel-s .fnote{display:block;margin-top:5px;font-size:11px;font-weight:500;color:var(--dim);line-height:1.3;opacity:.75}
 .rel-card .rel-f{display:block;font-size:11.5px;color:var(--purple);margin-top:5px;line-height:1.4}
 .rel-card .rel-f .fnote{display:block;margin-top:3px;font-size:.92em;font-weight:600;color:var(--dim);letter-spacing:0}
-.ov-sec{margin-top:18px;padding:14px 14px 12px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:14px}
+.ov-sec{margin-top:18px}
 .ov-h{font-weight:800;font-size:12.5px;color:var(--purple);margin-bottom:10px;letter-spacing:.04em;display:flex;align-items:center;gap:6px}
-.ov-tbl{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text);background:#fff;border-radius:8px;overflow:hidden}
-.ov-tbl th,.ov-tbl td{padding:7px 9px;border:1px solid var(--purple-l);text-align:left;line-height:1.4;vertical-align:top}
-.ov-tbl td:first-child{white-space:nowrap}
+.ov-tbl{width:100%;border-collapse:collapse;font-size:12.5px;color:var(--text);background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--purple-l);table-layout:fixed;word-wrap:break-word}
+.ov-tbl th,.ov-tbl td{padding:8px 10px;border:none;border-bottom:1px solid #EEE5FF;text-align:left;line-height:1.45;vertical-align:top}
+.ov-tbl tr:last-child td{border-bottom:none}
+.ov-tbl td:first-child{font-weight:600}
+.ov-tbl th:nth-child(1),.ov-tbl td:nth-child(1){width:22%}
+.ov-tbl th:nth-child(2),.ov-tbl td:nth-child(2){width:30%}
 .ov-tbl th{background:var(--purple-bg);color:var(--purple);font-weight:800;font-size:11.5px}
 .ov-tbl td b{color:var(--purple);font-weight:800}
 .ov-tbl td.ng{color:#d63031}
@@ -631,7 +635,7 @@ var formulas=[
  {s:"〜のしかた",f:"<b>how to</b> + 動詞の原形",c:55,l:"how to 〜（方法）"},
  {s:"何を〜すべきか",f:"<b>what to</b> + 動詞の原形",c:55,l:"what to 〜"},
  {s:"〜ですよね？<span class='fnote'>念押し</span>",f:"肯定文, <b>否定の短縮 + 主語?</b> / 否定文, <b>肯定の短縮 + 主語?</b>",c:56,l:"付加疑問文"},
- {s:"もし〜なら…するのに<span class='fnote'>現実と逆</span>",f:"<b>If</b> + 主語 + 動詞の過去形, 主語 + <b>would / could</b> + 動詞の原形",c:57,l:"仮定法過去"},
+ {s:"もし〜なら…するのに",f:"<b>If</b> + 主語 + 動詞の過去形, 主語 + <b>would / could</b> + 動詞の原形",c:57,l:"仮定法過去"},
  {s:"もし私が〜なら",f:"If I <b>were</b> 〜",c:57,l:"仮定法の were"},
  {s:"〜ならいいのに<span class='fnote'>願望</span>",f:"<b>I wish</b> + 主語 + 動詞の過去形<span class='fnote'>could</span>",c:58,l:"I wish + 仮定法"},
  {s:"とても〜なので…",f:"<b>so</b> + 形容詞・副詞 + <b>that</b> + 主語 + 動詞",c:59,l:"so 〜 that …"},
@@ -754,6 +758,56 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // 命令文・Let's (c→8): 命令文 / Don't / Be / Let's
+  8: {
+    title: "📊 命令文・Let's 一覧",
+    html: '<table class="ov-tbl"><tr><th>種類</th><th>形</th><th>例</th></tr>'
+        + '<tr><td><b>命令文</b><br>(指示・命令)</td><td>動詞の<b>原形</b>で始める</td><td><b>Open</b> the window.<br>（窓を開けて）</td></tr>'
+        + '<tr><td><b>否定の命令文</b><br>(禁止)</td><td><b>Don\'t</b> + 動詞の原形</td><td><b>Don\'t run</b>.<br>（走るな）</td></tr>'
+        + '<tr><td><b>be 動詞の命令文</b></td><td><b>Be</b> + 形容詞</td><td><b>Be quiet</b>.<br>（静かにしなさい）</td></tr>'
+        + '<tr><td><b>Let\'s 〜</b><br>(勧誘)</td><td><b>Let\'s</b> + 動詞の原形</td><td><b>Let\'s go</b>.<br>（行こう）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 主語 you は省略<br>📌 命令文 + <b>, will you?</b> = 「〜してくれる？」（マイルドな依頼に）<br>📌 Let\'s 〜 + <b>, shall we?</b> = 勧誘の付加疑問文</span></td></tr>'
+        + '</table>'
+  },
+
+  // 助動詞 can/will/may (c→9)
+  9: {
+    title: "📊 助動詞 can / will / may 一覧",
+    html: '<table class="ov-tbl"><tr><th>助動詞</th><th>意味</th><th>否定形</th></tr>'
+        + '<tr><td><b>can</b></td><td>〜できる<br>（能力・可能）</td><td><b>can\'t</b><br>(cannot)</td></tr>'
+        + '<tr><td><b>will</b></td><td>〜するだろう／<br>するつもり（未来）</td><td><b>won\'t</b><br>(will not)</td></tr>'
+        + '<tr><td><b>may</b></td><td>〜してもよい（許可）<br>〜かもしれない（推量）</td><td><b>may not</b></td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 助動詞の後ろは<b>必ず動詞の原形</b>！<br>📌 主語が he/she/it でも<b>形は変わらない</b>（×cans / ○can）<br>📌 be 動詞も原形 <b>be</b> にする（×will is → ○<b>will be</b>）</span></td></tr>'
+        + '</table>'
+  },
+
+  // 一般動詞の過去形 (c→10): 肯定/否定/疑問 + -ed の付け方
+  10: {
+    title: "📊 一般動詞 過去形の作り方 一覧",
+    html: '<table class="ov-tbl"><tr><th>文の種類</th><th>形</th><th>例</th></tr>'
+        + '<tr><td><b>肯定文</b></td><td>主語 + 動詞の<b>過去形</b></td><td>I <b>played</b> tennis.<br>I <b>went</b> to school.</td></tr>'
+        + '<tr><td><b>否定文</b></td><td>主語 + <b>didn\'t</b> + <b>原形</b></td><td>I <b>didn\'t play</b> tennis.<br>×I didn\'t played</td></tr>'
+        + '<tr><td><b>疑問文</b></td><td><b>Did</b> + 主語 + <b>原形</b>?</td><td><b>Did</b> you <b>play</b>?<br>×Did you played</td></tr>'
+        + '<tr><td colspan="3"><b>規則動詞 -ed の付け方</b><br>📌 ふつう → <b>ed</b>（play→played）<br>📌 e で終わる → <b>d</b>（like→liked）<br>📌 子音+y → y を i にして <b>ed</b>（study→studied）<br>📌 短母音+子音 → 子音を<b>重ねて ed</b>（stop→stopped）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ Did / didn\'t の後ろは<b>必ず原形</b>！</span></td></tr>'
+        + '</table>'
+  },
+
+  // 時の前置詞 (c→18): in/on/at, by, until, for, during
+  18: {
+    title: "📊 時を表す前置詞 一覧",
+    html: '<table class="ov-tbl"><tr><th>前置詞</th><th>用法</th><th>例</th></tr>'
+        + '<tr><td><b>at</b></td><td>時刻（点）</td><td><b>at</b> seven（7時に）<br><b>at</b> noon（正午に）</td></tr>'
+        + '<tr><td><b>on</b></td><td>曜日・日付</td><td><b>on</b> Monday（月曜に）<br><b>on</b> July 7（7月7日に）</td></tr>'
+        + '<tr><td><b>in</b></td><td>月・季節・年</td><td><b>in</b> May（5月に）<br><b>in</b> summer / <b>in</b> 2026</td></tr>'
+        + '<tr><td><b>by</b></td><td>〜までに（期限）</td><td><b>by</b> Friday（金曜までに）</td></tr>'
+        + '<tr><td><b>until</b> / <b>till</b></td><td>〜まで（継続）</td><td><b>until</b> 5（5時まで）</td></tr>'
+        + '<tr><td><b>for</b></td><td>〜の間（期間）</td><td><b>for</b> three hours（3時間）</td></tr>'
+        + '<tr><td><b>during</b></td><td>〜の間（特定期間）</td><td><b>during</b> summer（夏の間）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 by vs until：by =「期限まで」／ until =「ずっと〜まで継続」</span></td></tr>'
+        + '</table>'
+  },
+
   // 接続詞 (c→19): when/if/that/I'm afraid
   19: {
     title: "📊 接続詞 一覧（中の文の時制に注意）",
@@ -766,6 +820,41 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // because / while と関連表現 (c→20)
+  20: {
+    title: "📊 because / while と関連表現 一覧",
+    html: '<table class="ov-tbl"><tr><th>表現</th><th>意味</th><th>後ろの形</th></tr>'
+        + '<tr><td><b>because</b></td><td>〜なので<br>（理由）</td><td><b>主語 + 動詞</b>（文）<br><b>because it rained</b></td></tr>'
+        + '<tr><td><b>while</b></td><td>〜の間に<br>（同時進行）</td><td><b>主語 + 動詞</b>（文）<br><b>while I was sleeping</b></td></tr>'
+        + '<tr><td><b>because of</b></td><td>〜のせいで<br>（理由）</td><td><b>名詞</b>のみ<br><b>because of the rain</b></td></tr>'
+        + '<tr><td><b>during</b></td><td>〜の間に<br>（特定期間）</td><td><b>名詞</b>のみ<br><b>during summer</b></td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 接続詞（because/while）の後ろは<b>文</b>、前置詞（because of/during）の後ろは<b>名詞</b></span></td></tr>'
+        + '</table>'
+  },
+
+  // 不定詞 3用法 (c→22)
+  22: {
+    title: "📊 不定詞 3用法の見分け 一覧",
+    html: '<table class="ov-tbl"><tr><th>用法</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>名詞的</b></td><td>〜すること<br>（主語・目的語）</td><td>I <b>want to play</b>.（遊びたい）<br><b>To study</b> is important.</td></tr>'
+        + '<tr><td><b>形容詞的</b></td><td>〜するための<br>（名詞を後ろから修飾）</td><td>something <b>to drink</b><br>（飲むためのもの）</td></tr>'
+        + '<tr><td><b>副詞的</b></td><td>〜するために<br>〜して</td><td>I went <b>to study</b>.<br>I\'m glad <b>to hear</b> it.</td></tr>'
+        + '<tr><td colspan="3"><b>不定詞をとる頻出動詞</b><br>📌 want / need / hope / try / decide / start / like + <b>to + 動詞の原形</b><br>📌 これらは「これからの行動」を表すので不定詞と相性◎</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ enjoy / finish / stop は <b>不定詞×</b> → 動名詞(-ing)！</span></td></tr>'
+        + '</table>'
+  },
+
+  // 不定詞 副詞的用法 (c→24): 目的 / 感情の原因
+  24: {
+    title: "📊 不定詞 副詞的用法 一覧",
+    html: '<table class="ov-tbl"><tr><th>用法</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>目的</b></td><td>〜するために</td><td>I went to the library <b>to study</b>.<br>（勉強するために図書館へ）</td></tr>'
+        + '<tr><td><b>感情の原因</b></td><td>〜して（嬉しい等）</td><td>I\'m <b>glad to hear</b> that.<br>（聞いて嬉しい）</td></tr>'
+        + '<tr><td colspan="3"><b>「感情の原因」によく使う形容詞</b><br>📌 <b>happy / glad / sad / sorry / surprised</b> + to + 動詞の原形<br>例：I was <b>surprised to see</b> him.（彼を見て驚いた）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 <b>Why 〜?</b> に <b>To + 動詞</b> で答えられたら「目的」の副詞的用法</span></td></tr>'
+        + '</table>'
+  },
+
   // tell/ask/want 人 to (c→26)
   26: {
     title: "📊 〈動詞 + 人 + to + 原形〉一覧",
@@ -774,6 +863,91 @@ const formulaOverviews = {
         + '<tr><td><b>ask</b></td><td>〜するように頼む</td><td>I asked him <b>to help</b>.（手伝ってと頼んだ）</td></tr>'
         + '<tr><td><b>want</b></td><td>〜してほしい</td><td>I want you <b>to come</b>.（来てほしい）</td></tr>'
         + '<tr><td colspan="3"><span style="color:#d63031">× tell/ask/wantの後ろは必ず<b>to+原形</b>！</span><br><span style="color:#666">×I want you come / ○I want you to come</span></td></tr>'
+        + '</table>'
+  },
+
+  // 動名詞 vs 不定詞 (c→27): -ing専用 / to専用 / 両方OK / 前置詞後
+  27: {
+    title: "📊 動名詞・不定詞の使い分け 一覧",
+    html: '<table class="ov-tbl"><tr><th>パターン</th><th>動詞・前置詞</th><th>例</th></tr>'
+        + '<tr><td><b>-ing</b> だけ<br>(動名詞)</td><td>enjoy / finish / stop /<br>mind / practice / give up</td><td>I <b>enjoy playing</b>.<br>×I enjoy to play</td></tr>'
+        + '<tr><td><b>to + 原形</b><br>だけ</td><td>want / hope / decide /<br>need / try / plan</td><td>I <b>want to play</b>.<br>×I want playing</td></tr>'
+        + '<tr><td><b>両方OK</b><br>(同じ意味)</td><td>like / love / start /<br>begin / continue</td><td>I <b>like playing</b><br>= I <b>like to play</b></td></tr>'
+        + '<tr><td><b>前置詞の後</b></td><td>for / at / in / of /<br>about / without</td><td>Thank you <b>for helping</b>.<br>be good <b>at playing</b></td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 前置詞の後は必ず<b>動名詞(-ing)</b>！to不定詞は不可</span></td></tr>'
+        + '</table>'
+  },
+
+  // 比較級・最上級 (c→28): -er/-est, more/most, 不規則
+  28: {
+    title: "📊 比較級・最上級 作り方 一覧",
+    html: '<table class="ov-tbl"><tr><th>形容詞</th><th>比較級</th><th>最上級</th></tr>'
+        + '<tr><td><b>短い語</b><br>(1〜2音節)</td><td>形容詞 + <b>-er</b><br>tall→tall<b>er</b></td><td>the 形容詞 + <b>-est</b><br>the tall<b>est</b></td></tr>'
+        + '<tr><td><b>長い語</b><br>(3音節以上)</td><td><b>more</b> + 形容詞<br><b>more</b> beautiful</td><td>the <b>most</b> + 形容詞<br>the <b>most</b> beautiful</td></tr>'
+        + '<tr><td colspan="3"><b>-er / -est の付け方</b><br>📌 ふつう → <b>-er / -est</b><br>📌 e で終わる → <b>-r / -st</b>（large→larger）<br>📌 子音+y → y を i にして <b>-er / -est</b>（happy→happier）<br>📌 短母音+子音 → 子音を<b>重ねて -er / -est</b>（big→bigger）</td></tr>'
+        + '<tr><td colspan="3"><b>不規則変化</b><br>📌 good / well → <b>better</b> → <b>best</b><br>📌 bad → <b>worse</b> → <b>worst</b><br>📌 many / much → <b>more</b> → <b>most</b><br>📌 little → <b>less</b> → <b>least</b></td></tr>'
+        + '</table>'
+  },
+
+  // 原級比較 (c→30): as 〜 as / not as 〜 as / 倍数
+  30: {
+    title: "📊 原級比較（as 〜 as）パターン 一覧",
+    html: '<table class="ov-tbl"><tr><th>形</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>as 〜 as</b></td><td>〜と同じくらい…</td><td>He is <b>as tall as</b> Ken.<br>（彼=Kenと同じ背の高さ）</td></tr>'
+        + '<tr><td><b>not as 〜 as</b></td><td>〜ほど…ではない</td><td>He is <b>not as tall as</b> Ken.<br>= Ken is taller than him.</td></tr>'
+        + '<tr><td><b>twice<br>as 〜 as</b></td><td>〜の2倍…</td><td><b>twice as long as</b><br>（2倍の長さ）</td></tr>'
+        + '<tr><td><b>three times<br>as 〜 as</b></td><td>〜の3倍…</td><td><b>three times as big as</b><br>（3倍の大きさ）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ as と as の間は<b>必ず原級</b>！-er や -est は入れない</span><br><span style="color:#666">📌 not as 〜 as の書き換え：主語が入れ替わって比較級に（超頻出）</span></td></tr>'
+        + '</table>'
+  },
+
+  // SVOC (c→32): call/name/make/keep/find/leave
+  32: {
+    title: "📊 SVOC（OをCにする）動詞 一覧",
+    html: '<table class="ov-tbl"><tr><th>動詞</th><th>意味（O=C の関係）</th><th>例</th></tr>'
+        + '<tr><td><b>call</b></td><td>OをCと<b>呼ぶ</b></td><td>We <b>call</b> him <b>Ken</b>.<br>（彼=Ken）</td></tr>'
+        + '<tr><td><b>name</b></td><td>OをCと<b>名づける</b></td><td>I <b>named</b> the dog <b>Pochi</b>.</td></tr>'
+        + '<tr><td><b>make</b></td><td>OをCに<b>する</b></td><td>This song <b>makes</b> me <b>happy</b>.</td></tr>'
+        + '<tr><td><b>keep</b></td><td>OをCの<b>まま保つ</b></td><td><b>Keep</b> the room <b>clean</b>.</td></tr>'
+        + '<tr><td><b>find</b></td><td>OがCだと<b>分かる</b></td><td>I <b>found</b> the book <b>easy</b>.</td></tr>'
+        + '<tr><td><b>leave</b></td><td>OをCの<b>まま残す</b></td><td>Don\'t <b>leave</b> the door <b>open</b>.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 <b>O=Cの関係</b>が成り立つ（call him Ken → him=Ken）<br>📌 C には<b>形容詞・名詞</b>が来る</span></td></tr>'
+        + '</table>'
+  },
+
+  // SVC (c→33): look/sound/feel/smell/taste, become/get/turn
+  33: {
+    title: "📊 SVC（S=C）動詞 一覧",
+    html: '<table class="ov-tbl"><tr><th>分類</th><th>動詞</th><th>例</th></tr>'
+        + '<tr><td><b>五感の<br>「〜に思える」</b></td><td>look / sound / feel /<br>smell / taste</td><td>You <b>look happy</b>.<br>That <b>sounds good</b>.</td></tr>'
+        + '<tr><td><b>変化の<br>「〜になる」</b></td><td>become / get / turn</td><td>She <b>became a doctor</b>.<br>It <b>got dark</b>.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ うしろは<b>形容詞</b>（副詞ではない）！</span><br><span style="color:#666">×You look happily ／ ○You look <b>happy</b><br>📌 be 動詞と同じ「S=C」の関係 → 後ろは形容詞・名詞</span></td></tr>'
+        + '</table>'
+  },
+
+  // 受動態 (c→34): be + 形容詞 + 前置詞 連語
+  34: {
+    title: "📊 be + 形容詞 + 前置詞 連語 一覧",
+    html: '<table class="ov-tbl"><tr><th>連語</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>be interested in</b></td><td>〜に興味がある</td><td>I\'m <b>interested in</b> music.</td></tr>'
+        + '<tr><td><b>be surprised at</b></td><td>〜に驚く</td><td>I was <b>surprised at</b> the news.</td></tr>'
+        + '<tr><td><b>be known to</b></td><td>〜に知られている</td><td>He is <b>known to</b> everyone.</td></tr>'
+        + '<tr><td><b>be made of</b></td><td>〜で作られている<br>（材料が見える）</td><td>a desk <b>made of</b> wood</td></tr>'
+        + '<tr><td><b>be made from</b></td><td>〜から作られる<br>（材料が見えない）</td><td>wine <b>made from</b> grapes</td></tr>'
+        + '<tr><td><b>be covered with</b></td><td>〜で覆われている</td><td>The mountain is <b>covered with</b> snow.</td></tr>'
+        + '<tr><td><b>be filled with</b></td><td>〜でいっぱい</td><td>The box is <b>filled with</b> books.</td></tr>'
+        + '<tr><td><b>be born</b></td><td>生まれる</td><td>I was <b>born</b> in 2010.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 受動態 = be 動詞 + 過去分詞。「by 〜」で行為者を示せる<br>📌 これらの連語は<b>前置詞を丸ごと暗記</b>！</span></td></tr>'
+        + '</table>'
+  },
+
+  // 感嘆文 (c→35): What / How
+  35: {
+    title: "📊 感嘆文 What / How の使い分け 一覧",
+    html: '<table class="ov-tbl"><tr><th>パターン</th><th>形</th><th>例</th></tr>'
+        + '<tr><td><b>What</b><br>(名詞あり)</td><td>What (a) + 形容詞 + <b>名詞</b>!</td><td><b>What a nice day</b>!<br>（なんていい日！）</td></tr>'
+        + '<tr><td><b>How</b><br>(名詞なし)</td><td>How + <b>形容詞・副詞</b>!</td><td><b>How beautiful</b>!<br>（なんて美しい！）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 見分け方：<b>後ろに名詞があれば What</b>、なければ How<br>📌 単数の数えられる名詞は <b>a/an</b> が必要：What <b>a</b> nice day!<br>📌 複数・不可算は a/an なし：What nice flowers! / What nice weather!</span></td></tr>'
         + '</table>'
   },
 
@@ -792,6 +966,32 @@ const formulaOverviews = {
         + '<tr><td><b>Would you like 〜?</b></td><td>〜はいかがですか？</td><td>丁寧な勧め</td></tr>'
         + '<tr><td><b>Shall I 〜?</b></td><td>〜しましょうか？</td><td>申し出</td></tr>'
         + '<tr><td><b>Shall we 〜?</b></td><td>〜しましょう</td><td>勧誘</td></tr>'
+        + '</table>'
+  },
+
+  // 義務・不要・禁止 (c→37): must/have to/don't have to/must not
+  37: {
+    title: "📊 義務・不要・禁止の使い分け 一覧",
+    html: '<table class="ov-tbl"><tr><th>表現</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>must</b><br><b>have to</b></td><td>〜しなければならない<br>（義務）</td><td>You <b>must</b> go.<br>I <b>have to</b> study.</td></tr>'
+        + '<tr><td><b>must not</b><br>(mustn\'t)</td><td>〜してはいけない<br>（禁止）</td><td>You <b>must not</b> run here.</td></tr>'
+        + '<tr><td><b>don\'t<br>have to</b></td><td>〜しなくてよい<br>（不要）</td><td>You <b>don\'t have to</b> come.</td></tr>'
+        + '<tr><td><b>had to</b></td><td>〜しなければならなかった<br>（過去）</td><td>I <b>had to</b> study yesterday.</td></tr>'
+        + '<tr><td><b>will<br>have to</b></td><td>〜しなければならないだろう<br>（未来）</td><td>I <b>will have to</b> go.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ <b>否定は意味が真逆！</b></span><br><span style="color:#666">must not = 禁止／don\'t have to = 不要</span></td></tr>'
+        + '</table>'
+  },
+
+  // 数量を表す語 (c→38): many/much, a few/a little, few/little, some/any
+  38: {
+    title: "📊 数量を表す語 一覧",
+    html: '<table class="ov-tbl"><tr><th>意味</th><th>数えられる名詞</th><th>数えられない名詞</th></tr>'
+        + '<tr><td><b>たくさんの</b></td><td><b>many</b> books</td><td><b>much</b> water</td></tr>'
+        + '<tr><td><b>少しある</b></td><td><b>a few</b> books</td><td><b>a little</b> water</td></tr>'
+        + '<tr><td><b>ほとんどない</b></td><td><b>few</b> books</td><td><b>little</b> water</td></tr>'
+        + '<tr><td><b>いくつか</b></td><td colspan="2"><b>some</b>（肯定）／ <b>any</b>（疑問・否定）</td></tr>'
+        + '<tr><td><b>たくさん</b><br>(両方OK)</td><td colspan="2"><b>a lot of / lots of</b>（数・量どちらにも使える）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ <b>a</b> があると「少しある」／<b>a</b> がないと「ほとんどない」→意味が逆！</span><br><span style="color:#666">📌 依頼・勧誘の疑問文は any ではなく <b>some</b>：Would you like <b>some</b> tea?</span></td></tr>'
         + '</table>'
   },
 
@@ -816,6 +1016,98 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // used to の3つの形 (c→41)
+  41: {
+    title: "📊 used to の3つの形（紛らわしい！）一覧",
+    html: '<table class="ov-tbl"><tr><th>形</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>used to<br>+ 原形</b></td><td>以前は〜していた<br>（今はもう違う）</td><td>I <b>used to play</b> soccer.<br>（昔はサッカーをした）</td></tr>'
+        + '<tr><td><b>be used to<br>+ ing</b></td><td>〜に慣れている</td><td>I <b>am used to playing</b> soccer.<br>（サッカーに慣れている）</td></tr>'
+        + '<tr><td><b>be used<br>+ by 〜</b></td><td>使われる<br>（受動態）</td><td>This pen <b>is used by</b> him.<br>（彼が使う）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ 形が似ていて意味が真逆 — 入試の最大の引っかけ！</span><br><span style="color:#666">📌 見分け方：to の後ろが<b>原形</b>→「以前は」／<b>ing形</b>→「慣れている」／<b>by</b>があれば受動態</span></td></tr>'
+        + '</table>'
+  },
+
+  // 再帰代名詞 (c→42): by oneself, enjoy oneself など
+  42: {
+    title: "📊 再帰代名詞 頻出熟語 一覧",
+    html: '<table class="ov-tbl"><tr><th>熟語</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>by oneself</b></td><td>ひとりで／自力で</td><td>I went there <b>by myself</b>.</td></tr>'
+        + '<tr><td><b>enjoy oneself</b></td><td>楽しむ</td><td>Did you <b>enjoy yourself</b>?</td></tr>'
+        + '<tr><td><b>help oneself</b></td><td>ご自由にどうぞ<br>（自分で取る）</td><td><b>Help yourself</b> to the cake.</td></tr>'
+        + '<tr><td><b>introduce oneself</b></td><td>自己紹介する</td><td>Let me <b>introduce myself</b>.</td></tr>'
+        + '<tr><td><b>talk to oneself</b></td><td>独り言を言う</td><td>He was <b>talking to himself</b>.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 主語に合わせて変える：I→myself / you→yourself / he→himself / she→herself / we→ourselves / they→themselves</span></td></tr>'
+        + '</table>'
+  },
+
+  // 現在完了：完了 (c→44): just / already / yet
+  44: {
+    title: "📊 現在完了「完了」のキーワード 一覧",
+    html: '<table class="ov-tbl"><tr><th>語</th><th>位置</th><th>意味・例</th></tr>'
+        + '<tr><td><b>just</b></td><td>have / has の <b>後ろ</b></td><td>「ちょうど〜したところ」<br>I have <b>just</b> finished.</td></tr>'
+        + '<tr><td><b>already</b></td><td>have / has の <b>後ろ</b><br>（肯定文で）</td><td>「もう〜してしまった」<br>I have <b>already</b> eaten.</td></tr>'
+        + '<tr><td><b>yet</b><br>（疑問）</td><td>文の <b>最後</b></td><td>「もう〜した？」<br>Have you eaten <b>yet</b>?</td></tr>'
+        + '<tr><td><b>yet</b><br>（否定）</td><td>文の <b>最後</b></td><td>「まだ〜していない」<br>I haven\'t eaten <b>yet</b>.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 already と yet は同じ「もう」だが<b>文の種類で使い分け</b>：肯定→already／疑問・否定→yet</span></td></tr>'
+        + '</table>'
+  },
+
+  // 現在完了：継続 (c→45): for / since / How long
+  45: {
+    title: "📊 現在完了「継続」for / since 一覧",
+    html: '<table class="ov-tbl"><tr><th>語</th><th>後ろの形</th><th>例</th></tr>'
+        + '<tr><td><b>for</b></td><td><b>数字を含む期間</b></td><td><b>for</b> three years<br><b>for</b> a long time</td></tr>'
+        + '<tr><td><b>since</b></td><td><b>始まりの時点</b></td><td><b>since</b> 2020<br><b>since</b> I was a child</td></tr>'
+        + '<tr><td><b>How long 〜?</b></td><td>期間を尋ねる</td><td><b>How long</b> have you lived here?</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ 状態動詞(know/live/be) → 現在完了 ／ 動作動詞(study/run) → <b>現在完了進行形</b></span><br><span style="color:#d63031">⚠️ yesterday / last year / 〜ago は<b>過去形</b>と使う（現在完了とは×）</span></td></tr>'
+        + '</table>'
+  },
+
+  // 現在完了進行形 (c→46): 状態動詞 vs 動作動詞
+  46: {
+    title: "📊 現在完了 vs 現在完了進行形 一覧",
+    html: '<table class="ov-tbl"><tr><th>動詞の種類</th><th>使う形</th><th>例</th></tr>'
+        + '<tr><td><b>状態動詞</b><br>live / know / be /<br>like / love / have(持つ)</td><td><b>現在完了</b><br>have + 過去分詞</td><td>I <b>have lived</b> here for 10 years.<br>（10年住んでいる）</td></tr>'
+        + '<tr><td><b>動作動詞</b><br>study / run / play /<br>work / wait / rain</td><td><b>現在完了進行形</b><br>have <b>been</b> + ing</td><td>I <b>have been studying</b> for 3 hours.<br>（3時間勉強し続けている）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 状態は「ある」だけで時間が流れる → 進行形不要<br>📌 動作は「やる」を続けると進行形に → be + ing で「進行中」<br>📌 for / since はどちらの形でも同じように使える</span></td></tr>'
+        + '</table>'
+  },
+
+  // 関係代名詞 主格 (c→49): who / which / that
+  49: {
+    title: "📊 関係代名詞（主格）一覧",
+    html: '<table class="ov-tbl"><tr><th>関係代名詞</th><th>先行詞</th><th>例文</th></tr>'
+        + '<tr><td><b>who</b></td><td>人</td><td>the man <b>who lives</b> here<br>（ここに住んでいる男性）</td></tr>'
+        + '<tr><td><b>which</b></td><td>物・動物</td><td>the book <b>which is</b> on the desk<br>（机の上にある本）</td></tr>'
+        + '<tr><td><b>that</b></td><td>人・物<br>どちらも</td><td>the man <b>that lives</b><br>the book <b>that is</b></td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 「主格」=後ろの<b>動詞の主語</b>になる用法（( )の直後が<b>動詞</b>）<br>📌 動詞の人称・数は<b>先行詞に一致</b></span></td></tr>'
+        + '</table>'
+  },
+
+  // too~to / enough to (c→52): 書き換えパターン
+  52: {
+    title: "📊 too 〜 to / enough to の書き換え 一覧",
+    html: '<table class="ov-tbl"><tr><th>表現</th><th>意味</th><th>書き換え（so 〜 that）</th></tr>'
+        + '<tr><td><b>too 〜 to …</b></td><td>〜すぎて…<b>できない</b><br>（否定の結果）</td><td>too tired <b>to study</b><br>= so tired <b>that I can\'t study</b></td></tr>'
+        + '<tr><td><b>〜 enough to …</b></td><td>…するのに<b>十分</b>〜<br>（肯定の結果）</td><td>tall <b>enough to ride</b><br>= so tall <b>that he can ride</b></td></tr>'
+        + '<tr><td><b>not 〜 enough<br>to …</b></td><td>…するには<b>十分でない</b><br>（否定の結果）</td><td><b>not</b> old <b>enough to drive</b><br>= so young <b>that he can\'t drive</b></td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 <b>so 〜 that …</b> への書き換えが入試超頻出！<br>📌 enough の位置に注意：形容詞の<b>後ろ</b>（×enough tall ／ ○tall enough）</span></td></tr>'
+        + '</table>'
+  },
+
+  // 原形不定詞 (c→53): make/let/help + 人 + 原形, see/hear + 人 + 原形
+  53: {
+    title: "📊 原形不定詞（動詞 + 人 + 原形）一覧",
+    html: '<table class="ov-tbl"><tr><th>動詞</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>make</b></td><td>(強制的に) 〜させる</td><td>My mom <b>made</b> me <b>clean</b>.</td></tr>'
+        + '<tr><td><b>let</b></td><td>(許可して) 〜させる</td><td>He <b>let</b> me <b>use</b> his bike.</td></tr>'
+        + '<tr><td><b>help</b></td><td>〜するのを手伝う</td><td>I <b>helped</b> her <b>cook</b>.</td></tr>'
+        + '<tr><td><b>see</b></td><td>〜するのを見る</td><td>I <b>saw</b> him <b>run</b>.</td></tr>'
+        + '<tr><td><b>hear</b></td><td>〜するのを聞く</td><td>I <b>heard</b> her <b>sing</b>.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ 後ろの動詞は必ず<b>原形</b>！toは付かない</span><br><span style="color:#666">×I saw him to run / ○I saw him run</span></td></tr>'
+        + '</table>'
+  },
+
   // 間接疑問文 (c→54)
   54: {
     title: "📊 間接疑問の3パターン 一覧",
@@ -834,6 +1126,39 @@ const formulaOverviews = {
         + '<tr><td><b>when to</b></td><td>いつ〜すべきか</td><td>when to start（いつ始めるか）</td></tr>'
         + '<tr><td><b>where to</b></td><td>どこで〜すべきか</td><td>where to go（どこへ行くか）</td></tr>'
         + '<tr><td class="ng"><s>why to</s></td><td colspan="2">× 存在しない！理由は<b>why I should〜</b>と間接疑問文で表現</td></tr>'
+        + '</table>'
+  },
+
+  // 仮定法過去 (c→57): If + 過去形, would/could + 原形
+  57: {
+    title: "📊 仮定法過去の形 一覧",
+    html: '<table class="ov-tbl"><tr><th>部分</th><th>形</th><th>例</th></tr>'
+        + '<tr><td><b>If 節</b><br>(条件)</td><td>If + 主語 + <b>動詞の過去形</b></td><td><b>If I had</b> money<br>（もしお金があれば）</td></tr>'
+        + '<tr><td><b>主節</b><br>(結果)</td><td>主語 + <b>would / could</b> + 動詞の原形</td><td>I <b>could buy</b> it.<br>（買えるのに）</td></tr>'
+        + '<tr><td><b>be 動詞</b></td><td>主語に関係なく <b>were</b></td><td>If I <b>were</b> you, …<br>(×If I was → ○were)</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 過去形なのに<b>「今」の話</b> → 仮定法のサイン<br>📌 「現実とは違う想像」を過去形で表す<br>📌 be 動詞は主語に関係なく <b>were</b>（仮定法の特別な印）</span></td></tr>'
+        + '</table>'
+  },
+
+  // so 〜 that / such 〜 that (c→59)
+  59: {
+    title: "📊 so / such の使い分け 一覧",
+    html: '<table class="ov-tbl"><tr><th>パターン</th><th>形</th><th>例</th></tr>'
+        + '<tr><td><b>so</b><br>(形容詞・副詞だけ)</td><td><b>so</b> + 形容詞/副詞 + that 〜</td><td>He is <b>so kind that</b><br>everyone likes him.</td></tr>'
+        + '<tr><td><b>such</b><br>(形容詞 + 名詞)</td><td><b>such (a)</b> + 形容詞 + 名詞 + that 〜</td><td>He is <b>such a kind person<br>that</b> everyone likes him.</td></tr>'
+        + '<tr><td colspan="3"><b>so 〜 that … can\'t = too 〜 to …</b>（書き換え超頻出）<br>📌 He is <b>so</b> tired <b>that he can\'t</b> walk.<br>= He is <b>too</b> tired <b>to</b> walk.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 見分け：後ろが<b>形容詞だけ→so</b>、<b>形容詞+名詞→such</b></span></td></tr>'
+        + '</table>'
+  },
+
+  // 関係副詞・what (c→60): where/when/what
+  60: {
+    title: "📊 関係副詞 / what 一覧",
+    html: '<table class="ov-tbl"><tr><th>語</th><th>説明する名詞</th><th>例</th></tr>'
+        + '<tr><td><b>where</b></td><td>場所</td><td>the town <b>where I live</b><br>（私が住んでいる町）</td></tr>'
+        + '<tr><td><b>when</b></td><td>時</td><td>the day <b>when we met</b><br>（私たちが出会った日）</td></tr>'
+        + '<tr><td><b>what</b></td><td>先行詞なし<br>（中に含む）</td><td><b>what I want</b><br>（私のほしいもの）<br>= the thing(s) which I want</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 where = in which / when = at which と同じ意味<br>📌 <b>what は先行詞を中に含む</b>関係代名詞（「〜すること」「〜するもの」）</span></td></tr>'
         + '</table>'
   }
 };
