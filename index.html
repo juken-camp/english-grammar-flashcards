@@ -740,6 +740,19 @@ function tplIrreg(){
 function expandTpl(html){return html.replace(/\{\{TPL:be\}\}/g,tplBe()).replace(/\{\{TPL:pron\}\}/g,tplPron()).replace(/\{\{TPL:art\}\}/g,tplArt()).replace(/\{\{TPL:irreg\}\}/g,tplIrreg());}
 
 // 公式裏面に表示する「関連表現の網羅一覧表」 (キー: c値=文法カード番号)
+// 後置修飾の5パターン (c=23, 47, 48, 50, 51, 63 で共通使用)
+const POSTMOD_OV = {
+  title: "📊 後置修飾の5パターン 一覧",
+  html: '<table class="ov-tbl"><tr><th>種類</th><th>形</th><th>例</th></tr>'
+      + '<tr><td><b>① 前置詞句</b></td><td>名詞 + 前置詞 + 名詞</td><td>the book <b>on the desk</b><br>（机の上の本）</td></tr>'
+      + '<tr><td><b>② 不定詞</b></td><td>名詞 + <b>to + 原形</b></td><td>something <b>to drink</b><br>（飲むためのもの）</td></tr>'
+      + '<tr><td><b>③ 現在分詞</b></td><td>名詞 + 動詞の<b>-ing</b></td><td>the boy <b>playing tennis</b><br>（テニスをしている少年）</td></tr>'
+      + '<tr><td><b>④ 過去分詞</b></td><td>名詞 + <b>過去分詞</b></td><td>a book <b>written in English</b><br>（英語で書かれた本）</td></tr>'
+      + '<tr><td><b>⑤ 関係代名詞節</b></td><td>名詞 + <b>who/which/that</b> + 動詞〜</td><td>a friend <b>who lives in Tokyo</b><br>（東京に住んでいる友達）</td></tr>'
+      + '<tr><td colspan="3"><span style="color:#666">📌 英語は<b>「名詞→説明」</b>の順で並べる<br>📌 短いもの（前置詞句）から長いもの（関係代名詞節）まで、すべて<b>名詞のうしろに置く</b></span></td></tr>'
+      + '</table>'
+};
+
 const formulaOverviews = {
   // 疑問詞 (c→5): What/Who/Where/When/Why/How
   5: {
@@ -790,6 +803,17 @@ const formulaOverviews = {
         + '<tr><td><b>疑問文</b></td><td><b>Did</b> + 主語 + <b>原形</b>?</td><td><b>Did</b> you <b>play</b>?<br>×Did you played</td></tr>'
         + '<tr><td colspan="3"><b>規則動詞 -ed の付け方</b><br>📌 ふつう → <b>ed</b>（play→played）<br>📌 e で終わる → <b>d</b>（like→liked）<br>📌 子音+y → y を i にして <b>ed</b>（study→studied）<br>📌 短母音+子音 → 子音を<b>重ねて ed</b>（stop→stopped）</td></tr>'
         + '<tr><td colspan="3"><span style="color:#d63031">⚠️ Did / didn\'t の後ろは<b>必ず原形</b>！</span></td></tr>'
+        + '</table>'
+  },
+
+  // 未来表現 (c→14): will vs be going to
+  14: {
+    title: "📊 will / be going to の使い分け 一覧",
+    html: '<table class="ov-tbl"><tr><th>表現</th><th>ニュアンス</th><th>例</th></tr>'
+        + '<tr><td><b>will</b></td><td>その場の判断・意志<br>（今この瞬間に決めた）</td><td>(電話が鳴って)<br>I\'ll <b>get</b> it!<br>（出るよ！）</td></tr>'
+        + '<tr><td><b>be going to</b></td><td>前からの予定・流れ<br>（準備が始まっている）</td><td>I\'m going to <b>move</b><br>next week.<br>（来週引っ越す予定）</td></tr>'
+        + '<tr><td colspan="3"><b>否定・疑問の作り方</b><br>📌 <b>will</b>：will not (won\'t) / Will you 〜?<br>📌 <b>be going to</b>：be 動詞の否定・疑問と同じ（am not / Are you 〜?）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 入試では <b>will = be going to</b> の書き換えで出る<br>📌 ニュアンスは違うが、書き換えとしては同じ未来を表す</span></td></tr>'
         + '</table>'
   },
 
@@ -844,6 +868,9 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // 不定詞 形容詞的用法 (c→23): 後置修飾の1パターン → 共通POSTMOD_OV
+  23: POSTMOD_OV,
+
   // 不定詞 副詞的用法 (c→24): 目的 / 感情の原因
   24: {
     title: "📊 不定詞 副詞的用法 一覧",
@@ -889,6 +916,18 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // 最上級 (c→29): the -est / the most + 頻出構文
+  29: {
+    title: "📊 最上級 the -est / the most 一覧",
+    html: '<table class="ov-tbl"><tr><th>形容詞</th><th>最上級</th><th>例</th></tr>'
+        + '<tr><td><b>短い語</b></td><td><b>the</b> + 形容詞 + <b>-est</b></td><td>He is <b>the tallest</b><br>in the class.</td></tr>'
+        + '<tr><td><b>長い語</b></td><td><b>the most</b> + 形容詞</td><td>It is <b>the most<br>beautiful</b> mountain.</td></tr>'
+        + '<tr><td><b>不規則</b></td><td>good→<b>best</b><br>bad→<b>worst</b><br>many/much→<b>most</b></td><td>This is <b>the best</b> book.</td></tr>'
+        + '<tr><td colspan="3"><b>頻出表現</b><br>📌 <b>the -est + in + 場所/集団</b>（in the class, in Japan）<br>📌 <b>the -est + of + 複数</b>（of all, of the three）<br>📌 <b>one of the -est + 複数名詞</b>（最も〜なものの1つ）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 -est の付け方は比較級 -er と同じ（c=28参照）<br>📌 <b>the</b> は最上級につける（「最も〜」=世界に1つ）</span></td></tr>'
+        + '</table>'
+  },
+
   // 原級比較 (c→30): as 〜 as / not as 〜 as / 倍数
   30: {
     title: "📊 原級比較（as 〜 as）パターン 一覧",
@@ -898,6 +937,22 @@ const formulaOverviews = {
         + '<tr><td><b>twice<br>as 〜 as</b></td><td>〜の2倍…</td><td><b>twice as long as</b><br>（2倍の長さ）</td></tr>'
         + '<tr><td><b>three times<br>as 〜 as</b></td><td>〜の3倍…</td><td><b>three times as big as</b><br>（3倍の大きさ）</td></tr>'
         + '<tr><td colspan="3"><span style="color:#d63031">⚠️ as と as の間は<b>必ず原級</b>！-er や -est は入れない</span><br><span style="color:#666">📌 not as 〜 as の書き換え：主語が入れ替わって比較級に（超頻出）</span></td></tr>'
+        + '</table>'
+  },
+
+  // SVOO (c→31): give/show/tell/teach/send/buy/make + to/for 書き換え
+  31: {
+    title: "📊 SVOO（人にモノを）動詞 一覧",
+    html: '<table class="ov-tbl"><tr><th>動詞</th><th>意味</th><th>書き換え (to/for)</th></tr>'
+        + '<tr><td><b>give</b></td><td>人にモノを<b>与える</b></td><td><b>to</b>：give a book <b>to</b> him</td></tr>'
+        + '<tr><td><b>show</b></td><td>人にモノを<b>見せる</b></td><td><b>to</b>：show a picture <b>to</b> me</td></tr>'
+        + '<tr><td><b>tell</b></td><td>人にモノ・話を<b>伝える</b></td><td><b>to</b>：tell a story <b>to</b> me</td></tr>'
+        + '<tr><td><b>teach</b></td><td>人にモノを<b>教える</b></td><td><b>to</b>：teach English <b>to</b> us</td></tr>'
+        + '<tr><td><b>send</b></td><td>人にモノを<b>送る</b></td><td><b>to</b>：send a letter <b>to</b> her</td></tr>'
+        + '<tr><td><b>buy</b></td><td>人にモノを<b>買う</b></td><td><b>for</b>：buy a present <b>for</b> me</td></tr>'
+        + '<tr><td><b>make</b></td><td>人にモノを<b>作る</b></td><td><b>for</b>：make a cake <b>for</b> me</td></tr>'
+        + '<tr><td colspan="3"><b>to と for の見分け方</b><br>📌 <b>to</b>（モノが相手に届く）：give / show / tell / teach / send / lend<br>📌 <b>for</b>（相手のため）：buy / make / cook / get / find</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#666">📌 <b>SVOC（c=32）との違い</b>：SVOO は人≠モノ（give him a book → him≠book）／SVOC は O=C（call him Ken → him=Ken）</span></td></tr>'
         + '</table>'
   },
 
@@ -1040,6 +1095,18 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // 現在完了：経験 (c→43): ever / never / once / before
+  43: {
+    title: "📊 現在完了「経験」のキーワード 一覧",
+    html: '<table class="ov-tbl"><tr><th>語</th><th>意味・位置</th><th>例</th></tr>'
+        + '<tr><td><b>ever</b></td><td>今までに（疑問文）<br>have/has の<b>後ろ</b></td><td>Have you <b>ever</b> been to Japan?<br>（行ったことある？）</td></tr>'
+        + '<tr><td><b>never</b></td><td>一度もない（否定）<br>have/has の<b>後ろ</b></td><td>I have <b>never</b> seen it.<br>（一度も見たことない）</td></tr>'
+        + '<tr><td><b>once / twice<br>/ 〜 times</b></td><td>1回 / 2回 / 〜回<br>文の<b>最後</b></td><td>I have been there <b>twice</b>.<br>（2回行ったことがある）</td></tr>'
+        + '<tr><td><b>before</b></td><td>以前に<br>文の<b>最後</b></td><td>I have seen him <b>before</b>.<br>（以前会ったことがある）</td></tr>'
+        + '<tr><td colspan="3"><b>have been to vs have gone to</b><br>📌 <b>have been to</b> = 〜に行ったことがある（戻ってきた）<br>📌 <b>have gone to</b> = 〜に行ってしまった（今はもういない）<br>📌 He has <b>gone to</b> Tokyo.（彼は東京に行ってしまった＝もういない）</td></tr>'
+        + '</table>'
+  },
+
   // 現在完了：完了 (c→44): just / already / yet
   44: {
     title: "📊 現在完了「完了」のキーワード 一覧",
@@ -1073,6 +1140,12 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // 現在分詞の後置修飾 (c→47): 後置修飾の1パターン → 共通POSTMOD_OV
+  47: POSTMOD_OV,
+
+  // 過去分詞の後置修飾 (c→48): 後置修飾の1パターン → 共通POSTMOD_OV
+  48: POSTMOD_OV,
+
   // 関係代名詞 主格 (c→49): who / which / that
   49: {
     title: "📊 関係代名詞（主格）一覧",
@@ -1083,6 +1156,12 @@ const formulaOverviews = {
         + '<tr><td colspan="3"><span style="color:#666">📌 「主格」=後ろの<b>動詞の主語</b>になる用法（( )の直後が<b>動詞</b>）<br>📌 動詞の人称・数は<b>先行詞に一致</b></span></td></tr>'
         + '</table>'
   },
+
+  // 関係代名詞 目的格 (c→50): 後置修飾の1パターン → 共通POSTMOD_OV
+  50: POSTMOD_OV,
+
+  // 関係代名詞 所有格 (c→51): 後置修飾の1パターン → 共通POSTMOD_OV
+  51: POSTMOD_OV,
 
   // too~to / enough to (c→52): 書き換えパターン
   52: {
@@ -1140,6 +1219,18 @@ const formulaOverviews = {
         + '</table>'
   },
 
+  // I wish / hope の使い分け (c→58)
+  58: {
+    title: "📊 I wish / hope の使い分け 一覧",
+    html: '<table class="ov-tbl"><tr><th>表現</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>I wish<br>+ 過去形</b></td><td>〜ならいいのに<br>（現実と違う・<br>実現困難）</td><td>I wish I <b>were</b> rich.<br>（金持ちならなぁ）</td></tr>'
+        + '<tr><td><b>I wish<br>+ could + 原形</b></td><td>〜できたらいいのに</td><td>I wish I <b>could fly</b>.<br>（飛べたらいいのに）</td></tr>'
+        + '<tr><td><b>I wish<br>+ had + 過去分詞</b></td><td>〜していたら<br>よかったのに<br>（過去への後悔）</td><td>I wish I <b>had studied</b>.<br>（勉強しておけば）</td></tr>'
+        + '<tr><td><b>I hope<br>+ 現在/未来形</b></td><td>〜だといいな<br>（実現可能）</td><td>I <b>hope</b> it <b>will be</b> sunny.<br>（晴れるといいな）</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ <b>wish ≠ hope</b>：wishは「実現困難」、hopeは「実現可能」</span><br><span style="color:#666">📌 wishの後ろは仮定法と同じく過去形<br>📌 be動詞は主語に関係なく <b>were</b></span></td></tr>'
+        + '</table>'
+  },
+
   // so 〜 that / such 〜 that (c→59)
   59: {
     title: "📊 so / such の使い分け 一覧",
@@ -1160,7 +1251,39 @@ const formulaOverviews = {
         + '<tr><td><b>what</b></td><td>先行詞なし<br>（中に含む）</td><td><b>what I want</b><br>（私のほしいもの）<br>= the thing(s) which I want</td></tr>'
         + '<tr><td colspan="3"><span style="color:#666">📌 where = in which / when = at which と同じ意味<br>📌 <b>what は先行詞を中に含む</b>関係代名詞（「〜すること」「〜するもの」）</span></td></tr>'
         + '</table>'
-  }
+  },
+
+  // 動詞+前置詞の熟語 (c→61): look at / listen to / wait for など
+  61: {
+    title: "📊 動詞 + 前置詞 熟語 一覧",
+    html: '<table class="ov-tbl"><tr><th>熟語</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>look at</b></td><td>〜を見る</td><td><b>Look at</b> this picture.</td></tr>'
+        + '<tr><td><b>listen to</b></td><td>〜を聞く</td><td><b>Listen to</b> me.</td></tr>'
+        + '<tr><td><b>wait for</b></td><td>〜を待つ</td><td><b>Wait for</b> the bus.</td></tr>'
+        + '<tr><td><b>look for</b></td><td>〜を探す</td><td>I\'m <b>looking for</b> my key.</td></tr>'
+        + '<tr><td><b>look after</b></td><td>〜の世話をする</td><td><b>Look after</b> the cat.</td></tr>'
+        + '<tr><td><b>arrive at</b><br><b>get to</b></td><td>〜に着く</td><td>I <b>arrived at</b> the station.<br>I <b>got to</b> school.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ <b>look at / see / watch の使い分け</b>（超頻出！）</span><br>📌 <b>look at</b>：意識して見る（前置詞at必要）<br>📌 <b>see</b>：自然に目に入る（前置詞不要）<br>📌 <b>watch</b>：じっと観察する（前置詞不要）</td></tr>'
+        + '</table>'
+  },
+
+  // 句動詞 (c→62): take off / put on / pick up など
+  62: {
+    title: "📊 句動詞（動詞 + 副詞）一覧",
+    html: '<table class="ov-tbl"><tr><th>句動詞</th><th>意味</th><th>例</th></tr>'
+        + '<tr><td><b>take off</b></td><td>脱ぐ／離陸する</td><td><b>Take off</b> your shoes.</td></tr>'
+        + '<tr><td><b>put on</b></td><td>身につける</td><td><b>Put on</b> your jacket.</td></tr>'
+        + '<tr><td><b>pick up</b></td><td>拾う／迎えに行く</td><td>I\'ll <b>pick</b> you <b>up</b>.</td></tr>'
+        + '<tr><td><b>turn on</b></td><td>（電源を）つける</td><td><b>Turn on</b> the light.</td></tr>'
+        + '<tr><td><b>turn off</b></td><td>（電源を）消す</td><td><b>Turn off</b> the TV.</td></tr>'
+        + '<tr><td><b>get up</b></td><td>起きる</td><td>I <b>get up</b> at 6.</td></tr>'
+        + '<tr><td><b>look up</b></td><td>調べる</td><td><b>Look up</b> the word.</td></tr>'
+        + '<tr><td colspan="3"><span style="color:#d63031">⚠️ 目的語が<b>代名詞</b>のときは動詞と副詞の<b>間に入れる</b>！</span><br>📌 ○ Take <b>it</b> off ／ × Take off <b>it</b><br>📌 名詞の目的語ならどちらでもOK：Take off your hat = Take your hat off</td></tr>'
+        + '</table>'
+  },
+
+  // 前置詞句の後置修飾 (c→63): 後置修飾の1パターン → 共通POSTMOD_OV
+  63: POSTMOD_OV
 };
 
 function formulaOverviewHTML(f){
