@@ -567,9 +567,9 @@ var formulas=[
  {s:"ずっと〜し続けている（動作）",f:"<b>have been + 動詞のing</b>",c:46,l:"現在完了進行形"},
  {s:"〜している（名詞を説明）",f:"<span class='ant'>名詞</span> + <b>動詞のing</b> + 語句",c:47,l:"現在分詞の後置修飾"},
  {s:"〜された（名詞を説明）",f:"<span class='ant'>名詞</span> + <b>過去分詞</b> + 語句",c:48,l:"過去分詞の後置修飾"},
- {s:"〜する人",f:"<span class='ant'>人</span> + <b>who</b> + <span class='ant'>動詞</span> 〜",c:49,l:"関係代名詞 who（主格）"},
- {s:"〜する物",f:"<span class='ant'>物</span> + <b>which / that</b> + <span class='ant'>動詞</span> 〜",c:49,l:"関係代名詞 which（主格）"},
- {s:"主語が〜する人・物",f:"<span class='ant'>人・物</span> <b>(which / that)</b> + <span class='ant'>主語</span> + <span class='ant'>動詞</span>",c:50,l:"関係代名詞（目的格・省略可）"},
+ {s:"〜する人",f:"<span class='ant'>人</span> + <b>who</b> + 動詞 〜",c:49,l:"関係代名詞 who（主格）"},
+ {s:"〜する物",f:"<span class='ant'>物</span> + <b>which / that</b> + 動詞 〜",c:49,l:"関係代名詞 which（主格）"},
+ {s:"主語が〜する人・物",f:"<span class='ant'>人・物</span> <b>(which / that)</b> + 主語 + 動詞",c:50,l:"関係代名詞（目的格・省略可）"},
  {s:"〜が…な人・物",f:"<span class='ant'>人・物</span> + <b>whose</b> + <span class='ant'>名詞</span> 〜",c:51,l:"関係代名詞 whose（所有格）"},
  {s:"…すぎて〜できない",f:"<b>too</b> + 形容詞 + <b>to</b> + 動詞の原形",c:52,l:"too 〜 to …"},
  {s:"〜するのに十分…",f:"形容詞 + <b>enough to</b> + 動詞の原形",c:52,l:"〜 enough to …"},
@@ -587,9 +587,9 @@ var formulas=[
  {s:"〜ならいいのに（願望）",f:"<b>I wish</b> + 主語 + 動詞の過去形（<b>could</b>）",c:58,l:"I wish + 仮定法"},
  {s:"とても〜なので…",f:"<b>so</b> + 形容詞・副詞 + <b>that</b> + 主語 + 動詞",c:59,l:"so 〜 that …"},
  {s:"とても〜な名詞なので…",f:"<b>such (a)</b> + 形容詞 + 名詞 + <b>that</b> + 主語 + 動詞",c:59,l:"such 〜 that …"},
- {s:"主語が〜する場所",f:"<span class='ant'>場所</span> + <b>where</b> + <span class='ant'>主語</span> + <span class='ant'>動詞</span>",c:60,l:"関係副詞 where"},
- {s:"主語が〜する時",f:"<span class='ant'>時</span> + <b>when</b> + <span class='ant'>主語</span> + <span class='ant'>動詞</span>",c:60,l:"関係副詞 when"},
- {s:"主語が〜するもの／こと",f:"<b>what</b> + <span class='ant'>主語</span> + <span class='ant'>動詞</span>",c:60,l:"関係代名詞 what"}
+ {s:"主語が〜する場所",f:"<span class='ant'>場所</span> + <b>where</b> + 主語 + 動詞",c:60,l:"関係副詞 where"},
+ {s:"主語が〜する時",f:"<span class='ant'>時</span> + <b>when</b> + 主語 + 動詞",c:60,l:"関係副詞 when"},
+ {s:"主語が〜するもの／こと",f:"<b>what</b> + 主語 + 動詞",c:60,l:"関係代名詞 what"}
 ];
 formulas.forEach(function(f,i){f.id='f'+(i+1);f.no=i+1;f.gr=(grammarRef[f.c-1]||{}).gr||'中1';});
 
