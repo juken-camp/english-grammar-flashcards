@@ -326,7 +326,7 @@ button{font-family:inherit;cursor:pointer}
 .formula-main{font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:800;font-size:25px;line-height:1.5;color:var(--text);text-align:center;padding:26px 14px 22px;letter-spacing:.3px;word-break:keep-all;overflow-wrap:break-word}
 .formula-main .ant, .front-topic .ant, .back-topic .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 7px;margin:0 2px;line-height:1.25}
 .formula-main b{color:var(--purple)}
-.formula-main .fnote{display:block;margin-top:9px;font-size:14px;font-weight:600;color:var(--dim);letter-spacing:0;line-height:1.4}
+.formula-main .fnote,.front-topic .fnote{display:block;margin-top:9px;font-size:.6em;font-weight:600;color:var(--dim);letter-spacing:0;line-height:1.35}
 .formula-link{display:inline-flex;align-items:center;gap:7px;width:100%;justify-content:center;border:1.5px solid var(--purple-l);background:var(--purple-bg);color:var(--purple);font-weight:800;font-size:14px;padding:13px 14px;border-radius:14px;line-height:1.4;text-align:center;cursor:pointer;transition:.15s}
 .formula-link:active{transform:scale(.98)}
 .formula-link .arr{font-weight:900;font-size:16px}
@@ -484,49 +484,49 @@ var byTitle={}; grammarRef.forEach(function(g){ byTitle[g.t]=g; });
 /* ===== 公式カード：全文法を「公式」化（c=該当文法カード番号へのリンク）===== */
 var formulas=[
  {s:"〜です／〜にいる",f:"主語 + <b>am / is / are</b>",c:1,l:"be動詞（am/is/are）"},
- {s:"〜しない（一般動詞）",f:"主語 + <b>don't / doesn't</b> + 動詞の原形",c:2,l:"一般動詞の否定文"},
+ {s:"〜しない<span class='fnote'>一般動詞</span>",f:"主語 + <b>don't / doesn't</b> + 動詞の原形",c:2,l:"一般動詞の否定文"},
  {s:"〜ですか？",f:"<b>Am / Is / Are</b> + 主語 〜?",c:3,l:"be動詞の疑問文"},
  {s:"〜しますか？",f:"<b>Do / Does</b> + 主語 + 動詞の原形?",c:4,l:"一般動詞の疑問文"},
  {s:"何が／どこ／いつ…？",f:"疑問詞 + <b>do / does / be動詞</b> + 主語 …?",c:5,l:"疑問詞のつかい方"},
  {s:"何歳ですか？",f:"<b>How old</b> + be動詞 + 主語?",c:5,l:"How old〜（年齢）"},
  {s:"いくつ／いくら／どのくらい？",f:"<b>How many / much / long</b> 〜?",c:5,l:"How many / much / long"},
- {s:"〜のもの（所有代名詞）",f:"<b>mine / yours / his / hers / ours / theirs</b>",c:6,l:"所有代名詞（〜のもの）"},
+ {s:"〜のもの<span class='fnote'>所有代名詞</span>",f:"<b>mine / yours / his / hers / ours / theirs</b>",c:6,l:"所有代名詞（〜のもの）"},
  {s:"これ／あれ／これら／あれら",f:"<b>this / that / these / those</b>",c:7,l:"指示代名詞"},
  {s:"〜しなさい",f:"<b>動詞の原形</b> で文を始める",c:8,l:"命令文"},
  {s:"〜してはいけない／するな",f:"<b>Don't</b> + 動詞の原形",c:8,l:"否定の命令文"},
  {s:"〜しよう",f:"<b>Let's</b> + 動詞の原形",c:8,l:"Let's〜（勧誘）"},
  {s:"〜できる",f:"<b>can</b> + 動詞の原形",c:9,l:"助動詞 can"},
  {s:"〜するだろう／するつもり",f:"<b>will</b> + 動詞の原形",c:9,l:"助動詞 will"},
- {s:"〜した（過去）",f:"動詞 + <b>(e)d</b>",c:10,l:"一般動詞の過去形"},
+ {s:"〜した<span class='fnote'>過去</span>",f:"動詞 + <b>(e)d</b>",c:10,l:"一般動詞の過去形"},
  {s:"〜しましたか？",f:"<b>Did</b> + 主語 + 動詞の原形?",c:10,l:"過去の疑問文（Did）"},
  {s:"〜だった／〜にいた",f:"主語 + <b>was / were</b>",c:11,l:"be動詞の過去（was/were）"},
  {s:"今〜している",f:"<b>be動詞 + 動詞のing</b>",c:12,l:"現在進行形"},
  {s:"〜していた",f:"<b>was / were + 動詞のing</b>",c:13,l:"過去進行形"},
- {s:"〜する予定だ／〜するだろう（未来）",f:"<b>be going to / will</b> + 動詞の原形",c:14,l:"未来表現（be going to / will）"},
+ {s:"〜する予定だ／〜するだろう<span class='fnote'>未来</span>",f:"<b>be going to / will</b> + 動詞の原形",c:14,l:"未来表現（be going to / will）"},
  {s:"三人称単数が〜する",f:"動詞 + <b>(e)s</b>",c:15,l:"3単現のs"},
  {s:"楽器を演奏する",f:"play <b>the</b> + 楽器",c:16,l:"楽器には the"},
  {s:"コップ1杯の水",f:"a <b>glass of</b> water",c:17,l:"数えられない名詞の数え方"},
  {s:"〜時に／〜曜日に／〜月に",f:"<b>at</b> 時刻 / <b>on</b> 曜日 / <b>in</b> 月・年",c:18,l:"時を表す前置詞"},
- {s:"〜までに（期限）",f:"<b>by</b> + 時",c:18,l:"by（期限）"},
+ {s:"〜までに<span class='fnote'>期限</span>",f:"<b>by</b> + 時",c:18,l:"by（期限）"},
  {s:"〜を見る／聞く／待つ／探す",f:"<b>look at / listen to / wait for / look for / arrive at</b> + 名詞",c:61,l:"動詞 + 前置詞の熟語"},
  {s:"〜を脱ぐ／着る／拾う／消す",f:"<b>take off / put on / pick up / turn on / turn off</b> + 名詞",c:62,l:"句動詞（動詞 + 副詞）"},
  {s:"〜する時",f:"<b>when</b> + 主語 + 動詞",c:19,l:"接続詞 when"},
- {s:"もし〜なら（条件）",f:"<b>if</b> + 主語 + 動詞<span class='fnote'>中は現在形</span>",c:19,l:"接続詞 if（条件）"},
+ {s:"もし〜なら<span class='fnote'>条件</span>",f:"<b>if</b> + 主語 + 動詞<span class='fnote'>中は現在形</span>",c:19,l:"接続詞 if（条件）"},
  {s:"〜だと思う／知っている",f:"think / know <b>(that)</b> + 主語 + 動詞",c:19,l:"接続詞 that"},
  {s:"残念ながら〜",f:"<b>I'm afraid (that)</b> + 主語 + 動詞",c:19,l:"形容詞 + that"},
- {s:"〜なので（理由）",f:"<b>because</b> + 主語 + 動詞",c:20,l:"接続詞 because"},
+ {s:"〜なので<span class='fnote'>理由</span>",f:"<b>because</b> + 主語 + 動詞",c:20,l:"接続詞 because"},
  {s:"〜する間に",f:"<b>while</b> + 主語 + 動詞",c:20,l:"接続詞 while"},
  {s:"〜がある／いる",f:"<b>There is / are</b> + 名詞",c:21,l:"There is / are 〜"},
- {s:"〜すること（名詞的）",f:"<b>to</b> + 動詞の原形",c:22,l:"不定詞（名詞的用法）"},
+ {s:"〜すること<span class='fnote'>名詞的</span>",f:"<b>to</b> + 動詞の原形",c:22,l:"不定詞（名詞的用法）"},
  {s:"〜したい／必要だ／〜しようとする",f:"<b>want / need / hope / try / decide</b> + <b>to</b> + 動詞の原形",c:22,l:"不定詞をとる動詞（want to など）"},
  {s:"〜するための<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>to</b> + 動詞の原形",c:23,l:"不定詞（形容詞的用法）"},
- {s:"〜するために（目的）",f:"<b>to</b> + 動詞の原形",c:24,l:"不定詞（副詞的・目的）"},
- {s:"〜して（感情の原因）",f:"be glad / surprised <b>to</b> + 動詞の原形",c:24,l:"不定詞（感情の原因）"},
+ {s:"〜するために<span class='fnote'>目的</span>",f:"<b>to</b> + 動詞の原形",c:24,l:"不定詞（副詞的・目的）"},
+ {s:"〜して<span class='fnote'>感情の原因</span>",f:"be glad / surprised <b>to</b> + 動詞の原形",c:24,l:"不定詞（感情の原因）"},
  {s:"人が〜するのは…だ",f:"<b>It is</b> 形容詞 <b>for</b> 人 <b>to</b> 動詞の原形",c:25,l:"形式主語 It is for〜to"},
  {s:"人に〜するように言う",f:"<b>tell</b> + 人 + <b>to</b> + 動詞の原形",c:26,l:"tell 人 to〜"},
  {s:"人に〜してほしい",f:"<b>want</b> + 人 + <b>to</b> + 動詞の原形",c:26,l:"want 人 to〜"},
  {s:"人に〜するよう頼む",f:"<b>ask</b> + 人 + <b>to</b> + 動詞の原形",c:26,l:"ask 人 to〜"},
- {s:"〜すること（動名詞）",f:"<b>動詞のing</b><span class='fnote'>主語・目的語に</span>",c:27,l:"動名詞"},
+ {s:"〜すること<span class='fnote'>動名詞</span>",f:"<b>動詞のing</b><span class='fnote'>主語・目的語に</span>",c:27,l:"動名詞"},
  {s:"〜してくれてありがとう",f:"Thank you <b>for</b> + <b>動詞のing</b>",c:27,l:"for + 動名詞"},
  {s:"〜し終える／楽しむ／やめる",f:"<b>finish / enjoy / stop</b> + <b>動詞のing</b>",c:27,l:"ing だけをとる動詞"},
  {s:"AはBより…だ",f:"A is 比較級(<b>-er / more〜</b>) <b>than</b> B",c:28,l:"比較級（than）"},
@@ -541,7 +541,7 @@ var formulas=[
  {s:"AをBのままにする",f:"<b>keep</b> A B",c:32,l:"SVOC（〜のままにする）"},
  {s:"〜に見える／聞こえる／感じる",f:"<b>look / sound / feel / smell / taste</b> + 形容詞",c:33,l:"連結動詞（look / sound など）"},
  {s:"〜になる",f:"<b>become / get</b> + 形容詞",c:33,l:"become / get + 形容詞"},
- {s:"〜される（受け身）",f:"<b>be動詞 + 過去分詞</b>",c:34,l:"受動態"},
+ {s:"〜される<span class='fnote'>受け身</span>",f:"<b>be動詞 + 過去分詞</b>",c:34,l:"受動態"},
  {s:"〜に興味がある／遅れる／違う／得意／怖い",f:"be <b>interested in / late for / different from / good at / afraid of</b> 〜",c:34,l:"be + 形容詞 + 前置詞"},
  {s:"なんて…な名詞！",f:"<b>What (a)</b> + 形容詞 + 名詞!",c:35,l:"感嘆文 What"},
  {s:"なんて…！",f:"<b>How</b> + 形容詞・副詞!",c:35,l:"感嘆文 How"},
@@ -555,8 +555,8 @@ var formulas=[
  {s:"〜かもしれない",f:"<b>may</b> + 動詞の原形",c:36,l:"可能性の may"},
  {s:"〜しなければならない",f:"<b>have to / must</b> + 動詞の原形",c:37,l:"have to / must"},
  {s:"〜しなくてよい",f:"<b>don't have to</b> + 動詞の原形",c:37,l:"don't have to（不要）"},
- {s:"〜してはいけない（禁止）",f:"<b>must not</b> + 動詞の原形",c:37,l:"must not（禁止）"},
- {s:"いくつかの（肯定／疑問・否定）",f:"<b>some</b>（肯定）/ <b>any</b>（疑問・否定）",c:38,l:"some / any"},
+ {s:"〜してはいけない<span class='fnote'>禁止</span>",f:"<b>must not</b> + 動詞の原形",c:37,l:"must not（禁止）"},
+ {s:"いくつかの<span class='fnote'>肯定／疑問・否定</span>",f:"<b>some</b>（肯定）/ <b>any</b>（疑問・否定）",c:38,l:"some / any"},
  {s:"ほとんどない",f:"<b>little</b>（不可算）/ <b>few</b>（可算）",c:38,l:"little / few"},
  {s:"最も…な1つ",f:"<b>one of the</b> 最上級 + 複数名詞",c:39,l:"one of the 最上級"},
  {s:"Aは他のどの〜より…",f:"A is 比較級 <b>than any other</b> + 単数名詞",c:39,l:"than any other〜"},
@@ -564,18 +564,18 @@ var formulas=[
  {s:"AもBも両方",f:"<b>both</b> A <b>and</b> B",c:40,l:"both A and B"},
  {s:"AだけでなくBも",f:"<b>not only</b> A <b>but also</b> B",c:40,l:"not only A but also B"},
  {s:"AかBのどちらか",f:"<b>either</b> A <b>or</b> B",c:40,l:"either A or B"},
- {s:"以前は〜していた／だった（今は違う）",f:"<b>used to</b> + 動詞の原形",c:41,l:"used to（過去の習慣）"},
+ {s:"以前は〜していた／だった<span class='fnote'>今は違う</span>",f:"<b>used to</b> + 動詞の原形",c:41,l:"used to（過去の習慣）"},
  {s:"〜に慣れている",f:"be <b>used to</b> + <b>動詞のing</b>",c:41,l:"be used to ing（慣れ）"},
  {s:"自分で／独力で",f:"<b>by</b> + myself / yourself …",c:42,l:"by oneself（独力で）"},
  {s:"ご自由にどうぞ",f:"<b>help yourself</b>",c:42,l:"help yourself"},
- {s:"〜したことがある",f:"<b>have + 過去分詞</b>（ever / never）",c:43,l:"現在完了の「経験」"},
+ {s:"〜したことがある",f:"<b>have + 過去分詞</b><span class='fnote'>ever / never</span>",c:43,l:"現在完了の「経験」"},
  {s:"ちょうど〜したところ",f:"<b>have just</b> + 過去分詞",c:44,l:"現在完了の「完了」"},
  {s:"もう／まだ〜した？",f:"<b>already</b>（肯定）/ <b>yet</b>（疑問・否定）",c:44,l:"already / yet"},
- {s:"ずっと〜している（状態）",f:"<b>have + 過去分詞</b> + for / since",c:45,l:"現在完了の「継続」"},
+ {s:"ずっと〜している<span class='fnote'>状態</span>",f:"<b>have + 過去分詞</b> + for / since",c:45,l:"現在完了の「継続」"},
  {s:"〜の間／〜以来",f:"<b>for</b> + 期間 / <b>since</b> + 起点",c:45,l:"for / since"},
- {s:"ずっと〜し続けている（動作）",f:"<b>have been + 動詞のing</b>",c:46,l:"現在完了進行形"},
+ {s:"ずっと〜し続けている<span class='fnote'>動作</span>",f:"<b>have been + 動詞のing</b>",c:46,l:"現在完了進行形"},
  {s:"ずっと〜していますか？",f:"<b>Have you been</b> + 動詞のing?",c:46,l:"現在完了進行形（疑問文）"},
- {s:"<span class='ant'>名詞</span>（前置詞句で説明）",f:"<span class='ant'>名詞</span> + <b>on / in / under / with / of</b> + 場所・モノ",c:63,l:"前置詞句の後置修飾"},
+ {s:"<span class='ant'>名詞</span><span class='fnote'>前置詞句で説明</span>",f:"<span class='ant'>名詞</span> + <b>on / in / under / with / of</b> + 場所・モノ",c:63,l:"前置詞句の後置修飾"},
  {s:"〜している<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>動詞のing</b> + 語句",c:47,l:"現在分詞の後置修飾"},
  {s:"〜された<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>過去分詞</b> + 語句",c:48,l:"過去分詞の後置修飾"},
  {s:"〜する<span class='ant'>人</span>",f:"<span class='ant'>人</span> + <b>who</b> + 動詞 〜",c:49,l:"関係代名詞 who（主格）"},
@@ -588,14 +588,14 @@ var formulas=[
  {s:"人が〜するのを手伝う",f:"<b>help</b> + 人 + 動詞の原形",c:53,l:"help + 人 + 原形"},
  {s:"人が〜するのを見る／聞く",f:"<b>see / hear</b> + 人 + 動詞の原形",c:53,l:"知覚動詞 + 原形"},
  {s:"主語が疑問詞〜するか",f:"疑問詞 + <b>主語 + 動詞</b><span class='fnote'>語順を戻す</span>",c:54,l:"間接疑問文"},
- {s:"誰が〜するか（疑問詞が主語）",f:"<b>who / what + 動詞</b><span class='fnote'>主語を入れない</span>",c:54,l:"疑問詞が主語の間接疑問"},
+ {s:"誰が〜するか<span class='fnote'>疑問詞が主語</span>",f:"<b>who / what + 動詞</b><span class='fnote'>主語を入れない</span>",c:54,l:"疑問詞が主語の間接疑問"},
  {s:"主語が〜するかどうか",f:"<b>if / whether</b> + 主語 + 動詞",c:54,l:"if / whether（〜かどうか）"},
  {s:"〜のしかた",f:"<b>how to</b> + 動詞の原形",c:55,l:"how to 〜（しかた）"},
  {s:"何を〜すべきか",f:"<b>what to</b> + 動詞の原形",c:55,l:"what to 〜"},
- {s:"〜ですよね？（念押し）",f:"肯定文, <b>否定の短縮 + 主語?</b> / 否定文, <b>肯定の短縮 + 主語?</b>",c:56,l:"付加疑問文"},
- {s:"もし〜なら…するのに（現実と逆）",f:"<b>If</b> + 主語 + 動詞の過去形, 主語 + <b>would / could</b> + 動詞の原形",c:57,l:"仮定法過去"},
+ {s:"〜ですよね？<span class='fnote'>念押し</span>",f:"肯定文, <b>否定の短縮 + 主語?</b> / 否定文, <b>肯定の短縮 + 主語?</b>",c:56,l:"付加疑問文"},
+ {s:"もし〜なら…するのに<span class='fnote'>現実と逆</span>",f:"<b>If</b> + 主語 + 動詞の過去形, 主語 + <b>would / could</b> + 動詞の原形",c:57,l:"仮定法過去"},
  {s:"もし私が〜なら",f:"If I <b>were</b> 〜",c:57,l:"仮定法の were"},
- {s:"〜ならいいのに（願望）",f:"<b>I wish</b> + 主語 + 動詞の過去形（<b>could</b>）",c:58,l:"I wish + 仮定法"},
+ {s:"〜ならいいのに<span class='fnote'>願望</span>",f:"<b>I wish</b> + 主語 + 動詞の過去形<span class='fnote'>could</span>",c:58,l:"I wish + 仮定法"},
  {s:"とても〜なので…",f:"<b>so</b> + 形容詞・副詞 + <b>that</b> + 主語 + 動詞",c:59,l:"so 〜 that …"},
  {s:"とても〜な名詞なので…",f:"<b>such (a)</b> + 形容詞 + 名詞 + <b>that</b> + 主語 + 動詞",c:59,l:"such 〜 that …"},
  {s:"主語が〜する<span class='ant'>場所</span>",f:"<span class='ant'>場所</span> + <b>where</b> + 主語 + 動詞",c:60,l:"関係副詞 where"},
@@ -797,12 +797,13 @@ function renderFormula(){
   el.frontAccent.className='front-accent '+c;
   el.frontGrade.className='grade-tab '+c; el.frontGrade.textContent=f.gr;
   el.frontNo.textContent='公式 #'+f.no;
+  var FN=/<span class=['"]fnote['"]>[\s\S]*?<\/span>/g;
   el.frontTopic.innerHTML=f.s;
-  var sLen=strip(f.s).replace(/\s/g,'').length;
+  var sLen=strip(f.s.replace(FN,'')).replace(/\s/g,'').length;
   el.frontTopic.style.fontSize = sLen>20 ? '21px' : sLen>13 ? '24px' : '';
   el.frontSents.className='front-sents'; el.frontSents.innerHTML='';
   el.backGrade.className='grade-tab small '+c; el.backGrade.textContent=f.gr;
-  el.backTopic.innerHTML=f.s;
+  el.backTopic.innerHTML=f.s.replace(FN,'');
   el.backUnits.innerHTML='';
   el.rule.innerHTML='<div class="formula-main">'+f.f+'</div><button class="formula-link no-swipe" data-card="'+f.c+'">📖 '+esc(f.l)+'<span class="arr">→</span></button>';
   el.exBlock.style.display='none';
