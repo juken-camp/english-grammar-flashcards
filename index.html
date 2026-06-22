@@ -436,7 +436,7 @@ button{font-family:inherit;cursor:pointer}
 <div class="sheet" id="bookSheet" role="dialog" aria-label="教科書の範囲">
   <div class="sheet-grip"></div>
   <div class="sheet-head">
-    <div class="h">教科書の範囲<small>教科書・学年・単元を選ぶと、その範囲の文法カードが並びます</small></div>
+    <div class="h">教科書の範囲<small>教科書・学年・単元を選ぶと、その範囲のカードが並びます</small></div>
     <button class="sheet-close" id="bookClose" aria-label="閉じる">✕</button>
   </div>
   <div class="sheet-body" id="bookBody"></div>
@@ -577,9 +577,9 @@ var formulas=[
  {s:"〜の間／〜以来",f:"<b>for</b> + 期間 / <b>since</b> + 起点",c:45,l:"for / since"},
  {s:"ずっと〜し続けている<span class='fnote'>動作</span>",f:"<b>have been + 動詞のing</b>",c:46,l:"現在完了進行形"},
  {s:"ずっと〜していますか？",f:"<b>Have you been</b> + 動詞のing?",c:46,l:"現在完了進行形（疑問文）"},
- {s:"机の上の本／窓のそばの少年<span class='fnote'>後ろから修飾</span>",f:"<span class='ant'>名詞</span> + <b>on / in / under / with / of</b> + 場所・モノ",c:63,l:"前置詞句の後置修飾"},
- {s:"〜している<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>動詞のing</b> + 語句",c:47,l:"現在分詞の後置修飾"},
- {s:"〜された<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>過去分詞</b> + 語句",c:48,l:"過去分詞の後置修飾"},
+ {s:"〜の<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>on / in / under / with / of</b> + 場所・モノ",c:63,l:"前置詞句の後置修飾"},
+ {s:"…を／で〜している<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>動詞のing</b> + 語句",c:47,l:"現在分詞の後置修飾"},
+ {s:"…を／で〜された<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>過去分詞</b> + 語句",c:48,l:"過去分詞の後置修飾"},
  {s:"〜する<span class='ant'>人</span>",f:"<span class='ant'>人</span> + <b>who</b> + 動詞 〜",c:49,l:"関係代名詞 who（主格）"},
  {s:"〜する<span class='ant'>物</span>",f:"<span class='ant'>物</span> + <b>which / that</b> + 動詞 〜",c:49,l:"関係代名詞 which（主格）"},
  {s:"主語が〜する<span class='ant'>人・物</span>",f:"<span class='ant'>人・物</span> <b>(which / that)</b> + 主語 + 動詞",c:50,l:"関係代名詞（目的格・省略可）"},
@@ -732,10 +732,26 @@ function buildDeck(){
     if(st.grade&&st.grade!=='all')fl=fl.filter(function(f){return f.gr===st.grade;});
     if(st.review)fl=fl.filter(function(f){return !mastered.has('F:'+f.id);});
     if(st.q){var q=st.q.toLowerCase();fl=fl.filter(function(f){return (strip(f.s)+' '+strip(f.f)+' '+f.l).toLowerCase().indexOf(q)>=0;});}
+    if(st.book){
+      var bn=st.book.book, sels=st.book.sels.slice().sort(selCmp);
+      var co={}, ord=0;
+      sels.forEach(function(sel){var p=sel.split('|');var nos=(textbooks[bn][p[0]]||{})[p[1]]||[];nos.forEach(function(no){if(co[no]===undefined)co[no]=ord++;});});
+      fl=fl.filter(function(f){return co[f.c]!==undefined;});
+      fl.sort(function(a,b){var oa=co[a.c],ob=co[b.c];if(oa!==ob)return oa-ob;return a.c-b.c;});
+    }
     if(st.shuffle)fl=applyShuffle(fl);
     deck=fl;return;
   }
-  var list=filterCards(currentFilter());if(st.shuffle)list=applyShuffle(list);deck=list;
+  var list=filterCards(currentFilter());
+  if(st.book){
+    var bn=st.book.book, sels=st.book.sels.slice().sort(selCmp);
+    var uo={}, ord=0;
+    sels.forEach(function(sel){var p=sel.split('|');var key=p[0]+'|'+p[1];if(uo[key]===undefined)uo[key]=ord++;});
+    var firstOrd=function(g){var sents=bookSentences[g.no]||[],m=Infinity;sents.forEach(function(s){if(s.b!==bn)return;var k=s.g+'|'+s.u;if(uo[k]!==undefined&&uo[k]<m)m=uo[k];});return m;};
+    var origIdx={}; list.forEach(function(g,i){origIdx[g.id]=i;});
+    list.sort(function(a,b){var oa=firstOrd(a),ob=firstOrd(b);if(oa!==ob)return oa-ob;return origIdx[a.id]-origIdx[b.id];});
+  }
+  if(st.shuffle)list=applyShuffle(list);deck=list;
 }
 function recompute(opts){
   opts=opts||{};
@@ -773,7 +789,7 @@ function render(){
   var g=deck[st.idx], c=gcls(g.gr);
   el.frontAccent.className='front-accent '+c;
   el.frontGrade.className='grade-tab '+c; el.frontGrade.textContent=g.gr;
-  el.frontNo.textContent='#'+g.no;
+  el.frontNo.innerHTML='#'+g.no+(st.book?' '+unitTagsHTML(g.no,1):'');
   el.frontTopic.textContent=g.t.replace(/\//g,'/\u200B');
   el.frontTopic.style.fontSize = g.t.length>30 ? '19px' : g.t.length>24 ? '21px' : g.t.length>15 ? '24px' : '';
   var sents=frontSentences(g);
@@ -798,7 +814,7 @@ function renderFormula(){
   var f=deck[st.idx], c=gcls(f.gr), total=deck.length;
   el.frontAccent.className='front-accent '+c;
   el.frontGrade.className='grade-tab '+c; el.frontGrade.textContent=f.gr;
-  el.frontNo.textContent='公式 #'+f.no;
+  el.frontNo.innerHTML='公式 #'+f.no+(st.book?' '+unitTagsHTML(f.c,1):'');
   var FN=/<span class=['"]fnote['"]>[\s\S]*?<\/span>/g;
   el.frontTopic.innerHTML=f.s;
   var sLen=strip(f.s.replace(FN,'')).replace(/\s/g,'').length;
