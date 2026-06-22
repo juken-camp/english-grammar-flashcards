@@ -324,7 +324,7 @@ button{font-family:inherit;cursor:pointer}
 .modeseg{flex:0 0 auto;border:none;background:transparent;color:var(--dim);font-weight:800;font-size:12.5px;padding:6px 11px;border-radius:8px;letter-spacing:.2px;transition:.15s;display:flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap}
 .modeseg.on{background:var(--card);color:var(--purple);box-shadow:var(--sh)}
 .formula-main{font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:800;font-size:25px;line-height:1.5;color:var(--text);text-align:center;padding:26px 14px 22px;letter-spacing:.3px;word-break:keep-all;overflow-wrap:break-word}
-.formula-main .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 7px;margin:0 2px;line-height:1.25}
+.formula-main .ant, .front-topic .ant, .back-topic .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 7px;margin:0 2px;line-height:1.25}
 .formula-main b{color:var(--purple)}
 .formula-link{display:inline-flex;align-items:center;gap:7px;width:100%;justify-content:center;border:1.5px solid var(--purple-l);background:var(--purple-bg);color:var(--purple);font-weight:800;font-size:14px;padding:13px 14px;border-radius:14px;line-height:1.4;text-align:center;cursor:pointer;transition:.15s}
 .formula-link:active{transform:scale(.98)}
@@ -514,7 +514,7 @@ var formulas=[
  {s:"〜する間に",f:"<b>while</b> + 主語 + 動詞",c:20,l:"接続詞 while"},
  {s:"〜がある／いる",f:"<b>There is / are</b> + 名詞",c:21,l:"There is / are 〜"},
  {s:"〜すること（名詞的）",f:"<b>to</b> + 動詞の原形",c:22,l:"不定詞（名詞的用法）"},
- {s:"〜するための名詞",f:"<span class='ant'>名詞</span> + <b>to</b> + 動詞の原形",c:23,l:"不定詞（形容詞的用法）"},
+ {s:"〜するための<span class='ant'>名詞</span>",f:"<span class='ant'>名詞</span> + <b>to</b> + 動詞の原形",c:23,l:"不定詞（形容詞的用法）"},
  {s:"〜するために（目的）",f:"<b>to</b> + 動詞の原形",c:24,l:"不定詞（副詞的・目的）"},
  {s:"〜して（感情の原因）",f:"be glad / surprised <b>to</b> + 動詞の原形",c:24,l:"不定詞（感情の原因）"},
  {s:"人が〜するのは…だ",f:"<b>It is</b> 形容詞 <b>for</b> 人 <b>to</b> 動詞の原形",c:25,l:"形式主語 It is for〜to"},
@@ -565,12 +565,12 @@ var formulas=[
  {s:"ずっと〜している（状態）",f:"<b>have + 過去分詞</b> + for / since",c:45,l:"現在完了の「継続」"},
  {s:"〜の間／〜以来",f:"<b>for</b> + 期間 / <b>since</b> + 起点",c:45,l:"for / since"},
  {s:"ずっと〜し続けている（動作）",f:"<b>have been + 動詞のing</b>",c:46,l:"現在完了進行形"},
- {s:"〜している（名詞を説明）",f:"<span class='ant'>名詞</span> + <b>動詞のing</b> + 語句",c:47,l:"現在分詞の後置修飾"},
- {s:"〜された（名詞を説明）",f:"<span class='ant'>名詞</span> + <b>過去分詞</b> + 語句",c:48,l:"過去分詞の後置修飾"},
- {s:"〜する人",f:"<span class='ant'>人</span> + <b>who</b> + 動詞 〜",c:49,l:"関係代名詞 who（主格）"},
- {s:"〜する物",f:"<span class='ant'>物</span> + <b>which / that</b> + 動詞 〜",c:49,l:"関係代名詞 which（主格）"},
- {s:"主語が〜する人・物",f:"<span class='ant'>人・物</span> <b>(which / that)</b> + 主語 + 動詞",c:50,l:"関係代名詞（目的格・省略可）"},
- {s:"〜が…な人・物",f:"<span class='ant'>人・物</span> + <b>whose</b> + <span class='ant'>名詞</span> 〜",c:51,l:"関係代名詞 whose（所有格）"},
+ {s:"〜している（<span class='ant'>名詞</span>を説明）",f:"<span class='ant'>名詞</span> + <b>動詞のing</b> + 語句",c:47,l:"現在分詞の後置修飾"},
+ {s:"〜された（<span class='ant'>名詞</span>を説明）",f:"<span class='ant'>名詞</span> + <b>過去分詞</b> + 語句",c:48,l:"過去分詞の後置修飾"},
+ {s:"〜する<span class='ant'>人</span>",f:"<span class='ant'>人</span> + <b>who</b> + 動詞 〜",c:49,l:"関係代名詞 who（主格）"},
+ {s:"〜する<span class='ant'>物</span>",f:"<span class='ant'>物</span> + <b>which / that</b> + 動詞 〜",c:49,l:"関係代名詞 which（主格）"},
+ {s:"主語が〜する<span class='ant'>人・物</span>",f:"<span class='ant'>人・物</span> <b>(which / that)</b> + 主語 + 動詞",c:50,l:"関係代名詞（目的格・省略可）"},
+ {s:"〜が…な<span class='ant'>人・物</span>",f:"<span class='ant'>人・物</span> + <b>whose</b> + <span class='ant'>名詞</span> 〜",c:51,l:"関係代名詞 whose（所有格）"},
  {s:"…すぎて〜できない",f:"<b>too</b> + 形容詞 + <b>to</b> + 動詞の原形",c:52,l:"too 〜 to …"},
  {s:"〜するのに十分…",f:"形容詞 + <b>enough to</b> + 動詞の原形",c:52,l:"〜 enough to …"},
  {s:"人に〜させる",f:"<b>make / let</b> + 人 + 動詞の原形",c:53,l:"使役動詞（make / let）"},
@@ -587,8 +587,8 @@ var formulas=[
  {s:"〜ならいいのに（願望）",f:"<b>I wish</b> + 主語 + 動詞の過去形（<b>could</b>）",c:58,l:"I wish + 仮定法"},
  {s:"とても〜なので…",f:"<b>so</b> + 形容詞・副詞 + <b>that</b> + 主語 + 動詞",c:59,l:"so 〜 that …"},
  {s:"とても〜な名詞なので…",f:"<b>such (a)</b> + 形容詞 + 名詞 + <b>that</b> + 主語 + 動詞",c:59,l:"such 〜 that …"},
- {s:"主語が〜する場所",f:"<span class='ant'>場所</span> + <b>where</b> + 主語 + 動詞",c:60,l:"関係副詞 where"},
- {s:"主語が〜する時",f:"<span class='ant'>時</span> + <b>when</b> + 主語 + 動詞",c:60,l:"関係副詞 when"},
+ {s:"主語が〜する<span class='ant'>場所</span>",f:"<span class='ant'>場所</span> + <b>where</b> + 主語 + 動詞",c:60,l:"関係副詞 where"},
+ {s:"主語が〜する<span class='ant'>時</span>",f:"<span class='ant'>時</span> + <b>when</b> + 主語 + 動詞",c:60,l:"関係副詞 when"},
  {s:"主語が〜するもの／こと",f:"<b>what</b> + 主語 + 動詞",c:60,l:"関係代名詞 what"}
 ];
 formulas.forEach(function(f,i){f.id='f'+(i+1);f.no=i+1;f.gr=(grammarRef[f.c-1]||{}).gr||'中1';});
@@ -718,7 +718,7 @@ function buildDeck(){
     var fl=formulas.slice();
     if(st.grade&&st.grade!=='all')fl=fl.filter(function(f){return f.gr===st.grade;});
     if(st.review)fl=fl.filter(function(f){return !mastered.has('F:'+f.id);});
-    if(st.q){var q=st.q.toLowerCase();fl=fl.filter(function(f){return (f.s+' '+strip(f.f)+' '+f.l).toLowerCase().indexOf(q)>=0;});}
+    if(st.q){var q=st.q.toLowerCase();fl=fl.filter(function(f){return (strip(f.s)+' '+strip(f.f)+' '+f.l).toLowerCase().indexOf(q)>=0;});}
     if(st.shuffle)fl=applyShuffle(fl);
     deck=fl;return;
   }
@@ -786,11 +786,12 @@ function renderFormula(){
   el.frontAccent.className='front-accent '+c;
   el.frontGrade.className='grade-tab '+c; el.frontGrade.textContent=f.gr;
   el.frontNo.textContent='公式 #'+f.no;
-  el.frontTopic.textContent=f.s;
-  el.frontTopic.style.fontSize = f.s.length>20 ? '21px' : f.s.length>13 ? '24px' : '';
+  el.frontTopic.innerHTML=f.s;
+  var sLen=strip(f.s).replace(/\s/g,'').length;
+  el.frontTopic.style.fontSize = sLen>20 ? '21px' : sLen>13 ? '24px' : '';
   el.frontSents.className='front-sents'; el.frontSents.innerHTML='';
   el.backGrade.className='grade-tab small '+c; el.backGrade.textContent=f.gr;
-  el.backTopic.textContent=f.s;
+  el.backTopic.innerHTML=f.s;
   el.backUnits.innerHTML='';
   el.rule.innerHTML='<div class="formula-main">'+f.f+'</div><button class="formula-link no-swipe" data-card="'+f.c+'">📖 '+esc(f.l)+'<span class="arr">→</span></button>';
   el.exBlock.style.display='none';
@@ -801,7 +802,7 @@ function renderFormula(){
   var m=mastered.has('F:'+f.id);
   el.masterBtn.classList.toggle('on',m);
   el.masterBtn.setAttribute('aria-pressed',m?'true':'false');
-  el.live.textContent=(st.idx+1)+' / '+total+'、公式、'+f.s+(st.flip?'、'+strip(f.f):'');
+  el.live.textContent=(st.idx+1)+' / '+total+'、公式、'+strip(f.s)+(st.flip?'、'+strip(f.f):'');
 }
 function applyModeUI(){
   var fm=st.mode==='formula';
