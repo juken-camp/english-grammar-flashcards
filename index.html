@@ -373,13 +373,13 @@ button{font-family:inherit;cursor:pointer}
 .gen-front-name{font-weight:800;font-size:24px;line-height:1.3;letter-spacing:.3px;color:var(--text);text-align:center;word-break:auto-phrase;margin-bottom:8px}
 .gen-front-name .fnote,.gen-front-name .gen-name-paren{display:block;margin-top:7px;font-size:.55em;font-weight:500;color:var(--dim);letter-spacing:0;line-height:1.5;font-style:italic}
 .gen-front-grade{display:inline-block;align-self:center;font-family:'Outfit';font-size:10.5px;font-weight:700;color:var(--purple);background:var(--purple-bg);border:1px solid var(--purple-l);padding:2px 9px;border-radius:10px;letter-spacing:.5px;margin-bottom:14px}
-.gen-basic{margin:0 auto 16px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 14px;font-weight:800;font-size:15.5px;line-height:1.7;color:var(--text);text-align:center;letter-spacing:.2px;max-width:100%;word-break:auto-phrase}
+.gen-basic{margin:0 auto 16px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 14px;font-weight:800;font-size:15.5px;line-height:1.85;color:var(--text);text-align:center;letter-spacing:.2px;max-width:100%;word-break:auto-phrase}
 .gen-basic b{color:var(--purple)}
 .gen-basic .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 6px;margin:0 1px;line-height:1.25}
 .gen-headlines{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:9px 12px;display:flex;align-items:baseline;gap:9px;line-height:1.45;flex-wrap:wrap}
-.gen-hline-u{font-weight:800;font-size:13.5px;color:var(--purple);flex:0 1 auto;letter-spacing:.2px;word-break:auto-phrase;max-width:100%}
-.gen-hline-k{font-size:12.5px;color:var(--dim);font-weight:600;line-height:1.5;word-break:auto-phrase;flex:1 1 auto;min-width:0}
+.gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:9px 12px;line-height:1.65;text-align:left}
+.gen-hline-u{font-weight:800;font-size:13.5px;color:var(--purple);letter-spacing:.2px;margin-right:9px;vertical-align:baseline}
+.gen-hline-k{font-size:12.5px;color:var(--dim);font-weight:600;vertical-align:baseline;word-break:auto-phrase;display:inline-block;max-width:100%}
 .gen-usage{background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 13px;margin-bottom:11px}
 .gen-usage-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:8px}
 .gen-usage-label{font-weight:800;font-size:14.5px;color:var(--purple);letter-spacing:.2px}
@@ -1167,7 +1167,7 @@ var genres = [
   },
 
   {no:12, grade:"中1", name:"前置詞",
-   basic:"<b>前置詞</b> + 名詞・代名詞（目的格）／ 動詞ing",
+   basic:"<b>前置詞</b> + 名詞・代名詞（目的格）・動詞ing",
    headlines:[
      {u:"場所", k:"in / on / at / under"},
      {u:"時", k:"in / on / at / by / until / from 〜 to"},
@@ -3020,22 +3020,21 @@ function renderFormula(){
   el.live.textContent=(st.idx+1)+' / '+total+'、公式、'+strip(f.s)+(st.flip?'、'+strip(f.f):'');
   updateFrontNext();
 }
-// 分野カード表面の整形: 「（…）」を fnote 風サブテキストへ昇格し、内部の" / "で改行
+// 分野カード表面の整形: 「（…）」を fnote 風サブテキストへ昇格（中身は1行）
 function fmtGenreName(name){
   if(!name) return '';
   var s=esc(name);
   s=s.replace(/(\S)([（(])([^）)]+)([）)])/g, function(m, pre, open, inner, close){
-    var innerFmt=inner.replace(/(\S)\s+\/\s+/g, '$1<br>/ ');
-    return pre+'<span class="gen-name-paren">'+open+innerFmt+close+'</span>';
+    return pre+'<span class="gen-name-paren">'+open+inner+close+'</span>';
   });
   return s;
 }
-// 分野カード基本形の整形: 「／」を主要区切りとして改行（カッコ内の／は保護）
+// 分野カード基本形の整形: 「／」を改行に置き換える（記号は落として改行のみ）
 function fmtGenreBasic(html){
   if(!html) return '';
   return html
     .replace(/([（(])\s*／/g, '$1\u0001')
-    .replace(/\s*／\s*/g, '<br>／ ')
+    .replace(/\s*／\s*/g, '<br>')
     .replace(/\u0001/g, '／');
 }
 // 用法見出しの u 値: 「（」と" / "の前に <wbr> を入れ、必要時にだけ折り返す
@@ -3073,7 +3072,7 @@ function renderGenre(){
     backHTML+=g.usages.map(function(u){
       var keysHTML=u.keys&&u.keys.length?'<div class="gen-usage-keys">'+u.keys.map(function(k){return '<span class="gen-key">'+esc(k)+'</span>';}).join('')+'</div>':'';
       var exHTML=u.examples&&u.examples.length?'<div class="gen-usage-ex">'+u.examples.map(function(ex){
-        return '<div class="gen-ex-row"><div class="gen-ex-en">'+ex.en+'</div><div class="gen-ex-ja">'+esc(ex.ja)+'</div></div>';
+        return '<div class="gen-ex-row"><div class="gen-ex-en">'+ex.en+'</div>'+(ex.ja?'<div class="gen-ex-ja">'+esc(ex.ja)+'</div>':'')+'</div>';
       }).join('')+'</div>':'';
       var cautionHTML=u.caution?'<div class="gen-usage-caution">⚠️ '+u.caution+'</div>':'';
       return '<div class="gen-usage">'+
