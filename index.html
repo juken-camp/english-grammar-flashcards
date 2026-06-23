@@ -735,7 +735,7 @@ var genres = [
   },
 
   {no:2, grade:"中1", name:"一般動詞",
-   basic:"主語 ＋ <b>動詞</b> ／ 主語 ＋ <b>don't / doesn't / didn't</b> ＋ 原形",
+   basic:"主語 ＋ <b>動詞</b> ／ <b>don't / doesn't / didn't</b> ＋ 原形",
    headlines:[
      {u:"肯定文", k:"play / studied"},
      {u:"否定文", k:"don't / doesn't / didn't"},
@@ -820,7 +820,7 @@ var genres = [
   },
 
   {no:4, grade:"中1", name:"進行形",
-   basic:"主語 ＋ <b>be動詞（am/is/are・was/were）</b> ＋ <b>動詞ing</b>",
+   basic:"主語 ＋ <b>be動詞</b> ＋ <b>動詞ing</b>",
    headlines:[
      {u:"現在進行形", k:"〜している（今）"},
      {u:"過去進行形", k:"〜していた（その時）"},
@@ -905,7 +905,7 @@ var genres = [
   },
 
   {no:6, grade:"中1", name:"疑問詞",
-   basic:"<b>疑問詞</b> ＋ 疑問文の語順（be/do/does/did/助動詞 ＋ 主語 ＋ 〜?）",
+   basic:"<b>疑問詞</b> ＋ 疑問文の語順",
    headlines:[
      {u:"What / Who / Whose", k:"何 / 誰 / 誰の"},
      {u:"Where / When / Why", k:"どこ / いつ / なぜ"},
@@ -1253,7 +1253,7 @@ var genres = [
 
   // ========== 中2 (10枚) ==========
   {no:14, grade:"中2", name:"接続詞",
-   basic:"<b>等位接続詞</b>（and, but, or, so）／ <b>従位接続詞</b>（when, if, that, because, while）",
+   basic:"<b>等位接続詞</b>（and, but, or, so）／ <b>従位接続詞</b>（when, if, because など）",
    headlines:[
      {u:"等位接続詞", k:"and / but / or / so"},
      {u:"時・条件", k:"when / if / while"},
@@ -1599,7 +1599,7 @@ var genres = [
   },
 
   {no:21, grade:"中2", name:"助動詞（発展）",
-   basic:"<b>should / must / have to / may / might</b> ＋ 動詞の原形",
+   basic:"<b>should / must / have to</b> ＋ 原形 ／ <b>may / might</b> ＋ 原形",
    headlines:[
      {u:"should", k:"〜すべき"},
      {u:"must / have to", k:"〜しなければならない"},
@@ -1731,7 +1731,7 @@ var genres = [
 
   // ========== 中3 (9枚) ==========
   {no:24, grade:"中3", name:"現在完了",
-   basic:"<b>have / has ＋ 過去分詞</b>（進行形は <b>have/has been ＋ 〜ing</b>）",
+   basic:"<b>have / has ＋ 過去分詞</b> ／ <b>have/has been ＋ 〜ing</b>（進行形）",
    headlines:[
      {u:"経験", k:"〜したことがある"},
      {u:"完了・結果", k:"〜したところだ／してしまった"},
@@ -1848,7 +1848,7 @@ var genres = [
   },
 
   {no:26, grade:"中3", name:"関係代名詞",
-   basic:"<b>名詞 ＋ 関係代名詞 ＋ 不完全な文</b>（who / which / that / whose）",
+   basic:"<b>名詞 ＋ 関係代名詞 ＋ 不完全な文</b>",
    headlines:[
      {u:"主格", k:"who / which / that"},
      {u:"目的格", k:"which / that（省略可）"},
@@ -2023,7 +2023,7 @@ var genres = [
   },
 
   {no:30, grade:"中3", name:"仮定法過去",
-   basic:"<b>If ＋ S ＋ 過去形, S ＋ would / could / might ＋ 原形</b>",
+   basic:"<b>If ＋ S ＋ 過去形,</b> ／ <b>S ＋ would / could / might ＋ 原形</b>",
    headlines:[
      {u:"If 仮定法", k:"もし〜なら、〜だろうに"},
      {u:"were", k:"主語に関係なく were"},
@@ -2066,7 +2066,7 @@ var genres = [
   },
 
   {no:31, grade:"中3", name:"使役・知覚動詞（原形不定詞）",
-   basic:"<b>使役・知覚動詞 ＋ O ＋ 動詞の原形</b>（to のつかない不定詞）",
+   basic:"<b>使役・知覚動詞 ＋ O ＋ 動詞の原形</b>",
    headlines:[
      {u:"使役動詞", k:"let / make / have + O + 原形"},
      {u:"知覚動詞", k:"see / hear / feel + O + 原形/-ing"},
@@ -3092,8 +3092,8 @@ function fitGenreBasicLines(){
       line.style.display='';
       if(intrinsic>maxW){
         var ratio=maxW/intrinsic;
-        // 最小 78% で抑える（それ以下はやむなく2行に）
-        var pct=Math.max(78, Math.floor(ratio*100));
+        // 最小 65% で抑える（それ以下はやむなく2行に。78%→65%で長い basic も1行に収まりやすく）
+        var pct=Math.max(65, Math.floor(ratio*100));
         line.style.fontSize=pct+'%';
       }
     });
