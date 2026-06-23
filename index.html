@@ -377,6 +377,7 @@ button{font-family:inherit;cursor:pointer}
 .gen-basic b{color:var(--purple)}
 .gen-basic .gen-basic-sub{display:block;font-size:.78em;font-weight:600;color:var(--dim);margin-top:4px;line-height:1.55;letter-spacing:0}
 .gen-basic .gen-basic-sub b{color:var(--purple);font-weight:700}
+.gen-basic .gen-basic-line{display:inline-block;max-width:100%;transform-origin:50% 50%}
 .gen-basic .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 6px;margin:0 1px;line-height:1.25}
 .gen-headlines{display:flex;flex-direction:column;gap:8px;margin-top:4px}
 .gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:9px 12px;line-height:1.65;text-align:left}
@@ -3054,6 +3055,40 @@ function fmtGenreHlineU(text){
     .replace(/(\S)\s+\/\s+/g, '$1 <wbr>/ ')
     .replace(/(\S)\s*／\s*/g, '$1<wbr>／');
 }
+// 分野カード基本形の各行を自動フィット: あふれる行だけ font-size を縮小して1行に収める
+function fitGenreBasicLines(){
+  var boxes=document.querySelectorAll('.face.front .gen-basic');
+  boxes.forEach(function(box){
+    if(box.querySelector('.gen-basic-line')) return;
+    var html=box.innerHTML;
+    var parts=html.split(/<br\s*\/?>/i);
+    if(parts.length===0) return;
+    box.innerHTML=parts.map(function(p){return '<span class="gen-basic-line">'+p+'</span>';}).join('<br>');
+    var cs=window.getComputedStyle(box);
+    var padL=parseFloat(cs.paddingLeft)||0, padR=parseFloat(cs.paddingRight)||0;
+    var maxW=box.clientWidth-padL-padR;
+    if(maxW<=0) return;
+    box.querySelectorAll('.gen-basic-line').forEach(function(line){
+      if(!line.textContent.trim()) return;
+      // .gen-basic-sub だけの行（小さい注釈）はスキップ
+      var children=line.children;
+      if(children.length===1 && children[0].classList && children[0].classList.contains('gen-basic-sub')){
+        var nonSubText=line.textContent.replace(children[0].textContent,'').trim();
+        if(!nonSubText) return;
+      }
+      // 固有幅を測定するため一時的に white-space を nowrap にする
+      line.style.whiteSpace='nowrap';
+      var intrinsic=line.scrollWidth;
+      line.style.whiteSpace='';
+      if(intrinsic>maxW){
+        var ratio=maxW/intrinsic;
+        // 最小 78% で抑える（それ以下はやむなく2行に）
+        var pct=Math.max(78, Math.floor(ratio*100));
+        line.style.fontSize=pct+'%';
+      }
+    });
+  });
+}
 function renderGenre(){
   var g=deck[st.idx], c=gcls(g.gr), total=deck.length;
   el.frontAccent.className='front-accent '+c;
@@ -3126,6 +3161,12 @@ function renderGenre(){
   el.masterBtn.setAttribute('aria-pressed',m?'true':'false');
   el.live.textContent=(st.idx+1)+' / '+total+'、分野、'+g.name+(st.flip?'、解説':'');
   updateFrontNext();
+  // 基本形ボックスの各行を自動フィット（レイアウト確定後に測定）
+  if(typeof requestAnimationFrame==='function'){
+    requestAnimationFrame(function(){requestAnimationFrame(fitGenreBasicLines);});
+  } else {
+    setTimeout(fitGenreBasicLines, 0);
+  }
 }
 function updateFrontNext(){
   if(!st.book){el.frontNext.classList.remove('on');el.frontNext.innerHTML='';return;}
