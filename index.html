@@ -370,16 +370,16 @@ button{font-family:inherit;cursor:pointer}
 .ov-tbl td.ng s{opacity:.7}
 /* ===== 分野モード ===== */
 .gen-front{flex:1;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:22px 18px 18px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.gen-front-name{font-weight:800;font-size:24px;line-height:1.3;letter-spacing:.3px;color:var(--text);text-align:center;word-break:auto-phrase;margin-bottom:6px}
-.gen-front-name .fnote{display:block;margin-top:5px;font-size:.55em;font-weight:600;color:var(--dim);letter-spacing:0;line-height:1.35}
+.gen-front-name{font-weight:800;font-size:24px;line-height:1.3;letter-spacing:.3px;color:var(--text);text-align:center;word-break:auto-phrase;margin-bottom:8px}
+.gen-front-name .fnote,.gen-front-name .gen-name-paren{display:block;margin-top:7px;font-size:.55em;font-weight:500;color:var(--dim);letter-spacing:0;line-height:1.5;font-style:italic}
 .gen-front-grade{display:inline-block;align-self:center;font-family:'Outfit';font-size:10.5px;font-weight:700;color:var(--purple);background:var(--purple-bg);border:1px solid var(--purple-l);padding:2px 9px;border-radius:10px;letter-spacing:.5px;margin-bottom:14px}
-.gen-basic{margin:0 auto 16px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 14px;font-weight:800;font-size:15.5px;line-height:1.55;color:var(--text);text-align:center;letter-spacing:.2px;max-width:100%;word-break:auto-phrase}
+.gen-basic{margin:0 auto 16px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 14px;font-weight:800;font-size:15.5px;line-height:1.7;color:var(--text);text-align:center;letter-spacing:.2px;max-width:100%;word-break:auto-phrase}
 .gen-basic b{color:var(--purple)}
 .gen-basic .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 6px;margin:0 1px;line-height:1.25}
 .gen-headlines{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:9px 12px;display:flex;align-items:baseline;gap:9px;line-height:1.45}
-.gen-hline-u{font-weight:800;font-size:13.5px;color:var(--purple);flex:0 0 auto;letter-spacing:.2px}
-.gen-hline-k{font-size:12.5px;color:var(--dim);font-weight:600;line-height:1.5;word-break:auto-phrase}
+.gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:9px 12px;display:flex;align-items:baseline;gap:9px;line-height:1.45;flex-wrap:wrap}
+.gen-hline-u{font-weight:800;font-size:13.5px;color:var(--purple);flex:0 1 auto;letter-spacing:.2px;word-break:auto-phrase;max-width:100%}
+.gen-hline-k{font-size:12.5px;color:var(--dim);font-weight:600;line-height:1.5;word-break:auto-phrase;flex:1 1 auto;min-width:0}
 .gen-usage{background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 13px;margin-bottom:11px}
 .gen-usage-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:8px}
 .gen-usage-label{font-weight:800;font-size:14.5px;color:var(--purple);letter-spacing:.2px}
@@ -3020,6 +3020,32 @@ function renderFormula(){
   el.live.textContent=(st.idx+1)+' / '+total+'、公式、'+strip(f.s)+(st.flip?'、'+strip(f.f):'');
   updateFrontNext();
 }
+// 分野カード表面の整形: 「（…）」を fnote 風サブテキストへ昇格し、内部の" / "で改行
+function fmtGenreName(name){
+  if(!name) return '';
+  var s=esc(name);
+  s=s.replace(/(\S)([（(])([^）)]+)([）)])/g, function(m, pre, open, inner, close){
+    var innerFmt=inner.replace(/(\S)\s+\/\s+/g, '$1<br>/ ');
+    return pre+'<span class="gen-name-paren">'+open+innerFmt+close+'</span>';
+  });
+  return s;
+}
+// 分野カード基本形の整形: 「／」を主要区切りとして改行（カッコ内の／は保護）
+function fmtGenreBasic(html){
+  if(!html) return '';
+  return html
+    .replace(/([（(])\s*／/g, '$1\u0001')
+    .replace(/\s*／\s*/g, '<br>／ ')
+    .replace(/\u0001/g, '／');
+}
+// 用法見出しの u 値: 「（」と" / "の前に <wbr> を入れ、必要時にだけ折り返す
+function fmtGenreHlineU(text){
+  if(!text) return '';
+  return esc(text)
+    .replace(/(\S)([（(])/g, '$1<wbr>$2')
+    .replace(/(\S)\s+\/\s+/g, '$1 <wbr>/ ')
+    .replace(/(\S)\s*／\s*/g, '$1<wbr>／');
+}
 function renderGenre(){
   var g=deck[st.idx], c=gcls(g.gr), total=deck.length;
   el.frontAccent.className='front-accent '+c;
@@ -3029,10 +3055,10 @@ function renderGenre(){
   el.frontTopic.style.fontSize='';
   // 表面: 分野名 + 基本形 + headlines
   var frontHTML='<div class="gen-front">'+
-    '<div class="gen-front-name">'+esc(g.name)+'</div>'+
-    (g.basic?'<div class="gen-basic">'+g.basic+'</div>':'')+
+    '<div class="gen-front-name">'+fmtGenreName(g.name)+'</div>'+
+    (g.basic?'<div class="gen-basic">'+fmtGenreBasic(g.basic)+'</div>':'')+
     (g.headlines&&g.headlines.length?'<div class="gen-headlines">'+g.headlines.map(function(h){
-      return '<div class="gen-hline"><span class="gen-hline-u">'+esc(h.u)+'</span><span class="gen-hline-k">'+esc(h.k)+'</span></div>';
+      return '<div class="gen-hline"><span class="gen-hline-u">'+fmtGenreHlineU(h.u)+'</span><span class="gen-hline-k">'+esc(h.k)+'</span></div>';
     }).join('')+'</div>':'')+
     '</div>';
   el.frontSents.className='front-sents';
