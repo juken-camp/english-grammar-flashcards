@@ -1678,29 +1678,45 @@ function animateNav(dir){
     el.card.style.transition='transform .3s cubic-bezier(.2,.8,.2,1), opacity .22s ease';el.card.style.transform='translateX(0)';el.card.style.opacity='1';
   },200);
 }
-var drag={on:false,lock:null,x0:0,y0:0,t0:0,dx:0,dy:0,id:null,noSwipe:false};
+var drag={on:false,lock:null,x0:0,y0:0,t0:0,dx:0,dy:0,id:null,noSwipe:false,peakX:0,lastT:0,lastDx:0,vel:0};
 el.card.addEventListener('pointerdown',function(e){
   if(deck.length===0)return;
   drag.noSwipe=!!e.target.closest('.no-swipe');
-  drag.on=true;drag.lock=null;drag.dx=0;drag.dy=0;drag.x0=e.clientX;drag.y0=e.clientY;drag.t0=Date.now();drag.id=e.pointerId;
+  drag.on=true;drag.lock=null;drag.dx=0;drag.dy=0;drag.peakX=0;drag.x0=e.clientX;drag.y0=e.clientY;drag.t0=Date.now();drag.lastT=drag.t0;drag.lastDx=0;drag.vel=0;drag.id=e.pointerId;
   el.card.style.transition='none';
 });
 el.card.addEventListener('pointermove',function(e){
   if(!drag.on||e.pointerId!==drag.id)return;
   drag.dx=e.clientX-drag.x0;drag.dy=e.clientY-drag.y0;
-  if(drag.lock===null&&(Math.abs(drag.dx)>5||Math.abs(drag.dy)>5)){drag.lock=Math.abs(drag.dx)*1.25>=Math.abs(drag.dy)?'h':'v';if(drag.lock==='h'){try{el.card.setPointerCapture(drag.id)}catch(_){}}}
-  if(drag.lock==='h'){var dx=drag.dx;el.card.style.transform='translateX('+dx+'px) rotate('+(dx*0.04)+'deg)';el.card.style.opacity=String(Math.max(.5,1-Math.abs(dx)/620));}
+  if(drag.lock===null&&(Math.abs(drag.dx)>5||Math.abs(drag.dy)>5)){drag.lock=Math.abs(drag.dx)>=Math.abs(drag.dy)?'h':'v';if(drag.lock==='h'){try{el.card.setPointerCapture(drag.id)}catch(_){}}}
+  if(drag.lock==='h'){
+    var dx=drag.dx;
+    if(Math.abs(dx)>Math.abs(drag.peakX))drag.peakX=dx;
+    var now=Date.now(),tdt=now-drag.lastT;
+    if(tdt>0){drag.vel=(dx-drag.lastDx)/tdt;drag.lastT=now;drag.lastDx=dx;}
+    el.card.style.transform='translateX('+dx+'px) rotate('+(dx*0.04)+'deg)';el.card.style.opacity=String(Math.max(.5,1-Math.abs(dx)/620));
+  }
 });
 function endDrag(e){
   if(!drag.on)return;drag.on=false;
-  var dt=Date.now()-drag.t0,dx=drag.dx,dy=drag.dy,ax=Math.abs(dx),ay=Math.abs(dy),lock=drag.lock,wasNoSwipe=drag.noSwipe;drag.lock=null;drag.noSwipe=false;
+  var dt=Date.now()-drag.t0,dx=drag.dx,dy=drag.dy,ax=Math.abs(dx),ay=Math.abs(dy),lock=drag.lock,wasNoSwipe=drag.noSwipe;
+  var peakX=drag.peakX,apk=Math.abs(peakX),instVel=Math.abs(drag.vel);
+  drag.lock=null;drag.noSwipe=false;drag.peakX=0;drag.vel=0;
   try{el.card.releasePointerCapture(e.pointerId)}catch(_){}
-  if(lock==='h'){var vel=ax/Math.max(dt,1);var distTh=wasNoSwipe?70:40;var velTh=wasNoSwipe?0.5:0.30;if(ax>distTh||vel>velTh)animateNav(dx<0?1:-1);else snapBack();}
+  if(lock==='h'){
+    var vel=ax/Math.max(dt,1);
+    var distTh=wasNoSwipe?70:26;
+    var velTh=wasNoSwipe?0.5:0.20;
+    var peakTh=wasNoSwipe?100:55;
+    if(ax>distTh||vel>velTh||instVel>velTh)animateNav(dx<0?1:-1);
+    else if(apk>peakTh&&ax>=apk*0.55)animateNav(peakX<0?1:-1);
+    else snapBack();
+  }
   else if(ax<8&&ay<8&&dt<320&&!wasNoSwipe){snapBack();flip();}
   else snapBack();
 }
 el.card.addEventListener('pointerup',endDrag);
-el.card.addEventListener('pointercancel',function(){if(!drag.on)return;drag.on=false;drag.lock=null;drag.noSwipe=false;snapBack();});
+el.card.addEventListener('pointercancel',function(){if(!drag.on)return;drag.on=false;drag.lock=null;drag.noSwipe=false;drag.peakX=0;drag.vel=0;snapBack();});
 
 el.masterBtn.addEventListener('click',function(){
   var g=deck[st.idx];if(!g)return;var k=mkey(g),was=mastered.has(k);
