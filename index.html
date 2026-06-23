@@ -84,7 +84,7 @@ button{font-family:inherit;cursor:pointer}
 .backfx:active{transform:translateX(-50%) scale(.96)}
 
 .card{position:relative;width:100%;max-width:440px;height:100%;perspective:1400px;touch-action:pan-y;will-change:transform;outline:none;user-select:none;-webkit-user-select:none}
-.card-inner,.face,.front-top,.front-body,.front-topic,.front-ja,.front-sents,.back-head,.back-topic,.back-scroll{touch-action:pan-y}
+.card-inner,.face,.front-top,.front-body,.front-topic,.front-ja,.front-sents,.back-head,.back-topic,.back-scroll,.back-scroll *{touch-action:pan-y}
 .card:focus-visible{border-radius:var(--r);box-shadow:0 0 0 3px var(--purple-l)}
 .back-scroll{user-select:text;-webkit-user-select:text}
 .card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.85,.25,1)}
