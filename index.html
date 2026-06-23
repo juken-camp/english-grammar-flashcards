@@ -692,11 +692,11 @@ formulas.forEach(function(f,i){f.id='f'+(i+1);f.no=i+1;f.gr=(grammarRef[f.c-1]||
 var genres = [
   // ========== 中1 (13枚) ==========
   {no:1, grade:"中1", name:"be動詞",
-   basic:"主語 + <b>am / is / are / was / were</b> + 〜",
+   basic:"主語 ＋ <b>am / is / are / was / were</b> ＋ 〜",
    headlines:[
      {u:"〜です", k:"性質・状態"},
      {u:"〜にいる／ある", k:"存在"},
-     {u:"疑問・否定", k:"倒置 / not"}
+     {u:"疑問文・否定文", k:"be ＋ not ／ Be 〜?"}
    ],
    usages:[
      {label:"主語 ＋ be ＋ 名詞・形容詞",
@@ -735,7 +735,7 @@ var genres = [
   },
 
   {no:2, grade:"中1", name:"一般動詞",
-   basic:"主語 + <b>動詞</b> ／ 主語 + <b>don't / doesn't / didn't</b> + 原形",
+   basic:"主語 ＋ <b>動詞</b> ／ 主語 ＋ <b>don't / doesn't / didn't</b> ＋ 原形",
    headlines:[
      {u:"肯定文", k:"play / studied"},
      {u:"否定文", k:"don't / doesn't / didn't"},
@@ -745,7 +745,7 @@ var genres = [
      {label:"主語 ＋ 一般動詞",
       trans:"〜する／〜した",
       role:"動作・気持ちを表す",
-      keys:["play","study","like","go","came"],
+      keys:["play","study","like","go","have"],
       examples:[
         {en:"I <b>play</b> tennis.", ja:"私はテニスをします"},
         {en:"She <b>studied</b> English yesterday.", ja:"彼女は昨日英語を勉強した"}
@@ -767,7 +767,8 @@ var genres = [
       role:"疑問文。動詞は<b>原形</b>",
       keys:["Do","Does","Did","Yes, ~ do/does/did","No, ~ don't/doesn't/didn't"],
       examples:[
-        {en:"<b>Does</b> she <b>play</b> tennis? — Yes, she <b>does</b>.", ja:"彼女はテニスをしますか — はい"}
+        {en:"<b>Does</b> she <b>play</b> tennis? — Yes, she <b>does</b>.", ja:"彼女はテニスをしますか — はい"},
+        {en:"<b>Did</b> you <b>go</b> there? — No, I <b>didn't</b>.", ja:"そこへ行きましたか — いいえ"}
       ]
      }
    ],
@@ -777,7 +778,7 @@ var genres = [
   },
 
   {no:3, grade:"中1", name:"助動詞（基礎）",
-   basic:"主語 + <b>助動詞</b> + <b>動詞の原形</b>",
+   basic:"主語 ＋ <b>助動詞</b> ＋ <b>動詞の原形</b>",
    headlines:[
      {u:"can", k:"〜できる／〜してもよい"},
      {u:"will", k:"〜するつもり／〜だろう"},
@@ -819,7 +820,7 @@ var genres = [
   },
 
   {no:4, grade:"中1", name:"進行形",
-   basic:"主語 + <b>be動詞（am/is/are・was/were）</b> + <b>動詞ing</b>",
+   basic:"主語 ＋ <b>be動詞（am/is/are・was/were）</b> ＋ <b>動詞ing</b>",
    headlines:[
      {u:"現在進行形", k:"〜している（今）"},
      {u:"過去進行形", k:"〜していた（その時）"},
@@ -893,7 +894,8 @@ var genres = [
       role:"確定したごく近い予定（移動・約束）",
       keys:["am ~ing","is ~ing","are ~ing + 未来の語"],
       examples:[
-        {en:"I <b>am leaving</b> Tokyo tomorrow.", ja:"明日東京を発ちます"}
+        {en:"I <b>am leaving</b> Tokyo tomorrow.", ja:"明日東京を発ちます"},
+        {en:"We <b>are having</b> a party on Saturday.", ja:"土曜にパーティーをします"}
       ]
      }
    ],
@@ -903,7 +905,7 @@ var genres = [
   },
 
   {no:6, grade:"中1", name:"疑問詞",
-   basic:"<b>疑問詞</b> + 疑問文の語順（be/do/does/did/助動詞 + 主語 + 〜?）",
+   basic:"<b>疑問詞</b> ＋ 疑問文の語順（be/do/does/did/助動詞 ＋ 主語 ＋ 〜?）",
    headlines:[
      {u:"What / Who / Whose", k:"何 / 誰 / 誰の"},
      {u:"Where / When / Why", k:"どこ / いつ / なぜ"},
@@ -926,6 +928,7 @@ var genres = [
       keys:["Where","When","Why","Because 〜","To 〜"],
       examples:[
         {en:"<b>Where</b> do you live?", ja:"どこに住んでいますか"},
+        {en:"<b>When</b> is your birthday?", ja:"誕生日はいつですか"},
         {en:"<b>Why</b> are you tired? — <b>Because</b> I studied late.", ja:"なぜ疲れているの？— 遅くまで勉強したから"}
       ],
       caution:"Why の答え方：Because 〜 ／ To 〜（不定詞・目的）"
@@ -1036,7 +1039,7 @@ var genres = [
   },
 
   {no:9, grade:"中1", name:"代名詞",
-   basic:"<b>人称代名詞</b>（I/my/me/mine 系列）／ <b>指示代名詞</b>（this/that/these/those）",
+   basic:"<b>人称代名詞</b>（I/my/me/mine 系列）／ <b>指示代名詞</b>（this/that/these/those）／ <b>再帰代名詞</b>（myself 系列）",
    headlines:[
      {u:"人称代名詞", k:"主格・所有格・目的格・所有代名詞"},
      {u:"指示代名詞", k:"this / that / these / those"},
@@ -1048,8 +1051,8 @@ var genres = [
       role:"文の中の役割で形が変わる",
       keys:["I/my/me/mine","you/your/you/yours","he/his/him/his","she/her/her/hers"],
       examples:[
-        {en:"<b>I</b> like <b>him</b>.（主格／目的格）", ja:"私は彼が好きだ"},
-        {en:"This is <b>my</b> book. It's <b>mine</b>.（所有格／所有代名詞）", ja:"これは私の本です。私のものです"}
+        {en:"<b>I</b> like <b>him</b>.", ja:"私は彼が好きだ（主格／目的格）"},
+        {en:"This is <b>my</b> book. It's <b>mine</b>.", ja:"これは私の本です。私のものです（所有格／所有代名詞）"}
       ],
       caution:"所有格（my）の後は名詞が必要 ／ 所有代名詞（mine）の後は名詞いらない"
      },
@@ -1073,7 +1076,7 @@ var genres = [
       ]
      }
    ],
-   identify:"主語の位置 → 主格（I, he）／ 名詞の前 → 所有格（my, his）／ 動詞・前置詞の後 → 目的格（me, him）／ 「〜のもの」 → 所有代名詞（mine, his）。",
+   identify:"主語の位置 → <b>主格</b>（I, he）<br>名詞の前 → <b>所有格</b>（my, his）<br>動詞・前置詞の後 → <b>目的格</b>（me, him）<br>「〜のもの」 → <b>所有代名詞</b>（mine, his）",
    patterns:["所有代名詞（〜のもの）","指示代名詞"],
    relatedNames:["名詞","be動詞","冠詞"]
   },
@@ -1136,8 +1139,8 @@ var genres = [
       role:"名詞を説明する（限定用法）／主語の状態を説明する（叙述用法）",
       keys:["big","kind","happy","new","old"],
       examples:[
-        {en:"a <b>big</b> dog（名詞の前）", ja:"大きな犬"},
-        {en:"This dog is <b>big</b>.（be動詞の後）", ja:"この犬は大きい"}
+        {en:"a <b>big</b> dog", ja:"大きな犬（名詞の前）"},
+        {en:"This dog is <b>big</b>.", ja:"この犬は大きい（be動詞の後）"}
       ],
       caution:"-thing/-one/-body で終わる代名詞は形容詞が<b>後ろ</b>に来る（something <b>cold</b>）"
      },
@@ -1169,7 +1172,7 @@ var genres = [
   },
 
   {no:12, grade:"中1", name:"前置詞",
-   basic:"<b>前置詞</b> + 名詞・代名詞（目的格）・動詞ing",
+   basic:"<b>前置詞</b> ＋ 名詞・代名詞（目的格）・動詞ing",
    headlines:[
      {u:"場所", k:"in / on / at / under"},
      {u:"時", k:"in / on / at / by / until / from 〜 to"},
@@ -1214,11 +1217,10 @@ var genres = [
   },
 
   {no:13, grade:"中1", name:"動詞句（look at / take off）",
-   basic:"<b>動詞 + 前置詞</b>（look at）／ <b>動詞 + 副詞</b>（take off）",
+   basic:"<b>動詞 ＋ 前置詞</b>（look at）／ <b>動詞 ＋ 副詞</b>（take off）",
    headlines:[
      {u:"動詞＋前置詞", k:"目的語は必ず後ろ"},
-     {u:"動詞＋副詞（句動詞）", k:"代名詞は間に入れる"},
-     {u:"よく出る組み合わせ", k:"暗記が中心"}
+     {u:"動詞＋副詞（句動詞）", k:"代名詞は間に入れる"}
    ],
    usages:[
      {label:"動詞 ＋ 前置詞 ＋ 目的語",
@@ -1242,15 +1244,6 @@ var genres = [
         {en:"Turn <b>it</b> on.（代名詞は必ず間）／ × Turn on it"}
       ],
       caution:"目的語が代名詞のときだけは絶対に間に入れる"
-     },
-     {label:"見分けるコツ",
-      trans:"前置詞か副詞か",
-      role:"目的語との関係で見分ける",
-      keys:["分けられない → 前置詞","分けられる → 副詞"],
-      examples:[
-        {en:"○ look at the picture ／ × look the picture at（前置詞）"},
-        {en:"○ take off your shoes ／ ○ take your shoes off（副詞）"}
-      ]
      }
    ],
    identify:"目的語をはさめる → <b>副詞</b>（句動詞：take off the shoes ／ take the shoes off）<br>はさめない → <b>前置詞</b>（look at the picture のみ）<br>代名詞は副詞の場合<b>必ず間</b>に入れる。",
@@ -1305,7 +1298,8 @@ var genres = [
       examples:[
         {en:"I think (<b>that</b>) he is kind.", ja:"私は彼が親切だと思う"},
         {en:"I'm sure <b>that</b> she will come.", ja:"きっと彼女は来ると思う"}
-      ]
+      ],
+      caution:"that は<b>省略OK</b>（特に口語で頻繁に省略される）"
      }
    ],
    identify:"対等につなぐ → 等位接続詞（and / but / or / so）<br>時・条件・理由をつくる → 従位接続詞（when / if / because / while）<br>「〜ということ」 → that 節",
@@ -1314,7 +1308,7 @@ var genres = [
   },
 
   {no:15, grade:"中2", name:"There is/are 構文",
-   basic:"<b>There + is/are + 主語 + 場所</b>",
+   basic:"<b>There ＋ is/are ＋ 主語 ＋ 場所</b>",
    headlines:[
      {u:"There is + 単数", k:"〜がある／いる"},
      {u:"There are + 複数", k:"〜がある／いる"},
@@ -1347,9 +1341,9 @@ var genres = [
       keys:["my","your","the","固有名詞"],
       examples:[
         {en:"× There is my book on the desk."},
-        {en:"○ <b>My book is</b> on the desk."},
+        {en:"○ <b>My book is</b> on the desk.", ja:"私の本は机の上にある"},
         {en:"× There is Mt. Fuji in Japan."},
-        {en:"○ <b>Mt. Fuji is</b> in Japan."}
+        {en:"○ <b>Mt. Fuji is</b> in Japan.", ja:"富士山は日本にある"}
       ],
       caution:"my / the / 固有名詞のような<b>特定</b>のものには使えない"
      }
@@ -1360,7 +1354,7 @@ var genres = [
   },
 
   {no:16, grade:"中2", name:"不定詞",
-   basic:"<b>to + 動詞の原形</b>",
+   basic:"<b>to ＋ 動詞の原形</b>",
    headlines:[
      {u:"名詞的用法", k:"〜すること"},
      {u:"形容詞的用法", k:"〜するための、〜すべき"},
@@ -1398,7 +1392,7 @@ var genres = [
       ]
      },
      {label:"発展：いろいろな構文",
-      trans:"形式主語 ／ 疑問詞 ＋ to ／ too 〜 to",
+      trans:"型で意味が異なる発展構文",
       role:"不定詞を使った決まった構文",
       keys:["It is ~ for 人 to","tell/want/ask 人 to","how to","what to","too ~ to","~ enough to"],
       examples:[
@@ -1504,13 +1498,15 @@ var genres = [
       role:"原級・比較級・最上級は互いに書き換えられる",
       keys:["No other ~ is as 原級 as","No other ~ is 比較級 than","比較級 than any other","one of the 最上級"],
       examples:[
-        {en:"Tom is the tallest. = <b>No other</b> boy is <b>taller than</b> Tom. = Tom is <b>taller than any other</b> boy."}
+        {en:"Tom is <b>the tallest</b>. ＝ <b>No other</b> boy is <b>taller than</b> Tom.", ja:"最上級 ↔ No other 〜 比較級"},
+        {en:"Tom is <b>the tallest</b>. ＝ Tom is <b>taller than any other</b> boy.", ja:"最上級 ↔ 比較級 than any other"},
+        {en:"This is <b>one of the best</b> books.", ja:"これは最高の本の1つだ（最上級の応用）"}
       ]
      }
    ],
    identify:"<b>as ~ as</b> → 原級比較（同じ）／ <b>-er than / more ~ than</b> → 比較級／ <b>the -est / the most</b> → 最上級。<br>不規則変化（better/best, worse/worst, more/most）を覚える。",
    patterns:["比較級（than）","最上級（the -est）","原級比較（as〜as）","not as〜as","one of the 最上級","than any other〜","The 比較級, the 比較級","like 〜 better / best","Which 〜er, A or B?"],
-   relatedNames:["形容詞・副詞"]
+   relatedNames:["形容詞・副詞","数量を表す語"]
   },
 
   {no:19, grade:"中2", name:"文型",
@@ -1559,7 +1555,7 @@ var genres = [
   },
 
   {no:20, grade:"中2", name:"受動態",
-   basic:"主語 + <b>be動詞</b> + <b>過去分詞</b> (+ by 〜)",
+   basic:"主語 ＋ <b>be動詞</b> ＋ <b>過去分詞</b> (＋ by 〜)",
    headlines:[
      {u:"be ＋ 過去分詞", k:"〜される"},
      {u:"by ＋ 人", k:"〜によって"},
@@ -1603,7 +1599,7 @@ var genres = [
   },
 
   {no:21, grade:"中2", name:"助動詞（発展）",
-   basic:"<b>should / must / have to / may / might</b> + 動詞の原形",
+   basic:"<b>should / must / have to / may / might</b> ＋ 動詞の原形",
    headlines:[
      {u:"should", k:"〜すべき"},
      {u:"must / have to", k:"〜しなければならない"},
@@ -1735,7 +1731,7 @@ var genres = [
 
   // ========== 中3 (9枚) ==========
   {no:24, grade:"中3", name:"現在完了",
-   basic:"<b>have / has + 過去分詞</b>（進行形は <b>have/has been + 〜ing</b>）",
+   basic:"<b>have / has ＋ 過去分詞</b>（進行形は <b>have/has been ＋ 〜ing</b>）",
    headlines:[
      {u:"経験", k:"〜したことがある"},
      {u:"完了・結果", k:"〜したところだ／してしまった"},
@@ -1781,7 +1777,7 @@ var genres = [
         {en:"I <b>have been studying</b> for two hours.", ja:"私は2時間ずっと勉強している"},
         {en:"It <b>has been raining</b> since this morning.", ja:"今朝からずっと雨が降っている"}
       ],
-      caution:"<b>動作</b>動詞には現在完了進行形（live, know などの状態動詞には現在完了 形）"
+      caution:"<b>動作</b>動詞には現在完了進行形（live, know などの状態動詞には現在完了形）"
      }
    ],
    identify:"<b>have/has ＋ 過去分詞</b>を見たら、付くキーワードで意味を判断：<br>ever/never/回数 → 経験／just/already/yet → 完了／for/since → 継続。<br>動作が続いている → 現在完了進行形（have been ＋ ing）。",
@@ -1955,7 +1951,7 @@ var genres = [
         {en:"Do you know <b>what this is</b>?", ja:"これが何か知っていますか"},
         {en:"× Do you know <b>what is this</b>?"}
       ],
-      caution:"疑問文の語順（V ＋ S）にしない。do/does/did も<b>消える</b>（× what does he like → ○ what he likes）"
+      caution:"<b>疑問文の語順にしない</b>。do/does/did は<b>消える</b>（× what does he like → ○ what he likes）"
      },
      {label:"疑問詞が主語のとき",
       trans:"誰が／何が",
@@ -2011,8 +2007,8 @@ var genres = [
       caution:"前の文の主語は付加疑問では<b>代名詞</b>に（Tom doesn't → does <b>he</b>?）"
      },
      {label:"特殊な付加疑問",
-      trans:"命令文／Let's／I am",
-      role:"覚えるべき例外",
+      trans:"〜だよね？（特殊形）",
+      role:"<b>命令文・Let's・I am</b> は決まった形を覚える",
       keys:["命令文 → will you?","Let's → shall we?","I am → aren't I?"],
       examples:[
         {en:"Open the door, <b>will you</b>?", ja:"ドアを開けてくれる？"},
@@ -2077,13 +2073,14 @@ var genres = [
      {u:"help", k:"help + O + (to) 原形"}
    ],
    usages:[
-     {label:"let / make ＋ O ＋ 原形",
+     {label:"let / make / have ＋ O ＋ 原形",
       trans:"O に〜させる",
       role:"使役動詞。後ろは<b>to のつかない原形</b>",
       keys:["let（許可）","make（強制）","have（依頼）"],
       examples:[
         {en:"My mother <b>let me go</b> there.", ja:"母は私をそこへ行かせてくれた"},
-        {en:"He <b>made me cry</b>.", ja:"彼は私を泣かせた"}
+        {en:"He <b>made me cry</b>.", ja:"彼は私を泣かせた"},
+        {en:"I <b>had my brother help</b> me.", ja:"兄に手伝ってもらった"}
       ],
       caution:"× let me <b>to go</b> → ○ let me <b>go</b>"
      },
@@ -3056,30 +3053,43 @@ function fmtGenreHlineU(text){
     .replace(/(\S)\s*／\s*/g, '$1<wbr>／');
 }
 // 分野カード基本形の各行を自動フィット: あふれる行だけ font-size を縮小して1行に収める
+// 冪等（複数回呼び出してOK。フォント読み込み完了後の再測定にも対応）
 function fitGenreBasicLines(){
   var boxes=document.querySelectorAll('.face.front .gen-basic');
   boxes.forEach(function(box){
-    if(box.querySelector('.gen-basic-line')) return;
-    var html=box.innerHTML;
-    var parts=html.split(/<br\s*\/?>/i);
-    if(parts.length===0) return;
-    box.innerHTML=parts.map(function(p){return '<span class="gen-basic-line">'+p+'</span>';}).join('<br>');
+    var lines=box.querySelectorAll('.gen-basic-line');
+    if(lines.length===0){
+      // 初回：<br> で分割して各行をラップ
+      var html=box.innerHTML;
+      var parts=html.split(/<br\s*\/?>/i);
+      if(parts.length===0) return;
+      box.innerHTML=parts.map(function(p){return '<span class="gen-basic-line">'+p+'</span>';}).join('<br>');
+      lines=box.querySelectorAll('.gen-basic-line');
+    } else {
+      // 再測定時：前回の font-size を一旦リセット
+      lines.forEach(function(l){l.style.fontSize='';});
+    }
     var cs=window.getComputedStyle(box);
     var padL=parseFloat(cs.paddingLeft)||0, padR=parseFloat(cs.paddingRight)||0;
     var maxW=box.clientWidth-padL-padR;
     if(maxW<=0) return;
-    box.querySelectorAll('.gen-basic-line').forEach(function(line){
+    lines.forEach(function(line){
       if(!line.textContent.trim()) return;
-      // .gen-basic-sub だけの行（小さい注釈）はスキップ
+      // .gen-basic-sub のみで構成される行（小さい注釈）はスキップ
       var children=line.children;
       if(children.length===1 && children[0].classList && children[0].classList.contains('gen-basic-sub')){
         var nonSubText=line.textContent.replace(children[0].textContent,'').trim();
         if(!nonSubText) return;
       }
-      // 固有幅を測定するため一時的に white-space を nowrap にする
+      // 固有幅を測るため、max-width を一時解除 + white-space:nowrap で1行強制
+      line.style.maxWidth='none';
       line.style.whiteSpace='nowrap';
-      var intrinsic=line.scrollWidth;
+      line.style.display='inline-block';
+      void line.offsetWidth;
+      var intrinsic=line.offsetWidth;
+      line.style.maxWidth='';
       line.style.whiteSpace='';
+      line.style.display='';
       if(intrinsic>maxW){
         var ratio=maxW/intrinsic;
         // 最小 78% で抑える（それ以下はやむなく2行に）
@@ -3088,6 +3098,21 @@ function fitGenreBasicLines(){
       }
     });
   });
+}
+// fitGenreBasicLines のスケジューラ: レイアウト確定後 & フォント読み込み完了後の両方で実行
+function scheduleFitGenreBasic(){
+  var run=function(){fitGenreBasicLines();};
+  if(typeof requestAnimationFrame==='function'){
+    requestAnimationFrame(function(){requestAnimationFrame(run);});
+  } else {
+    setTimeout(run, 0);
+  }
+  // フォント読み込み完了後にもう一度測定（初回表示時の Web フォント切り替えに対応）
+  if(document.fonts && document.fonts.ready && typeof document.fonts.ready.then==='function'){
+    document.fonts.ready.then(function(){
+      setTimeout(run, 30);
+    });
+  }
 }
 function renderGenre(){
   var g=deck[st.idx], c=gcls(g.gr), total=deck.length;
@@ -3161,12 +3186,8 @@ function renderGenre(){
   el.masterBtn.setAttribute('aria-pressed',m?'true':'false');
   el.live.textContent=(st.idx+1)+' / '+total+'、分野、'+g.name+(st.flip?'、解説':'');
   updateFrontNext();
-  // 基本形ボックスの各行を自動フィット（レイアウト確定後に測定）
-  if(typeof requestAnimationFrame==='function'){
-    requestAnimationFrame(function(){requestAnimationFrame(fitGenreBasicLines);});
-  } else {
-    setTimeout(fitGenreBasicLines, 0);
-  }
+  // 基本形ボックスの各行を自動フィット
+  scheduleFitGenreBasic();
 }
 function updateFrontNext(){
   if(!st.book){el.frontNext.classList.remove('on');el.frontNext.innerHTML='';return;}
