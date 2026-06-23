@@ -84,7 +84,7 @@ button{font-family:inherit;cursor:pointer}
 .backfx:active{transform:translateX(-50%) scale(.96)}
 
 .card{position:relative;width:100%;max-width:440px;height:100%;perspective:1400px;touch-action:pan-y;will-change:transform;outline:none;user-select:none;-webkit-user-select:none}
-.card-inner,.face,.front-top,.front-body,.front-topic,.front-ja,.front-sents,.back-head,.back-topic,.back-scroll,.back-scroll *{touch-action:pan-y}
+.card-inner,.face,.front-top,.front-body,.front-body *,.front-topic,.front-ja,.front-sents,.back-head,.back-topic,.back-scroll,.back-scroll *{touch-action:pan-y}
 .card:focus-visible{border-radius:var(--r);box-shadow:0 0 0 3px var(--purple-l)}
 .back-scroll{user-select:text;-webkit-user-select:text}
 .card-inner{position:absolute;inset:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.85,.25,1);will-change:transform}
@@ -104,9 +104,9 @@ button{font-family:inherit;cursor:pointer}
 .front-accent.g1{background:linear-gradient(90deg,var(--g1c),var(--pink))}
 .front-accent.g2{background:linear-gradient(90deg,var(--g2c),var(--sky))}
 .front-accent.g3{background:linear-gradient(90deg,var(--g3c),var(--mint))}
-.front-top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 0}
+.front-top{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:16px 18px 0}
 .front-no{font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;color:var(--muted);letter-spacing:1px}
-.front-body{flex:1 1 0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:safe center;text-align:center;padding:14px 22px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.front-body{flex:1;text-align:center;padding:14px 22px 30px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .front-topic{font-weight:800;font-size:27px;line-height:1.32;letter-spacing:.3px;word-break:auto-phrase;overflow-wrap:anywhere}
 .front-ja{margin-top:18px;font-size:16.5px;line-height:1.65;color:var(--text);font-weight:600;max-width:100%;word-break:auto-phrase}
 .front-ja:empty{display:none}
@@ -1555,7 +1555,7 @@ var genres = [
   },
 
   {no:20, grade:"中2", name:"受動態",
-   basic:"主語 ＋ <b>be動詞</b> ＋ <b>過去分詞</b> (＋ by 〜)",
+   basic:"主語 ＋ <b>be動詞</b> ＋ <b>過去分詞</b>",
    headlines:[
      {u:"be ＋ 過去分詞", k:"〜される"},
      {u:"by ＋ 人", k:"〜によって"},
@@ -1641,13 +1641,13 @@ var genres = [
   },
 
   {no:22, grade:"中2", name:"感嘆文",
-   basic:"<b>What (a) ＋ 形容詞 ＋ 名詞 (＋ S ＋ V)!</b> ／ <b>How ＋ 形容詞・副詞 (＋ S ＋ V)!</b>",
+   basic:"<b>名詞</b>が中心 → What ／ <b>形容詞・副詞</b>が中心 → How",
    headlines:[
      {u:"What 〜!", k:"なんて〜な〇〇だろう"},
      {u:"How 〜!", k:"なんて〜だろう"}
    ],
    usages:[
-     {label:"What (a) ＋ 形容詞 ＋ 名詞 ＋ S ＋ V!",
+     {label:"What ＋ 名詞 〜!",
       trans:"なんて〜な〇〇だろう",
       role:"<b>名詞</b>を中心に強く驚く・感動する",
       keys:["What a/an + 形 + 単数名詞","What + 形 + 複数/不可算名詞"],
@@ -1655,9 +1655,9 @@ var genres = [
         {en:"<b>What a beautiful flower</b> this is!", ja:"なんてきれいな花でしょう"},
         {en:"<b>What kind people</b> they are!", ja:"なんて親切な人々だろう"}
       ],
-      caution:"S ＋ V は省略可。What に続くのは<b>名詞</b>"
+      caution:"What の後は<b>名詞</b>が中心。単数なら a/an、複数や不可算なら無冠詞。最後の「主語 ＋ 動詞」は省略可"
      },
-     {label:"How ＋ 形容詞・副詞 ＋ S ＋ V!",
+     {label:"How ＋ 形容詞・副詞 〜!",
       trans:"なんて〜だろう",
       role:"<b>形容詞・副詞</b>を中心に強く驚く",
       keys:["How + 形/副","How fast","How beautiful"],
@@ -1665,21 +1665,21 @@ var genres = [
         {en:"<b>How beautiful</b> this flower is!", ja:"なんてきれいなんだろう"},
         {en:"<b>How fast</b> he runs!", ja:"なんて速く走るんだろう"}
       ],
-      caution:"How に続くのは<b>形容詞か副詞</b>。後ろに名詞は来ない"
+      caution:"How の後は<b>形容詞か副詞</b>。後ろに名詞は来ない。「主語 ＋ 動詞」は省略可"
      }
    ],
-   identify:"<b>名詞</b>が中心 → What (a) ＋ 形容詞 ＋ 名詞!<br><b>形容詞・副詞</b>が中心 → How ＋ 形容詞／副詞!<br>S ＋ V は省略してもよい。",
+   identify:"中心になる語で見分ける：<br><b>名詞</b>（例: a flower, people）が中心 → <b>What</b><br><b>形容詞・副詞</b>（例: beautiful, fast）が中心 → <b>How</b>",
    patterns:["感嘆文 What","感嘆文 How"],
    relatedNames:["疑問詞","形容詞・副詞"]
   },
 
   {no:23, grade:"中2", name:"数量を表す語",
-   basic:"<b>some / any</b> ／ <b>many / much / a lot of</b> ／ <b>a few / a little</b> ／ <b>few / little</b>",
+   basic:"<b>some / any</b> ／ <b>many / much / a lot of</b> ／ <b>(a) few / (a) little</b>",
    headlines:[
      {u:"some / any", k:"いくつかの／何か"},
-     {u:"many / much", k:"たくさんの（可算／不可算）"},
-     {u:"a few / a little", k:"少しある"},
-     {u:"few / little", k:"ほとんどない"}
+     {u:"many / much", k:"たくさんの"},
+     {u:"a few / a little", k:"少しある（肯定的）"},
+     {u:"few / little", k:"ほとんどない（否定的）"}
    ],
    usages:[
      {label:"some / any",
@@ -1938,11 +1938,11 @@ var genres = [
    basic:"<b>動詞 ＋ 疑問詞 ＋ 主語 ＋ 動詞</b>（疑問文の語順ではない）",
    headlines:[
      {u:"疑問詞", k:"what / who / where / when / why / how"},
-     {u:"語順", k:"S ＋ V（普通の文の語順）"},
+     {u:"語順", k:"主語 ＋ 動詞（普通の文の語順）"},
      {u:"if / whether", k:"〜かどうか"}
    ],
    usages:[
-     {label:"動詞 ＋ 疑問詞 ＋ S ＋ V",
+     {label:"動詞 ＋ 疑問詞 ＋ 主語 ＋ 動詞",
       trans:"〜が何か／誰か／どこか 〜知る",
       role:"疑問文が文の<b>一部</b>として組み込まれる",
       keys:["I know 〜","I don't know 〜","Do you know 〜?","Tell me 〜"],
@@ -1951,18 +1951,18 @@ var genres = [
         {en:"Do you know <b>what this is</b>?", ja:"これが何か知っていますか"},
         {en:"× Do you know <b>what is this</b>?"}
       ],
-      caution:"<b>疑問文の語順にしない</b>。do/does/did は<b>消える</b>（× what does he like → ○ what he likes）"
+      caution:"<b>疑問文の語順にしない</b>。do/does/did は<b>消える</b>(× what does he like → ○ what he likes)"
      },
      {label:"疑問詞が主語のとき",
       trans:"誰が／何が",
-      role:"疑問詞が主語なら<b>語順はそのまま</b>（疑問詞 ＋ V）",
+      role:"疑問詞が主語なら<b>語順はそのまま</b>（疑問詞 ＋ 動詞）",
       keys:["who 主語","what 主語"],
       examples:[
         {en:"I don't know <b>who broke</b> the window.", ja:"誰が窓を割ったか分からない"},
         {en:"Tell me <b>what happened</b>.", ja:"何が起こったか教えて"}
       ]
      },
-     {label:"if / whether ＋ S ＋ V ＝ 〜かどうか",
+     {label:"if / whether ＋ 主語 ＋ 動詞 ＝ 〜かどうか",
       trans:"〜かどうか",
       role:"疑問詞のない疑問文を組み込むときは if / whether",
       keys:["if","whether"],
@@ -1972,7 +1972,7 @@ var genres = [
       ]
      }
    ],
-   identify:"<b>動詞の目的語</b>として疑問文が組み込まれている → 間接疑問文。<br>語順は<b>普通の文（S ＋ V）</b>。do/does/did は消える。<br>Yes/No 疑問文なら <b>if / whether</b>。",
+   identify:"<b>動詞の目的語</b>として疑問文が組み込まれている → 間接疑問文。<br>語順は<b>普通の文（主語 ＋ 動詞）</b>。do/does/did は消える。<br>Yes/No 疑問文なら <b>if / whether</b>。",
    patterns:["間接疑問文","疑問詞が主語の間接疑問","if / whether（〜かどうか）"],
    relatedNames:["疑問詞","接続詞","付加疑問文"]
   },
@@ -2023,14 +2023,14 @@ var genres = [
   },
 
   {no:30, grade:"中3", name:"仮定法過去",
-   basic:"<b>If ＋ S ＋ 過去形,</b> ／ <b>S ＋ would / could / might ＋ 原形</b>",
+   basic:"<b>If ＋ 主語 ＋ 過去形,</b> ／ <b>主語 ＋ would / could / might ＋ 原形</b>",
    headlines:[
      {u:"If 仮定法", k:"もし〜なら、〜だろうに"},
      {u:"were", k:"主語に関係なく were"},
      {u:"I wish 〜", k:"〜だったらなあ"}
    ],
    usages:[
-     {label:"If ＋ S ＋ 動詞の過去形, S ＋ would ＋ 原形",
+     {label:"If ＋ 主語 ＋ 動詞の過去形, 主語 ＋ would ＋ 原形",
       trans:"もし〜なら、〜だろうに",
       role:"<b>現在の事実と反対</b>の仮定。実現しないことを言う",
       keys:["If 過去形","would + 原形","could","might"],
@@ -2050,7 +2050,7 @@ var genres = [
       ],
       caution:"普通の過去では he was だが、仮定法では <b>he were</b>"
      },
-     {label:"I wish ＋ S ＋ 動詞の過去形 / were",
+     {label:"I wish ＋ 主語 ＋ 動詞の過去形 / were",
       trans:"〜だったらなあ",
       role:"現実と反対の願望",
       keys:["I wish 過去形","I wish I were","I wish I could"],
@@ -2066,15 +2066,15 @@ var genres = [
   },
 
   {no:31, grade:"中3", name:"使役・知覚動詞（原形不定詞）",
-   basic:"<b>使役・知覚動詞 ＋ O ＋ 動詞の原形</b>",
+   basic:"<b>使役・知覚動詞 ＋ 目的語 ＋ 動詞の原形</b>",
    headlines:[
-     {u:"使役動詞", k:"let / make / have + O + 原形"},
-     {u:"知覚動詞", k:"see / hear / feel + O + 原形/-ing"},
-     {u:"help", k:"help + O + (to) 原形"}
+     {u:"使役動詞", k:"let / make / have ＋ 目的語 ＋ 原形"},
+     {u:"知覚動詞", k:"see / hear / feel ＋ 目的語 ＋ 原形/-ing"},
+     {u:"help", k:"help ＋ 目的語 ＋ (to) 原形"}
    ],
    usages:[
-     {label:"let / make / have ＋ O ＋ 原形",
-      trans:"O に〜させる",
+     {label:"let / make / have ＋ 目的語 ＋ 原形",
+      trans:"目的語に〜させる",
       role:"使役動詞。後ろは<b>to のつかない原形</b>",
       keys:["let（許可）","make（強制）","have（依頼）"],
       examples:[
@@ -2084,8 +2084,8 @@ var genres = [
       ],
       caution:"× let me <b>to go</b> → ○ let me <b>go</b>"
      },
-     {label:"see / hear / feel ＋ O ＋ 原形 / 〜ing",
-      trans:"O が〜するのを見る／聞く／感じる",
+     {label:"see / hear / feel ＋ 目的語 ＋ 原形 / 〜ing",
+      trans:"目的語が〜するのを見る／聞く／感じる",
       role:"知覚動詞。動作全体 → 原形／動作の途中 → 〜ing",
       keys:["see","hear","feel","watch","listen to"],
       examples:[
@@ -2094,8 +2094,8 @@ var genres = [
         {en:"I <b>heard her sing</b>.", ja:"彼女が歌うのを聞いた"}
       ]
      },
-     {label:"help ＋ O ＋ (to) 原形",
-      trans:"O が〜するのを手伝う",
+     {label:"help ＋ 目的語 ＋ (to) 原形",
+      trans:"目的語が〜するのを手伝う",
       role:"help の後ろは to あり・なし両方OK",
       keys:["help","to を省略してもよい"],
       examples:[
@@ -2104,7 +2104,7 @@ var genres = [
       ]
      }
    ],
-   identify:"<b>使役（let/make/have/help）</b>・<b>知覚（see/hear/feel）</b>の動詞のあとは <b>O ＋ 原形（to なし）</b>。<br>知覚動詞だけは 動作の途中なら <b>O ＋ 〜ing</b>。",
+   identify:"<b>使役（let/make/have/help）</b>・<b>知覚（see/hear/feel）</b>の動詞のあとは <b>目的語 ＋ 原形（to なし）</b>。<br>知覚動詞だけは 動作の途中なら <b>目的語 ＋ 〜ing</b>。",
    patterns:["使役動詞（make / let）","help + 人 + 原形","知覚動詞 + 原形"],
    relatedNames:["不定詞","文型","進行形"]
   },
@@ -2138,7 +2138,7 @@ var genres = [
       ],
       caution:"enough は<b>形容詞・副詞の後ろ</b>（× enough old → ○ old enough）"
      },
-     {label:"so ＋ 形容詞・副詞 ＋ that ＋ S ＋ V",
+     {label:"so ＋ 形容詞・副詞 ＋ that ＋ 主語 ＋ 動詞",
       trans:"とても〜なので…",
       role:"原因と結果を文として書く",
       keys:["so + 形/副 + that","so 〜 that can't = too 〜 to"],
@@ -2228,6 +2228,19 @@ var savedSets=loadJSON(LS_SETS,[]);
 var deck=[]; var shuffleOrder=null;
 var formulaReturn=null;
 var reduceMotion=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+/* iOS in-app browser の dvh 不安定対策：window.innerHeight で .app を物理的に固定する */
+function setAppHeight(){
+  var app=document.querySelector('.app');
+  if(!app) return;
+  var h=window.innerHeight;
+  if(window.visualViewport&&window.visualViewport.height) h=Math.min(h, window.visualViewport.height);
+  app.style.height=h+'px';
+}
+setAppHeight();
+window.addEventListener('resize',setAppHeight);
+window.addEventListener('orientationchange',function(){setTimeout(setAppHeight,200);});
+if(window.visualViewport){window.visualViewport.addEventListener('resize',setAppHeight);}
 
 function loadSet(k){try{return new Set(JSON.parse(localStorage.getItem(k)||'[]'))}catch(e){return new Set()}}
 function saveSet(k,s){try{localStorage.setItem(k,JSON.stringify(Array.from(s)))}catch(e){}}
@@ -3453,9 +3466,9 @@ el.card.addEventListener('pointermove',function(e){
   // 瞬間速度（直近の移動の速度）
   var now=Date.now(), dtL=now-drag.tLast;
   if(dtL>0){drag.instVel=Math.abs(e.clientX-drag.xLast)/dtL;drag.tLast=now;drag.xLast=e.clientX;}
-  if(drag.lock===null&&(Math.abs(drag.dx)>5||Math.abs(drag.dy)>5)){
-    // 横優先を1.25→1.0に緩和（より斜めにも対応）
-    drag.lock=Math.abs(drag.dx)>=Math.abs(drag.dy)?'h':'v';
+  if(drag.lock===null&&(Math.abs(drag.dx)>8||Math.abs(drag.dy)>8)){
+    // 縦スクロールを優先：横が縦の1.3倍を超えたときだけ水平スワイプとしてロック
+    drag.lock=Math.abs(drag.dx)>Math.abs(drag.dy)*1.3?'h':'v';
     if(drag.lock==='h'){try{el.card.setPointerCapture(drag.id)}catch(_){}}
   }
   if(drag.lock==='h'){var dx=drag.dx;el.card.style.transform='translateX('+dx+'px) rotate('+(dx*0.04)+'deg)';el.card.style.opacity=String(Math.max(.5,1-Math.abs(dx)/620));}
@@ -3483,6 +3496,9 @@ function endDrag(e){
 }
 el.card.addEventListener('pointerup',endDrag);
 el.card.addEventListener('pointercancel',function(){if(!drag.on)return;drag.on=false;drag.lock=null;drag.noSwipe=false;snapBack();});
+// iOS Safari にネイティブスクロールを許可する明示的シグナル（passive:true で preventDefault しないことを宣言）
+el.card.addEventListener('touchstart',function(){},{passive:true});
+el.card.addEventListener('touchmove',function(){},{passive:true});
 
 el.masterBtn.addEventListener('click',function(){
   var g=deck[st.idx];if(!g)return;var k=mkey(g),was=mastered.has(k);
