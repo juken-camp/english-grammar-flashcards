@@ -89,7 +89,7 @@ button{font-family:inherit;cursor:pointer}
 .back-scroll{user-select:text;-webkit-user-select:text}
 .card-inner{position:absolute;inset:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.85,.25,1);will-change:transform}
 .card-inner.flipped{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);background:var(--card);border:1.5px solid #F1ECF8;display:flex;flex-direction:column;overflow:hidden;transform:translateZ(0)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);background:var(--card);border:1.5px solid #F1ECF8;display:flex;flex-direction:column;overflow:hidden}
 
 /* grade corner tab */
 .grade-tab{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex-shrink:0;font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:800;font-size:12px;padding:4px 11px;border-radius:20px;letter-spacing:.5px}
@@ -735,11 +735,11 @@ var genres = [
   },
 
   {no:2, grade:"中1", name:"一般動詞",
-   basic:"主語 ＋ <b>動詞</b> ／ <b>don't / doesn't / didn't</b> ＋ 原形",
+   basic:"主語 ＋ <b>動詞</b> ／ <b>don't / doesn't / didn't ＋ 動詞の原形</b> ／ <b>Do / Does / Did ＋ 主語 ＋ 動詞の原形?</b>",
    headlines:[
-     {u:"肯定文", k:"play / studied"},
-     {u:"否定文", k:"don't / doesn't / didn't"},
-     {u:"疑問文", k:"Do / Does / Did"}
+     {u:"肯定文", k:"〜する／〜した"},
+     {u:"否定文", k:"〜しない／〜しなかった"},
+     {u:"疑問文", k:"〜しますか／〜しましたか"}
    ],
    usages:[
      {label:"主語 ＋ 一般動詞",
@@ -752,9 +752,9 @@ var genres = [
       ],
       caution:"主語が3人称単数・現在なら動詞に <b>s/es</b>"
      },
-     {label:"主語 ＋ don't/doesn't/didn't ＋ 原形",
+     {label:"主語 ＋ don't/doesn't/didn't ＋ 動詞の原形",
       trans:"〜しない／〜しなかった",
-      role:"否定文。動詞は必ず<b>原形</b>に戻す",
+      role:"否定文。動詞は必ず<b>動詞の原形</b>に戻す",
       keys:["don't","doesn't","didn't"],
       examples:[
         {en:"I <b>don't like</b> math.", ja:"私は数学が好きではない"},
@@ -762,9 +762,9 @@ var genres = [
       ],
       caution:"× He doesn't <b>plays</b> → ○ He doesn't <b>play</b>"
      },
-     {label:"Do/Does/Did ＋ 主語 ＋ 原形 〜?",
+     {label:"Do/Does/Did ＋ 主語 ＋ 動詞の原形 〜?",
       trans:"〜しますか／〜しましたか",
-      role:"疑問文。動詞は<b>原形</b>",
+      role:"疑問文。動詞は<b>動詞の原形</b>",
       keys:["Do","Does","Did","Yes, ~ do/does/did","No, ~ don't/doesn't/didn't"],
       examples:[
         {en:"<b>Does</b> she <b>play</b> tennis? — Yes, she <b>does</b>.", ja:"彼女はテニスをしますか — はい"},
@@ -785,7 +785,7 @@ var genres = [
      {u:"may", k:"〜してもよい／〜かもしれない"}
    ],
    usages:[
-     {label:"主語 ＋ can ＋ 原形",
+     {label:"主語 ＋ can ＋ 動詞の原形",
       trans:"〜できる",
       role:"能力・可能を表す。許可の意味もある",
       keys:["can","cannot","can't","Can I 〜?","Can you 〜?"],
@@ -793,9 +793,9 @@ var genres = [
         {en:"I <b>can swim</b>.", ja:"私は泳げる"},
         {en:"<b>Can</b> you help me? — Sure.", ja:"手伝ってくれる？ — いいよ"}
       ],
-      caution:"助動詞の後は必ず<b>原形</b>（× can plays）"
+      caution:"助動詞の後は必ず<b>動詞の原形</b>（× can plays）"
      },
-     {label:"主語 ＋ will ＋ 原形",
+     {label:"主語 ＋ will ＋ 動詞の原形",
       trans:"〜するつもり／〜だろう",
       role:"未来の予定・予測",
       keys:["will","won't","Will you 〜?"],
@@ -804,7 +804,7 @@ var genres = [
         {en:"It <b>will be</b> sunny tomorrow.", ja:"明日は晴れるだろう"}
       ]
      },
-     {label:"主語 ＋ may ＋ 原形",
+     {label:"主語 ＋ may ＋ 動詞の原形",
       trans:"〜してもよい／〜かもしれない",
       role:"許可・可能性",
       keys:["may","May I 〜?"],
@@ -814,7 +814,7 @@ var genres = [
       ]
      }
    ],
-   identify:"動詞の前に助動詞があったら、後ろは絶対<b>原形</b>。<br>否定・疑問は助動詞を使う（× I don't can / ○ I can't）。",
+   identify:"動詞の前に助動詞があったら、後ろは絶対<b>動詞の原形</b>。<br>否定・疑問は助動詞を使う（× I don't can / ○ I can't）。",
    patterns:["助動詞 can","助動詞 will","Can / May I 〜?（許可）","Can / Will you 〜?（依頼）","可能性の may"],
    relatedNames:["未来表現","助動詞（発展）","命令文・Let's"]
   },
@@ -863,14 +863,14 @@ var genres = [
   },
 
   {no:5, grade:"中1", name:"未来表現",
-   basic:"<b>will</b> ＋ 原形 ／ <b>be going to</b> ＋ 原形",
+   basic:"<b>will</b> ＋ 動詞の原形 ／ <b>be going to</b> ＋ 動詞の原形",
    headlines:[
      {u:"will", k:"その場で決めた／予測"},
      {u:"be going to", k:"前から決まっていた予定"},
      {u:"現在進行形で未来", k:"確定した近い予定"}
    ],
    usages:[
-     {label:"主語 ＋ will ＋ 原形",
+     {label:"主語 ＋ will ＋ 動詞の原形",
       trans:"〜するつもり／〜だろう",
       role:"<b>その場で決めた意志</b>・未来の予測",
       keys:["will","won't","I'll","She'll"],
@@ -879,7 +879,7 @@ var genres = [
         {en:"It <b>will rain</b> tomorrow.", ja:"明日は雨だろう"}
       ]
      },
-     {label:"主語 ＋ be going to ＋ 原形",
+     {label:"主語 ＋ be going to ＋ 動詞の原形",
       trans:"〜するつもり／〜しそうだ",
       role:"<b>前から決まっていた予定</b>・根拠のある予測",
       keys:["am going to","is going to","are going to"],
@@ -887,7 +887,7 @@ var genres = [
         {en:"I <b>am going to visit</b> Kyoto next week.", ja:"来週京都を訪れる予定だ"},
         {en:"Look at the clouds! It <b>is going to rain</b>.", ja:"雲を見て！雨が降りそう"}
       ],
-      caution:"be動詞は主語に合わせる。動詞は<b>原形</b>"
+      caution:"be動詞は主語に合わせる。動詞は<b>動詞の原形</b>"
      },
      {label:"現在進行形で未来",
       trans:"〜することになっている",
@@ -909,7 +909,7 @@ var genres = [
    headlines:[
      {u:"What / Who / Whose", k:"何 / 誰 / 誰の"},
      {u:"Where / When / Why", k:"どこ / いつ / なぜ"},
-     {u:"How", k:"どうやって + 程度"}
+     {u:"How", k:"どうやって／どれくらい"}
    ],
    usages:[
      {label:"What / Who / Whose ＋ 疑問文",
@@ -950,7 +950,7 @@ var genres = [
   },
 
   {no:7, grade:"中1", name:"命令文・Let's",
-   basic:"<b>動詞の原形</b> 〜 ／ <b>Don't</b> ＋ 原形 〜 ／ <b>Let's</b> ＋ 原形 〜",
+   basic:"<b>動詞の原形</b> 〜 ／ <b>Don't</b> ＋ 動詞の原形 〜 ／ <b>Let's</b> ＋ 動詞の原形 〜",
    headlines:[
      {u:"命令文", k:"〜しなさい"},
      {u:"否定の命令文", k:"〜してはいけない"},
@@ -960,14 +960,14 @@ var genres = [
      {label:"動詞の原形 〜（主語省略）",
       trans:"〜しなさい",
       role:"相手に命令・指示する",
-      keys:["原形で始める","please で丁寧に"],
+      keys:["動詞の原形で始める","please で丁寧に"],
       examples:[
         {en:"<b>Open</b> the door.", ja:"ドアを開けなさい"},
         {en:"<b>Please be</b> quiet.", ja:"静かにしてください"}
       ],
       caution:"主語の You は付けない（× You open the door）"
      },
-     {label:"Don't ＋ 原形 〜",
+     {label:"Don't ＋ 動詞の原形 〜",
       trans:"〜してはいけない／〜しないで",
       role:"禁止・否定の命令",
       keys:["Don't","Never"],
@@ -977,7 +977,7 @@ var genres = [
       ],
       caution:"be動詞の命令文も否定は <b>Don't be 〜</b>"
      },
-     {label:"Let's ＋ 原形 〜",
+     {label:"Let's ＋ 動詞の原形 〜",
       trans:"〜しましょう",
       role:"相手をさそう",
       keys:["Let's","Shall we 〜?","Yes, let's.","No, let's not."],
@@ -987,7 +987,7 @@ var genres = [
       ]
      }
    ],
-   identify:"主語がなく動詞の<b>原形</b>で始まる → 命令文。<br>Don't で始まる → 禁止／Let's で始まる → 勧誘。",
+   identify:"主語がなく<b>動詞の原形</b>で始まる → 命令文。<br>Don't で始まる → 禁止／Let's で始まる → 勧誘。",
    patterns:["命令文","否定の命令文","Let's〜（勧誘）","Shall we 〜?"],
    relatedNames:["助動詞（基礎）","助動詞（発展）"]
   },
@@ -1337,7 +1337,7 @@ var genres = [
      },
      {label:"特定のものには使わない",
       trans:"my / the / 固有名詞 は不可",
-      role:"<b>特定</b>のものは普通の文（主語 ＋ be 動詞）で表す",
+      role:"<b>特定</b>のものは普通の文（主語 ＋ be動詞）で表す",
       keys:["my","your","the","固有名詞"],
       examples:[
         {en:"× There is my book on the desk."},
@@ -1359,7 +1359,7 @@ var genres = [
      {u:"名詞的用法", k:"〜すること"},
      {u:"形容詞的用法", k:"〜するための、〜すべき"},
      {u:"副詞的用法", k:"〜するために、〜して"},
-     {u:"発展", k:"It is to / 疑問詞+to / too~to / 人+to"}
+     {u:"発展", k:"It is to／疑問詞 to／too 〜 to／人 to"}
    ],
    usages:[
      {label:"名詞的用法（主語・目的語・補語）",
@@ -1380,7 +1380,7 @@ var genres = [
         {en:"I have something <b>to eat</b>.", ja:"何か食べる物を持っている"},
         {en:"Give me water <b>to drink</b>.", ja:"飲み水をください"}
       ],
-      caution:"5つの後置修飾の1つ。名詞のすぐ後ろに to ＋ 原形"
+      caution:"5つの後置修飾の1つ。名詞のすぐ後ろに to ＋ 動詞の原形"
      },
      {label:"副詞的用法（目的・感情の原因など）",
       trans:"〜するために／〜して",
@@ -1402,7 +1402,7 @@ var genres = [
       ]
      }
    ],
-   identify:"<b>to ＋ 原形</b>を見たら3用法のどれか考える。<br>(1) 主語・目的語・補語の位置 → 名詞的用法<br>(2) 名詞の直後 → 形容詞的用法<br>(3) 動詞・形容詞の後 → 副詞的用法",
+   identify:"<b>to ＋ 動詞の原形</b>を見たら3用法のどれか考える。<br>(1) 主語・目的語・補語の位置 → 名詞的用法<br>(2) 名詞の直後 → 形容詞的用法<br>(3) 動詞・形容詞の後 → 副詞的用法",
    patterns:["不定詞（名詞的用法）","不定詞をとる動詞（want to など）","不定詞（形容詞的用法）","不定詞（副詞的・目的）","不定詞（感情の原因）","形式主語 It is for〜to","tell 人 to〜","want 人 to〜","ask 人 to〜","how to 〜（方法）","what to 〜","too 〜 to …","〜 enough to …"],
    relatedNames:["動名詞","後置修飾","結果構文（too〜to / so〜that）","使役・知覚動詞（原形不定詞）"]
   },
@@ -1424,11 +1424,11 @@ var genres = [
         {en:"I like <b>playing</b> tennis.", ja:"テニスをすることが好き（目的語）"},
         {en:"My hobby is <b>cooking</b>.", ja:"私の趣味は料理することだ（補語）"}
       ],
-      caution:"不定詞（to + 原形）も「〜すること」だが、動詞によって使い分ける"
+      caution:"不定詞（to + 動詞の原形）も「〜すること」だが、動詞によって使い分ける"
      },
      {label:"前置詞 ＋ 動名詞",
       trans:"〜することについて／〜する前に",
-      role:"前置詞の後は<b>動詞ing</b>（原形は来ない）",
+      role:"前置詞の後は<b>動詞ing</b>（動詞の原形は来ない）",
       keys:["for + ing","before + ing","after + ing","without + ing","be good at + ing"],
       examples:[
         {en:"Thank you <b>for coming</b>.", ja:"来てくれてありがとう"},
@@ -1599,14 +1599,14 @@ var genres = [
   },
 
   {no:21, grade:"中2", name:"助動詞（発展）",
-   basic:"<b>should / must / have to</b> ＋ 原形 ／ <b>may / might</b> ＋ 原形",
+   basic:"<b>should / must / have to</b> ＋ 動詞の原形 ／ <b>may / might</b> ＋ 動詞の原形",
    headlines:[
      {u:"should", k:"〜すべき"},
      {u:"must / have to", k:"〜しなければならない"},
      {u:"may / might", k:"〜かもしれない／〜してもよい"}
    ],
    usages:[
-     {label:"should ＋ 原形",
+     {label:"should ＋ 動詞の原形",
       trans:"〜すべき／〜したほうがよい",
       role:"アドバイス・義務（must より弱い）",
       keys:["should","shouldn't","Should I 〜?"],
@@ -1615,7 +1615,7 @@ var genres = [
         {en:"You <b>shouldn't smoke</b>.", ja:"タバコを吸うべきではない"}
       ]
      },
-     {label:"must / have to ＋ 原形",
+     {label:"must / have to ＋ 動詞の原形",
       trans:"〜しなければならない",
       role:"強い義務。must（話し手の主観）／ have to（外からの必要）",
       keys:["must","have to","has to","had to","don't have to","must not"],
@@ -1625,7 +1625,7 @@ var genres = [
       ],
       caution:"<b>否定の意味が違う</b>：don't have to ＝ 〜する必要はない／ must not ＝ 〜してはいけない"
      },
-     {label:"may / might ＋ 原形",
+     {label:"may / might ＋ 動詞の原形",
       trans:"〜かもしれない／〜してもよい",
       role:"可能性（弱い）・許可。might は may より控えめ",
       keys:["may","might","May I 〜?"],
@@ -1635,7 +1635,7 @@ var genres = [
       ]
      }
    ],
-   identify:"助動詞の後ろは必ず<b>原形</b>。<br>強い義務 → must / have to ／ アドバイス → should ／ 可能性・許可 → may / might。<br>否定の意味の違い（don't have to vs must not）に注意。",
+   identify:"助動詞の後ろは必ず<b>動詞の原形</b>。<br>強い義務 → must / have to ／ アドバイス → should ／ 可能性・許可 → may / might。<br>否定の意味の違い（don't have to vs must not）に注意。",
    patterns:["should（すべき）","have to / must","don't have to（不要）","must not（禁止）","可能性の may","Can / May I 〜?（許可）","Why don't you 〜?（提案）","would like to（丁寧な希望）","丁寧な依頼"],
    relatedNames:["助動詞（基礎）","命令文・Let's","仮定法過去"]
   },
@@ -1650,7 +1650,7 @@ var genres = [
      {label:"What ＋ 名詞 〜!",
       trans:"なんて〜な〇〇だろう",
       role:"<b>名詞</b>を中心に強く驚く・感動する",
-      keys:["What a/an + 形 + 単数名詞","What + 形 + 複数/不可算名詞"],
+      keys:["What a/an + 形容詞 + 単数名詞","What + 形容詞 + 複数/不可算名詞"],
       examples:[
         {en:"<b>What a beautiful flower</b> this is!", ja:"なんてきれいな花でしょう"},
         {en:"<b>What kind people</b> they are!", ja:"なんて親切な人々だろう"}
@@ -1660,12 +1660,12 @@ var genres = [
      {label:"How ＋ 形容詞・副詞 〜!",
       trans:"なんて〜だろう",
       role:"<b>形容詞・副詞</b>を中心に強く驚く",
-      keys:["How + 形/副","How fast","How beautiful"],
+      keys:["How + 形容詞・副詞","How fast","How beautiful"],
       examples:[
         {en:"<b>How beautiful</b> this flower is!", ja:"なんてきれいなんだろう"},
         {en:"<b>How fast</b> he runs!", ja:"なんて速く走るんだろう"}
       ],
-      caution:"How の後は<b>形容詞か副詞</b>。後ろに名詞は来ない。「主語 ＋ 動詞」は省略可"
+      caution:"How の後は<b>形容詞・副詞</b>。後ろに名詞は来ない。「主語 ＋ 動詞」は省略可"
      }
    ],
    identify:"中心になる語で見分ける：<br><b>名詞</b>（例: a flower, people）が中心 → <b>What</b><br><b>形容詞・副詞</b>（例: beautiful, fast）が中心 → <b>How</b>",
@@ -1832,7 +1832,7 @@ var genres = [
         {en:"the book <b>(which) I read yesterday</b>", ja:"昨日私が読んだ本"}
       ]
      },
-     {label:"名詞 ＋ to ＋ 原形（不定詞）",
+     {label:"名詞 ＋ to ＋ 動詞の原形（不定詞）",
       trans:"〜するための／〜すべき〜",
       role:"不定詞の形容詞的用法",
       keys:["something to eat","time to study","a place to live"],
@@ -1842,7 +1842,7 @@ var genres = [
       ]
      }
    ],
-   identify:"「<b>どんな〜</b>」をどう説明するかを見る：<br>前置詞 → 前置詞句／〜ing → 現在分詞／過去分詞 → 過去分詞／who/which/that → 関係代名詞／to＋原形 → 不定詞。<br>すべて<b>名詞の直後</b>に修飾語が続く。",
+   identify:"「<b>どんな〜</b>」をどう説明するかを見る：<br>前置詞 → 前置詞句／〜ing → 現在分詞／過去分詞 → 過去分詞／who/which/that → 関係代名詞／to＋動詞の原形 → 不定詞。<br>すべて<b>名詞の直後</b>に修飾語が続く。",
    patterns:["前置詞句の後置修飾","現在分詞の後置修飾","過去分詞の後置修飾","関係代名詞 who（主格）","関係代名詞 which（主格）","関係代名詞（目的格・省略可）","関係代名詞 whose（所有格）"],
    relatedNames:["関係代名詞","関係副詞・関係代名詞 what","不定詞","前置詞"]
   },
@@ -2023,17 +2023,17 @@ var genres = [
   },
 
   {no:30, grade:"中3", name:"仮定法過去",
-   basic:"<b>If ＋ 主語 ＋ 過去形,</b> ／ <b>主語 ＋ would / could / might ＋ 原形</b>",
+   basic:"<b>If ＋ 主語 ＋ 過去形,</b> ／ <b>主語 ＋ would / could / might ＋ 動詞の原形</b>",
    headlines:[
      {u:"If 仮定法", k:"もし〜なら、〜だろうに"},
      {u:"were", k:"主語に関係なく were"},
      {u:"I wish 〜", k:"〜だったらなあ"}
    ],
    usages:[
-     {label:"If ＋ 主語 ＋ 動詞の過去形, 主語 ＋ would ＋ 原形",
+     {label:"If ＋ 主語 ＋ 動詞の過去形, 主語 ＋ would ＋ 動詞の原形",
       trans:"もし〜なら、〜だろうに",
       role:"<b>現在の事実と反対</b>の仮定。実現しないことを言う",
-      keys:["If 過去形","would + 原形","could","might"],
+      keys:["If 過去形","would + 動詞の原形","could","might"],
       examples:[
         {en:"<b>If</b> I <b>had</b> more time, I <b>would travel</b>.", ja:"もっと時間があれば旅行するのに"},
         {en:"<b>If</b> I <b>knew</b> her number, I <b>could call</b> her.", ja:"電話番号を知っていれば電話できるのに"}
@@ -2060,7 +2060,7 @@ var genres = [
       ]
      }
    ],
-   identify:"<b>現在の事実と反対</b>のことを言うとき → 仮定法過去。<br>If の中の動詞は<b>過去形</b>（be動詞は <b>were</b>）／主節は <b>would / could / might ＋ 原形</b>。<br>I wish の後ろも過去形 / were。",
+   identify:"<b>現在の事実と反対</b>のことを言うとき → 仮定法過去。<br>If の中の動詞は<b>過去形</b>（be動詞は <b>were</b>）／主節は <b>would / could / might ＋ 動詞の原形</b>。<br>I wish の後ろも過去形 / were。",
    patterns:["仮定法過去","仮定法の were","I wish + 仮定法"],
    relatedNames:["接続詞","助動詞（発展）"]
   },
@@ -2068,14 +2068,14 @@ var genres = [
   {no:31, grade:"中3", name:"使役・知覚動詞（原形不定詞）",
    basic:"<b>使役・知覚動詞 ＋ 目的語 ＋ 動詞の原形</b>",
    headlines:[
-     {u:"使役動詞", k:"let / make / have ＋ 目的語 ＋ 原形"},
-     {u:"知覚動詞", k:"see / hear / feel ＋ 目的語 ＋ 原形/-ing"},
-     {u:"help", k:"help ＋ 目的語 ＋ (to) 原形"}
+     {u:"使役動詞", k:"let / make / have ＋ 目的語 ＋ 動詞の原形"},
+     {u:"知覚動詞", k:"see / hear / feel ＋ 目的語 ＋ 動詞の原形/-ing"},
+     {u:"help", k:"help ＋ 目的語 ＋ (to) 動詞の原形"}
    ],
    usages:[
-     {label:"let / make / have ＋ 目的語 ＋ 原形",
+     {label:"let / make / have ＋ 目的語 ＋ 動詞の原形",
       trans:"目的語に〜させる",
-      role:"使役動詞。後ろは<b>to のつかない原形</b>",
+      role:"使役動詞。後ろは<b>to のつかない動詞の原形</b>",
       keys:["let（許可）","make（強制）","have（依頼）"],
       examples:[
         {en:"My mother <b>let me go</b> there.", ja:"母は私をそこへ行かせてくれた"},
@@ -2084,9 +2084,9 @@ var genres = [
       ],
       caution:"× let me <b>to go</b> → ○ let me <b>go</b>"
      },
-     {label:"see / hear / feel ＋ 目的語 ＋ 原形 / 〜ing",
+     {label:"see / hear / feel ＋ 目的語 ＋ 動詞の原形 / 〜ing",
       trans:"目的語が〜するのを見る／聞く／感じる",
-      role:"知覚動詞。動作全体 → 原形／動作の途中 → 〜ing",
+      role:"知覚動詞。動作全体 → 動詞の原形／動作の途中 → 〜ing",
       keys:["see","hear","feel","watch","listen to"],
       examples:[
         {en:"I <b>saw him run</b>.", ja:"彼が走るのを見た（動作全体）"},
@@ -2094,7 +2094,7 @@ var genres = [
         {en:"I <b>heard her sing</b>.", ja:"彼女が歌うのを聞いた"}
       ]
      },
-     {label:"help ＋ 目的語 ＋ (to) 原形",
+     {label:"help ＋ 目的語 ＋ (to) 動詞の原形",
       trans:"目的語が〜するのを手伝う",
       role:"help の後ろは to あり・なし両方OK",
       keys:["help","to を省略してもよい"],
@@ -2104,13 +2104,13 @@ var genres = [
       ]
      }
    ],
-   identify:"<b>使役（let/make/have/help）</b>・<b>知覚（see/hear/feel）</b>の動詞のあとは <b>目的語 ＋ 原形（to なし）</b>。<br>知覚動詞だけは 動作の途中なら <b>目的語 ＋ 〜ing</b>。",
+   identify:"<b>使役（let/make/have/help）</b>・<b>知覚（see/hear/feel）</b>の動詞のあとは <b>目的語 ＋ 動詞の原形（to なし）</b>。<br>知覚動詞だけは 動作の途中なら <b>目的語 ＋ 〜ing</b>。",
    patterns:["使役動詞（make / let）","help + 人 + 原形","知覚動詞 + 原形"],
    relatedNames:["不定詞","文型","進行形"]
   },
 
   {no:32, grade:"中3", name:"結果構文（too〜to / so〜that）",
-   basic:"<b>too ＋ 形 ＋ to ＋ 原形</b> ／ <b>so ＋ 形 ＋ that 〜</b>",
+   basic:"<b>too ＋ 形容詞・副詞 ＋ to ＋ 動詞の原形</b> ／ <b>so ＋ 形容詞・副詞 ＋ that 〜</b>",
    headlines:[
      {u:"too 〜 to …", k:"〜すぎて…できない"},
      {u:"〜 enough to …", k:"…できるほど〜"},
@@ -2118,7 +2118,7 @@ var genres = [
      {u:"such 〜 that …", k:"とても〜な〇〇なので"}
    ],
    usages:[
-     {label:"too ＋ 形容詞・副詞 ＋ to ＋ 原形",
+     {label:"too ＋ 形容詞・副詞 ＋ to ＋ 動詞の原形",
       trans:"〜すぎて…できない",
       role:"程度が過剰で不可能な結果。<b>否定の意味</b>",
       keys:["too","否定的な結果"],
@@ -2126,9 +2126,9 @@ var genres = [
         {en:"He is <b>too young to drive</b>.", ja:"彼は若すぎて運転できない"},
         {en:"= He is <b>so</b> young <b>that</b> he <b>can't</b> drive."}
       ],
-      caution:"to のあとは原形。意味は<b>否定</b>"
+      caution:"to のあとは動詞の原形。意味は<b>否定</b>"
      },
-     {label:"形容詞・副詞 ＋ enough ＋ to ＋ 原形",
+     {label:"形容詞・副詞 ＋ enough ＋ to ＋ 動詞の原形",
       trans:"…できるほど〜",
       role:"程度が十分で可能な結果",
       keys:["enough","形容詞 + enough（順番）"],
@@ -2141,7 +2141,7 @@ var genres = [
      {label:"so ＋ 形容詞・副詞 ＋ that ＋ 主語 ＋ 動詞",
       trans:"とても〜なので…",
       role:"原因と結果を文として書く",
-      keys:["so + 形/副 + that","so 〜 that can't = too 〜 to"],
+      keys:["so + 形容詞・副詞 + that","so 〜 that can't = too 〜 to"],
       examples:[
         {en:"He is <b>so</b> kind <b>that</b> everyone likes him.", ja:"彼はとても親切なのでみんなに好かれる"},
         {en:"It was <b>so</b> hot <b>that</b> I couldn't sleep.", ja:"とても暑くて眠れなかった"}
@@ -2150,7 +2150,7 @@ var genres = [
      {label:"such (a) ＋ 形容詞 ＋ 名詞 ＋ that 〜",
       trans:"とても〜な〇〇なので…",
       role:"<b>名詞</b>を強調して結果を述べる",
-      keys:["such a + 形 + 単数名詞","such + 形 + 複数/不可算名詞"],
+      keys:["such a + 形容詞 + 単数名詞","such + 形容詞 + 複数/不可算名詞"],
       examples:[
         {en:"It was <b>such a hot day that</b> we stayed home.", ja:"とても暑い日だったので家にいた"},
         {en:"They are <b>such kind people that</b> everyone likes them.", ja:"とても親切な人々なので皆が好きだ"}
@@ -2158,7 +2158,7 @@ var genres = [
       caution:"so は<b>形容詞</b>を強める／such は<b>名詞</b>を強める"
      }
    ],
-   identify:"<b>程度</b>と<b>結果</b>を結びつける構文：<br>形 + to → too / enough（句の結果）／ 形 + that 文 → so / such（文の結果）。<br>too 〜 to は<b>否定</b>、enough to は<b>肯定</b>。",
+   identify:"<b>程度</b>と<b>結果</b>を結びつける構文：<br>形容詞・副詞 + to → too / enough（句の結果）／ 形容詞・副詞 + that 文 → so / such（文の結果）。<br>too 〜 to は<b>否定</b>、enough to は<b>肯定</b>。",
    patterns:["too 〜 to …","〜 enough to …","so 〜 that …","such 〜 that …"],
    relatedNames:["不定詞","接続詞","形容詞・副詞"]
   }
@@ -2240,7 +2240,15 @@ function setAppHeight(){
 setAppHeight();
 window.addEventListener('resize',setAppHeight);
 window.addEventListener('orientationchange',function(){setTimeout(setAppHeight,200);});
-if(window.visualViewport){window.visualViewport.addEventListener('resize',setAppHeight);}
+/* visualViewport.resize は URL バーの動きで頻繁に発火するため debounce して
+   ジェスチャー中にレイアウトが揺れないようにする */
+if(window.visualViewport){
+  var _vvT;
+  window.visualViewport.addEventListener('resize',function(){
+    clearTimeout(_vvT);
+    _vvT=setTimeout(setAppHeight,150);
+  });
+}
 
 function loadSet(k){try{return new Set(JSON.parse(localStorage.getItem(k)||'[]'))}catch(e){return new Set()}}
 function saveSet(k,s){try{localStorage.setItem(k,JSON.stringify(Array.from(s)))}catch(e){}}
@@ -3105,8 +3113,9 @@ function fitGenreBasicLines(){
       line.style.display='';
       if(intrinsic>maxW){
         var ratio=maxW/intrinsic;
-        // 最小 65% で抑える（それ以下はやむなく2行に。78%→65%で長い basic も1行に収まりやすく）
-        var pct=Math.max(65, Math.floor(ratio*100));
+        // 最小 50% で抑える（それ以下はやむなく2行に）。実機フォント幅が emulator より広いため、
+        // 65% では収まらない basic がある（例: should / must / have to ＋ 動詞の原形）。
+        var pct=Math.max(50, Math.floor(ratio*100));
         line.style.fontSize=pct+'%';
       }
     });
