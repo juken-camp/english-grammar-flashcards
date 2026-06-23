@@ -1039,7 +1039,7 @@ var genres = [
   },
 
   {no:9, grade:"中1", name:"代名詞",
-   basic:"<b>人称代名詞</b>（I/my/me/mine 系列）／ <b>指示代名詞</b>（this/that/these/those）／ <b>再帰代名詞</b>（myself 系列）",
+   basic:"<b>人称代名詞</b> ／ <b>指示代名詞</b> ／ <b>再帰代名詞</b>",
    headlines:[
      {u:"人称代名詞", k:"主格・所有格・目的格・所有代名詞"},
      {u:"指示代名詞", k:"this / that / these / those"},
@@ -3469,13 +3469,13 @@ function endDrag(e){
   if(lock==='h'){
     var vel=ax/Math.max(dt,1);
     // 緩めた閾値
-    var distTh=wasNoSwipe?70:26;
-    var velTh=wasNoSwipe?0.5:0.20;
-    var peakTh=wasNoSwipe?100:45;
+    var distTh=wasNoSwipe?70:22;
+    var velTh=wasNoSwipe?0.5:0.18;
+    var peakTh=wasNoSwipe?100:28;
     // メイン判定: 距離 OR 平均速度 OR リリース時の瞬間速度
     if(ax>distTh||vel>velTh||instVel>velTh){animateNav(dx<0?1:-1);}
-    // 途中で大きく動いたけど戻ってきた場合: peakの方向にnav
-    else if(peakX>peakTh && ax>=peakX*0.55){animateNav(dx<0?1:-1);}
+    // 途中で大きく動いたけど戻ってきた場合: peakの方向にnav（戻り許容を 55%→40% に緩和）
+    else if(peakX>peakTh && ax>=peakX*0.40){animateNav(dx<0?1:-1);}
     else snapBack();
   }
   else if(ax<8&&ay<8&&dt<320&&!wasNoSwipe){snapBack();flip();}
