@@ -106,7 +106,7 @@ button{font-family:inherit;cursor:pointer}
 .front-accent.g3{background:linear-gradient(90deg,var(--g3c),var(--mint))}
 .front-top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 0}
 .front-no{font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;color:var(--muted);letter-spacing:1px}
-.front-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px 22px}
+.front-body{flex:1 1 0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:safe center;text-align:center;padding:14px 22px;overflow-y:auto;-webkit-overflow-scrolling:touch;transform:translateZ(0)}
 .front-topic{font-weight:800;font-size:27px;line-height:1.32;letter-spacing:.3px;word-break:auto-phrase;overflow-wrap:anywhere}
 .front-ja{margin-top:18px;font-size:16.5px;line-height:1.65;color:var(--text);font-weight:600;max-width:100%;word-break:auto-phrase}
 .front-ja:empty{display:none}
@@ -392,7 +392,6 @@ button{font-family:inherit;cursor:pointer}
 .gen-ex-en{font-size:13px;font-weight:700;color:var(--text)}
 .gen-ex-ja{display:block;font-size:11.5px;color:var(--dim);font-weight:600;margin-top:2px;line-height:1.5}
 .gen-usage-caution{margin-top:8px;font-size:11.5px;color:#b8508a;background:var(--pink-bg);border:1px solid var(--pink-l);border-radius:8px;padding:6px 9px;line-height:1.5;font-weight:600}
-.gen-usage-caution:before{content:'⚠ ';font-size:11px}
 .gen-identify{background:var(--mint-bg);border:1.5px solid var(--mint-l);border-radius:13px;padding:12px 13px;font-size:12.5px;line-height:1.65;color:var(--text);font-weight:600}
 .gen-identify b{color:#2E8A6A;font-weight:800}
 .gen-sec{margin-top:16px}
@@ -733,7 +732,7 @@ var genres = [
   },
 
   {no:2, grade:"中1", name:"一般動詞",
-   basic:"主語 + <b>動詞</b>（／don't・doesn't・didn't ＋ 原形）",
+   basic:"主語 + <b>動詞</b> ／ 主語 + <b>don't / doesn't / didn't</b> + 原形",
    headlines:[
      {u:"肯定文", k:"play / studied"},
      {u:"否定文", k:"don't / doesn't / didn't"},
@@ -1258,7 +1257,7 @@ var genres = [
 
   // ========== 中2 (10枚) ==========
   {no:14, grade:"中2", name:"接続詞",
-   basic:"等位接続詞（and, but, or, so）／ 従位接続詞（when, if, that, because, while）",
+   basic:"<b>等位接続詞</b>（and, but, or, so）／ <b>従位接続詞</b>（when, if, that, because, while）",
    headlines:[
      {u:"等位接続詞", k:"and / but / or / so"},
      {u:"時・条件", k:"when / if / while"},
@@ -1315,7 +1314,7 @@ var genres = [
    basic:"<b>There + is/are + 主語 + 場所</b>",
    headlines:[
      {u:"There is + 単数", k:"〜がある／いる"},
-     {u:"There are + 複数", k:"〜たちがある／いる"},
+     {u:"There are + 複数", k:"〜がある／いる"},
      {u:"否定・疑問", k:"isn't / aren't, Is/Are there 〜?"}
    ],
    usages:[
@@ -1331,7 +1330,7 @@ var genres = [
      },
      {label:"否定文・疑問文",
       trans:"〜がない／〜がありますか",
-      role:"isn't/aren't を入れる／Is/Are there 〜?",
+      role:"be動詞の文と同じ作り方（be ＋ not／be を前に）",
       keys:["isn't","aren't","Is there 〜?","Are there 〜?","How many 〜 are there?"],
       examples:[
         {en:"<b>There isn't</b> any milk.", ja:"牛乳がない"},
@@ -1368,7 +1367,7 @@ var genres = [
    usages:[
      {label:"名詞的用法（主語・目的語・補語）",
       trans:"〜すること",
-      role:"名詞のはたらき（want to, like to, decide to など）",
+      role:"名詞のはたらき",
       keys:["want to","like to","try to","need to","decide to","hope to"],
       examples:[
         {en:"I want <b>to play</b> tennis.", ja:"私はテニスをしたい（目的語）"},
@@ -1407,7 +1406,7 @@ var genres = [
      }
    ],
    identify:"<b>to ＋ 原形</b>を見たら3用法のどれか考える。<br>(1) 主語・目的語・補語の位置 → 名詞的用法<br>(2) 名詞の直後 → 形容詞的用法<br>(3) 動詞・形容詞の後 → 副詞的用法",
-   patterns:["不定詞（名詞的用法）","不定詞をとる動詞（want to など）","不定詞（形容詞的用法）","不定詞（副詞的・目的）","不定詞（感情の原因）","形式主語 It is for〜to","tell 人 to〜","want 人 to〜","ask 人 to〜","疑問詞＋不定詞","too〜to…","〜 enough to …"],
+   patterns:["不定詞（名詞的用法）","不定詞をとる動詞（want to など）","不定詞（形容詞的用法）","不定詞（副詞的・目的）","不定詞（感情の原因）","形式主語 It is for〜to","tell 人 to〜","want 人 to〜","ask 人 to〜","how to 〜（方法）","what to 〜","too 〜 to …","〜 enough to …"],
    relatedNames:["動名詞","後置修飾","結果構文（too〜to / so〜that）","使役・知覚動詞（原形不定詞）"]
   },
 
@@ -1421,7 +1420,7 @@ var genres = [
    usages:[
      {label:"動名詞 ＝ 〜すること",
       trans:"〜すること（名詞のはたらき）",
-      role:"主語・目的語・補語になる",
+      role:"文中で名詞のはたらき",
       keys:["主語","目的語","補語"],
       examples:[
         {en:"<b>Reading</b> books is fun.", ja:"本を読むことは楽しい（主語）"},
@@ -1557,7 +1556,7 @@ var genres = [
   },
 
   {no:20, grade:"中2", name:"受動態",
-   basic:"<b>主語 + be動詞 + 過去分詞 (+ by 〜)</b>",
+   basic:"主語 + <b>be動詞</b> + <b>過去分詞</b> (+ by 〜)",
    headlines:[
      {u:"be ＋ 過去分詞", k:"〜される"},
      {u:"by ＋ 人", k:"〜によって"},
@@ -2111,7 +2110,7 @@ var genres = [
   },
 
   {no:32, grade:"中3", name:"結果構文（too〜to / so〜that）",
-   basic:"<b>too ＋ 形 ＋ to ＋ 原形</b> ／ <b>so ＋ 形 ＋ that 〜</b> ／ <b>形 ＋ enough to</b>",
+   basic:"<b>too ＋ 形 ＋ to ＋ 原形</b> ／ <b>so ＋ 形 ＋ that 〜</b>",
    headlines:[
      {u:"too 〜 to …", k:"〜すぎて…できない"},
      {u:"〜 enough to …", k:"…できるほど〜"},
