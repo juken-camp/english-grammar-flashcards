@@ -368,43 +368,44 @@ button{font-family:inherit;cursor:pointer}
 .ov-tbl td b{color:var(--purple);font-weight:800}
 .ov-tbl td.ng{color:#d63031}
 .ov-tbl td.ng s{opacity:.7}
-
 /* ===== 分野モード ===== */
-.gen-front{align-items:stretch}
-.gen-headlines{margin-top:22px;width:100%;display:flex;flex-direction:column;gap:7px;padding:0 4px}
-.gen-hline{display:flex;align-items:baseline;gap:10px;padding:9px 13px;background:var(--purple-bg);border:1px solid var(--purple-l);border-radius:11px;text-align:left}
-.gen-hline-u{font-weight:800;font-size:13px;color:var(--purple);flex-shrink:0;letter-spacing:.2px;white-space:nowrap}
-.gen-hline-k{font-weight:600;font-size:12.5px;color:var(--text);line-height:1.4;flex:1;word-break:auto-phrase}
-.gen-basic{margin-top:14px;font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:700;font-size:15px;color:var(--dim);letter-spacing:.3px;padding:0 6px;line-height:1.5;word-break:auto-phrase}
-.gen-basic b{color:var(--purple);font-weight:800}
-.gen-usage{margin:0 0 16px;border:1.5px solid var(--purple-l);border-radius:14px;padding:13px 14px 12px;background:#FFFCFE}
-.gen-usage:last-child{margin-bottom:8px}
-.gen-usage-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;border-bottom:1px dashed var(--purple-l);padding-bottom:9px;margin-bottom:9px}
-.gen-usage-label{font-weight:800;font-size:14px;color:var(--purple);letter-spacing:.2px}
-.gen-usage-trans{font-weight:700;font-size:13px;color:var(--text)}
-.gen-usage-role{font-size:12px;color:var(--dim);line-height:1.6;margin-bottom:7px}
-.gen-usage-keys{display:flex;flex-wrap:wrap;gap:4px 5px;margin-bottom:9px}
-.gen-key{display:inline-block;font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:600;font-size:11.5px;background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-l);padding:3px 9px;border-radius:8px;line-height:1.4;white-space:nowrap;letter-spacing:.1px}
-.gen-usage-ex{margin:0 0 0 0;display:flex;flex-direction:column;gap:6px}
-.gen-ex-row{font-size:12.5px;line-height:1.55}
-.gen-ex-en{display:block;font-weight:600;color:var(--text)}
-.gen-ex-en b{color:var(--purple)}
-.gen-ex-ja{display:block;color:var(--dim);font-size:11.5px;line-height:1.5;margin-top:1px}
-.gen-usage-caution{display:block;margin-top:9px;background:var(--pink-bg);border-left:3px solid var(--pink);border-radius:0 8px 8px 0;padding:7px 11px;font-size:11.5px;color:#A04060;line-height:1.65}
-.gen-identify{margin:18px 0 0;background:var(--orange-bg);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:11px 13px;font-size:12.5px;line-height:1.65;color:#B07030}
-.gen-identify b{color:#A04020}
-.gen-identify .h{display:block;font-weight:800;font-size:12px;color:#B07030;letter-spacing:.4px;margin-bottom:4px}
-.gen-sec{margin-top:18px}
+.gen-front{flex:1;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:22px 18px 18px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.gen-front-name{font-weight:800;font-size:24px;line-height:1.3;letter-spacing:.3px;color:var(--text);text-align:center;word-break:auto-phrase;margin-bottom:6px}
+.gen-front-name .fnote{display:block;margin-top:5px;font-size:.55em;font-weight:600;color:var(--dim);letter-spacing:0;line-height:1.35}
+.gen-front-grade{display:inline-block;align-self:center;font-family:'Outfit';font-size:10.5px;font-weight:700;color:var(--purple);background:var(--purple-bg);border:1px solid var(--purple-l);padding:2px 9px;border-radius:10px;letter-spacing:.5px;margin-bottom:14px}
+.gen-basic{margin:0 auto 16px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 14px;font-weight:800;font-size:15.5px;line-height:1.55;color:var(--text);text-align:center;letter-spacing:.2px;max-width:100%;word-break:auto-phrase}
+.gen-basic b{color:var(--purple)}
+.gen-basic .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 6px;margin:0 1px;line-height:1.25}
+.gen-headlines{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:9px 12px;display:flex;align-items:baseline;gap:9px;line-height:1.45}
+.gen-hline-u{font-weight:800;font-size:13.5px;color:var(--purple);flex:0 0 auto;letter-spacing:.2px}
+.gen-hline-k{font-size:12.5px;color:var(--dim);font-weight:600;line-height:1.5;word-break:auto-phrase}
+.gen-usage{background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 13px;margin-bottom:11px}
+.gen-usage-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.gen-usage-label{font-weight:800;font-size:14.5px;color:var(--purple);letter-spacing:.2px}
+.gen-usage-trans{font-size:12px;color:var(--dim);font-weight:700}
+.gen-usage-role{font-size:11px;color:var(--muted);font-weight:600;background:#fff;border:1px solid var(--purple-l);padding:2px 8px;border-radius:8px;letter-spacing:.3px}
+.gen-usage-keys{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
+.gen-key{font-size:11.5px;font-weight:700;color:var(--purple);background:#fff;border:1px solid var(--purple-l);padding:3px 8px;border-radius:8px;letter-spacing:.2px}
+.gen-usage-ex{display:flex;flex-direction:column;gap:7px;background:#fff;border-radius:9px;padding:9px 10px;border:1px solid var(--purple-l)}
+.gen-ex-row{line-height:1.55}
+.gen-ex-en{font-size:13px;font-weight:700;color:var(--text)}
+.gen-ex-ja{display:block;font-size:11.5px;color:var(--dim);font-weight:600;margin-top:2px;line-height:1.5}
+.gen-usage-caution{margin-top:8px;font-size:11.5px;color:#b8508a;background:var(--pink-bg);border:1px solid var(--pink-l);border-radius:8px;padding:6px 9px;line-height:1.5;font-weight:600}
+.gen-usage-caution:before{content:'⚠ ';font-size:11px}
+.gen-identify{background:var(--mint-bg);border:1.5px solid var(--mint-l);border-radius:13px;padding:12px 13px;font-size:12.5px;line-height:1.65;color:var(--text);font-weight:600}
+.gen-identify b{color:#2E8A6A;font-weight:800}
+.gen-sec{margin-top:16px}
 .gen-sec-h{font-weight:800;font-size:12.5px;color:var(--purple);margin-bottom:9px;letter-spacing:.04em;display:flex;align-items:center;gap:6px}
-.gen-pattern{display:flex;align-items:center;justify-content:space-between;gap:7px;width:100%;text-align:left;border:1.5px solid var(--purple-l);background:#fff;color:var(--text);font-weight:700;font-size:13px;padding:11px 13px;border-radius:11px;cursor:pointer;transition:.15s;margin-bottom:7px;line-height:1.4}
-.gen-pattern:last-child{margin-bottom:0}
-.gen-pattern:active{transform:scale(.985);background:var(--purple-bg)}
-.gen-pattern .arr{color:var(--purple);font-weight:900;font-size:14px;flex-shrink:0}
-.gen-rel-list{display:flex;flex-wrap:wrap;gap:7px}
-.gen-rel-name{display:inline-flex;align-items:center;gap:5px;border:1.5px solid var(--mint-l);background:var(--mint-bg);color:#2E8A6A;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:11px;cursor:pointer;transition:.15s;line-height:1.3}
-.gen-rel-name:active{transform:scale(.96)}
-.gen-rel-name .arr{font-size:12px;opacity:.8}
-
+.gen-sec-h.mint{color:#2E8A6A}
+.gen-pat-list{display:flex;flex-direction:column;gap:7px}
+.gen-pattern{display:flex;align-items:center;gap:7px;width:100%;text-align:left;border:1.5px solid var(--purple-l);background:#fff;color:var(--purple);font-family:inherit;font-weight:700;font-size:13px;padding:10px 12px;border-radius:11px;line-height:1.4;cursor:pointer;transition:.15s;word-break:auto-phrase}
+.gen-pattern:active{transform:scale(.98);background:var(--purple-bg)}
+.gen-pattern .arr{font-weight:900;font-size:14px;color:var(--purple);margin-left:auto;flex-shrink:0}
+.gen-rel-list{display:flex;flex-wrap:wrap;gap:6px}
+.gen-rel-name{display:inline-flex;align-items:center;gap:4px;border:1.5px solid var(--mint-l);background:var(--mint-bg);color:#2E8A6A;font-family:inherit;font-weight:700;font-size:12px;padding:6px 11px;border-radius:14px;cursor:pointer;transition:.15s;line-height:1.3;white-space:nowrap}
+.gen-rel-name:active{transform:scale(.96);background:var(--mint);color:#fff;border-color:var(--mint)}
+.gen-rel-name:before{content:'📚';font-size:11px}
 </style>
 </head>
 <body>
@@ -684,10 +685,1487 @@ var formulas=[
 ];
 formulas.forEach(function(f,i){f.id='f'+(i+1);f.no=i+1;f.gr=(grammarRef[f.c-1]||{}).gr||'中1';});
 
-/* ===== 分野カード（文法分野の全体像） ===== */
-var genres=[{"no":1,"name":"be動詞","grade":"中1","basic":"am / is / are / was / were","headlines":[{"u":"現在形","k":"I am / You are / He is"},{"u":"過去形","k":"was / were"},{"u":"疑問・否定","k":"Are you ~? / not"}],"usages":[{"label":"現在形 (am/is/are)","trans":"〜です・〜にいる","role":"主語と説明をイコールで結ぶ","keys":["I → am","You/複数 → are","He/She/It/単数 → is"],"examples":[{"en":"I am a student.","ja":"私は学生です。"},{"en":"She is kind.","ja":"彼女は親切だ。"},{"en":"We are in Okinawa.","ja":"私たちは沖縄にいる。"}],"caution":"主語によって am / is / are を使い分ける。"},{"label":"過去形 (was/were)","trans":"〜だった・〜にいた","role":"現在のbe動詞を過去にした形","keys":["I/he/she/it/単数 → was","you/we/they/複数 → were"],"examples":[{"en":"I was happy.","ja":"私はうれしかった。"},{"en":"They were in the park.","ja":"彼らは公園にいた。"}],"caution":"yesterday / last 〜 / 〜ago など過去のサインを見つけたら was / were に。"},{"label":"疑問文・否定文","trans":"〜ですか？／〜ではない","role":"be動詞を文頭に出して疑問、後ろに not で否定","keys":["Is he ~?","Are you ~?","isn't / aren't / wasn't / weren't"],"examples":[{"en":"Are you a student? — Yes, I am.","ja":"学生ですか—はい。"},{"en":"She isn't busy.","ja":"彼女は忙しくない。"}],"caution":"短縮形：I'm / You're / He's / isn't / aren't / wasn't / weren't（am not の短縮形はない）。"}],"identify":"「主語＝説明」の形（〜です／〜にいる）はbe動詞。一般動詞（play, study など動作）と絶対に混ぜない（× I am play）。","relatedNames":["一般動詞","進行形","受動態"],"patterns":["be動詞（am/is/are）","be動詞の疑問文","be動詞の過去（was/were）"]},{"no":2,"name":"一般動詞","grade":"中1","basic":"be動詞以外の動詞（play, study, like など）","headlines":[{"u":"肯定文","k":"I play / He plays"},{"u":"疑問文","k":"Do/Does + 主語 + 原形?"},{"u":"否定文","k":"don't / doesn't + 原形"}],"usages":[{"label":"肯定文","trans":"〜する","role":"動作・気持ち・状態を表す","keys":["play, study, like, have, go, eat …"],"examples":[{"en":"I play tennis.","ja":"私はテニスをする。"},{"en":"She likes music.","ja":"彼女は音楽が好きだ。"}],"caution":"三人称単数（he/she/it）が主語のとき、現在形は動詞に -s / -es をつける。"},{"label":"疑問文 (Do/Does)","trans":"〜しますか？","role":"Do/Does を文頭に、動詞は原形に戻す","keys":["Do you ~?","Does he ~?","Did you ~?"],"examples":[{"en":"Do you like music?","ja":"音楽は好き？"},{"en":"Does he play soccer?","ja":"彼はサッカーをする？"}],"caution":"Does / Did があったら動詞は必ず原形（× Does she plays → ○ Does she play）。"},{"label":"否定文 (don't/doesn't)","trans":"〜しない","role":"don't / doesn't を動詞の前に、動詞は原形","keys":["don't / doesn't / didn't + 原形"],"examples":[{"en":"I don't like math.","ja":"数学は好きじゃない。"},{"en":"He doesn't play tennis.","ja":"彼はテニスをしない。"}],"caution":"be動詞と絶対に混ぜない（× I don't am, × I am play）。"}],"identify":"動作・気持ち・状態を表す動詞すべて。be動詞（am/is/are）以外。疑問・否定で do/does/did が出てくるのが目印。","relatedNames":["be動詞","三人称単数現在形","過去形"],"patterns":["一般動詞の否定文","一般動詞の疑問文","3単現のs"]},{"no":3,"name":"三人称単数現在形","grade":"中1","basic":"動詞 + s / es（he, she, it などが主語のとき）","headlines":[{"u":"ふつう","k":"+ s（plays）"},{"u":"s,sh,ch,x,o","k":"+ es（goes）"},{"u":"子音+y","k":"y → i + es（studies）"},{"u":"特殊","k":"have → has"}],"usages":[{"label":"ふつうの -s","trans":"〜する（三人称単数）","role":"ほとんどの動詞は -s をつけるだけ","keys":["plays, likes, runs, comes, lives, knows"],"examples":[{"en":"She plays tennis.","ja":"彼女はテニスをする。"},{"en":"He likes pizza.","ja":"彼はピザが好き。"}],"caution":"I, you, 複数主語のときは s をつけない。"},{"label":"-es（s/sh/ch/x/o 終わり）","trans":"〜する（三人称単数・特殊な語尾）","role":"発音しにくいので es をつけて発音しやすくする","keys":["goes, does, watches, washes, teaches"],"examples":[{"en":"He goes to school.","ja":"彼は学校に行く。"},{"en":"She watches TV.","ja":"彼女はテレビを見る。"}],"caution":"go → goes, do → does のように o で終わる動詞も es をつける。"},{"label":"y → i + es（子音+y 終わり）","trans":"〜する（y 終わり）","role":"子音の後の y は i に変えて es","keys":["study → studies","try → tries","carry → carries"],"examples":[{"en":"He studies English.","ja":"彼は英語を勉強する。"},{"en":"She tries hard.","ja":"彼女は一生懸命やる。"}],"caution":"母音+y（play, enjoy）はそのまま s をつける（plays, enjoys）。"},{"label":"特殊（have → has）","trans":"〜を持っている","role":"have だけは has に形を変える","keys":["have → has"],"examples":[{"en":"She has two cats.","ja":"彼女は猫を2匹飼っている。"}],"caution":"他の動詞と違って単純に -s をつけるのではなく、has という別の形になる。"}],"identify":"主語が he / she / it / 人名 / the dog / my mother など「三人称＋単数＋現在」のとき動詞に s/es。疑問文（Does ~?）や否定文（doesn't ~）になると s は消える。","relatedNames":["一般動詞","be動詞"],"patterns":["3単現のs","一般動詞の疑問文"]},{"no":4,"name":"過去形","grade":"中1","basic":"動詞 + ed（不規則動詞は要暗記）","headlines":[{"u":"規則動詞","k":"+ ed（played）"},{"u":"不規則動詞","k":"go → went / eat → ate"},{"u":"疑問・否定","k":"Did / didn't + 原形"},{"u":"目印","k":"yesterday / last〜 / 〜ago"}],"usages":[{"label":"規則動詞の過去形 (-ed)","trans":"〜した","role":"ほとんどの動詞は ed をつけるだけ","keys":["played, studied, lived, stopped"],"examples":[{"en":"I played soccer yesterday.","ja":"昨日サッカーをした。"},{"en":"She studied English last night.","ja":"彼女は昨夜英語を勉強した。"}],"caution":"ed の付け方4パターン：ふつう→ed / e終わり→d / 子音+y→y→i+ed / 短母音+子音→子音重ねてed。"},{"label":"不規則動詞","trans":"〜した（形が変わる動詞）","role":"形が独自に変化する。暗記必須。","keys":["go→went","eat→ate","see→saw","come→came","have→had"],"examples":[{"en":"I went to school.","ja":"学校へ行った。"},{"en":"She ate lunch.","ja":"昼食を食べた。"}],"caution":"よく使う動詞ほど不規則。be / go / come / have / do / see / get / take は最頻出。"},{"label":"疑問文・否定文","trans":"〜しましたか？／〜しなかった","role":"Did / didn't を使い、動詞は原形に戻す","keys":["Did + 主語 + 原形?","主語 + didn't + 原形"],"examples":[{"en":"Did you eat lunch?","ja":"昼ご飯食べた？"},{"en":"I didn't go to school.","ja":"学校に行かなかった。"}],"caution":"Did / didn't のあとは必ず原形（× Did you went → ○ Did you go）。"}],"identify":"yesterday / last 〜 / 〜ago / when I was 〜 / then などの「過去のサイン」があれば過去形。be動詞は was / were、一般動詞は -ed / 不規則。","relatedNames":["be動詞","一般動詞","現在完了","進行形"],"patterns":["一般動詞の過去形","過去の否定文（didn't）","過去の疑問文（Did）","be動詞の過去（was/were）"]},{"no":5,"name":"進行形","grade":"中1","basic":"be動詞 + 動詞のing形","headlines":[{"u":"現在進行形","k":"am/is/are + ing"},{"u":"過去進行形","k":"was/were + ing"},{"u":"ing 注意","k":"状態動詞は使わない"}],"usages":[{"label":"現在進行形","trans":"今〜している","role":"今まさにしている途中の動作","keys":["am/is/are + ing","now / right now / at the moment"],"examples":[{"en":"I am studying English now.","ja":"今英語を勉強している。"},{"en":"She is playing tennis.","ja":"彼女はテニスをしている。"},{"en":"Is he reading? — Yes, he is.","ja":"彼は読書中？—はい。"}],"caution":"ingの付け方：ふつう→ing / e終わり→eを取ってing / 短母音+子音→重ねてing。"},{"label":"過去進行形","trans":"あの時〜していた","role":"過去のある瞬間の途中の動作","keys":["was/were + ing","when ~ / at that time"],"examples":[{"en":"I was studying at that time.","ja":"その時勉強していた。"},{"en":"They were watching TV when I came.","ja":"私が来た時、彼らはテレビを見ていた。"}],"caution":"「when + 過去形」の文と一緒に使う頻出パターン（背景＋出来事）。"},{"label":"進行形にしない動詞（状態動詞）","trans":"—","role":"「状態」を表す動詞は進行形にしない","keys":["know, like, love, want, have(=持つ), see, hear, belong"],"examples":[{"en":"I know him.","ja":"彼を知っている。（× I am knowing him）"},{"en":"She likes music.","ja":"彼女は音楽が好きだ。（× She is liking）"}],"caution":"have は「持つ」だと進行形NG。「食べる」の have なら OK（I'm having lunch）。"}],"identify":"「〜している（途中）」が現在進行形、「〜していた」が過去進行形。動作の途中を表す。状態（知る・好き）には使わない。","relatedNames":["be動詞","現在完了進行形","分詞（後置修飾）"],"patterns":["現在進行形","過去進行形"]},{"no":6,"name":"未来表現","grade":"中1","basic":"will / be going to + 動詞の原形","headlines":[{"u":"will","k":"その場の判断"},{"u":"be going to","k":"前からの予定"},{"u":"目印","k":"tomorrow / next〜"}],"usages":[{"label":"will（その場の判断・予測）","trans":"〜するつもり／〜するだろう","role":"今この瞬間に決めた未来・自然な予測","keys":["will + 原形","won't（=will not）"],"examples":[{"en":"I will call you later.","ja":"あとで電話するよ。"},{"en":"It will be sunny tomorrow.","ja":"明日は晴れるだろう。"}],"caution":"助動詞なので後ろは必ず原形。be動詞も will be（× will is）。"},{"label":"be going to（前からの予定）","trans":"〜する予定だ／〜しそうだ","role":"前から計画していた未来・予兆","keys":["am/is/are going to + 原形"],"examples":[{"en":"We are going to have a party.","ja":"パーティーをする予定だ。"},{"en":"Look! It's going to rain.","ja":"見て！雨が降りそう。"}],"caution":"going の後の to は前置詞ではなく不定詞の to。後ろは動詞の原形。"},{"label":"疑問文・否定文","trans":"〜しますか／〜しない","role":"will / be動詞を文頭に出して疑問","keys":["Will you ~?","Are you going to ~?","won't / not going to"],"examples":[{"en":"Will you come tomorrow?","ja":"明日来る？"},{"en":"I won't go.","ja":"行かないつもりだ。"}],"caution":"Will you 〜? は「〜してくれますか？」の依頼にもなる。"}],"identify":"tomorrow / next 〜 / in the future / soon などの「未来のサイン」があれば未来表現。will と be going to は書き換え可能（ただしニュアンスは違う）。","relatedNames":["助動詞 (can/will/may)","be動詞"],"patterns":["助動詞 will","未来表現（be going to）"]},{"no":7,"name":"助動詞 (can/will/may)","grade":"中1","basic":"助動詞 + 動詞の原形","headlines":[{"u":"can","k":"〜できる"},{"u":"will","k":"〜するだろう"},{"u":"may","k":"〜してもよい・かもしれない"}],"usages":[{"label":"can（能力・可能）","trans":"〜できる","role":"能力・可能性を表す","keys":["can + 原形","can't / cannot"],"examples":[{"en":"I can speak English.","ja":"英語を話せる。"},{"en":"She can't swim.","ja":"彼女は泳げない。"},{"en":"Can you help me?","ja":"手伝ってくれる？"}],"caution":"「〜してくれる？」の依頼にもなる。be able to で書き換え可能。"},{"label":"will（未来・意志）","trans":"〜するだろう・するつもり","role":"未来の予測やその場の意志","keys":["will + 原形","won't"],"examples":[{"en":"She will come tomorrow.","ja":"彼女は明日来るだろう。"},{"en":"I will help you.","ja":"手伝うよ。"}],"caution":"be going to との違いは「未来表現」カードを参照。"},{"label":"may（許可・推量）","trans":"〜してもよい・〜かもしれない","role":"許可を与える／可能性を低めに推量する","keys":["may + 原形","may not"],"examples":[{"en":"You may go now.","ja":"もう行ってよい。"},{"en":"It may rain.","ja":"雨が降るかもしれない。"}],"caution":"Can I 〜? と May I 〜? は同じ「〜してもいい？」、May I 〜? の方が丁寧。"}],"identify":"「動詞の前にもう一つ動詞っぽい語」が来ていれば助動詞。後ろは必ず原形。主語が he/she/it でも形は変わらない（× He cans）。","relatedNames":["未来表現","助動詞② (should/must/have to)"],"patterns":["助動詞 can","助動詞 will"]},{"no":8,"name":"命令文・Let's","grade":"中1","basic":"動詞の原形で文を始める","headlines":[{"u":"命令","k":"Open the door."},{"u":"禁止","k":"Don't run."},{"u":"be動詞","k":"Be quiet."},{"u":"勧誘","k":"Let's go."}],"usages":[{"label":"肯定の命令文","trans":"〜しなさい","role":"相手（you）への直接の指示。主語を省略。","keys":["原形で始める"],"examples":[{"en":"Open the window.","ja":"窓を開けなさい。"},{"en":"Please come here.","ja":"こっちに来てください。"}],"caution":"Please を付けると丁寧。文末に , please も可。"},{"label":"否定の命令文（禁止）","trans":"〜してはいけない","role":"Don't + 原形 で禁止","keys":["Don't + 原形"],"examples":[{"en":"Don't run.","ja":"走るな。"},{"en":"Don't be late.","ja":"遅れるな。"}],"caution":"be動詞の文を否定するときは Don't be 〜（× Be not / × Don't are）。"},{"label":"be動詞の命令文","trans":"〜でありなさい","role":"Be + 形容詞・名詞","keys":["Be quiet.","Be careful.","Be a good boy."],"examples":[{"en":"Be quiet.","ja":"静かにしなさい。"},{"en":"Be careful.","ja":"気をつけて。"}],"caution":"形容詞や名詞が後ろに来るときは be 動詞の原形 Be。"},{"label":"Let's（勧誘）","trans":"〜しよう","role":"Let us の短縮形。「（一緒に）〜しよう」と誘う","keys":["Let's + 原形","shall we?"],"examples":[{"en":"Let's play soccer!","ja":"サッカーをしよう！"},{"en":"Let's go, shall we?","ja":"行きましょう、ね？"}],"caution":"応答は Yes, let's. / No, let's not. の形。"}],"identify":"主語がなくいきなり動詞の原形（または Don't / Let's）で始まったら命令文。相手への直接の指示・勧誘。","relatedNames":["助動詞 (can/will/may)","感嘆文"],"patterns":["命令文","否定の命令文","Let's〜（勧誘）"]},{"no":9,"name":"疑問詞","grade":"中1","basic":"What / Who / Where / When / Why / How（5W1H）","headlines":[{"u":"What","k":"何"},{"u":"Who","k":"誰"},{"u":"Where","k":"どこ"},{"u":"When","k":"いつ"},{"u":"Why","k":"なぜ"},{"u":"How","k":"どう・どれくらい"}],"usages":[{"label":"What / Who（何・誰）","trans":"何・誰","role":"物事・人を尋ねる","keys":["What + 動詞?","Who + 動詞?"],"examples":[{"en":"What do you want?","ja":"何がほしい？"},{"en":"Who is that boy?","ja":"あの男の子は誰？"}],"caution":"Who が主語になるとき、動詞は3単現の形（Who made this? / Who likes it?）。"},{"label":"Where / When（どこ・いつ）","trans":"どこ・いつ","role":"場所・時を尋ねる","keys":["Where + 動詞?","When + 動詞?"],"examples":[{"en":"Where does he live?","ja":"彼はどこに住んでいる？"},{"en":"When is your birthday?","ja":"誕生日はいつ？"}],"caution":"答えは in 〜（場所）／ at 〜（時刻）／ on 〜（曜日・日付）など前置詞で。"},{"label":"Why（なぜ）","trans":"なぜ","role":"理由を尋ねる","keys":["Why + 動詞?","答えは Because 〜 / To 〜"],"examples":[{"en":"Why are you sad?","ja":"なぜ悲しいの？"},{"en":"Why did you come? — To see you.","ja":"なぜ来た？—君に会うため。"}],"caution":"答えは Because 〜（理由）/ To + 原形（目的）。"},{"label":"How（どう・どれくらい）","trans":"どう・どれくらい","role":"方法・程度を尋ねる","keys":["How + 動詞?","How + 形容詞/副詞 + 動詞?"],"examples":[{"en":"How are you?","ja":"元気？"},{"en":"How old are you?","ja":"何歳？"},{"en":"How many books do you have?","ja":"何冊本を持っている？"}],"caution":"How + 形容詞・副詞：How old（年齢）/ How many（数）/ How much（量・値段）/ How long（期間・長さ）/ How far（距離）/ How often（頻度）。"}],"identify":"文頭に what / who / where / when / why / how が来たら疑問詞の疑問文。Yes/No では答えず、具体的な情報で答える。","relatedNames":["間接疑問文","be動詞","一般動詞"],"patterns":["疑問詞のつかい方","How old〜（年齢）","How many / much / long"]},{"no":10,"name":"代名詞","grade":"中1","basic":"人やものを指し示す語（I, my, me, mine, this, that …）","headlines":[{"u":"人称","k":"I / my / me / mine"},{"u":"指示","k":"this / that / these / those"},{"u":"再帰","k":"myself / yourself"}],"usages":[{"label":"人称代名詞（主格・所有格・目的格）","trans":"〜は／〜の／〜を","role":"人を指す代名詞。文中の役割で形が変わる","keys":["主格: I, you, he, she, it, we, they","所有格: my, your, his, her, its, our, their","目的格: me, you, him, her, it, us, them"],"examples":[{"en":"I like him.","ja":"私は彼が好き。"},{"en":"This is my bag.","ja":"これは私のカバン。"},{"en":"She gave me a book.","ja":"彼女は私に本をくれた。"}],"caution":"主語 → 主格／名詞の前 → 所有格／動詞・前置詞の後 → 目的格。"},{"label":"所有代名詞（〜のもの）","trans":"〜のもの","role":"「所有格＋名詞」を1語でまとめる","keys":["mine, yours, his, hers, ours, theirs"],"examples":[{"en":"This book is mine.","ja":"この本は私のものだ。"},{"en":"Is this yours?","ja":"これあなたの？"}],"caution":"his は所有格と所有代名詞が同じ形。it に所有代名詞はない。"},{"label":"指示代名詞（this/that/these/those）","trans":"これ・あれ・これら・あれら","role":"近いか遠いか・単数か複数かで使い分け","keys":["近い単数: this","近い複数: these","遠い単数: that","遠い複数: those"],"examples":[{"en":"This is my book.","ja":"これは私の本。"},{"en":"Those are his shoes.","ja":"あれらは彼の靴。"}],"caution":"this/that は単数 → is、these/those は複数 → are。"},{"label":"再帰代名詞（〜self）","trans":"〜自身","role":"主語と目的語が同じ人のときに使う","keys":["myself, yourself, himself, herself, itself, ourselves, themselves"],"examples":[{"en":"I made it myself.","ja":"私が自分で作った。"},{"en":"Help yourself.","ja":"ご自由にどうぞ。"}],"caution":"by oneself（一人で）/ enjoy oneself（楽しむ）/ help yourself（ご自由に）は頻出熟語。"}],"identify":"人やものを名前で呼ばずに指す語。文の中での役割（主語・所有・目的語）で形が変わる。","relatedNames":["be動詞","一般動詞","関係代名詞"],"patterns":["所有代名詞（〜のもの）","指示代名詞"]},{"no":11,"name":"名詞と冠詞","grade":"中1","basic":"数えられる名詞（a/an, 複数形）／数えられない名詞／the","headlines":[{"u":"数えられる","k":"a book / books"},{"u":"数えられない","k":"water（a×, sも×）"},{"u":"the","k":"特定のもの"}],"usages":[{"label":"数えられる名詞","trans":"1つ・複数で形が変わる","role":"輪郭がはっきりして1個、2個と数えられる","keys":["a/an + 単数","複数形（-s/-es）"],"examples":[{"en":"I have a book.","ja":"本を1冊持っている。"},{"en":"I have two books.","ja":"本を2冊持っている。"}],"caution":"a/an は子音/母音の音で使い分け（a book / an apple / an hour / a university）。"},{"label":"数えられない名詞","trans":"—","role":"形のない液体・物質・抽象。a を付けず、複数形にもしない","keys":["water, milk, money, homework, news, information, bread, advice"],"examples":[{"en":"I want a glass of water.","ja":"コップ1杯の水がほしい。"},{"en":"I have a lot of homework.","ja":"宿題がたくさんある。"}],"caution":"数えるときは入れ物で：a glass of water / a piece of paper / a cup of coffee。"},{"label":"冠詞 a / an","trans":"（不特定の）ある〜","role":"聞き手がまだ知らない、新しく出てくるもの","keys":["a + 子音音","an + 母音音"],"examples":[{"en":"I saw a dog.","ja":"犬を見た。"},{"en":"She is an artist.","ja":"彼女は芸術家だ。"}],"caution":"つづりでなく音で決める（an hour / a university）。"},{"label":"冠詞 the","trans":"（特定の）その〜","role":"聞き手も特定できる・世界に1つ・2回目以降","keys":["the + 既出・唯一・最上級・楽器"],"examples":[{"en":"I have a dog. The dog is cute.","ja":"犬を飼ってる。その犬はかわいい。"},{"en":"I play the piano.","ja":"ピアノを弾く。"},{"en":"The sun rises in the east.","ja":"太陽は東から昇る。"}],"caution":"スポーツは無冠詞（play soccer）、楽器は the（play the piano）。最上級は the + -est。"}],"identify":"a/an + 単数名詞、または -s/-es の複数形 → 数えられる名詞。a がつかず複数形にできない → 数えられない名詞。","relatedNames":["代名詞","前置詞"],"patterns":["数えられない名詞の数え方","コップ1杯の水"]},{"no":12,"name":"前置詞","grade":"中1","basic":"名詞の前について時・場所などを表す（in, on, at, by, for, with …）","headlines":[{"u":"at","k":"時刻・地点（点）"},{"u":"on","k":"曜日・接触（面）"},{"u":"in","k":"月・年・空間（中）"},{"u":"頻出","k":"by / for / with / from"}],"usages":[{"label":"at（点）","trans":"〜に","role":"時刻・地点というピンポイントを表す","keys":["at 7（7時に）","at the station（駅で）"],"examples":[{"en":"I get up at six.","ja":"6時に起きる。"},{"en":"I'll meet you at the station.","ja":"駅で会おう。"}],"caution":"at night（夜に）は決まった言い方。"},{"label":"on（面・接触）","trans":"〜の上に・〜に","role":"面に接触している、曜日・日付という1日単位","keys":["on Monday","on the desk"],"examples":[{"en":"The book is on the desk.","ja":"本は机の上にある。"},{"en":"I have lessons on Monday.","ja":"月曜日にレッスンがある。"}],"caution":"特定の日の朝は on Sunday morning（in the morning ではない）。"},{"label":"in（空間・期間）","trans":"〜の中に・〜に","role":"広い空間の中・月や年など長めの期間","keys":["in Tokyo","in May","in 2026"],"examples":[{"en":"I live in Tokyo.","ja":"東京に住んでいる。"},{"en":"Cherry blossoms bloom in spring.","ja":"桜は春に咲く。"}],"caution":"in the morning / afternoon / evening（朝・午後・夕方）。"},{"label":"by / for / with / from","trans":"〜のそば・〜のために・〜と一緒に・〜から","role":"頻出の前置詞","keys":["by car（手段）","by 5（期限）","for 3 hours（期間）","with my friend（一緒）","from Japan（出身）"],"examples":[{"en":"I go to school by bike.","ja":"自転車で学校へ行く。"},{"en":"I waited for an hour.","ja":"1時間待った。"},{"en":"I went with my mom.","ja":"母と行った。"}],"caution":"by は「そば・経由・期限」、for は「方向・期間・利益」、with は「一緒・道具」、from は「出発点・出身」。"}],"identify":"名詞の前について「時」「場所」「方向」「手段」「相手」などを表す語。動詞の後ろにくっついて熟語（look at, listen to）にもなる。","relatedNames":["名詞と冠詞","動名詞","不定詞"],"patterns":["時を表す前置詞","by（期限）","動詞 + 前置詞の熟語"]},{"no":13,"name":"不定詞","grade":"中2","basic":"to + 動詞の原形","headlines":[{"u":"名詞的","k":"want to / It is ~ to do"},{"u":"形容詞的","k":"something to ~"},{"u":"副詞的・目的","k":"to do"},{"u":"副詞的・原因","k":"glad to"},{"u":"副詞的・結果","k":"grew up to be"}],"usages":[{"label":"名詞的用法","trans":"〜すること","role":"主語・目的語・補語になる","keys":["want to","like to","hope to","decide to","try to","It is ... to do"],"examples":[{"en":"I want to play soccer.","ja":"私はサッカーをしたい。"},{"en":"To learn English is important.","ja":"英語を学ぶことは大切だ。"},{"en":"My dream is to be a doctor.","ja":"私の夢は医者になることだ。"}],"caution":"want to do / enjoy doing のように、動詞によって不定詞をとるか動名詞をとるか決まる。"},{"label":"形容詞的用法","trans":"〜するための／〜すべき","role":"名詞を後ろから修飾する","keys":["something to ~","time to ~","way to ~"],"examples":[{"en":"I have something to eat.","ja":"何か食べるものを持っている。"},{"en":"It's time to go home.","ja":"もう帰る時間だ。"}],"caution":"something / anything + 形容詞 + to do の語順に注意（something cold to drink）。"},{"label":"副詞的用法（目的）","trans":"〜するために","role":"動作の目的を表す","keys":["to do","in order to do"],"examples":[{"en":"I went to the park to play soccer.","ja":"サッカーをするために公園へ行った。"},{"en":"I came to see you.","ja":"君に会いに来た。"}],"caution":"Why 〜? の答えに To + 原形 を使える。"},{"label":"副詞的用法（感情の原因）","trans":"〜して（感情）","role":"感情の形容詞の後ろで原因を示す","keys":["glad to","happy to","sad to","surprised to","sorry to"],"examples":[{"en":"I'm glad to see you.","ja":"君に会えてうれしい。"},{"en":"I was surprised to hear the news.","ja":"その知らせを聞いて驚いた。"}],"caution":"感情の形容詞（glad/happy/sad/surprised/sorry）の直後にくる。"},{"label":"副詞的用法（結果）","trans":"〜して...になる","role":"成長・到達などの結果を表す","keys":["grew up to be","lived to","only to find"],"examples":[{"en":"He grew up to be a doctor.","ja":"彼は成長して医者になった。"}],"caution":"grow up, live など限られた動詞でしか使わない。"}],"identify":"to + 動詞の原形 → 不定詞。to + 名詞 → 前置詞の to（to school など）。3用法は文中での役割（名詞？形容詞？副詞？）で見分ける。","relatedNames":["動名詞","分詞（後置修飾）"],"patterns":["不定詞（名詞的用法）","It is ~ for/of 人 to do","tell/ask/want 人 to〜","too 〜 to / 〜 enough to","疑問詞 + to do"]},{"no":14,"name":"動名詞","grade":"中2","basic":"動詞のing形（〜すること）","headlines":[{"u":"主語","k":"Reading is fun."},{"u":"目的語","k":"enjoy / finish + ing"},{"u":"前置詞の後","k":"good at ~ing"}],"usages":[{"label":"主語・補語になる","trans":"〜することは…","role":"文の主語・補語の位置に置く","keys":["Reading is fun.","My hobby is playing tennis."],"examples":[{"en":"Reading books is important.","ja":"読書は大切だ。"},{"en":"My hobby is playing tennis.","ja":"趣味はテニスをすることだ。"}],"caution":"主語になると単数扱い（Reading is、× Reading are）。"},{"label":"目的語になる","trans":"〜することを…する","role":"動詞の目的語の位置に置く","keys":["enjoy / finish / stop / mind + ing"],"examples":[{"en":"I enjoy playing tennis.","ja":"テニスを楽しむ。"},{"en":"He finished reading.","ja":"彼は読み終えた。"}],"caution":"enjoy / finish / stop / mind / give up は必ず動名詞（× enjoy to play）。"},{"label":"前置詞の後（必ず動名詞）","trans":"〜することを…","role":"前置詞の後ろは必ず動名詞（不定詞は不可）","keys":["good at ~ing","be interested in ~ing","Thank you for ~ing","without ~ing"],"examples":[{"en":"Thank you for helping me.","ja":"手伝ってくれてありがとう。"},{"en":"She is good at playing the piano.","ja":"彼女はピアノを弾くのが上手だ。"}],"caution":"前置詞の後ろは必ずing。to が前置詞のときもある（look forward to 〜ing, be used to 〜ing）。"}],"identify":"「〜すること」と訳せて、文の主語・目的語・前置詞の後ろに置かれる -ing 形は動名詞。like / love / start / begin / continue は to と ing 両方OK。","relatedNames":["不定詞","分詞（後置修飾）","進行形"],"patterns":["動名詞（〜ing）","used to / be used to"]},{"no":15,"name":"比較","grade":"中2","basic":"比較級（-er/more）／最上級（-est/most）／原級（as ~ as）","headlines":[{"u":"比較級","k":"-er than / more 〜 than"},{"u":"最上級","k":"the -est / the most"},{"u":"原級","k":"as 〜 as"},{"u":"発展","k":"one of the / than any other"}],"usages":[{"label":"比較級（2つ比べる）","trans":"〜より…","role":"短い語は -er、長い語は more で","keys":["-er than","more 〜 than"],"examples":[{"en":"Tom is taller than Ken.","ja":"トムはケンより背が高い。"},{"en":"This is more interesting than that.","ja":"これはあれより面白い。"}],"caution":"不規則：good/well → better、bad → worse、many/much → more、little → less。"},{"label":"最上級（3つ以上で一番）","trans":"一番〜","role":"the + -est / most + in 場所 / of 仲間","keys":["the -est","the most 〜","in 〜 / of 〜"],"examples":[{"en":"The highest mountain in Japan.","ja":"日本で一番高い山。"},{"en":"The best food of all.","ja":"全部の中で一番おいしい料理。"}],"caution":"the を忘れずに。場所は in、仲間は of。不規則：best / worst / most / least。"},{"label":"原級（同じくらい）","trans":"〜と同じくらい…","role":"as + 原級 + as でサンドイッチ","keys":["as 〜 as","not as 〜 as（〜ほど…でない）"],"examples":[{"en":"She is as tall as her mother.","ja":"彼女は母と同じくらい背が高い。"},{"en":"He is not as fast as Ken.","ja":"彼はケンほど速くない。"}],"caution":"as と as の間は必ず原級（-er や -est を入れない）。not as 〜 as は「ケンの方が速い」と書き換え可能。"},{"label":"発展（言い換え）","trans":"—","role":"「一番〜」を別の角度から言う","keys":["one of the 最上級 + 複数","比較級 + than any other + 単数","the 比較級, the 比較級"],"examples":[{"en":"Tokyo is one of the largest cities in the world.","ja":"東京は世界最大級の都市の1つ。"},{"en":"He runs faster than any other student.","ja":"彼は他のどの生徒より速く走る。"}],"caution":"one of the の後は複数、than any other の後は単数。整序問題で頻出。"}],"identify":"than があれば比較級、the + -est や the most があれば最上級、as 〜 as があれば原級。書き換え問題が頻出。","relatedNames":["接続詞","程度の構文 (too 〜 to / so 〜 that)"],"patterns":["比較級（-er / more）","最上級（the -est / the most）","原級比較（as〜as）","比較の発展（最上級の言いかえ）"]},{"no":16,"name":"受動態","grade":"中2","basic":"be動詞 + 過去分詞","headlines":[{"u":"肯定","k":"is/was + 過去分詞"},{"u":"by","k":"by 〜（〜によって）"},{"u":"熟語","k":"be interested in"}],"usages":[{"label":"基本（be動詞 + 過去分詞）","trans":"〜される・〜された","role":"動作を「される側」を主語にして表す","keys":["is/are + 過去分詞（現在）","was/were + 過去分詞（過去）"],"examples":[{"en":"English is spoken in many countries.","ja":"英語は多くの国で話されている。"},{"en":"This book was written by him.","ja":"この本は彼によって書かれた。"}],"caution":"過去分詞は不規則動詞が多いので暗記必須（write → written, take → taken）。"},{"label":"疑問文・否定文","trans":"〜されますか？／〜されない","role":"be動詞を文頭に / be動詞のあとに not","keys":["Is/Was + 主語 + 過去分詞 ~?","be動詞 + not + 過去分詞"],"examples":[{"en":"Is this book read by many people?","ja":"この本は多くの人に読まれているか？"},{"en":"This song isn't sung in Japan.","ja":"この歌は日本では歌われていない。"}],"caution":"be動詞の文と同じ作り方。do/does/did は使わない。"},{"label":"by 以外の前置詞をとる熟語","trans":"—","role":"by 以外の前置詞を使う頻出パターン","keys":["be interested in","be surprised at","be known to","be made of/from","be covered with","be filled with","be born in"],"examples":[{"en":"I am interested in music.","ja":"私は音楽に興味がある。"},{"en":"The mountain is covered with snow.","ja":"山は雪で覆われている。"},{"en":"Wine is made from grapes.","ja":"ワインはぶどうから作られる。"}],"caution":"be made of（材料が見える）vs be made from（原料が変化して見えない）の使い分けが頻出。"}],"identify":"be動詞 + 過去分詞の形で「〜される」と訳せる。動作主を表すときは by 〜。「〜が…する」を「…が〜される」に視点を切り替えた表現。","relatedNames":["be動詞","分詞（後置修飾）","現在完了"],"patterns":["受動態（be動詞+過去分詞）"]},{"no":17,"name":"接続詞","grade":"中2","basic":"2つの文や語をつなぐ語（when, if, that, because, while …）","headlines":[{"u":"when","k":"〜の時"},{"u":"if","k":"もし〜なら"},{"u":"that","k":"〜ということ"},{"u":"because","k":"〜なので"},{"u":"while","k":"〜する間に"}],"usages":[{"label":"when / if（時・条件）","trans":"〜の時／もし〜なら","role":"時や条件を表す副詞節を作る","keys":["when + 主語 + 動詞","if + 主語 + 動詞"],"examples":[{"en":"When I got home, mother was cooking.","ja":"帰宅した時、母が料理していた。"},{"en":"If you are free, let's play.","ja":"暇なら遊ぼう。"}],"caution":"when / if の節の中は、未来のことでも現在形（× when I will arrive → ○ when I arrive）。"},{"label":"that（〜ということ）","trans":"〜ということ","role":"「内容」を表す名詞節を作る。省略可能","keys":["think / know / say / hope (that) + 主語 + 動詞"],"examples":[{"en":"I think (that) English is fun.","ja":"英語は楽しいと思う。"},{"en":"I'm sure (that) he will come.","ja":"彼はきっと来ると思う。"}],"caution":"that は口語ではよく省略される。"},{"label":"because / while（理由・同時進行）","trans":"〜なので／〜する間に","role":"原因・理由 / 時間的同時進行を表す","keys":["because + 文","because of + 名詞","while + 文"],"examples":[{"en":"I stayed home because it was raining.","ja":"雨だったから家にいた。"},{"en":"While I was sleeping, he came.","ja":"私が寝ている間に彼が来た。"}],"caution":"because + 文 / because of + 名詞。Why 〜? の答えは Because 〜.。"},{"label":"相関接続詞（ペアで結ぶ）","trans":"両方／どちらか／どちらでもない／だけでなく","role":"2つを対にして結ぶ","keys":["both A and B","either A or B","neither A nor B","not only A but also B"],"examples":[{"en":"Both Ken and Tom are kind.","ja":"ケンもトムも親切。"},{"en":"He speaks not only English but also French.","ja":"彼は英語だけでなくフランス語も話す。"}],"caution":"both A and B は複数扱い、他は B に合わせる（B が単数なら is、複数なら are）。"}],"identify":"2つの文や語をつなぐ語。文と文をつなぐ when / if / because / while / that、語と語をペアでつなぐ both A and B など。","relatedNames":["疑問詞","間接疑問文","前置詞"],"patterns":["接続詞 when","接続詞 if（条件）","接続詞 that","接続詞 because","接続詞 while"]},{"no":18,"name":"文型（SVOO・SVOC・SVC）","grade":"中2","basic":"動詞のあとに何が来るかで文の構造が決まる","headlines":[{"u":"SVOO","k":"give 人 もの"},{"u":"SVOC","k":"call O C（O=C）"},{"u":"SVC","k":"look 形容詞"}],"usages":[{"label":"SVOO（〜に〜を与える）","trans":"人にモノを〜する","role":"動詞 + 人 + モノ の形（2つの目的語）","keys":["give 人 もの","show 人 もの","teach 人 もの","tell 人 もの","send 人 もの","buy 人 もの","make 人 もの"],"examples":[{"en":"She gave me a present.","ja":"彼女は私にプレゼントをくれた。"},{"en":"Please show me your ticket.","ja":"チケットを見せてください。"}],"caution":"前置詞で書き換え：give 人 もの = give もの to 人 / buy 人 もの = buy もの for 人。"},{"label":"SVOC（OをCにする・呼ぶ）","trans":"OをCにする・呼ぶ","role":"動詞 + O + C で O = C の関係","keys":["call O C","make O C","name O C","keep O C","find O C"],"examples":[{"en":"We call him Ken.","ja":"私たちは彼をケンと呼ぶ。"},{"en":"This song makes me happy.","ja":"この歌は私を幸せにする。"}],"caution":"O = C の関係が成立する（him = Ken, me = happy）。SVOO とは違い、2つ目は人ではなく状態。"},{"label":"SVC（S = C：look / become など）","trans":"Sは〜に見える・〜になる","role":"be動詞の親戚。主語 = 補語の関係","keys":["look / sound / feel / taste / smell（状態）","become / get / turn（変化）"],"examples":[{"en":"You look happy.","ja":"あなたは幸せそうに見える。"},{"en":"It got dark.","ja":"暗くなった。"},{"en":"He became a doctor.","ja":"彼は医者になった。"}],"caution":"後ろは形容詞・名詞（副詞ではない）。× You look happily → ○ You look happy。"}],"identify":"動詞のあとの構造で分類：人 + モノ → SVOO（人≠モノ）／O + C → SVOC（O=C）／C → SVC（S=C）。","relatedNames":["be動詞","受動態","原形不定詞 (使役・知覚)"],"patterns":["tell/ask/want 人 to〜","受動態（be動詞+過去分詞）"]},{"no":19,"name":"助動詞② (should/must/have to)","grade":"中2","basic":"義務・推量・丁寧な依頼を表す助動詞","headlines":[{"u":"should","k":"〜すべき"},{"u":"must / have to","k":"〜しなければ"},{"u":"must not / don't have to","k":"禁止／不要"},{"u":"依頼","k":"Could/Would you ~?"}],"usages":[{"label":"should（〜すべき・した方がいい）","trans":"〜すべき・した方がいい","role":"やんわりとした助言・義務","keys":["should + 原形","should not / shouldn't"],"examples":[{"en":"You should see a doctor.","ja":"医者に診てもらうべきだ。"},{"en":"You shouldn't be late.","ja":"遅れるべきではない。"}],"caution":"must より柔らかい。「した方がいい」程度のニュアンス。"},{"label":"must / have to（〜しなければならない）","trans":"〜しなければならない","role":"強い義務・必要。must は気持ち、have to は事情","keys":["must + 原形","have to + 原形（三単現 has to）"],"examples":[{"en":"I must finish this today.","ja":"今日これを終わらせなければ。"},{"en":"She has to go.","ja":"彼女は行かなくてはならない。"}],"caution":"must に過去・未来はなし。過去は had to、未来は will have to。"},{"label":"must not / don't have to（意味が真逆！）","trans":"〜してはいけない／〜しなくてよい","role":"must の否定は禁止、have to の否定は不要","keys":["must not（禁止）","don't have to（不要）"],"examples":[{"en":"You must not run here.","ja":"ここで走るな！"},{"en":"You don't have to come.","ja":"来なくてもいいよ。"}],"caution":"must の肯定は have to と同じ意味だが、否定では意味が真逆になる。最頻出引っかけ。"},{"label":"依頼・申し出（Will/Can/Could/Would/Shall）","trans":"〜してくれますか／しましょうか","role":"助動詞の丁寧表現で依頼・申し出","keys":["Will/Can you ~?（依頼）","Could/Would you ~?（丁寧）","Shall I ~?（申し出）","Shall we ~?（一緒に）"],"examples":[{"en":"Could you open the window?","ja":"窓を開けていただけますか。"},{"en":"Shall I help you? — Yes, please.","ja":"手伝いましょうか—お願いします。"}],"caution":"過去形（Could/Would）にすると丁寧になる。Shall I → Yes, please. / Shall we → Yes, let's."}],"identify":"義務（〜すべき／〜しなければ）か推量（〜にちがいない／かも）かを示す助動詞。must = have to、shouldは弱め。","relatedNames":["助動詞 (can/will/may)","命令文・Let's"],"patterns":["助動詞②（should・依頼・提案）","have to/must"]},{"no":20,"name":"There is/are 構文","grade":"中2","basic":"There is/are + 名詞（〜がある・いる）","headlines":[{"u":"肯定","k":"There is/are 〜"},{"u":"疑問","k":"Is/Are there 〜?"},{"u":"否定","k":"There is no / aren't any"},{"u":"過去","k":"There was/were"}],"usages":[{"label":"肯定文","trans":"〜がある・いる","role":"新情報として存在を導入する","keys":["There is + 単数","There are + 複数"],"examples":[{"en":"There is a park near here.","ja":"この近くに公園がある。"},{"en":"There are many students.","ja":"たくさんの生徒がいる。"}],"caution":"後ろの名詞の単複で is / are を決める。数えられない名詞は単数扱い（There is some water.）。"},{"label":"疑問文・否定文","trans":"〜がありますか／〜がない","role":"Is/Are there ~? / There is no / aren't any","keys":["Is/Are there ~?","There is no ~","There aren't any ~"],"examples":[{"en":"Is there a station near here? — Yes, there is.","ja":"近くに駅は？—あります。"},{"en":"There aren't any apples in the basket.","ja":"かごの中にりんごはない。"}],"caution":"答えるときも there を使う：Yes, there is. / No, there isn't."},{"label":"過去形・特定の名詞には使わない","trans":"〜があった","role":"There was/were で過去。my / the など特定の名詞には使わない","keys":["There was/were ~","× There is my bag → ○ My bag is here."],"examples":[{"en":"There was a shop here.","ja":"ここに店があった。"},{"en":"There used to be a temple here.","ja":"ここに以前お寺があった。"}],"caution":"the / my / this などで特定された名詞には使わない（不特定の存在を導入する構文だから）。"}],"identify":"There is/are で文が始まり「〜がある・いる」と訳せれば存在構文。後ろの名詞は不特定（a / some / many など）。","relatedNames":["be動詞","名詞と冠詞"],"patterns":["There is / are 〜"]},{"no":21,"name":"現在完了","grade":"中3","basic":"have / has + 過去分詞","headlines":[{"u":"経験","k":"ever / never / before / once"},{"u":"継続","k":"for + 期間 / since + 起点"},{"u":"完了","k":"just / already / yet"}],"usages":[{"label":"経験","trans":"〜したことがある","role":"今までの経験を表す","keys":["ever","never","before","once","twice","many times","How many times ~?"],"examples":[{"en":"I have been to Hawaii once.","ja":"ハワイに一度行ったことがある。"},{"en":"Have you ever read this book?","ja":"この本を読んだことがありますか。"},{"en":"She has never seen snow.","ja":"彼女は雪を見たことがない。"}],"caution":"「行ったことがある」は have been to。have gone to は「行ってしまった（今ここにいない）」。"},{"label":"継続","trans":"ずっと〜している","role":"過去から今まで続く状態を表す","keys":["for + 期間","since + 起点","How long ~?"],"examples":[{"en":"I have lived here for ten years.","ja":"ここに10年間住んでいる。"},{"en":"He has been busy since this morning.","ja":"彼は今朝からずっと忙しい。"},{"en":"How long have you studied English?","ja":"どれくらい英語を勉強していますか。"}],"caution":"状態動詞（live, know, like）が中心。動作動詞は現在完了進行形にすることが多い。"},{"label":"完了","trans":"ちょうど〜したところ／もう〜した","role":"過去の動作の結果が今に及ぶことを表す","keys":["just","already","yet"],"examples":[{"en":"I have just finished my homework.","ja":"ちょうど宿題を終えたところだ。"},{"en":"She has already left.","ja":"彼女はもう出発した。"},{"en":"Have you eaten lunch yet?","ja":"もう昼食を食べましたか。"}],"caution":"yet は疑問文「もう〜？」と否定文「まだ〜ない」。already は肯定文で「もう」。"}],"identify":"yesterday / last 〜 / 〜ago など過去の一点を表す語とは一緒に使えない。When ~? も過去形。","relatedNames":["過去形","現在完了進行形"],"patterns":["現在完了：経験","現在完了：完了","現在完了：継続"]},{"no":22,"name":"現在完了進行形","grade":"中3","basic":"have / has + been + 動詞のing形","headlines":[{"u":"形","k":"have been + ing"},{"u":"意味","k":"ずっと〜し続けている"},{"u":"対象","k":"動作動詞"}],"usages":[{"label":"動作の継続","trans":"ずっと〜し続けている","role":"過去から今まで動作が続いていることを表す","keys":["have been + ing","for + 期間","since + 起点"],"examples":[{"en":"I have been studying for 3 hours.","ja":"3時間ずっと勉強している。"},{"en":"It has been raining since morning.","ja":"朝からずっと雨が降っている。"},{"en":"How long have you been waiting?","ja":"どれくらい待っているの？"}],"caution":"対象は動作動詞（study / run / wait / rain など）。状態動詞（live, know）は現在完了の継続用法を使う。"},{"label":"現在完了の継続との使い分け","trans":"—","role":"状態動詞は現在完了、動作動詞は現在完了進行形","keys":["have lived（状態：住んでいる）","have been running（動作：走り続けている）"],"examples":[{"en":"I have lived here for 10 years.","ja":"ここに10年住んでいる。（状態）"},{"en":"I have been studying for 3 hours.","ja":"3時間勉強し続けている。（動作）"}],"caution":"live / know / be / like / love / have（持つ）は状態動詞→現在完了。study / run / play / wait は動作動詞→現在完了進行形。"}],"identify":"have been + 動詞のing形 の形。「ずっと〜し続けている」と動作の継続を表す。for / since と組み合わせる。","relatedNames":["現在完了","進行形"],"patterns":["現在完了進行形"]},{"no":23,"name":"分詞（後置修飾）","grade":"中3","basic":"現在分詞（〜ing）／過去分詞（〜ed / 不規則）が名詞を後ろから修飾","headlines":[{"u":"現在分詞","k":"〜している（能動）"},{"u":"過去分詞","k":"〜された（受動）"}],"usages":[{"label":"現在分詞の後置修飾（〜ing）","trans":"〜している○○","role":"名詞を後ろから「〜している」と修飾（能動）","keys":["the boy playing tennis","the girl singing on the stage"],"examples":[{"en":"The man playing the guitar is my brother.","ja":"ギターを弾いている男の人は私の兄だ。"},{"en":"The boy running over there is my friend.","ja":"あそこで走っている男の子は私の友達だ。"}],"caution":"進行形（be + ing）と区別。be動詞がない → 後置修飾、ある → 進行形。"},{"label":"過去分詞の後置修飾（〜ed / 不規則）","trans":"〜された○○","role":"名詞を後ろから「〜された」と修飾（受動）","keys":["a book written in English","a picture taken by him","a city called Naha"],"examples":[{"en":"I want a book written in English.","ja":"英語で書かれた本がほしい。"},{"en":"This is a picture taken by him.","ja":"これは彼が撮った写真だ。"}],"caution":"受動態（be + 過去分詞）と区別。be動詞がない → 後置修飾、ある → 受動態。"},{"label":"ingか過去分詞かの選択","trans":"—","role":"能動なら ing、受動なら過去分詞","keys":["自分でやる側 → ing","される側 → 過去分詞"],"examples":[{"en":"the boy playing tennis（テニスをしている少年）","ja":"少年がする側 → ing"},{"en":"the book written by him（彼が書いた本）","ja":"本が書かれる側 → 過去分詞"}],"caution":"「名詞が〜している（能動）」なら現在分詞、「名詞が〜される（受動）」なら過去分詞。"}],"identify":"名詞のあとに ing や 過去分詞が来ていて、be動詞がない → 後置修飾。be動詞があるなら進行形か受動態。関係代名詞の省略形とも言える。","relatedNames":["進行形","受動態","関係代名詞"],"patterns":["現在分詞の後置修飾","過去分詞の後置修飾","前置詞句の後置修飾"]},{"no":24,"name":"関係代名詞","grade":"中3","basic":"who / which / that / whose（名詞を文で後ろから説明）","headlines":[{"u":"主格","k":"who / which / that + 動詞"},{"u":"目的格","k":"(which/that) + S + V"},{"u":"所有格","k":"whose + 名詞"}],"usages":[{"label":"主格（who / which / that）","trans":"〜する○○","role":"関係代名詞の後にすぐ動詞が来る","keys":["人 → who","モノ・動物 → which","両方OK → that"],"examples":[{"en":"I have a friend who speaks English.","ja":"英語を話す友達がいる。"},{"en":"The cat which was born last week is cute.","ja":"先週生まれた猫はかわいい。"}],"caution":"(関係代名詞)の後が動詞 → 主格。省略不可（省くと文か修飾か区別できない）。"},{"label":"目的格（省略可能）","trans":"〜する○○","role":"関係代名詞の後に主語+動詞が来る。省略できる","keys":["(which/that) + 主語 + 動詞"],"examples":[{"en":"This is the camera (which) my father gave me.","ja":"これは父がくれたカメラだ。"},{"en":"This is the song (that) I like the most.","ja":"これは私が一番好きな歌だ。"}],"caution":"(関係代名詞)の後が「主語+動詞」→ 目的格。省略可能。「名詞のすぐ後ろに主語+動詞」を見たら関係代名詞の省略を疑う。"},{"label":"所有格（whose）","trans":"〜の○○がある△△","role":"whose のあとに名詞が来る","keys":["whose + 名詞 + 動詞"],"examples":[{"en":"I know a boy whose father is a doctor.","ja":"父親が医者の少年を知っている。"},{"en":"the cat whose eyes are blue","ja":"青い目の猫"}],"caution":"whose は人にもモノにも使える。who's（=who is）と混同注意。"}],"identify":"名詞のあとに who / which / that / whose が来て、その後に文が続く → 関係代名詞。後ろが動詞 → 主格、主語+動詞 → 目的格、名詞 → 所有格。","relatedNames":["分詞（後置修飾）","代名詞","間接疑問文"],"patterns":["関係代名詞の主格（who/which/that）","関係代名詞の目的格（省略可能）","関係代名詞の所有格（whose）","関係副詞（where / when）・what"]},{"no":25,"name":"間接疑問文","grade":"中3","basic":"疑問詞 + 主語 + 動詞（疑問文を文中に組み込む）","headlines":[{"u":"形","k":"疑問詞 + S + V"},{"u":"疑問詞が主語","k":"そのままの形"},{"u":"Yes/No","k":"if / whether"}],"usages":[{"label":"疑問詞 + 主語 + 動詞","trans":"〜が…か","role":"ふつうの疑問文の語順を「主語+動詞」に戻して文中に入れる","keys":["I know where he lives.","Do you know what he wants?"],"examples":[{"en":"I know where he lives.","ja":"彼がどこに住んでいるか知っている。"},{"en":"Tell me what you want.","ja":"何がほしいか教えて。"},{"en":"Do you know when she will come?","ja":"彼女がいつ来るか知ってる？"}],"caution":"do/does は消える、3単現のsは戻る（Where does he live? → where he lives）。"},{"label":"疑問詞が主語のとき","trans":"誰が〜か","role":"疑問詞 + 動詞 の語順のまま","keys":["who / what が主語 → そのまま"],"examples":[{"en":"I know who broke the window.","ja":"誰が窓を割ったか知っている。"},{"en":"Do you know who made this cake?","ja":"誰がケーキを作ったか知ってる？"}],"caution":"do を入れず、動詞の形もそのまま（3単現のsも残る）。"},{"label":"Yes/No 疑問文（if / whether）","trans":"〜かどうか","role":"Yes/Noで答える疑問を文中に入れるときは if / whether","keys":["if + 主語 + 動詞","whether + 主語 + 動詞 (or not)"],"examples":[{"en":"I don't know if she will come.","ja":"彼女が来るかどうかわからない。"},{"en":"I'm not sure whether it's true (or not).","ja":"それが本当かどうかわからない。"}],"caution":"if は「もし〜なら」とも訳す。文中で「〜かどうか」の意味になる。"}],"identify":"ふつうの動詞（know, tell, ask, wonder など）の後ろに疑問詞 + 主語 + 動詞 が続いていたら間接疑問文。do は消え、語順がふつう文に戻る。","relatedNames":["疑問詞","関係代名詞","接続詞"],"patterns":["間接疑問文","疑問詞＋不定詞（how to / what to）"]},{"no":26,"name":"仮定法","grade":"中3","basic":"If + 主語 + 過去形, 主語 + would/could + 原形（現実と反対）","headlines":[{"u":"形","k":"If + 過去形, would/could + 原形"},{"u":"be動詞","k":"主語に関係なく were"},{"u":"I wish","k":"〜だったらいいのに"}],"usages":[{"label":"If 〜 過去形, 〜 would/could 原形","trans":"もし〜なら…なのに","role":"現在の事実と反対の仮定","keys":["If + 主語 + 過去形, 主語 + would/could + 原形"],"examples":[{"en":"If I had money, I could buy it.","ja":"お金があれば買えるのに。"},{"en":"If I were you, I would study harder.","ja":"もし私があなたなら、もっと勉強するのに。"}],"caution":"be動詞は主語に関係なく were（× If I was → ○ If I were）。"},{"label":"I wish + 過去形","trans":"〜だったらいいのに","role":"現実とは違う願望","keys":["I wish + 主語 + 過去形","I wish I could ~","I wish I were ~"],"examples":[{"en":"I wish I could fly.","ja":"飛べたらいいのに。"},{"en":"I wish I were taller.","ja":"もっと背が高ければなぁ。"}],"caution":"hope（実現可能）と wish（実現不可能）を区別。I hope it will be sunny / I wish I were a bird."},{"label":"見分け方（過去形なのに今の話）","trans":"—","role":"過去形が「現実と違う」のサイン","keys":["過去形なのに「今」の話 → 仮定法","be動詞 were → 仮定法の印"],"examples":[{"en":"If I had time, I would go.","ja":"時間があれば行くのに（今の話）。"}],"caution":"過去形は①時間的な過去 ②現実からの距離 の2つの役割。仮定法は②。"}],"identify":"「もし〜なら…なのに」「〜だったらいいのに」と訳せ、過去形が使われているのに今の話。be動詞が were なら仮定法のサイン。","relatedNames":["過去形","接続詞","助動詞② (should/must/have to)"],"patterns":["仮定法過去","I wish+仮定法"]},{"no":27,"name":"原形不定詞 (使役・知覚)","grade":"中3","basic":"make/let/help/知覚動詞 + 人 + 動詞の原形（to なし）","headlines":[{"u":"make","k":"〜させる（強制）"},{"u":"let","k":"〜させてあげる（許可）"},{"u":"help","k":"〜を手伝う"},{"u":"知覚","k":"see / hear + 人 + 原形"}],"usages":[{"label":"make 人 原形（強制）","trans":"（人）に〜させる","role":"強制的にやらせるニュアンス","keys":["make + 人 + 原形"],"examples":[{"en":"My mother made me clean my room.","ja":"母に部屋を掃除させられた。"},{"en":"The teacher made us study.","ja":"先生は私たちに勉強させた。"}],"caution":"to は不要（× make me to clean）。受動態は to を入れる（I was made to clean）。"},{"label":"let 人 原形（許可）","trans":"（人）に〜させてあげる","role":"「させてあげる」許可のニュアンス","keys":["let + 人 + 原形"],"examples":[{"en":"Please let me go.","ja":"行かせてください。"},{"en":"Let me try.","ja":"私にやらせて。"}],"caution":"Let's = Let us の Let と同じ。「自分／私たちにさせて」のニュアンス。"},{"label":"help 人 原形（手伝う）","trans":"（人）が〜するのを手伝う","role":"手伝いの対象を示す","keys":["help + 人 + 原形","help + 人 + to + 原形（toありもOK）"],"examples":[{"en":"Please help me carry this.","ja":"これを運ぶのを手伝って。"},{"en":"He helped me cook dinner.","ja":"彼は私が夕食を作るのを手伝った。"}],"caution":"help だけは to があってもなくてもOK（help me carry = help me to carry）。"},{"label":"知覚動詞 + 人 + 原形","trans":"（人）が〜するのを見る・聞く","role":"見る・聞く・感じる体験を表す","keys":["see / hear / feel / watch + 人 + 原形"],"examples":[{"en":"I saw him run fast.","ja":"彼が速く走るのを見た。"},{"en":"I heard someone call my name.","ja":"誰かが名前を呼ぶのを聞いた。"}],"caution":"ing 形にすると「途中の場面」を見たことになる（I saw him running = 走っている途中）。"}],"identify":"make / let / help / 知覚動詞 (see/hear/feel/watch) の後に 人 + 動詞の原形（to なし）が来たら原形不定詞。tell/ask/want とは違って to がない。","relatedNames":["不定詞","文型（SVOO・SVOC・SVC）"],"patterns":["原形不定詞（help/make/let+人+原形）","tell/ask/want 人 to〜"]},{"no":28,"name":"程度の構文 (too 〜 to / so 〜 that)","grade":"中3","basic":"too 〜 to / so 〜 that / enough to（程度と結果）","headlines":[{"u":"too 〜 to","k":"〜すぎて…できない"},{"u":"so 〜 that","k":"とても〜なので…"},{"u":"enough to","k":"…するのに十分〜"}],"usages":[{"label":"too 〜 to …","trans":"〜すぎて…できない","role":"限度を超えてできないニュアンス","keys":["too + 形容詞・副詞 + to do"],"examples":[{"en":"I'm too tired to study.","ja":"疲れすぎて勉強できない。"},{"en":"This box is too heavy to carry.","ja":"この箱は重すぎて運べない。"}],"caution":"to の後ろは動詞の原形。否定の意味（できない）が自然に含まれる。"},{"label":"so 〜 that … / such 〜 that …","trans":"とても〜なので…","role":"原因→結果をつなぐ","keys":["so + 形容詞/副詞 + that …","such + (a) + 形容詞 + 名詞 + that …"],"examples":[{"en":"It was so hot that I couldn't sleep.","ja":"とても暑くて眠れなかった。"},{"en":"She is such a kind girl that everyone likes her.","ja":"とても親切なのでみんなに好かれる。"}],"caution":"so は形容詞・副詞だけ、such は (a) + 形容詞 + 名詞。"},{"label":"〜 enough to …","trans":"…するのに十分〜","role":"肯定形（できる）のニュアンス","keys":["形容詞・副詞 + enough + to do"],"examples":[{"en":"He is tall enough to reach the shelf.","ja":"棚に手が届くほど背が高い。"},{"en":"She is old enough to drive.","ja":"運転できる年齢だ。"}],"caution":"enough は形容詞・副詞の「後ろ」に置く（× enough tall → ○ tall enough）。"},{"label":"書き換えの関係","trans":"—","role":"3つは互いに書き換えできる","keys":["too 〜 to = so 〜 that can't","tall enough to = so tall that can"],"examples":[{"en":"He is too tired to walk. = He is so tired that he can't walk.","ja":"—"},{"en":"He is tall enough to reach it. = He is so tall that he can reach it.","ja":"—"}],"caution":"整序や書き換え問題で頻出。3つの構文を相互に変換できるようにする。"}],"identify":"too / so / enough が形容詞・副詞と一緒に出てきて、後ろに to do や that 節が続く → 程度の構文。書き換え問題が頻出。","relatedNames":["不定詞","接続詞","比較"],"patterns":["too〜to…（〜すぎて…できない）","so 〜 that … / such 〜 that …"]},{"no":29,"name":"付加疑問文","grade":"中3","basic":"〜, isn't it? / 〜, do you?（〜ですよね？）","headlines":[{"u":"肯定 → 否定","k":"are → aren't"},{"u":"否定 → 肯定","k":"can't → can"},{"u":"Let's","k":"shall we?"},{"u":"命令文","k":"will you?"}],"usages":[{"label":"be動詞の付加疑問","trans":"〜ですよね？","role":"肯定なら否定、否定なら肯定で確認する","keys":["You are 〜, aren't you?","He isn't 〜, is he?"],"examples":[{"en":"You are a student, aren't you?","ja":"あなたは学生ですよね？"},{"en":"She wasn't there, was she?","ja":"彼女はいなかったよね？"}],"caution":"主語は代名詞に変える（Tom → he）。"},{"label":"一般動詞の付加疑問","trans":"〜しますよね？","role":"do / does / did を使う","keys":["You like 〜, don't you?","He plays 〜, doesn't he?","They went 〜, didn't they?"],"examples":[{"en":"Tom likes pizza, doesn't he?","ja":"トムはピザが好きだよね？"},{"en":"You don't smoke, do you?","ja":"あなたは吸わないよね？"}],"caution":"本文の時制・主語に合わせる。"},{"label":"助動詞の付加疑問","trans":"〜できるよね？","role":"助動詞をそのまま使う","keys":["You can 〜, can't you?","He can't 〜, can he?"],"examples":[{"en":"He can't swim, can he?","ja":"彼は泳げないですよね？"},{"en":"You will come, won't you?","ja":"来ますよね？"}],"caution":"助動詞があれば、本文と同じ助動詞を反対の形で。"},{"label":"Let's と命令文の例外","trans":"—","role":"Let's → shall we? / 命令文 → will you?","keys":["Let's 〜, shall we?","命令文, will you?"],"examples":[{"en":"Let's go, shall we?","ja":"行きましょう、ね？"},{"en":"Open the window, will you?","ja":"窓を開けてくれる？"}],"caution":"命令文に will you? を付けると依頼っぽくなる。"}],"identify":"文末にカンマ + 短い疑問のかたまり（〜, isn't it? など）→ 付加疑問文。「〜だよね？」と相手に確認するための表現。","relatedNames":["be動詞","一般動詞","助動詞 (can/will/may)"],"patterns":["付加疑問文"]},{"no":30,"name":"感嘆文","grade":"中2","basic":"What (a) ... ! / How ... !（なんて〜なんだ！）","headlines":[{"u":"What","k":"What (a) + 形容詞 + 名詞!"},{"u":"How","k":"How + 形容詞/副詞!"},{"u":"見分け","k":"名詞があれば What"}],"usages":[{"label":"What を使う形（名詞あり）","trans":"なんて〜な…なんだ！","role":"後ろに名詞があるとき","keys":["What (a/an) + 形容詞 + 名詞 (+ 主語 + 動詞)!"],"examples":[{"en":"What a beautiful flower!","ja":"なんて美しい花！"},{"en":"What a fast runner he is!","ja":"彼はなんて速いランナーなんだ！"},{"en":"What beautiful flowers!","ja":"なんて美しい花々！"}],"caution":"単数の数えられる名詞には a/an（What a nice day!）、複数や不可算には不要（What nice weather!）。"},{"label":"How を使う形（名詞なし）","trans":"なんて〜なんだ！","role":"後ろが形容詞・副詞だけのとき","keys":["How + 形容詞/副詞 (+ 主語 + 動詞)!"],"examples":[{"en":"How beautiful!","ja":"なんて美しい！"},{"en":"How fast he runs!","ja":"彼はなんて速く走るんだ！"}],"caution":"後ろが形容詞や副詞だけ。主語+動詞は省略OK。"},{"label":"見分け方","trans":"—","role":"後ろに名詞があれば What、なければ How","keys":["名詞あり → What","形容詞・副詞だけ → How"],"examples":[{"en":"What a kind person!（kind person ＝名詞）","ja":"→ What"},{"en":"How kind!（kind だけ）","ja":"→ How"}],"caution":"同じ内容を両方の形で言える：What a fast runner he is! = How fast he runs!"}],"identify":"文頭に What や How が来て、感嘆符（!）で終わる → 感嘆文。後ろが「形容詞+名詞」なら What、「形容詞・副詞」だけなら How。","relatedNames":["疑問詞","命令文・Let's"],"patterns":["感嘆文（What a〜! / How〜!）"]}];
-genres.forEach(function(g,i){g.id="g"+(i+1);g.gr=g.grade;});
+// ===== 分野カード（32枚）=====
+// 中1: 13枚 / 中2: 10枚 / 中3: 9枚
+var genres = [
+  // ========== 中1 (13枚) ==========
+  {no:1, grade:"中1", name:"be動詞",
+   basic:"主語 + <b>am / is / are / was / were</b> + 〜",
+   headlines:[
+     {u:"〜です", k:"性質・状態"},
+     {u:"〜にいる／ある", k:"存在"},
+     {u:"疑問・否定", k:"倒置 / not"}
+   ],
+   usages:[
+     {label:"主語 ＋ be ＋ 名詞・形容詞",
+      trans:"〜です",
+      role:"<b>主語＝〜</b> の関係を表す（性質・状態）",
+      keys:["am","is","are","was","were"],
+      examples:[
+        {en:"I <b>am</b> a student.", ja:"私は学生です"},
+        {en:"She <b>was</b> kind.", ja:"彼女は親切だった"}
+      ],
+      caution:"一般動詞と混ぜない（× I am play）"
+     },
+     {label:"主語 ＋ be ＋ 場所",
+      trans:"〜にいる／ある",
+      role:"存在を表す",
+      keys:["in","at","on","under"],
+      examples:[
+        {en:"He <b>is</b> in Tokyo.", ja:"彼は東京にいる"},
+        {en:"My bag <b>was</b> on the desk.", ja:"私のかばんは机の上にあった"}
+      ]
+     },
+     {label:"Am/Is/Are 〜? ／ be ＋ not",
+      trans:"〜ですか／〜ない",
+      role:"疑問文は be を前に、否定文は be の後に not",
+      keys:["Yes, ~ am/is/are","No, ~ aren't/isn't","wasn't","weren't"],
+      examples:[
+        {en:"<b>Are</b> you happy? — Yes, I <b>am</b>.", ja:"幸せですか — はい"},
+        {en:"She <b>isn't</b> a teacher.", ja:"彼女は先生ではない"}
+      ],
+      caution:"am not の短縮形はない。I'm not を使う"
+     }
+   ],
+   identify:"動詞が「動作」なら<b>一般動詞</b>、「状態・性質・存在」なら<b>be動詞</b>。<br>主語と後ろを「＝」で結べる → be動詞。",
+   patterns:["be動詞（am/is/are）","be動詞の疑問文","be動詞の過去（was/were）"],
+   relatedNames:["一般動詞","進行形","There is/are 構文","受動態"]
+  },
 
+  {no:2, grade:"中1", name:"一般動詞",
+   basic:"主語 + <b>動詞</b>（／don't・doesn't・didn't ＋ 原形）",
+   headlines:[
+     {u:"肯定文", k:"play / studied"},
+     {u:"否定文", k:"don't / doesn't / didn't"},
+     {u:"疑問文", k:"Do / Does / Did"}
+   ],
+   usages:[
+     {label:"主語 ＋ 一般動詞",
+      trans:"〜する／〜した",
+      role:"動作・気持ちを表す",
+      keys:["play","study","like","go","came"],
+      examples:[
+        {en:"I <b>play</b> tennis.", ja:"私はテニスをします"},
+        {en:"She <b>studied</b> English yesterday.", ja:"彼女は昨日英語を勉強した"}
+      ],
+      caution:"主語が3人称単数・現在なら動詞に <b>s/es</b>"
+     },
+     {label:"主語 ＋ don't/doesn't/didn't ＋ 原形",
+      trans:"〜しない／〜しなかった",
+      role:"否定文。動詞は必ず<b>原形</b>に戻す",
+      keys:["don't","doesn't","didn't"],
+      examples:[
+        {en:"I <b>don't like</b> math.", ja:"私は数学が好きではない"},
+        {en:"He <b>doesn't play</b> the guitar.", ja:"彼はギターをひかない"}
+      ],
+      caution:"× He doesn't <b>plays</b> → ○ He doesn't <b>play</b>"
+     },
+     {label:"Do/Does/Did ＋ 主語 ＋ 原形 〜?",
+      trans:"〜しますか／〜しましたか",
+      role:"疑問文。動詞は<b>原形</b>",
+      keys:["Do","Does","Did","Yes, ~ do/does/did","No, ~ don't/doesn't/didn't"],
+      examples:[
+        {en:"<b>Does</b> she <b>play</b> tennis? — Yes, she <b>does</b>.", ja:"彼女はテニスをしますか — はい"}
+      ]
+     }
+   ],
+   identify:"<b>be動詞</b>か<b>一般動詞</b>かを最初に見分ける。<br>動作（play, study, eat）なら一般動詞 → 否定・疑問は <b>do/does/did</b> を使う。",
+   patterns:["一般動詞の否定文","一般動詞の疑問文","3単現のs","一般動詞の過去形","過去の否定文（didn't）","過去の疑問文（Did）"],
+   relatedNames:["be動詞","進行形","未来表現","動詞句（look at / take off）"]
+  },
+
+  {no:3, grade:"中1", name:"助動詞（基礎）",
+   basic:"主語 + <b>助動詞</b> + <b>動詞の原形</b>",
+   headlines:[
+     {u:"can", k:"〜できる／〜してもよい"},
+     {u:"will", k:"〜するつもり／〜だろう"},
+     {u:"may", k:"〜してもよい／〜かもしれない"}
+   ],
+   usages:[
+     {label:"主語 ＋ can ＋ 原形",
+      trans:"〜できる",
+      role:"能力・可能を表す。許可の意味もある",
+      keys:["can","cannot","can't","Can I 〜?","Can you 〜?"],
+      examples:[
+        {en:"I <b>can swim</b>.", ja:"私は泳げる"},
+        {en:"<b>Can</b> you help me? — Sure.", ja:"手伝ってくれる？ — いいよ"}
+      ],
+      caution:"助動詞の後は必ず<b>原形</b>（× can plays）"
+     },
+     {label:"主語 ＋ will ＋ 原形",
+      trans:"〜するつもり／〜だろう",
+      role:"未来の予定・予測",
+      keys:["will","won't","Will you 〜?"],
+      examples:[
+        {en:"I <b>will call</b> you tonight.", ja:"今夜電話します"},
+        {en:"It <b>will be</b> sunny tomorrow.", ja:"明日は晴れるだろう"}
+      ]
+     },
+     {label:"主語 ＋ may ＋ 原形",
+      trans:"〜してもよい／〜かもしれない",
+      role:"許可・可能性",
+      keys:["may","May I 〜?"],
+      examples:[
+        {en:"<b>May</b> I come in?", ja:"入ってもいいですか"},
+        {en:"It <b>may rain</b> tomorrow.", ja:"明日は雨かもしれない"}
+      ]
+     }
+   ],
+   identify:"動詞の前に助動詞があったら、後ろは絶対<b>原形</b>。<br>否定・疑問は助動詞を使う（× I don't can / ○ I can't）。",
+   patterns:["助動詞 can","助動詞 will","Can / May I 〜?（許可）","Can / Will you 〜?（依頼）","可能性の may"],
+   relatedNames:["未来表現","助動詞（発展）","命令文・Let's"]
+  },
+
+  {no:4, grade:"中1", name:"進行形",
+   basic:"主語 + <b>be動詞（am/is/are・was/were）</b> + <b>動詞ing</b>",
+   headlines:[
+     {u:"現在進行形", k:"〜している（今）"},
+     {u:"過去進行形", k:"〜していた（その時）"},
+     {u:"進行形にしない動詞", k:"know / like / have"}
+   ],
+   usages:[
+     {label:"am/is/are ＋ 動詞ing",
+      trans:"〜している",
+      role:"今、まさに動作の途中",
+      keys:["am ~ing","is ~ing","are ~ing","now","at this moment"],
+      examples:[
+        {en:"She <b>is reading</b> a book now.", ja:"彼女は今、本を読んでいる"},
+        {en:"They <b>are playing</b> soccer.", ja:"彼らはサッカーをしている"}
+      ],
+      caution:"ing形の作り方：run→running, make→making, lie→lying"
+     },
+     {label:"was/were ＋ 動詞ing",
+      trans:"〜していた",
+      role:"過去のある時点での動作の途中",
+      keys:["was ~ing","were ~ing","then","at that time"],
+      examples:[
+        {en:"I <b>was watching</b> TV at seven.", ja:"私は7時にテレビを見ていた"},
+        {en:"They <b>were studying</b> when I came home.", ja:"私が帰宅したとき彼らは勉強していた"}
+      ]
+     },
+     {label:"状態動詞は進行形にしない",
+      trans:"〜している（状態）",
+      role:"know, like, have(持つ), see など状態を表す動詞",
+      keys:["know","like","have","love","see","want"],
+      examples:[
+        {en:"I <b>know</b> him.", ja:"私は彼を知っている"},
+        {en:"× I am knowing him. → ○ I know him."}
+      ],
+      caution:"have が「食べる」の意味のときは進行形OK（I'm having lunch.）"
+     }
+   ],
+   identify:"<b>be動詞 ＋ 〜ing</b> の形を見たら進行形。<br>「今／その時」の動作の<b>途中</b>を表す。状態動詞は普通使わない。",
+   patterns:["現在進行形","過去進行形"],
+   relatedNames:["be動詞","一般動詞","現在完了","動名詞"]
+  },
+
+  {no:5, grade:"中1", name:"未来表現",
+   basic:"<b>will</b> ＋ 原形 ／ <b>be going to</b> ＋ 原形",
+   headlines:[
+     {u:"will", k:"その場で決めた／予測"},
+     {u:"be going to", k:"前から決まっていた予定"},
+     {u:"現在進行形で未来", k:"確定した近い予定"}
+   ],
+   usages:[
+     {label:"主語 ＋ will ＋ 原形",
+      trans:"〜するつもり／〜だろう",
+      role:"<b>その場で決めた意志</b>・未来の予測",
+      keys:["will","won't","I'll","She'll"],
+      examples:[
+        {en:"OK, I <b>will help</b> you.", ja:"わかった、手伝うよ"},
+        {en:"It <b>will rain</b> tomorrow.", ja:"明日は雨だろう"}
+      ]
+     },
+     {label:"主語 ＋ be going to ＋ 原形",
+      trans:"〜するつもり／〜しそうだ",
+      role:"<b>前から決まっていた予定</b>・根拠のある予測",
+      keys:["am going to","is going to","are going to"],
+      examples:[
+        {en:"I <b>am going to visit</b> Kyoto next week.", ja:"来週京都を訪れる予定だ"},
+        {en:"Look at the clouds! It <b>is going to rain</b>.", ja:"雲を見て！雨が降りそう"}
+      ],
+      caution:"be動詞は主語に合わせる。動詞は<b>原形</b>"
+     },
+     {label:"現在進行形で未来",
+      trans:"〜することになっている",
+      role:"確定したごく近い予定（移動・約束）",
+      keys:["am ~ing","is ~ing","are ~ing + 未来の語"],
+      examples:[
+        {en:"I <b>am leaving</b> Tokyo tomorrow.", ja:"明日東京を発ちます"}
+      ]
+     }
+   ],
+   identify:"<b>will</b>＝今決めた／予測、<b>be going to</b>＝前から決まっていた予定。<br>否定・疑問：will not（won't）／ Will you 〜? ／ Am/Is/Are 〜 going to 〜?",
+   patterns:["助動詞 will","未来表現（be going to）"],
+   relatedNames:["助動詞（基礎）","進行形","現在完了"]
+  },
+
+  {no:6, grade:"中1", name:"疑問詞",
+   basic:"<b>疑問詞</b> + 疑問文の語順（be/do/does/did/助動詞 + 主語 + 〜?）",
+   headlines:[
+     {u:"What / Who / Whose", k:"何 / 誰 / 誰の"},
+     {u:"Where / When / Why", k:"どこ / いつ / なぜ"},
+     {u:"How", k:"どうやって + 程度"}
+   ],
+   usages:[
+     {label:"What / Who / Whose ＋ 疑問文",
+      trans:"何／誰／誰の",
+      role:"物・人・所有者をたずねる",
+      keys:["What","Who","Whose"],
+      examples:[
+        {en:"<b>What</b> is this?", ja:"これは何ですか"},
+        {en:"<b>Who</b> is that boy?", ja:"あの男の子は誰ですか"},
+        {en:"<b>Whose</b> pen is this? — It's mine.", ja:"これは誰のペン？ — 私のです"}
+      ]
+     },
+     {label:"Where / When / Why ＋ 疑問文",
+      trans:"どこ／いつ／なぜ",
+      role:"場所・時・理由をたずねる",
+      keys:["Where","When","Why","Because 〜","To 〜"],
+      examples:[
+        {en:"<b>Where</b> do you live?", ja:"どこに住んでいますか"},
+        {en:"<b>Why</b> are you tired? — <b>Because</b> I studied late.", ja:"なぜ疲れているの？— 遅くまで勉強したから"}
+      ],
+      caution:"Why の答え方：Because 〜 ／ To 〜（不定詞・目的）"
+     },
+     {label:"How ＋ 疑問文／How ＋ 形容詞・副詞",
+      trans:"どうやって／どれくらい",
+      role:"方法・程度・数量",
+      keys:["How","How old","How many","How much","How long","How tall"],
+      examples:[
+        {en:"<b>How</b> do you go to school?", ja:"どうやって学校に行く？"},
+        {en:"<b>How old</b> are you?", ja:"何歳ですか"},
+        {en:"<b>How many</b> books do you have?", ja:"何冊本を持っていますか"}
+      ]
+     }
+   ],
+   identify:"疑問詞は文の<b>先頭</b>。<br>後ろは疑問文の形（be/do/助動詞 ＋ 主語）。「主語をたずねる」場合だけ <b>Who/What ＋ 動詞</b>（Who broke this?）。",
+   patterns:["疑問詞のつかい方","How old〜（年齢）","How many / much / long"],
+   relatedNames:["間接疑問文","be動詞","一般動詞"]
+  },
+
+  {no:7, grade:"中1", name:"命令文・Let's",
+   basic:"<b>動詞の原形</b> 〜 ／ <b>Don't</b> ＋ 原形 〜 ／ <b>Let's</b> ＋ 原形 〜",
+   headlines:[
+     {u:"命令文", k:"〜しなさい"},
+     {u:"否定の命令文", k:"〜してはいけない"},
+     {u:"Let's", k:"〜しましょう"}
+   ],
+   usages:[
+     {label:"動詞の原形 〜（主語省略）",
+      trans:"〜しなさい",
+      role:"相手に命令・指示する",
+      keys:["原形で始める","please で丁寧に"],
+      examples:[
+        {en:"<b>Open</b> the door.", ja:"ドアを開けなさい"},
+        {en:"<b>Please be</b> quiet.", ja:"静かにしてください"}
+      ],
+      caution:"主語の You は付けない（× You open the door）"
+     },
+     {label:"Don't ＋ 原形 〜",
+      trans:"〜してはいけない／〜しないで",
+      role:"禁止・否定の命令",
+      keys:["Don't","Never"],
+      examples:[
+        {en:"<b>Don't run</b> here.", ja:"ここで走ってはいけない"},
+        {en:"<b>Don't be</b> afraid.", ja:"怖がらないで"}
+      ],
+      caution:"be動詞の命令文も否定は <b>Don't be 〜</b>"
+     },
+     {label:"Let's ＋ 原形 〜",
+      trans:"〜しましょう",
+      role:"相手をさそう",
+      keys:["Let's","Shall we 〜?","Yes, let's.","No, let's not."],
+      examples:[
+        {en:"<b>Let's play</b> tennis.", ja:"テニスをしよう"},
+        {en:"<b>Let's</b> go shopping, <b>shall we</b>?", ja:"買い物に行きましょう、ね？"}
+      ]
+     }
+   ],
+   identify:"主語がなく動詞の<b>原形</b>で始まる → 命令文。<br>Don't で始まる → 禁止／Let's で始まる → 勧誘。",
+   patterns:["命令文","否定の命令文","Let's〜（勧誘）","Shall we 〜?"],
+   relatedNames:["助動詞（基礎）","助動詞（発展）"]
+  },
+
+  {no:8, grade:"中1", name:"名詞",
+   basic:"<b>可算名詞</b>（数えられる：a/an・複数の s）／ <b>不可算名詞</b>（数えられない：a piece of 〜）",
+   headlines:[
+     {u:"可算名詞", k:"a book / books"},
+     {u:"不可算名詞", k:"water / music"},
+     {u:"複数形のつくり方", k:"-s / -es / 不規則"}
+   ],
+   usages:[
+     {label:"可算名詞（単数・複数）",
+      trans:"数えられる名詞",
+      role:"1個 → a/an ＋ 名詞 ／ 2個以上 → 名詞 ＋ -s/-es",
+      keys:["a book","books","an apple","apples"],
+      examples:[
+        {en:"I have <b>a book</b>.", ja:"私は本を1冊持っている"},
+        {en:"I have three <b>books</b>.", ja:"私は本を3冊持っている"}
+      ],
+      caution:"単数形のままで前に a/an も the もない形は使えない（× I have book）"
+     },
+     {label:"不可算名詞",
+      trans:"数えられない名詞",
+      role:"液体・気体・概念・素材など。a/an はつけない、複数形にしない",
+      keys:["water","milk","music","money","time","information"],
+      examples:[
+        {en:"I drink <b>water</b>.", ja:"私は水を飲む"},
+        {en:"× a music / × musics → ○ <b>music</b>"}
+      ],
+      caution:"数えるときは <b>a glass of water</b>, <b>a piece of paper</b> など単位を使う"
+     },
+     {label:"複数形のつくり方",
+      trans:"-s / -es / 不規則",
+      role:"語尾で形が変わる",
+      keys:["-s","-es（s,sh,ch,x,o）","y→ies","f/fe→ves","不規則"],
+      examples:[
+        {en:"book → <b>books</b>", ja:"通常は -s"},
+        {en:"bus → <b>buses</b> / box → <b>boxes</b>", ja:"s,sh,ch,x で終わる → -es"},
+        {en:"city → <b>cities</b>", ja:"子音＋y → y を i に変えて -es"},
+        {en:"leaf → <b>leaves</b>", ja:"f/fe → ves"},
+        {en:"man → <b>men</b> / child → <b>children</b>", ja:"不規則"}
+      ]
+     }
+   ],
+   identify:"頭の中で「1個、2個…」と数えられるか？<br>数えられる → 可算（a/an ＋ 単数／s ＋ 複数）／ 数えられない → 不可算（そのままの形）。",
+   patterns:["数えられない名詞の数え方","楽器には the"],
+   relatedNames:["代名詞","冠詞","数量を表す語"]
+  },
+
+  {no:9, grade:"中1", name:"代名詞",
+   basic:"<b>人称代名詞</b>（I/my/me/mine 系列）／ <b>指示代名詞</b>（this/that/these/those）",
+   headlines:[
+     {u:"人称代名詞", k:"主格・所有格・目的格・所有代名詞"},
+     {u:"指示代名詞", k:"this / that / these / those"},
+     {u:"再帰代名詞", k:"myself / yourself"}
+   ],
+   usages:[
+     {label:"人称代名詞（4つの形）",
+      trans:"私／あなた／彼／彼女 など",
+      role:"文の中の役割で形が変わる",
+      keys:["I/my/me/mine","you/your/you/yours","he/his/him/his","she/her/her/hers"],
+      examples:[
+        {en:"<b>I</b> like <b>him</b>.（主格／目的格）", ja:"私は彼が好きだ"},
+        {en:"This is <b>my</b> book. It's <b>mine</b>.（所有格／所有代名詞）", ja:"これは私の本です。私のものです"}
+      ],
+      caution:"所有格（my）の後は名詞が必要 ／ 所有代名詞（mine）の後は名詞いらない"
+     },
+     {label:"指示代名詞 this/that/these/those",
+      trans:"これ／あれ／これら／あれら",
+      role:"近いものは this/these、遠いものは that/those",
+      keys:["this","that","these","those"],
+      examples:[
+        {en:"<b>This</b> is my pen.", ja:"これは私のペン"},
+        {en:"<b>Those</b> are my brothers.", ja:"あれらは私の兄弟"}
+      ],
+      caution:"this/that は単数、these/those は複数。be動詞も合わせる（These <b>are</b> 〜）"
+     },
+     {label:"再帰代名詞 〜self/〜selves",
+      trans:"自分自身（で）",
+      role:"主語自身を目的語に／強調",
+      keys:["myself","yourself","himself","herself","ourselves","themselves","by oneself"],
+      examples:[
+        {en:"I introduced <b>myself</b>.", ja:"私は自己紹介した"},
+        {en:"She did it <b>by herself</b>.", ja:"彼女は独力でそれをした"}
+      ]
+     }
+   ],
+   identify:"主語の位置 → 主格（I, he）／ 名詞の前 → 所有格（my, his）／ 動詞・前置詞の後 → 目的格（me, him）／ 「〜のもの」 → 所有代名詞（mine, his）。",
+   patterns:["所有代名詞（〜のもの）","指示代名詞"],
+   relatedNames:["名詞","be動詞","冠詞"]
+  },
+
+  {no:10, grade:"中1", name:"冠詞",
+   basic:"<b>a / an</b>（不特定の1つ）／ <b>the</b>（特定）／ <b>無冠詞</b>",
+   headlines:[
+     {u:"a / an", k:"はじめて出る 1つ"},
+     {u:"the", k:"特定・2回目・唯一"},
+     {u:"無冠詞", k:"スポーツ・教科・食事"}
+   ],
+   usages:[
+     {label:"a / an ＋ 名詞",
+      trans:"（不特定の）1つの",
+      role:"はじめて話に出る数えられる名詞の単数",
+      keys:["a + 子音の音","an + 母音の音"],
+      examples:[
+        {en:"I have <b>a</b> dog.", ja:"私は犬を1匹飼っている"},
+        {en:"I ate <b>an</b> apple.", ja:"私はリンゴを食べた"},
+        {en:"<b>an</b> hour（h は発音しない）／ <b>a</b> university（yu）"}
+      ],
+      caution:"発音で決まる。<b>つづり</b>ではなく<b>音</b>に注目"
+     },
+     {label:"the ＋ 名詞",
+      trans:"その／特定の",
+      role:"2回目以降・唯一のもの・限定された名詞",
+      keys:["2回目","唯一（the sun, the moon）","最上級","序数","楽器（the piano）"],
+      examples:[
+        {en:"I have a dog. <b>The</b> dog is cute.", ja:"犬を飼っている。その犬はかわいい"},
+        {en:"<b>The</b> earth goes around <b>the</b> sun.", ja:"地球は太陽の周りを回る"},
+        {en:"She plays <b>the</b> piano.", ja:"彼女はピアノを弾く"}
+      ]
+     },
+     {label:"無冠詞",
+      trans:"冠詞をつけない",
+      role:"スポーツ・教科・食事・交通手段（by + 乗り物）",
+      keys:["play tennis","study math","have lunch","by bus"],
+      examples:[
+        {en:"I play <b>tennis</b>.", ja:"私はテニスをする"},
+        {en:"I go to school <b>by bus</b>.", ja:"バスで学校に行く"}
+      ],
+      caution:"× play <b>the</b> tennis ／ × by <b>a</b> bus"
+     }
+   ],
+   identify:"はじめて？ → <b>a/an</b>（音で決める）<br>すでに話題に出た／唯一／楽器 → <b>the</b><br>スポーツ・教科・食事・交通手段 → <b>無冠詞</b>",
+   patterns:["楽器には the"],
+   relatedNames:["名詞","代名詞"]
+  },
+
+  {no:11, grade:"中1", name:"形容詞・副詞",
+   basic:"<b>形容詞</b>＝名詞を説明 ／ <b>副詞</b>＝動詞・形容詞・他の副詞を説明",
+   headlines:[
+     {u:"形容詞", k:"名詞の前 / be動詞の後"},
+     {u:"副詞", k:"動詞・形容詞を修飾"},
+     {u:"頻度の副詞", k:"always / usually / often / sometimes / never"}
+   ],
+   usages:[
+     {label:"形容詞 ＋ 名詞 ／ be動詞 ＋ 形容詞",
+      trans:"〜な〜／〜だ",
+      role:"名詞を説明する（限定用法）／主語の状態を説明する（叙述用法）",
+      keys:["big","kind","happy","new","old"],
+      examples:[
+        {en:"a <b>big</b> dog（名詞の前）", ja:"大きな犬"},
+        {en:"This dog is <b>big</b>.（be動詞の後）", ja:"この犬は大きい"}
+      ],
+      caution:"-thing/-one/-body で終わる代名詞は形容詞が<b>後ろ</b>に来る（something <b>cold</b>）"
+     },
+     {label:"動詞 ＋ 副詞 ／ 副詞 ＋ 形容詞",
+      trans:"〜に／とても〜",
+      role:"動作のしかた・程度を説明",
+      keys:["fast","well","carefully","very","really","too"],
+      examples:[
+        {en:"He runs <b>fast</b>.", ja:"彼は速く走る"},
+        {en:"She sings <b>well</b>.", ja:"彼女は上手に歌う"},
+        {en:"It's <b>very</b> cold.", ja:"とても寒い"}
+      ],
+      caution:"形容詞 ＋ -ly で副詞になることが多い（slow → slowly, easy → easily）"
+     },
+     {label:"頻度の副詞（位置に注意）",
+      trans:"いつも／たいてい／よく／ときどき／決して〜ない",
+      role:"頻度を表す。<b>一般動詞の前、be動詞・助動詞の後</b>",
+      keys:["always","usually","often","sometimes","never"],
+      examples:[
+        {en:"I <b>always</b> get up at six.", ja:"私はいつも6時に起きる"},
+        {en:"She is <b>usually</b> kind.", ja:"彼女はたいてい親切だ"},
+        {en:"He <b>never</b> tells a lie.", ja:"彼は決してうそをつかない"}
+      ]
+     }
+   ],
+   identify:"<b>名詞を説明</b>する → 形容詞<br><b>動詞・形容詞・副詞</b>を説明する → 副詞<br>頻度の副詞は「一般動詞の前／be動詞の後」が定位置。",
+   patterns:[],
+   relatedNames:["名詞","be動詞","一般動詞","比較"]
+  },
+
+  {no:12, grade:"中1", name:"前置詞",
+   basic:"<b>前置詞</b> + 名詞・代名詞（目的格）／ 動詞ing",
+   headlines:[
+     {u:"場所", k:"in / on / at / under"},
+     {u:"時", k:"in / on / at / by / until / from 〜 to"},
+     {u:"方向・手段", k:"to / from / by / with"}
+   ],
+   usages:[
+     {label:"場所の前置詞",
+      trans:"〜に／〜で",
+      role:"場所・位置を表す",
+      keys:["in（広い）","at（地点）","on（接触）","under","near","by","in front of"],
+      examples:[
+        {en:"I live <b>in</b> Tokyo.", ja:"東京に住んでいる"},
+        {en:"Meet me <b>at</b> the station.", ja:"駅で会いましょう"},
+        {en:"The book is <b>on</b> the desk.", ja:"本は机の上にある"}
+      ]
+     },
+     {label:"時の前置詞",
+      trans:"〜に／〜まで",
+      role:"時を表す",
+      keys:["in（月・年・季節）","on（日・曜日）","at（時刻）","by（〜までに）","until（〜まで継続）","from 〜 to","for","since"],
+      examples:[
+        {en:"<b>in</b> 2024 / <b>in</b> summer / <b>in</b> the morning", ja:"年・季節・午前など"},
+        {en:"<b>on</b> Monday / <b>on</b> July 7", ja:"日・曜日"},
+        {en:"<b>at</b> seven / <b>at</b> noon", ja:"時刻"},
+        {en:"Finish it <b>by</b> Friday.", ja:"金曜までに終わらせて（期限）"}
+      ],
+      caution:"<b>by</b> は「期限まで」、<b>until</b> は「ずっと〜まで継続」"
+     },
+     {label:"方向・手段の前置詞",
+      trans:"〜へ／〜で",
+      role:"動きの方向・手段・道具",
+      keys:["to","from","by（手段）","with（道具・人）","for"],
+      examples:[
+        {en:"I go <b>to</b> school <b>by</b> bus.", ja:"バスで学校に行く"},
+        {en:"Cut it <b>with</b> a knife.", ja:"ナイフで切って"}
+      ]
+     }
+   ],
+   identify:"前置詞のあとは必ず<b>名詞・代名詞（目的格）・動詞ing</b>。<br>動詞の原形は来ない（× to <b>go</b> shopping with <b>he</b> → ○ with <b>him</b>）。",
+   patterns:["時を表す前置詞","by（期限）"],
+   relatedNames:["動詞句（look at / take off）","後置修飾","動名詞"]
+  },
+
+  {no:13, grade:"中1", name:"動詞句（look at / take off）",
+   basic:"<b>動詞 + 前置詞</b>（look at）／ <b>動詞 + 副詞</b>（take off）",
+   headlines:[
+     {u:"動詞＋前置詞", k:"目的語は必ず後ろ"},
+     {u:"動詞＋副詞（句動詞）", k:"代名詞は間に入れる"},
+     {u:"よく出る組み合わせ", k:"暗記が中心"}
+   ],
+   usages:[
+     {label:"動詞 ＋ 前置詞 ＋ 目的語",
+      trans:"〜を見る／〜を聞く など",
+      role:"前置詞のあとに目的語が来る。<b>分けられない</b>",
+      keys:["look at","listen to","wait for","look for","look after"],
+      examples:[
+        {en:"<b>Look at</b> the picture.", ja:"その絵を見て"},
+        {en:"I'm <b>looking for</b> my key.", ja:"私はかぎを探している"},
+        {en:"× Look <b>the picture</b> at"}
+      ],
+      caution:"代名詞でも間に入れない（○ look at <b>him</b>／× look <b>him</b> at）"
+     },
+     {label:"動詞 ＋ 副詞（句動詞）",
+      trans:"脱ぐ／着る／消す／つける など",
+      role:"副詞は<b>分けられる</b>。代名詞は<b>必ず間に</b>入れる",
+      keys:["take off","put on","turn on","turn off","pick up"],
+      examples:[
+        {en:"<b>Take off</b> your shoes. ／ Take your shoes <b>off</b>.", ja:"くつを脱いで"},
+        {en:"<b>Turn on</b> the light. ／ Turn the light <b>on</b>.", ja:"電気をつけて"},
+        {en:"Turn <b>it</b> on.（代名詞は必ず間）／ × Turn on it"}
+      ],
+      caution:"目的語が代名詞のときだけは絶対に間に入れる"
+     },
+     {label:"見分けるコツ",
+      trans:"前置詞か副詞か",
+      role:"目的語との関係で見分ける",
+      keys:["分けられない → 前置詞","分けられる → 副詞"],
+      examples:[
+        {en:"○ look at the picture ／ × look the picture at（前置詞）"},
+        {en:"○ take off your shoes ／ ○ take your shoes off（副詞）"}
+      ]
+     }
+   ],
+   identify:"目的語をはさめる → <b>副詞</b>（句動詞：take off the shoes ／ take the shoes off）<br>はさめない → <b>前置詞</b>（look at the picture のみ）<br>代名詞は副詞の場合<b>必ず間</b>に入れる。",
+   patterns:["動詞 + 前置詞の熟語","句動詞（動詞 + 副詞）"],
+   relatedNames:["前置詞","一般動詞"]
+  },
+
+  // ========== 中2 (10枚) ==========
+  {no:14, grade:"中2", name:"接続詞",
+   basic:"等位接続詞（and, but, or, so）／ 従位接続詞（when, if, that, because, while）",
+   headlines:[
+     {u:"等位接続詞", k:"and / but / or / so"},
+     {u:"時・条件", k:"when / if / while"},
+     {u:"理由・結果", k:"because / so"},
+     {u:"that 節", k:"〜ということ"}
+   ],
+   usages:[
+     {label:"and / but / or / so",
+      trans:"〜と／しかし／または／だから",
+      role:"対等な語・句・文をつなぐ",
+      keys:["A and B","A but B","A or B","A, so B"],
+      examples:[
+        {en:"I like tea <b>and</b> coffee.", ja:"紅茶とコーヒーが好きだ"},
+        {en:"He is young, <b>but</b> wise.", ja:"彼は若いが賢い"},
+        {en:"It rained, <b>so</b> I stayed home.", ja:"雨だったので家にいた"}
+      ]
+     },
+     {label:"when / if / while ＋ 文",
+      trans:"〜のとき／もし〜なら／〜の間に",
+      role:"時・条件・期間を表す副詞節",
+      keys:["when","if","while"],
+      examples:[
+        {en:"<b>When</b> I was a child, I lived in Tokyo.", ja:"子供のとき東京に住んでいた"},
+        {en:"I'll go <b>if</b> it is sunny tomorrow.", ja:"明日晴れたら行きます"}
+      ],
+      caution:"時・条件を表す副詞節の中は、<b>未来のことでも現在形</b>（× if it will be → ○ if it is）"
+     },
+     {label:"because / so",
+      trans:"〜なので／だから",
+      role:"理由（because）と結果（so）",
+      keys:["because + 理由","so + 結果"],
+      examples:[
+        {en:"I was tired <b>because</b> I worked hard.", ja:"一生懸命働いたので疲れた"},
+        {en:"I worked hard, <b>so</b> I was tired.", ja:"一生懸命働いたので疲れた"}
+      ],
+      caution:"Why の答えに Because は使えるが、So は使えない"
+     },
+     {label:"that ＋ 文",
+      trans:"〜ということ",
+      role:"think / know / say などの後で内容を表す名詞節（that 省略可）",
+      keys:["I think (that) 〜","I know (that) 〜","I'm sure (that) 〜","I'm afraid (that) 〜"],
+      examples:[
+        {en:"I think (<b>that</b>) he is kind.", ja:"私は彼が親切だと思う"},
+        {en:"I'm sure <b>that</b> she will come.", ja:"きっと彼女は来ると思う"}
+      ]
+     }
+   ],
+   identify:"対等につなぐ → 等位接続詞（and / but / or / so）<br>時・条件・理由をつくる → 従位接続詞（when / if / because / while）<br>「〜ということ」 → that 節",
+   patterns:["接続詞 when","接続詞 if（条件）","接続詞 that","接続詞 because","接続詞 while","I'm afraid that 〜","I'm sure that 〜"],
+   relatedNames:["命令文・Let's","間接疑問文","仮定法過去"]
+  },
+
+  {no:15, grade:"中2", name:"There is/are 構文",
+   basic:"<b>There + is/are + 主語 + 場所</b>",
+   headlines:[
+     {u:"There is + 単数", k:"〜がある／いる"},
+     {u:"There are + 複数", k:"〜たちがある／いる"},
+     {u:"否定・疑問", k:"isn't / aren't, Is/Are there 〜?"}
+   ],
+   usages:[
+     {label:"There is/are ＋ 主語 ＋ 場所",
+      trans:"〜がある／〜がいる",
+      role:"<b>不特定</b>のものや人の<b>存在</b>を伝える",
+      keys:["There is + 単数","There are + 複数","There was/were"],
+      examples:[
+        {en:"<b>There is</b> a cat under the table.", ja:"テーブルの下に猫がいる"},
+        {en:"<b>There are</b> three books on the desk.", ja:"机の上に本が3冊ある"}
+      ],
+      caution:"主語は <b>be動詞の後</b>。be動詞は主語の数に合わせる（× There are <b>a cat</b>）"
+     },
+     {label:"否定文・疑問文",
+      trans:"〜がない／〜がありますか",
+      role:"isn't/aren't を入れる／Is/Are there 〜?",
+      keys:["isn't","aren't","Is there 〜?","Are there 〜?","How many 〜 are there?"],
+      examples:[
+        {en:"<b>There isn't</b> any milk.", ja:"牛乳がない"},
+        {en:"<b>Are there</b> any students? — Yes, there <b>are</b>.", ja:"学生はいますか — はい"},
+        {en:"<b>How many</b> books <b>are there</b>?", ja:"何冊本がありますか"}
+      ]
+     },
+     {label:"特定のものには使わない",
+      trans:"my / the / 固有名詞 は不可",
+      role:"<b>特定</b>のものは普通の文（主語 ＋ be 動詞）で表す",
+      keys:["my","your","the","固有名詞"],
+      examples:[
+        {en:"× There is my book on the desk."},
+        {en:"○ <b>My book is</b> on the desk."},
+        {en:"× There is Mt. Fuji in Japan."},
+        {en:"○ <b>Mt. Fuji is</b> in Japan."}
+      ],
+      caution:"my / the / 固有名詞のような<b>特定</b>のものには使えない"
+     }
+   ],
+   identify:"「<b>不特定</b>のものが存在する」と言うときに使う。<br>主語が<b>特定</b>（my / the / 固有名詞）なら、普通の文（主語 ＋ be動詞）。",
+   patterns:["There is / are 〜"],
+   relatedNames:["be動詞","名詞","前置詞","数量を表す語"]
+  },
+
+  {no:16, grade:"中2", name:"不定詞",
+   basic:"<b>to + 動詞の原形</b>",
+   headlines:[
+     {u:"名詞的用法", k:"〜すること"},
+     {u:"形容詞的用法", k:"〜するための、〜すべき"},
+     {u:"副詞的用法", k:"〜するために、〜して"},
+     {u:"発展", k:"It is to / 疑問詞+to / too~to / 人+to"}
+   ],
+   usages:[
+     {label:"名詞的用法（主語・目的語・補語）",
+      trans:"〜すること",
+      role:"名詞のはたらき（want to, like to, decide to など）",
+      keys:["want to","like to","try to","need to","decide to","hope to"],
+      examples:[
+        {en:"I want <b>to play</b> tennis.", ja:"私はテニスをしたい（目的語）"},
+        {en:"<b>To study</b> English is fun.", ja:"英語を勉強することは楽しい（主語）"},
+        {en:"My dream is <b>to be</b> a doctor.", ja:"私の夢は医者になることだ（補語）"}
+      ]
+     },
+     {label:"形容詞的用法（名詞 ＋ to 〜）",
+      trans:"〜するための／〜すべき",
+      role:"<b>名詞を後ろから修飾</b>（後置修飾）",
+      keys:["something to eat","time to study","a place to live","work to do"],
+      examples:[
+        {en:"I have something <b>to eat</b>.", ja:"何か食べる物を持っている"},
+        {en:"Give me water <b>to drink</b>.", ja:"飲み水をください"}
+      ],
+      caution:"5つの後置修飾の1つ。名詞のすぐ後ろに to ＋ 原形"
+     },
+     {label:"副詞的用法（目的・感情の原因など）",
+      trans:"〜するために／〜して",
+      role:"動詞や形容詞を修飾",
+      keys:["目的：〜するために","感情の原因：〜して","結果：〜して結局"],
+      examples:[
+        {en:"I went there <b>to see</b> her.", ja:"彼女に会うためにそこへ行った（目的）"},
+        {en:"I'm happy <b>to see</b> you.", ja:"君に会えてうれしい（感情の原因）"}
+      ]
+     },
+     {label:"発展：いろいろな構文",
+      trans:"形式主語 ／ 疑問詞 ＋ to ／ too 〜 to",
+      role:"不定詞を使った決まった構文",
+      keys:["It is ~ for 人 to","tell/want/ask 人 to","how to","what to","too ~ to","~ enough to"],
+      examples:[
+        {en:"<b>It is</b> important <b>for</b> me <b>to study</b>.", ja:"私が勉強することは大切だ"},
+        {en:"I don't know <b>how to</b> swim.", ja:"泳ぎ方を知らない"},
+        {en:"He is <b>too</b> young <b>to</b> drive.", ja:"彼は運転するには若すぎる"}
+      ]
+     }
+   ],
+   identify:"<b>to ＋ 原形</b>を見たら3用法のどれか考える。<br>(1) 主語・目的語・補語の位置 → 名詞的用法<br>(2) 名詞の直後 → 形容詞的用法<br>(3) 動詞・形容詞の後 → 副詞的用法",
+   patterns:["不定詞（名詞的用法）","不定詞をとる動詞（want to など）","不定詞（形容詞的用法）","不定詞（副詞的・目的）","不定詞（感情の原因）","形式主語 It is for〜to","tell 人 to〜","want 人 to〜","ask 人 to〜","疑問詞＋不定詞","too〜to…","〜 enough to …"],
+   relatedNames:["動名詞","後置修飾","結果構文（too〜to / so〜that）","使役・知覚動詞（原形不定詞）"]
+  },
+
+  {no:17, grade:"中2", name:"動名詞",
+   basic:"<b>動詞ing</b>＝〜すること",
+   headlines:[
+     {u:"主語・目的語・補語", k:"〜することは／〜することを"},
+     {u:"前置詞＋ing", k:"for / before / after"},
+     {u:"ingだけをとる動詞", k:"enjoy / finish / stop"}
+   ],
+   usages:[
+     {label:"動名詞 ＝ 〜すること",
+      trans:"〜すること（名詞のはたらき）",
+      role:"主語・目的語・補語になる",
+      keys:["主語","目的語","補語"],
+      examples:[
+        {en:"<b>Reading</b> books is fun.", ja:"本を読むことは楽しい（主語）"},
+        {en:"I like <b>playing</b> tennis.", ja:"テニスをすることが好き（目的語）"},
+        {en:"My hobby is <b>cooking</b>.", ja:"私の趣味は料理することだ（補語）"}
+      ],
+      caution:"不定詞（to + 原形）も「〜すること」だが、動詞によって使い分ける"
+     },
+     {label:"前置詞 ＋ 動名詞",
+      trans:"〜することについて／〜する前に",
+      role:"前置詞の後は<b>動詞ing</b>（原形は来ない）",
+      keys:["for + ing","before + ing","after + ing","without + ing","be good at + ing"],
+      examples:[
+        {en:"Thank you <b>for coming</b>.", ja:"来てくれてありがとう"},
+        {en:"Wash your hands <b>before eating</b>.", ja:"食べる前に手を洗いなさい"},
+        {en:"She is good <b>at singing</b>.", ja:"彼女は歌うのが上手だ"}
+      ],
+      caution:"× for to eat → ○ <b>for eating</b>"
+     },
+     {label:"動名詞だけをとる動詞",
+      trans:"〜することを楽しむ／終える／やめる",
+      role:"目的語に<b>動名詞のみ</b>取る動詞（不定詞は不可）",
+      keys:["enjoy ing","finish ing","stop ing","mind ing","give up ing"],
+      examples:[
+        {en:"I enjoyed <b>playing</b> tennis.", ja:"私はテニスを楽しんだ"},
+        {en:"× I enjoyed <b>to play</b> tennis."},
+        {en:"He finished <b>reading</b> the book.", ja:"彼は本を読み終えた"}
+      ],
+      caution:"不定詞だけをとる動詞（want, hope, decide）と対比して覚える"
+     }
+   ],
+   identify:"動詞のing形が文中で<b>名詞のはたらき</b>をしている → 動名詞。<br>進行形（be + ing）や現在分詞（後置修飾）とは違う。<br>前置詞の後は必ず動名詞。",
+   patterns:["動名詞","for + 動名詞","ing だけをとる動詞"],
+   relatedNames:["不定詞","進行形","後置修飾","be動詞"]
+  },
+
+  {no:18, grade:"中2", name:"比較",
+   basic:"<b>原級</b>（as ~ as）／ <b>比較級</b>（-er than / more ~ than）／ <b>最上級</b>（the -est / the most）",
+   headlines:[
+     {u:"原級比較", k:"as ~ as"},
+     {u:"比較級", k:"-er than / more ~ than"},
+     {u:"最上級", k:"the -est / the most"},
+     {u:"書き換え", k:"as ~ as / 比較級 / 最上級"}
+   ],
+   usages:[
+     {label:"as ＋ 原級 ＋ as",
+      trans:"〜と同じくらい〜",
+      role:"2つを比べて同じ程度",
+      keys:["as ~ as","not as ~ as"],
+      examples:[
+        {en:"Tom is <b>as tall as</b> Ken.", ja:"トムはケンと同じくらい背が高い"},
+        {en:"This is <b>not as expensive as</b> that.", ja:"これはあれほど高くない"}
+      ]
+     },
+     {label:"比較級 ＋ than",
+      trans:"〜より〜",
+      role:"2つを比べて差があるとき",
+      keys:["-er than","more ~ than","much/even/far + 比較級"],
+      examples:[
+        {en:"He is <b>taller than</b> me.", ja:"彼は私より背が高い"},
+        {en:"This book is <b>more interesting than</b> that one.", ja:"この本はあの本よりおもしろい"},
+        {en:"This is <b>much better</b> than that.", ja:"これはあれよりずっとよい"}
+      ],
+      caution:"good/well → <b>better</b>、bad → <b>worse</b>、many/much → <b>more</b>"
+     },
+     {label:"the ＋ 最上級",
+      trans:"いちばん〜",
+      role:"3つ以上で一番のとき。<b>the</b> を忘れない",
+      keys:["the -est","the most ~","in/of の選び方"],
+      examples:[
+        {en:"Mt. Fuji is <b>the highest</b> mountain <b>in</b> Japan.", ja:"富士山は日本でいちばん高い山だ"},
+        {en:"He runs <b>the fastest</b> <b>of</b> the three.", ja:"彼は3人の中で一番速く走る"}
+      ],
+      caution:"場所・範囲 → <b>in</b> ／ 数えられる単語の複数 → <b>of</b>"
+     },
+     {label:"書き換え（同じ意味）",
+      trans:"〜と同じ意味で言いかえ",
+      role:"原級・比較級・最上級は互いに書き換えられる",
+      keys:["No other ~ is as 原級 as","No other ~ is 比較級 than","比較級 than any other","one of the 最上級"],
+      examples:[
+        {en:"Tom is the tallest. = <b>No other</b> boy is <b>taller than</b> Tom. = Tom is <b>taller than any other</b> boy."}
+      ]
+     }
+   ],
+   identify:"<b>as ~ as</b> → 原級比較（同じ）／ <b>-er than / more ~ than</b> → 比較級／ <b>the -est / the most</b> → 最上級。<br>不規則変化（better/best, worse/worst, more/most）を覚える。",
+   patterns:["比較級（than）","最上級（the -est）","原級比較（as〜as）","not as〜as","one of the 最上級","than any other〜","The 比較級, the 比較級","like 〜 better / best","Which 〜er, A or B?"],
+   relatedNames:["形容詞・副詞"]
+  },
+
+  {no:19, grade:"中2", name:"文型",
+   basic:"<b>第2文型 SVC</b> ／ <b>第4文型 SVOO</b> ／ <b>第5文型 SVOC</b>",
+   headlines:[
+     {u:"SVC", k:"S = C（look / become）"},
+     {u:"SVOO", k:"人にモノを"},
+     {u:"SVOC", k:"A = B（call A B）"}
+   ],
+   usages:[
+     {label:"主語 ＋ 動詞 ＋ 補語（SVC）",
+      trans:"〜は〜だ",
+      role:"<b>主語＝補語</b>。be動詞、連結動詞（look, sound, feel, become）",
+      keys:["look ~","sound ~","feel ~","become","get","turn"],
+      examples:[
+        {en:"She <b>looks</b> happy.", ja:"彼女はうれしそうに見える"},
+        {en:"It <b>sounds</b> good.", ja:"良さそうに聞こえる"},
+        {en:"He <b>became</b> a doctor.", ja:"彼は医者になった"}
+      ],
+      caution:"look の後は<b>形容詞</b>（× look <b>happily</b>）"
+     },
+     {label:"主語 ＋ 動詞 ＋ 人 ＋ もの（SVOO）",
+      trans:"〜に〜をあげる／教える など",
+      role:"目的語が2つ：<b>人</b>＋<b>もの</b>",
+      keys:["give 人 もの","tell 人 もの","show 人 もの","teach 人 もの","send 人 もの"],
+      examples:[
+        {en:"He <b>gave me a book</b>.", ja:"彼は私に本をくれた"},
+        {en:"= He <b>gave a book to me</b>.（前置詞 to を使った書きかえ）"}
+      ],
+      caution:"前置詞 <b>to</b> 型（give/tell/show）／<b>for</b> 型（make/buy/get）"
+     },
+     {label:"主語 ＋ 動詞 ＋ A ＋ B（SVOC）",
+      trans:"AをBと呼ぶ／AをBにする",
+      role:"<b>A ＝ B</b> の関係。call / name / make / keep / leave / find",
+      keys:["call A B","name A B","make A B","keep A B","leave A B","find A B"],
+      examples:[
+        {en:"We <b>call him Tom</b>.", ja:"私たちは彼をトムと呼ぶ（彼＝トム）"},
+        {en:"The news <b>made me happy</b>.", ja:"そのニュースは私を幸せにした（私＝幸せ）"}
+      ],
+      caution:"<b>A＝B</b>の関係が必ず成り立つ。B には名詞か形容詞"
+     }
+   ],
+   identify:"動詞の直後の語の関係を見る：<br><b>S＝C</b>（look / become） → SVC<br><b>人 ＋ もの</b>（give / tell） → SVOO<br><b>A ＝ B</b>（call / make） → SVOC",
+   patterns:["SVOO（第4文型）","SVOC（call / name）","SVOC（〜にする）","SVOC（〜のままにする）","連結動詞（look / sound など）","become / get / turn"],
+   relatedNames:["受動態","使役・知覚動詞（原形不定詞）"]
+  },
+
+  {no:20, grade:"中2", name:"受動態",
+   basic:"<b>主語 + be動詞 + 過去分詞 (+ by 〜)</b>",
+   headlines:[
+     {u:"be ＋ 過去分詞", k:"〜される"},
+     {u:"by ＋ 人", k:"〜によって"},
+     {u:"時制", k:"is/was/will be ＋ 過去分詞"}
+   ],
+   usages:[
+     {label:"主語 ＋ be動詞 ＋ 過去分詞 ＋ by 〜",
+      trans:"〜される／〜された",
+      role:"主語は<b>動作を受ける側</b>。動作主は by で表す",
+      keys:["am/is/are + 過去分詞","was/were + 過去分詞","will be + 過去分詞","by + 動作主"],
+      examples:[
+        {en:"English <b>is spoken</b> in many countries.", ja:"英語は多くの国で話される"},
+        {en:"This book <b>was written</b> <b>by</b> Soseki.", ja:"この本は漱石によって書かれた"},
+        {en:"It <b>will be done</b> tomorrow.", ja:"それは明日されるだろう"}
+      ],
+      caution:"by の後ろは目的格（by <b>him</b>）／by はなくてもよい"
+     },
+     {label:"否定文・疑問文",
+      trans:"〜されない／〜されますか",
+      role:"be動詞の文と同じ形（be ＋ not／be を前に）",
+      keys:["isn't / aren't","wasn't / weren't","Is/Was + 主語 + 過去分詞 〜?"],
+      examples:[
+        {en:"This book <b>isn't read</b> by many people.", ja:"この本は多くの人に読まれてはいない"},
+        {en:"<b>Was</b> this picture <b>painted</b> by Van Gogh?", ja:"この絵はゴッホによって描かれたのですか"}
+      ]
+     },
+     {label:"by 以外の前置詞",
+      trans:"〜に知られている／〜でできている など",
+      role:"by 以外の前置詞で動作主・原因を表す決まった言い方",
+      keys:["be known to/for/as","be made of/from","be interested in","be covered with"],
+      examples:[
+        {en:"He <b>is known to</b> everyone.", ja:"彼は皆に知られている"},
+        {en:"This desk <b>is made of</b> wood.", ja:"この机は木でできている（材料が見える）"},
+        {en:"Cheese <b>is made from</b> milk.", ja:"チーズは牛乳から作られる（材料が変化）"}
+      ]
+     }
+   ],
+   identify:"主語が「<b>される側</b>」 → 受動態。<br>「<b>する側</b>」 → 能動態（普通の文）。<br><b>be ＋ 過去分詞</b>が目印。",
+   patterns:["受動態","be + 形容詞 + 前置詞"],
+   relatedNames:["be動詞","現在完了","後置修飾"]
+  },
+
+  {no:21, grade:"中2", name:"助動詞（発展）",
+   basic:"<b>should / must / have to / may / might</b> + 動詞の原形",
+   headlines:[
+     {u:"should", k:"〜すべき"},
+     {u:"must / have to", k:"〜しなければならない"},
+     {u:"may / might", k:"〜かもしれない／〜してもよい"}
+   ],
+   usages:[
+     {label:"should ＋ 原形",
+      trans:"〜すべき／〜したほうがよい",
+      role:"アドバイス・義務（must より弱い）",
+      keys:["should","shouldn't","Should I 〜?"],
+      examples:[
+        {en:"You <b>should study</b> harder.", ja:"もっと一生懸命勉強すべきだ"},
+        {en:"You <b>shouldn't smoke</b>.", ja:"タバコを吸うべきではない"}
+      ]
+     },
+     {label:"must / have to ＋ 原形",
+      trans:"〜しなければならない",
+      role:"強い義務。must（話し手の主観）／ have to（外からの必要）",
+      keys:["must","have to","has to","had to","don't have to","must not"],
+      examples:[
+        {en:"You <b>must come</b> on time.", ja:"時間通りに来なければならない"},
+        {en:"I <b>have to study</b> tonight.", ja:"今夜勉強しなければならない"}
+      ],
+      caution:"<b>否定の意味が違う</b>：don't have to ＝ 〜する必要はない／ must not ＝ 〜してはいけない"
+     },
+     {label:"may / might ＋ 原形",
+      trans:"〜かもしれない／〜してもよい",
+      role:"可能性（弱い）・許可。might は may より控えめ",
+      keys:["may","might","May I 〜?"],
+      examples:[
+        {en:"It <b>may rain</b> tomorrow.", ja:"明日は雨かもしれない"},
+        {en:"<b>May</b> I come in?", ja:"入ってもいいですか"}
+      ]
+     }
+   ],
+   identify:"助動詞の後ろは必ず<b>原形</b>。<br>強い義務 → must / have to ／ アドバイス → should ／ 可能性・許可 → may / might。<br>否定の意味の違い（don't have to vs must not）に注意。",
+   patterns:["should（すべき）","have to / must","don't have to（不要）","must not（禁止）","可能性の may","Can / May I 〜?（許可）","Why don't you 〜?（提案）","would like to（丁寧な希望）","丁寧な依頼"],
+   relatedNames:["助動詞（基礎）","命令文・Let's","仮定法過去"]
+  },
+
+  {no:22, grade:"中2", name:"感嘆文",
+   basic:"<b>What (a) ＋ 形容詞 ＋ 名詞 (＋ S ＋ V)!</b> ／ <b>How ＋ 形容詞・副詞 (＋ S ＋ V)!</b>",
+   headlines:[
+     {u:"What 〜!", k:"なんて〜な〇〇だろう"},
+     {u:"How 〜!", k:"なんて〜だろう"}
+   ],
+   usages:[
+     {label:"What (a) ＋ 形容詞 ＋ 名詞 ＋ S ＋ V!",
+      trans:"なんて〜な〇〇だろう",
+      role:"<b>名詞</b>を中心に強く驚く・感動する",
+      keys:["What a/an + 形 + 単数名詞","What + 形 + 複数/不可算名詞"],
+      examples:[
+        {en:"<b>What a beautiful flower</b> this is!", ja:"なんてきれいな花でしょう"},
+        {en:"<b>What kind people</b> they are!", ja:"なんて親切な人々だろう"}
+      ],
+      caution:"S ＋ V は省略可。What に続くのは<b>名詞</b>"
+     },
+     {label:"How ＋ 形容詞・副詞 ＋ S ＋ V!",
+      trans:"なんて〜だろう",
+      role:"<b>形容詞・副詞</b>を中心に強く驚く",
+      keys:["How + 形/副","How fast","How beautiful"],
+      examples:[
+        {en:"<b>How beautiful</b> this flower is!", ja:"なんてきれいなんだろう"},
+        {en:"<b>How fast</b> he runs!", ja:"なんて速く走るんだろう"}
+      ],
+      caution:"How に続くのは<b>形容詞か副詞</b>。後ろに名詞は来ない"
+     }
+   ],
+   identify:"<b>名詞</b>が中心 → What (a) ＋ 形容詞 ＋ 名詞!<br><b>形容詞・副詞</b>が中心 → How ＋ 形容詞／副詞!<br>S ＋ V は省略してもよい。",
+   patterns:["感嘆文 What","感嘆文 How"],
+   relatedNames:["疑問詞","形容詞・副詞"]
+  },
+
+  {no:23, grade:"中2", name:"数量を表す語",
+   basic:"<b>some / any</b> ／ <b>many / much / a lot of</b> ／ <b>a few / a little</b> ／ <b>few / little</b>",
+   headlines:[
+     {u:"some / any", k:"いくつかの／何か"},
+     {u:"many / much", k:"たくさんの（可算／不可算）"},
+     {u:"a few / a little", k:"少しある"},
+     {u:"few / little", k:"ほとんどない"}
+   ],
+   usages:[
+     {label:"some / any",
+      trans:"いくつかの／何か",
+      role:"some：肯定文／any：否定文・疑問文",
+      keys:["some（肯定文）","any（否定・疑問）","some（依頼・勧誘）"],
+      examples:[
+        {en:"I have <b>some</b> books.", ja:"私はいくつか本を持っている"},
+        {en:"Do you have <b>any</b> questions?", ja:"何か質問はありますか"},
+        {en:"Would you like <b>some</b> tea?", ja:"お茶はいかがですか（勧めるとき）"}
+      ],
+      caution:"勧誘・依頼の疑問文では <b>some</b>（× any tea? when offering）"
+     },
+     {label:"many / much / a lot of",
+      trans:"たくさんの",
+      role:"many：可算名詞／much：不可算名詞／a lot of：どちらも可",
+      keys:["many + 可算複数","much + 不可算","a lot of","lots of","How many / How much"],
+      examples:[
+        {en:"I have <b>many</b> books.", ja:"私はたくさん本を持っている"},
+        {en:"I don't have <b>much</b> time.", ja:"あまり時間がない"},
+        {en:"There is <b>a lot of</b> water.", ja:"水がたくさんある"}
+      ],
+      caution:"肯定文では <b>a lot of</b> が自然。much は否定・疑問が多い"
+     },
+     {label:"a few / a little（少し<b>ある</b>）",
+      trans:"少しある",
+      role:"a few：可算／a little：不可算。<b>肯定的</b>",
+      keys:["a few + 可算複数","a little + 不可算"],
+      examples:[
+        {en:"I have <b>a few</b> friends.", ja:"友達が少しいる（いる）"},
+        {en:"I have <b>a little</b> money.", ja:"お金が少しある（ある）"}
+      ]
+     },
+     {label:"few / little（ほとんど<b>ない</b>）",
+      trans:"ほとんどない",
+      role:"few：可算／little：不可算。<b>否定的</b>",
+      keys:["few + 可算複数","little + 不可算"],
+      examples:[
+        {en:"I have <b>few</b> friends.", ja:"友達がほとんどいない（いない）"},
+        {en:"I have <b>little</b> money.", ja:"お金がほとんどない（ない）"}
+      ],
+      caution:"<b>a がつくと「少しある」、a がないと「ほとんどない」</b>"
+     }
+   ],
+   identify:"<b>可算名詞</b>か<b>不可算名詞</b>かで使い分ける。<br><b>a がつくか</b>で意味が逆転（a few/a little ＝ ある／few/little ＝ ない）。",
+   patterns:["some / any","little / few"],
+   relatedNames:["名詞","代名詞"]
+  },
+
+  // ========== 中3 (9枚) ==========
+  {no:24, grade:"中3", name:"現在完了",
+   basic:"<b>have / has + 過去分詞</b>（進行形は <b>have/has been + 〜ing</b>）",
+   headlines:[
+     {u:"経験", k:"〜したことがある"},
+     {u:"完了・結果", k:"〜したところだ／してしまった"},
+     {u:"継続", k:"ずっと〜している"},
+     {u:"現在完了進行形", k:"動作の継続"}
+   ],
+   usages:[
+     {label:"have/has ＋ 過去分詞（経験）",
+      trans:"〜したことがある",
+      role:"今までの<b>経験</b>を表す",
+      keys:["ever","never","once","twice","three times","before"],
+      examples:[
+        {en:"I <b>have visited</b> Kyoto <b>twice</b>.", ja:"私は2回京都を訪れたことがある"},
+        {en:"Have you <b>ever</b> seen a panda?", ja:"パンダを見たことがありますか"}
+      ],
+      caution:"have been to ＝ 行ったことがある／have gone to ＝ 行ってしまった（戻ってない）"
+     },
+     {label:"have/has ＋ 過去分詞（完了・結果）",
+      trans:"〜したところだ／〜してしまった",
+      role:"動作が<b>完了</b>した結果が今ある",
+      keys:["just","already","yet（否定・疑問）"],
+      examples:[
+        {en:"I have <b>just</b> finished my homework.", ja:"ちょうど宿題を終えたところだ"},
+        {en:"He has <b>already</b> left.", ja:"彼はもう出発してしまった"},
+        {en:"Have you finished <b>yet</b>?", ja:"もう終わりましたか"}
+      ]
+     },
+     {label:"have/has ＋ 過去分詞（継続）",
+      trans:"ずっと〜している",
+      role:"過去から現在まで<b>状態</b>が続く（状態動詞）",
+      keys:["for + 期間","since + 起点","How long 〜?"],
+      examples:[
+        {en:"I have lived in Tokyo <b>for</b> ten years.", ja:"10年間東京に住んでいる"},
+        {en:"She has known him <b>since</b> 2010.", ja:"彼女は2010年から彼を知っている"}
+      ],
+      caution:"for ＋ 期間 ／ since ＋ 起点（時刻・年・出来事）"
+     },
+     {label:"have/has been ＋ 〜ing（進行形）",
+      trans:"ずっと〜している（動作）",
+      role:"過去から現在まで<b>動作</b>が続く（動作動詞）",
+      keys:["for","since","How long 〜?"],
+      examples:[
+        {en:"I <b>have been studying</b> for two hours.", ja:"私は2時間ずっと勉強している"},
+        {en:"It <b>has been raining</b> since this morning.", ja:"今朝からずっと雨が降っている"}
+      ],
+      caution:"<b>動作</b>動詞には現在完了進行形（live, know などの状態動詞には現在完了 形）"
+     }
+   ],
+   identify:"<b>have/has ＋ 過去分詞</b>を見たら、付くキーワードで意味を判断：<br>ever/never/回数 → 経験／just/already/yet → 完了／for/since → 継続。<br>動作が続いている → 現在完了進行形（have been ＋ ing）。",
+   patterns:["現在完了の「経験」","現在完了の「完了」","already / yet","現在完了の「継続」","for / since","現在完了進行形","現在完了進行形（疑問文）"],
+   relatedNames:["進行形","受動態","be動詞"]
+  },
+
+  {no:25, grade:"中3", name:"後置修飾",
+   basic:"<b>名詞 ＋ 修飾語</b>（名詞を後ろから修飾する5パターン）",
+   headlines:[
+     {u:"前置詞句", k:"the book on the desk"},
+     {u:"現在分詞", k:"the boy running 〜"},
+     {u:"過去分詞", k:"the cake made 〜"},
+     {u:"関係代名詞", k:"who / which / that"},
+     {u:"不定詞", k:"something to eat"}
+   ],
+   usages:[
+     {label:"名詞 ＋ 前置詞句",
+      trans:"〜の名詞",
+      role:"<b>名詞 ＋ 前置詞 ＋ 名詞</b>。最も基本",
+      keys:["on / in / under / with"],
+      examples:[
+        {en:"the book <b>on the desk</b>", ja:"机の上の本"},
+        {en:"the boy <b>with long hair</b>", ja:"長い髪の男の子"}
+      ]
+     },
+     {label:"名詞 ＋ 現在分詞（〜ing）",
+      trans:"〜している名詞",
+      role:"進行中の動作で名詞を後ろから修飾",
+      keys:["名詞 + 〜ing + 〜"],
+      examples:[
+        {en:"the boy <b>running in the park</b>", ja:"公園で走っている男の子"},
+        {en:"the girl <b>playing the piano</b>", ja:"ピアノを弾いている女の子"}
+      ],
+      caution:"単独の ing は名詞の前（a running boy）／ ing ＋ 他の語句 は後ろ"
+     },
+     {label:"名詞 ＋ 過去分詞",
+      trans:"〜される／〜された名詞",
+      role:"受け身の関係で名詞を後ろから修飾",
+      keys:["名詞 + 過去分詞 + 〜"],
+      examples:[
+        {en:"the cake <b>made by my mother</b>", ja:"母が作ったケーキ"},
+        {en:"a language <b>spoken in Canada</b>", ja:"カナダで話されている言語"}
+      ]
+     },
+     {label:"名詞 ＋ 関係代名詞 ＋ 文",
+      trans:"〜する〜",
+      role:"who / which / that / whose で詳しい情報を後ろに",
+      keys:["who（人）","which（もの）","that（人・もの）","whose","目的格 省略可"],
+      examples:[
+        {en:"a friend <b>who lives in Tokyo</b>", ja:"東京に住んでいる友達"},
+        {en:"the book <b>(which) I read yesterday</b>", ja:"昨日私が読んだ本"}
+      ]
+     },
+     {label:"名詞 ＋ to ＋ 原形（不定詞）",
+      trans:"〜するための／〜すべき〜",
+      role:"不定詞の形容詞的用法",
+      keys:["something to eat","time to study","a place to live"],
+      examples:[
+        {en:"something <b>to eat</b>", ja:"何か食べる物"},
+        {en:"a book <b>to read</b>", ja:"読むべき本"}
+      ]
+     }
+   ],
+   identify:"「<b>どんな〜</b>」をどう説明するかを見る：<br>前置詞 → 前置詞句／〜ing → 現在分詞／過去分詞 → 過去分詞／who/which/that → 関係代名詞／to＋原形 → 不定詞。<br>すべて<b>名詞の直後</b>に修飾語が続く。",
+   patterns:["前置詞句の後置修飾","現在分詞の後置修飾","過去分詞の後置修飾","関係代名詞 who（主格）","関係代名詞 which（主格）","関係代名詞（目的格・省略可）","関係代名詞 whose（所有格）"],
+   relatedNames:["関係代名詞","関係副詞・関係代名詞 what","不定詞","前置詞"]
+  },
+
+  {no:26, grade:"中3", name:"関係代名詞",
+   basic:"<b>名詞 ＋ 関係代名詞 ＋ 不完全な文</b>（who / which / that / whose）",
+   headlines:[
+     {u:"主格", k:"who / which / that"},
+     {u:"目的格", k:"which / that（省略可）"},
+     {u:"所有格", k:"whose"}
+   ],
+   usages:[
+     {label:"主格 who / which / that",
+      trans:"〜する人／もの",
+      role:"関係代名詞が<b>主語</b>のはたらき。後ろに動詞が続く",
+      keys:["who（人）","which（もの・動物）","that（両方OK）"],
+      examples:[
+        {en:"I have a friend <b>who lives</b> in Tokyo.", ja:"東京に住んでいる友達がいる"},
+        {en:"This is the book <b>which was</b> written by him.", ja:"これは彼によって書かれた本だ"}
+      ],
+      caution:"主格は<b>省略できない</b>"
+     },
+     {label:"目的格 which / that（省略可）",
+      trans:"〜する〜",
+      role:"関係代名詞が<b>目的語</b>のはたらき。後ろに「主語 ＋ 動詞」",
+      keys:["which / that","省略可","目的語が抜けている文"],
+      examples:[
+        {en:"the book <b>(which/that) I read</b> yesterday", ja:"私が昨日読んだ本"},
+        {en:"the boy <b>(whom/that) I met</b> at the station", ja:"駅で会った男の子"}
+      ],
+      caution:"目的格は<b>省略できる</b>（よく省略される）"
+     },
+     {label:"所有格 whose",
+      trans:"〜の〜が…する",
+      role:"後ろの名詞の<b>所有者</b>を表す",
+      keys:["whose + 名詞"],
+      examples:[
+        {en:"I have a friend <b>whose father</b> is a doctor.", ja:"父親が医者の友達がいる"},
+        {en:"This is the house <b>whose roof</b> is red.", ja:"これは屋根が赤い家だ"}
+      ]
+     }
+   ],
+   identify:"関係代名詞の後ろが<b>不完全な文</b>になっている：<br>主語が抜けている → <b>主格</b>（who / which / that）<br>目的語が抜けている → <b>目的格</b>（which / that、省略可）<br>「〜の」の関係 → <b>所有格</b>（whose）",
+   patterns:["関係代名詞 who（主格）","関係代名詞 which（主格）","関係代名詞（目的格・省略可）","関係代名詞 whose（所有格）"],
+   relatedNames:["後置修飾","関係副詞・関係代名詞 what"]
+  },
+
+  {no:27, grade:"中3", name:"関係副詞・関係代名詞 what",
+   basic:"<b>名詞 ＋ where / when ＋ 完全な文</b> ／ <b>what ＋ 不完全な文</b>＝〜こと",
+   headlines:[
+     {u:"where", k:"場所を説明"},
+     {u:"when", k:"時を説明"},
+     {u:"what", k:"〜こと／もの（先行詞いらない）"}
+   ],
+   usages:[
+     {label:"場所 ＋ where ＋ 完全な文",
+      trans:"〜する場所",
+      role:"場所を表す名詞を後ろから修飾",
+      keys:["place","city","country","house","school"],
+      examples:[
+        {en:"This is the house <b>where I was born</b>.", ja:"ここが私が生まれた家だ"},
+        {en:"I visited the park <b>where we played</b>.", ja:"私たちが遊んだ公園を訪れた"}
+      ],
+      caution:"後ろに来る文は<b>完全</b>（主語も目的語もそろっている）"
+     },
+     {label:"時 ＋ when ＋ 完全な文",
+      trans:"〜する時",
+      role:"時を表す名詞を後ろから修飾",
+      keys:["day","time","year","moment"],
+      examples:[
+        {en:"I remember the day <b>when we met</b>.", ja:"私たちが会った日を覚えている"},
+        {en:"Spring is the season <b>when flowers bloom</b>.", ja:"春は花が咲く季節だ"}
+      ]
+     },
+     {label:"what ＋ 不完全な文 ＝ 〜こと／〜もの",
+      trans:"〜すること／〜するもの",
+      role:"<b>先行詞を含む</b>関係代名詞。the thing(s) which と同じ意味",
+      keys:["what","先行詞いらない","主語・目的語・補語になる"],
+      examples:[
+        {en:"<b>What</b> he said is true.", ja:"彼が言ったことは本当だ（主語）"},
+        {en:"I don't know <b>what</b> you want.", ja:"あなたが何をほしいか分からない（目的語）"},
+        {en:"= the thing(s) which 〜"}
+      ],
+      caution:"前に名詞（先行詞）は来ない"
+     }
+   ],
+   identify:"後ろが<b>完全な文</b> → 関係副詞（where / when）<br>後ろが<b>不完全な文</b>で先行詞が無い → 関係代名詞 <b>what</b>（〜こと／もの）<br>前にある名詞が「場所」なら where、「時」なら when。",
+   patterns:["関係副詞 where","関係副詞 when","関係代名詞 what"],
+   relatedNames:["関係代名詞","後置修飾","間接疑問文"]
+  },
+
+  {no:28, grade:"中3", name:"間接疑問文",
+   basic:"<b>動詞 ＋ 疑問詞 ＋ 主語 ＋ 動詞</b>（疑問文の語順ではない）",
+   headlines:[
+     {u:"疑問詞", k:"what / who / where / when / why / how"},
+     {u:"語順", k:"S ＋ V（普通の文の語順）"},
+     {u:"if / whether", k:"〜かどうか"}
+   ],
+   usages:[
+     {label:"動詞 ＋ 疑問詞 ＋ S ＋ V",
+      trans:"〜が何か／誰か／どこか 〜知る",
+      role:"疑問文が文の<b>一部</b>として組み込まれる",
+      keys:["I know 〜","I don't know 〜","Do you know 〜?","Tell me 〜"],
+      examples:[
+        {en:"I know <b>where he lives</b>.", ja:"彼がどこに住んでいるか知っている"},
+        {en:"Do you know <b>what this is</b>?", ja:"これが何か知っていますか"},
+        {en:"× Do you know <b>what is this</b>?"}
+      ],
+      caution:"疑問文の語順（V ＋ S）にしない。do/does/did も<b>消える</b>（× what does he like → ○ what he likes）"
+     },
+     {label:"疑問詞が主語のとき",
+      trans:"誰が／何が",
+      role:"疑問詞が主語なら<b>語順はそのまま</b>（疑問詞 ＋ V）",
+      keys:["who 主語","what 主語"],
+      examples:[
+        {en:"I don't know <b>who broke</b> the window.", ja:"誰が窓を割ったか分からない"},
+        {en:"Tell me <b>what happened</b>.", ja:"何が起こったか教えて"}
+      ]
+     },
+     {label:"if / whether ＋ S ＋ V ＝ 〜かどうか",
+      trans:"〜かどうか",
+      role:"疑問詞のない疑問文を組み込むときは if / whether",
+      keys:["if","whether"],
+      examples:[
+        {en:"I don't know <b>if he is busy</b>.", ja:"彼が忙しいかどうか分からない"},
+        {en:"Do you know <b>whether she will come</b>?", ja:"彼女が来るかどうか知っていますか"}
+      ]
+     }
+   ],
+   identify:"<b>動詞の目的語</b>として疑問文が組み込まれている → 間接疑問文。<br>語順は<b>普通の文（S ＋ V）</b>。do/does/did は消える。<br>Yes/No 疑問文なら <b>if / whether</b>。",
+   patterns:["間接疑問文","疑問詞が主語の間接疑問","if / whether（〜かどうか）"],
+   relatedNames:["疑問詞","接続詞","付加疑問文"]
+  },
+
+  {no:29, grade:"中3", name:"付加疑問文",
+   basic:"<b>肯定文, ＋ 否定の短縮形 ＋ 主語?</b> ／ <b>否定文, ＋ 肯定 ＋ 主語?</b>",
+   headlines:[
+     {u:"肯定文 → 否定", k:"〜, isn't it? / don't you?"},
+     {u:"否定文 → 肯定", k:"〜, is it? / do you?"},
+     {u:"特殊", k:"命令文/Let's/I am"}
+   ],
+   usages:[
+     {label:"肯定文 ＋ 否定の付加疑問",
+      trans:"〜だよね？",
+      role:"肯定文の後に<b>否定の短縮形</b>を付ける",
+      keys:["isn't it?","aren't they?","don't you?","doesn't he?","didn't they?","won't you?","can't you?"],
+      examples:[
+        {en:"You are a student, <b>aren't you</b>?", ja:"あなたは学生だよね"},
+        {en:"He likes tea, <b>doesn't he</b>?", ja:"彼はお茶が好きだよね"},
+        {en:"They came, <b>didn't they</b>?", ja:"彼らは来たよね"}
+      ],
+      caution:"肯定 → 否定、否定 → 肯定。動詞は前の文と<b>同じ種類</b>"
+     },
+     {label:"否定文 ＋ 肯定の付加疑問",
+      trans:"〜じゃないよね？",
+      role:"否定文の後に<b>肯定形</b>",
+      keys:["is it?","do you?","does he?","did they?","can he?"],
+      examples:[
+        {en:"You aren't tired, <b>are you</b>?", ja:"あなたは疲れていないよね"},
+        {en:"She doesn't like fish, <b>does she</b>?", ja:"彼女は魚が好きじゃないよね"}
+      ],
+      caution:"前の文の主語は付加疑問では<b>代名詞</b>に（Tom doesn't → does <b>he</b>?）"
+     },
+     {label:"特殊な付加疑問",
+      trans:"命令文／Let's／I am",
+      role:"覚えるべき例外",
+      keys:["命令文 → will you?","Let's → shall we?","I am → aren't I?"],
+      examples:[
+        {en:"Open the door, <b>will you</b>?", ja:"ドアを開けてくれる？"},
+        {en:"Let's go, <b>shall we</b>?", ja:"行こうよ、ね？"},
+        {en:"I am right, <b>aren't I</b>?", ja:"私は正しいよね"}
+      ]
+     }
+   ],
+   identify:"<b>肯定 ↔ 否定</b>を入れかえる（肯定文 → 否定の短縮、否定文 → 肯定）。<br>動詞の種類は<b>同じ</b>（be → be、一般 → do/does/did、助動詞 → 助動詞）。<br>主語は<b>代名詞</b>に。",
+   patterns:["付加疑問文"],
+   relatedNames:["be動詞","一般動詞","助動詞（基礎）"]
+  },
+
+  {no:30, grade:"中3", name:"仮定法過去",
+   basic:"<b>If ＋ S ＋ 過去形, S ＋ would / could / might ＋ 原形</b>",
+   headlines:[
+     {u:"If 仮定法", k:"もし〜なら、〜だろうに"},
+     {u:"were", k:"主語に関係なく were"},
+     {u:"I wish 〜", k:"〜だったらなあ"}
+   ],
+   usages:[
+     {label:"If ＋ S ＋ 動詞の過去形, S ＋ would ＋ 原形",
+      trans:"もし〜なら、〜だろうに",
+      role:"<b>現在の事実と反対</b>の仮定。実現しないことを言う",
+      keys:["If 過去形","would + 原形","could","might"],
+      examples:[
+        {en:"<b>If</b> I <b>had</b> more time, I <b>would travel</b>.", ja:"もっと時間があれば旅行するのに"},
+        {en:"<b>If</b> I <b>knew</b> her number, I <b>could call</b> her.", ja:"電話番号を知っていれば電話できるのに"}
+      ],
+      caution:"形は「過去」だが、表すのは<b>現在</b>の反実仮想"
+     },
+     {label:"be動詞は were（主語に関係なく）",
+      trans:"もし〜なら",
+      role:"仮定法の be動詞は <b>were</b>。主語が I / he / she でも were",
+      keys:["If I were","If he were"],
+      examples:[
+        {en:"<b>If</b> I <b>were</b> you, I <b>would study</b> harder.", ja:"もし私があなたなら、もっと勉強する"},
+        {en:"<b>If</b> she <b>were</b> here, she <b>would help</b> us.", ja:"もし彼女がここにいれば、私たちを助けてくれるだろう"}
+      ],
+      caution:"普通の過去では he was だが、仮定法では <b>he were</b>"
+     },
+     {label:"I wish ＋ S ＋ 動詞の過去形 / were",
+      trans:"〜だったらなあ",
+      role:"現実と反対の願望",
+      keys:["I wish 過去形","I wish I were","I wish I could"],
+      examples:[
+        {en:"<b>I wish</b> I <b>were</b> rich.", ja:"金持ちだったらなあ"},
+        {en:"<b>I wish</b> I <b>could</b> fly.", ja:"飛べたらなあ"}
+      ]
+     }
+   ],
+   identify:"<b>現在の事実と反対</b>のことを言うとき → 仮定法過去。<br>If の中の動詞は<b>過去形</b>（be動詞は <b>were</b>）／主節は <b>would / could / might ＋ 原形</b>。<br>I wish の後ろも過去形 / were。",
+   patterns:["仮定法過去","仮定法の were","I wish + 仮定法"],
+   relatedNames:["接続詞","助動詞（発展）"]
+  },
+
+  {no:31, grade:"中3", name:"使役・知覚動詞（原形不定詞）",
+   basic:"<b>使役・知覚動詞 ＋ O ＋ 動詞の原形</b>（to のつかない不定詞）",
+   headlines:[
+     {u:"使役動詞", k:"let / make / have + O + 原形"},
+     {u:"知覚動詞", k:"see / hear / feel + O + 原形/-ing"},
+     {u:"help", k:"help + O + (to) 原形"}
+   ],
+   usages:[
+     {label:"let / make ＋ O ＋ 原形",
+      trans:"O に〜させる",
+      role:"使役動詞。後ろは<b>to のつかない原形</b>",
+      keys:["let（許可）","make（強制）","have（依頼）"],
+      examples:[
+        {en:"My mother <b>let me go</b> there.", ja:"母は私をそこへ行かせてくれた"},
+        {en:"He <b>made me cry</b>.", ja:"彼は私を泣かせた"}
+      ],
+      caution:"× let me <b>to go</b> → ○ let me <b>go</b>"
+     },
+     {label:"see / hear / feel ＋ O ＋ 原形 / 〜ing",
+      trans:"O が〜するのを見る／聞く／感じる",
+      role:"知覚動詞。動作全体 → 原形／動作の途中 → 〜ing",
+      keys:["see","hear","feel","watch","listen to"],
+      examples:[
+        {en:"I <b>saw him run</b>.", ja:"彼が走るのを見た（動作全体）"},
+        {en:"I <b>saw him running</b>.", ja:"彼が走っているところを見た（動作の途中）"},
+        {en:"I <b>heard her sing</b>.", ja:"彼女が歌うのを聞いた"}
+      ]
+     },
+     {label:"help ＋ O ＋ (to) 原形",
+      trans:"O が〜するのを手伝う",
+      role:"help の後ろは to あり・なし両方OK",
+      keys:["help","to を省略してもよい"],
+      examples:[
+        {en:"I <b>helped him (to) carry</b> the box.", ja:"彼が箱を運ぶのを手伝った"},
+        {en:"She helped me <b>do</b> my homework.", ja:"彼女は私の宿題を手伝った"}
+      ]
+     }
+   ],
+   identify:"<b>使役（let/make/have/help）</b>・<b>知覚（see/hear/feel）</b>の動詞のあとは <b>O ＋ 原形（to なし）</b>。<br>知覚動詞だけは 動作の途中なら <b>O ＋ 〜ing</b>。",
+   patterns:["使役動詞（make / let）","help + 人 + 原形","知覚動詞 + 原形"],
+   relatedNames:["不定詞","文型","進行形"]
+  },
+
+  {no:32, grade:"中3", name:"結果構文（too〜to / so〜that）",
+   basic:"<b>too ＋ 形 ＋ to ＋ 原形</b> ／ <b>so ＋ 形 ＋ that 〜</b> ／ <b>形 ＋ enough to</b>",
+   headlines:[
+     {u:"too 〜 to …", k:"〜すぎて…できない"},
+     {u:"〜 enough to …", k:"…できるほど〜"},
+     {u:"so 〜 that …", k:"とても〜なので…"},
+     {u:"such 〜 that …", k:"とても〜な〇〇なので"}
+   ],
+   usages:[
+     {label:"too ＋ 形容詞・副詞 ＋ to ＋ 原形",
+      trans:"〜すぎて…できない",
+      role:"程度が過剰で不可能な結果。<b>否定の意味</b>",
+      keys:["too","否定的な結果"],
+      examples:[
+        {en:"He is <b>too young to drive</b>.", ja:"彼は若すぎて運転できない"},
+        {en:"= He is <b>so</b> young <b>that</b> he <b>can't</b> drive."}
+      ],
+      caution:"to のあとは原形。意味は<b>否定</b>"
+     },
+     {label:"形容詞・副詞 ＋ enough ＋ to ＋ 原形",
+      trans:"…できるほど〜",
+      role:"程度が十分で可能な結果",
+      keys:["enough","形容詞 + enough（順番）"],
+      examples:[
+        {en:"He is <b>old enough to drive</b>.", ja:"彼は運転できるほど大人だ"},
+        {en:"= He is <b>so</b> old <b>that</b> he <b>can</b> drive."}
+      ],
+      caution:"enough は<b>形容詞・副詞の後ろ</b>（× enough old → ○ old enough）"
+     },
+     {label:"so ＋ 形容詞・副詞 ＋ that ＋ S ＋ V",
+      trans:"とても〜なので…",
+      role:"原因と結果を文として書く",
+      keys:["so + 形/副 + that","so 〜 that can't = too 〜 to"],
+      examples:[
+        {en:"He is <b>so</b> kind <b>that</b> everyone likes him.", ja:"彼はとても親切なのでみんなに好かれる"},
+        {en:"It was <b>so</b> hot <b>that</b> I couldn't sleep.", ja:"とても暑くて眠れなかった"}
+      ]
+     },
+     {label:"such (a) ＋ 形容詞 ＋ 名詞 ＋ that 〜",
+      trans:"とても〜な〇〇なので…",
+      role:"<b>名詞</b>を強調して結果を述べる",
+      keys:["such a + 形 + 単数名詞","such + 形 + 複数/不可算名詞"],
+      examples:[
+        {en:"It was <b>such a hot day that</b> we stayed home.", ja:"とても暑い日だったので家にいた"},
+        {en:"They are <b>such kind people that</b> everyone likes them.", ja:"とても親切な人々なので皆が好きだ"}
+      ],
+      caution:"so は<b>形容詞</b>を強める／such は<b>名詞</b>を強める"
+     }
+   ],
+   identify:"<b>程度</b>と<b>結果</b>を結びつける構文：<br>形 + to → too / enough（句の結果）／ 形 + that 文 → so / such（文の結果）。<br>too 〜 to は<b>否定</b>、enough to は<b>肯定</b>。",
+   patterns:["too 〜 to …","〜 enough to …","so 〜 that …","such 〜 that …"],
+   relatedNames:["不定詞","接続詞","形容詞・副詞"]
+  }
+];
+
+genres.forEach(function(g,i){g.id='ge'+(i+1);g.gr=g.grade;});
 
 /* =====================================================================
    ★ 教科書 → 学年 → 単元 → 文法カード番号 の対応表 ★
@@ -750,7 +2228,6 @@ var mastered=loadSet(LS_MASTER);
 var savedSets=loadJSON(LS_SETS,[]);
 var deck=[]; var shuffleOrder=null;
 var formulaReturn=null;
-var genreReturn=null;
 var reduceMotion=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
 function loadSet(k){try{return new Set(JSON.parse(localStorage.getItem(k)||'[]'))}catch(e){return new Set()}}
@@ -1399,20 +2876,21 @@ function applyShuffle(list){if(!shuffleOrder)makeShuffle();var pos={};shuffleOrd
 function buildDeck(){
   if(st.mode==='genre'){
     var gl=genres.slice();
-    if(st.grade&&st.grade!=='all')gl=gl.filter(function(g){return g.gr===st.grade;});
+    if(st.grade&&st.grade!=='all')gl=gl.filter(function(g){return g.grade===st.grade;});
     if(st.review)gl=gl.filter(function(g){return !mastered.has('G:'+g.id);});
-    if(st.q){var qg=st.q.toLowerCase();
-      gl=gl.filter(function(g){
-        var hay=(g.name+' '+g.basic+' '+(g.identify||'')+' '+(g.relatedNames||[]).join(' ')+' '+(g.patterns||[]).join(' ')+' '+(g.headlines||[]).map(function(h){return h.u+' '+h.k;}).join(' ')+' '+(g.usages||[]).map(function(u){return u.label+' '+u.trans+' '+u.role+' '+(u.keys||[]).join(' ')+' '+(u.examples||[]).map(function(e){return e.en+' '+e.ja;}).join(' ');}).join(' ')).toLowerCase();
-        return hay.indexOf(qg)>=0;
+    if(st.q){var q=st.q.toLowerCase();
+      // 優先順位: name完全一致 > name部分一致 > その他
+      var exact=[], partial=[], other=[];
+      gl.forEach(function(g){
+        var name=g.name.toLowerCase();
+        if(name===q){exact.push(g);}
+        else if(name.indexOf(q)>=0){partial.push(g);}
+        else{
+          var hay=(g.name+' '+strip(g.basic||'')+' '+(g.identify||'')+' '+(g.relatedNames||[]).join(' ')+' '+(g.patterns||[]).join(' ')).toLowerCase();
+          if(hay.indexOf(q)>=0)other.push(g);
+        }
       });
-      // 並び替え：name完全一致 > name部分一致 > その他
-      gl.sort(function(a,b){
-        var an=a.name.toLowerCase(),bn=b.name.toLowerCase();
-        var as=an===qg?0:an.indexOf(qg)>=0?1:2;
-        var bs=bn===qg?0:bn.indexOf(qg)>=0?1:2;
-        return as!==bs?as-bs:a.no-b.no;
-      });
+      gl=exact.concat(partial).concat(other);
     }
     if(st.shuffle)gl=applyShuffle(gl);
     deck=gl;return;
@@ -1489,8 +2967,8 @@ function render(){
   updateChips();
   if(el.backFx)el.backFx.classList.toggle('on', st.mode==='grammar' && !!formulaReturn);
   if(!has){el.live.textContent='カードがありません';return;}
-  if(st.mode==='formula'){renderFormula();return;}
   if(st.mode==='genre'){renderGenre();return;}
+  if(st.mode==='formula'){renderFormula();return;}
   var g=deck[st.idx], c=gcls(g.gr);
   el.frontAccent.className='front-accent '+c;
   el.frontGrade.className='grade-tab '+c; el.frontGrade.textContent=g.gr;
@@ -1547,53 +3025,62 @@ function renderGenre(){
   el.frontAccent.className='front-accent '+c;
   el.frontGrade.className='grade-tab '+c; el.frontGrade.textContent=g.gr;
   el.frontNo.innerHTML='分野 #'+g.no;
-  // 表面：分野名（大）+ 基本形 + 見出し（用法→キーワード）
-  el.frontTopic.textContent=g.name;
-  el.frontTopic.style.fontSize = g.name.length>14 ? '21px' : g.name.length>10 ? '24px' : '';
+  el.frontTopic.innerHTML='';
+  el.frontTopic.style.fontSize='';
+  // 表面: 分野名 + 基本形 + headlines
+  var frontHTML='<div class="gen-front">'+
+    '<div class="gen-front-name">'+esc(g.name)+'</div>'+
+    (g.basic?'<div class="gen-basic">'+g.basic+'</div>':'')+
+    (g.headlines&&g.headlines.length?'<div class="gen-headlines">'+g.headlines.map(function(h){
+      return '<div class="gen-hline"><span class="gen-hline-u">'+esc(h.u)+'</span><span class="gen-hline-k">'+esc(h.k)+'</span></div>';
+    }).join('')+'</div>':'')+
+    '</div>';
   el.frontSents.className='front-sents';
-  var hHTML='<div class="gen-basic">'+esc(g.basic)+'</div>';
-  if(g.headlines&&g.headlines.length){
-    hHTML+='<div class="gen-headlines">'+g.headlines.map(function(h){return '<div class="gen-hline"><span class="gen-hline-u">'+esc(h.u)+'</span><span class="gen-hline-k">'+esc(h.k)+'</span></div>';}).join('')+'</div>';
-  }
-  el.frontSents.innerHTML=hHTML;
-  // 裏面
+  el.frontSents.innerHTML=frontHTML;
+  // 裏面: usages + identify + patterns + relatedNames
   el.backGrade.className='grade-tab small '+c; el.backGrade.textContent=g.gr;
   el.backTopic.textContent=g.name;
   el.backUnits.innerHTML='';
-  var html='<div class="gen-basic" style="margin-bottom:18px">'+esc(g.basic)+'</div>';
-  (g.usages||[]).forEach(function(u){
-    html+='<div class="gen-usage">';
-    html+='<div class="gen-usage-head"><span class="gen-usage-label">'+esc(u.label)+'</span>';
-    if(u.trans&&u.trans!=='—')html+='<span class="gen-usage-trans">'+esc(u.trans)+'</span>';
-    html+='</div>';
-    if(u.role)html+='<div class="gen-usage-role">'+esc(u.role)+'</div>';
-    if(u.keys&&u.keys.length){
-      html+='<div class="gen-usage-keys">'+u.keys.map(function(k){return '<span class="gen-key">'+esc(k)+'</span>';}).join('')+'</div>';
-    }
-    if(u.examples&&u.examples.length){
-      html+='<div class="gen-usage-ex">'+u.examples.map(function(e){return '<div class="gen-ex-row"><span class="gen-ex-en">'+e.en.replace(/<b>/g,'<b>').replace(/<\/b>/g,'</b>')+'</span><span class="gen-ex-ja">'+esc(e.ja)+'</span></div>';}).join('')+'</div>';
-    }
-    if(u.caution)html+='<span class="gen-usage-caution">⚠️ '+esc(u.caution)+'</span>';
-    html+='</div>';
-  });
+  var backHTML='';
+  // usagesブロック
+  if(g.usages&&g.usages.length){
+    backHTML+=g.usages.map(function(u){
+      var keysHTML=u.keys&&u.keys.length?'<div class="gen-usage-keys">'+u.keys.map(function(k){return '<span class="gen-key">'+esc(k)+'</span>';}).join('')+'</div>':'';
+      var exHTML=u.examples&&u.examples.length?'<div class="gen-usage-ex">'+u.examples.map(function(ex){
+        return '<div class="gen-ex-row"><div class="gen-ex-en">'+ex.en+'</div><div class="gen-ex-ja">'+esc(ex.ja)+'</div></div>';
+      }).join('')+'</div>':'';
+      var cautionHTML=u.caution?'<div class="gen-usage-caution">⚠️ '+u.caution+'</div>':'';
+      return '<div class="gen-usage">'+
+        '<div class="gen-usage-head">'+
+          '<div class="gen-usage-label">'+u.label+'</div>'+
+          '<div class="gen-usage-trans">「'+esc(u.trans)+'」</div>'+
+        '</div>'+
+        (u.role?'<div class="gen-usage-role">'+u.role+'</div>':'')+
+        keysHTML+
+        exHTML+
+        cautionHTML+
+      '</div>';
+    }).join('');
+  }
+  // identify
   if(g.identify){
-    html+='<div class="gen-identify"><span class="h">🔍 見分け方</span>'+esc(g.identify)+'</div>';
+    backHTML+='<div class="gen-sec"><div class="gen-sec-h">🔍 見分け方</div><div class="gen-identify">'+g.identify+'</div></div>';
   }
+  // patterns（関連公式）
   if(g.patterns&&g.patterns.length){
-    html+='<div class="gen-sec"><div class="gen-sec-h">⚡ 関連する公式</div>';
-    g.patterns.forEach(function(p){
-      html+='<button class="gen-pattern no-swipe" data-pattern="'+esc(p)+'">'+esc(p)+'<span class="arr">→</span></button>';
-    });
-    html+='</div>';
+    backHTML+='<div class="gen-sec"><div class="gen-sec-h">⚡ 関連する公式</div>'+
+      '<div class="gen-pat-list">'+g.patterns.map(function(p){
+        return '<button class="gen-pattern no-swipe" data-pattern="'+esc(p)+'">'+esc(p)+'<span class="arr">→</span></button>';
+      }).join('')+'</div></div>';
   }
+  // relatedNames（関連分野）
   if(g.relatedNames&&g.relatedNames.length){
-    html+='<div class="gen-sec"><div class="gen-sec-h">📚 関連する分野</div><div class="gen-rel-list">';
-    g.relatedNames.forEach(function(r){
-      html+='<button class="gen-rel-name no-swipe" data-genre="'+esc(r)+'">'+esc(r)+'<span class="arr">→</span></button>';
-    });
-    html+='</div></div>';
+    backHTML+='<div class="gen-sec"><div class="gen-sec-h">📚 関連する分野</div>'+
+      '<div class="gen-rel-list">'+g.relatedNames.map(function(n){
+        return '<button class="gen-rel-name no-swipe" data-genre="'+esc(n)+'">'+esc(n)+'</button>';
+      }).join('')+'</div></div>';
   }
-  el.rule.innerHTML=html;
+  el.rule.innerHTML=backHTML;
   el.exBlock.style.display='none';
   el.ex.innerHTML=''; el.tbSentences.innerHTML='';
   el.backScroll.classList.remove('fm');
@@ -1613,7 +3100,11 @@ function updateFrontNext(){
     el.frontNext.classList.add('on');return;
   }
   var nx=deck[st.idx+1];
-  var title=st.mode==='formula'?strip(nx.s):st.mode==='genre'?nx.name:nx.t;
+  if(st.mode==='genre'){
+    el.frontNext.innerHTML='→ next： <b>'+esc(nx.name)+'</b>';
+    el.frontNext.classList.add('on');return;
+  }
+  var title=st.mode==='formula'?strip(nx.s):nx.t;
   var cardC=st.mode==='formula'?nx.c:nx.no;
   var arr=(cardUnits[cardC]||[]).filter(function(x){return x.book===st.book.book;});
   var unit=arr.length?'中'+arr[0].g+' '+arr[0].u:'';
@@ -1626,50 +3117,9 @@ function applyModeUI(){
   el.bookBtn.style.display=gm?'none':'';
   el.listBtn.style.display=(fm||gm)?'none':'';
   el.tabs.style.display=gm?'none':'contents';
-  if(el.toolSep)el.toolSep.style.display=gm?'none':'';
+  if(el.toolSep)el.toolSep.style.display='';
   el.search.placeholder=gm?'分野を検索（例: 不定詞, 完了, 関係代名詞）':fm?'公式を検索（例: call, 現在完了, too to）':'文法を検索（例: 現在完了, who, 比較）';
   Array.prototype.forEach.call(el.modebar.querySelectorAll('.modeseg'),function(b){b.classList.toggle('on',b.getAttribute('data-mode')===st.mode);});
-}
-function jumpToFormulaByQuery(query){
-  if(!query)return;
-  // 完全一致 → 部分一致 → 検索クエリにセット
-  var fi=formulas.findIndex(function(f){return f.l===query;});
-  if(fi<0)fi=formulas.findIndex(function(f){return f.l.indexOf(query)>=0||query.indexOf(f.l)>=0;});
-  // 状態を保存して公式モードへ
-  var cur=deck[st.idx];
-  if(st.mode==='genre')genreReturn={id:cur?cur.id:null,grade:st.grade,q:st.q,review:st.review,shuffle:shuffleOrder};
-  st.mode='formula'; saveModeLS();
-  st.book=null; st.activeTab=null; st.review=false; shuffleOrder=null;
-  if(fi>=0){
-    st.grade='all'; st.q=''; el.search.value=''; el.searchWrap.classList.remove('has');
-    applyModeUI();
-    buildDeck();
-    var found=formulas[fi];
-    var i=deck.findIndex(function(f){return f.id===found.id;});
-    st.idx=i>=0?i:0; st.flip=true;
-  } else {
-    st.grade='all'; st.q=query; el.search.value=query; el.searchWrap.classList.toggle('has',!!query);
-    applyModeUI();
-    buildDeck();
-    if(deck.length===0){toast('「'+query+'」に該当する公式が見つかりません');}
-    st.idx=0; st.flip=false;
-  }
-  el.card.style.transition='none';el.card.style.transform='';el.card.style.opacity='';
-  saveActive();highlightTabs();render();
-}
-function jumpToGenreByName(name){
-  if(!name)return;
-  var i=genres.findIndex(function(g){return g.name===name;});
-  if(i<0){toast('「'+name+'」の分野カードが見つかりません');return;}
-  st.mode='genre'; saveModeLS();
-  st.book=null; st.activeTab=null; st.review=false; st.grade='all'; st.q=''; shuffleOrder=null;
-  el.search.value=''; el.searchWrap.classList.remove('has');
-  applyModeUI();
-  buildDeck();
-  var idx=deck.findIndex(function(g){return g.name===name;});
-  st.idx=idx>=0?idx:0; st.flip=false;
-  el.card.style.transition='none';el.card.style.transform='';el.card.style.opacity='';
-  saveActive();highlightTabs();render();
 }
 function jumpToCard(no){
   if(st.mode==='formula'){var cur=deck[st.idx];formulaReturn={no:cur?cur.no:null,grade:st.grade,q:st.q,review:st.review,shuffle:shuffleOrder};}
@@ -1694,6 +3144,48 @@ function returnToFormula(){
   buildDeck();
   var i=(r.no!=null)?deck.findIndex(function(f){return f.no===r.no;}):-1;
   st.idx=i>=0?i:0; st.flip=false;
+  el.card.style.transition='none';el.card.style.transform='';el.card.style.opacity='';
+  saveActive();highlightTabs();render();
+}
+
+function jumpToFormulaByQuery(query){
+  // 公式モードへ切替、queryに最もマッチするカードを探す
+  // 3段階マッチ: l完全一致 → l部分一致 → s+f検索
+  st.mode='formula'; saveModeLS();
+  st.grade='all'; st.q=''; el.search.value=''; el.searchWrap.classList.remove('has');
+  st.book=null; st.activeTab=null; st.review=false; shuffleOrder=null;
+  applyModeUI(); buildDeck();
+  var q=query.trim();
+  var i=-1;
+  // Stage 1: l完全一致
+  i=deck.findIndex(function(f){return f.l===q;});
+  // Stage 2: l部分一致
+  if(i<0)i=deck.findIndex(function(f){return f.l.indexOf(q)>=0;});
+  // Stage 3: s+f内検索
+  if(i<0){var qL=q.toLowerCase();i=deck.findIndex(function(f){return (strip(f.s)+' '+strip(f.f)+' '+f.l).toLowerCase().indexOf(qL)>=0;});}
+  if(i>=0){st.idx=i; st.flip=true;}
+  else{st.idx=0; st.flip=false; toast('一致する公式が見つかりませんでした');}
+  el.card.style.transition='none';el.card.style.transform='';el.card.style.opacity='';
+  saveActive();highlightTabs();render();
+}
+
+function jumpToGenreByName(name){
+  // 分野モード内ジャンプ（既に分野モードなのでmode切替なし）
+  if(st.mode!=='genre'){
+    st.mode='genre'; saveModeLS();
+    st.grade='all'; st.q=''; el.search.value=''; el.searchWrap.classList.remove('has');
+    st.book=null; st.activeTab=null; st.review=false; shuffleOrder=null;
+    applyModeUI(); buildDeck();
+  }
+  var i=deck.findIndex(function(g){return g.name===name;});
+  if(i<0){
+    // フィルタ解除して再検索
+    st.grade='all'; st.q=''; el.search.value=''; el.searchWrap.classList.remove('has'); st.review=false;
+    recompute({reset:false});
+    i=deck.findIndex(function(g){return g.name===name;});
+  }
+  if(i>=0){st.idx=i; st.flip=true;}
+  else{toast('一致する分野が見つかりませんでした'); return;}
   el.card.style.transition='none';el.card.style.transform='';el.card.style.opacity='';
   saveActive();highlightTabs();render();
 }
@@ -1849,45 +3341,52 @@ function animateNav(dir){
     el.card.style.transition='transform .3s cubic-bezier(.2,.8,.2,1), opacity .22s ease';el.card.style.transform='translateX(0)';el.card.style.opacity='1';
   },200);
 }
-var drag={on:false,lock:null,x0:0,y0:0,t0:0,dx:0,dy:0,id:null,noSwipe:false,peakX:0,lastT:0,lastDx:0,vel:0};
+var drag={on:false,lock:null,x0:0,y0:0,t0:0,tLast:0,xLast:0,dx:0,dy:0,peakX:0,instVel:0,id:null,noSwipe:false};
 el.card.addEventListener('pointerdown',function(e){
   if(deck.length===0)return;
   drag.noSwipe=!!e.target.closest('.no-swipe');
-  drag.on=true;drag.lock=null;drag.dx=0;drag.dy=0;drag.peakX=0;drag.x0=e.clientX;drag.y0=e.clientY;drag.t0=Date.now();drag.lastT=drag.t0;drag.lastDx=0;drag.vel=0;drag.id=e.pointerId;
+  drag.on=true;drag.lock=null;drag.dx=0;drag.dy=0;drag.peakX=0;drag.instVel=0;
+  drag.x0=e.clientX;drag.y0=e.clientY;drag.t0=drag.tLast=Date.now();drag.xLast=e.clientX;drag.id=e.pointerId;
   el.card.style.transition='none';
 });
 el.card.addEventListener('pointermove',function(e){
   if(!drag.on||e.pointerId!==drag.id)return;
   drag.dx=e.clientX-drag.x0;drag.dy=e.clientY-drag.y0;
-  if(drag.lock===null&&(Math.abs(drag.dx)>5||Math.abs(drag.dy)>5)){drag.lock=Math.abs(drag.dx)>=Math.abs(drag.dy)?'h':'v';if(drag.lock==='h'){try{el.card.setPointerCapture(drag.id)}catch(_){}}}
-  if(drag.lock==='h'){
-    var dx=drag.dx;
-    if(Math.abs(dx)>Math.abs(drag.peakX))drag.peakX=dx;
-    var now=Date.now(),tdt=now-drag.lastT;
-    if(tdt>0){drag.vel=(dx-drag.lastDx)/tdt;drag.lastT=now;drag.lastDx=dx;}
-    el.card.style.transform='translateX('+dx+'px) rotate('+(dx*0.04)+'deg)';el.card.style.opacity=String(Math.max(.5,1-Math.abs(dx)/620));
+  var aDx=Math.abs(drag.dx);
+  if(aDx>drag.peakX)drag.peakX=aDx;
+  // 瞬間速度（直近の移動の速度）
+  var now=Date.now(), dtL=now-drag.tLast;
+  if(dtL>0){drag.instVel=Math.abs(e.clientX-drag.xLast)/dtL;drag.tLast=now;drag.xLast=e.clientX;}
+  if(drag.lock===null&&(Math.abs(drag.dx)>5||Math.abs(drag.dy)>5)){
+    // 横優先を1.25→1.0に緩和（より斜めにも対応）
+    drag.lock=Math.abs(drag.dx)>=Math.abs(drag.dy)?'h':'v';
+    if(drag.lock==='h'){try{el.card.setPointerCapture(drag.id)}catch(_){}}
   }
+  if(drag.lock==='h'){var dx=drag.dx;el.card.style.transform='translateX('+dx+'px) rotate('+(dx*0.04)+'deg)';el.card.style.opacity=String(Math.max(.5,1-Math.abs(dx)/620));}
 });
 function endDrag(e){
   if(!drag.on)return;drag.on=false;
-  var dt=Date.now()-drag.t0,dx=drag.dx,dy=drag.dy,ax=Math.abs(dx),ay=Math.abs(dy),lock=drag.lock,wasNoSwipe=drag.noSwipe;
-  var peakX=drag.peakX,apk=Math.abs(peakX),instVel=Math.abs(drag.vel);
-  drag.lock=null;drag.noSwipe=false;drag.peakX=0;drag.vel=0;
+  var dt=Date.now()-drag.t0,dx=drag.dx,dy=drag.dy,ax=Math.abs(dx),ay=Math.abs(dy);
+  var lock=drag.lock,wasNoSwipe=drag.noSwipe,peakX=drag.peakX,instVel=drag.instVel;
+  drag.lock=null;drag.noSwipe=false;drag.peakX=0;drag.instVel=0;
   try{el.card.releasePointerCapture(e.pointerId)}catch(_){}
   if(lock==='h'){
     var vel=ax/Math.max(dt,1);
+    // 緩めた閾値
     var distTh=wasNoSwipe?70:26;
     var velTh=wasNoSwipe?0.5:0.20;
-    var peakTh=wasNoSwipe?100:55;
-    if(ax>distTh||vel>velTh||instVel>velTh)animateNav(dx<0?1:-1);
-    else if(apk>peakTh&&ax>=apk*0.55)animateNav(peakX<0?1:-1);
+    var peakTh=wasNoSwipe?100:45;
+    // メイン判定: 距離 OR 平均速度 OR リリース時の瞬間速度
+    if(ax>distTh||vel>velTh||instVel>velTh){animateNav(dx<0?1:-1);}
+    // 途中で大きく動いたけど戻ってきた場合: peakの方向にnav
+    else if(peakX>peakTh && ax>=peakX*0.55){animateNav(dx<0?1:-1);}
     else snapBack();
   }
   else if(ax<8&&ay<8&&dt<320&&!wasNoSwipe){snapBack();flip();}
   else snapBack();
 }
 el.card.addEventListener('pointerup',endDrag);
-el.card.addEventListener('pointercancel',function(){if(!drag.on)return;drag.on=false;drag.lock=null;drag.noSwipe=false;drag.peakX=0;drag.vel=0;snapBack();});
+el.card.addEventListener('pointercancel',function(){if(!drag.on)return;drag.on=false;drag.lock=null;drag.noSwipe=false;snapBack();});
 
 el.masterBtn.addEventListener('click',function(){
   var g=deck[st.idx];if(!g)return;var k=mkey(g),was=mastered.has(k);
@@ -1905,7 +3404,7 @@ el.reviewBtn.addEventListener('click',function(){st.review=!st.review;st.activeT
 el.modebar.addEventListener('click',function(e){
   var b=e.target.closest('.modeseg');if(!b)return;
   var m=b.getAttribute('data-mode');if(m===st.mode)return;
-  formulaReturn=null;genreReturn=null;
+  formulaReturn=null;
   st.mode=m;saveModeLS();
   st.book=null;st.activeTab=null;st.idx=0;st.flip=false;shuffleOrder=null;
   applyModeUI();recompute({reset:true});
@@ -1931,12 +3430,14 @@ function speakEn(text,btn){
 if(window.speechSynthesis)window.speechSynthesis.onvoiceschanged=function(){window.speechSynthesis.getVoices();};
 el.speakBtn.addEventListener('click',function(e){e.stopPropagation();var g=deck[st.idx];if(g)speakEn(g.e,el.speakBtn);});
 el.backScroll.addEventListener('click',function(e){
-  var gp=e.target.closest('.gen-pattern');
-  if(gp){e.stopPropagation();jumpToFormulaByQuery(gp.getAttribute('data-pattern'));return;}
-  var gr=e.target.closest('.gen-rel-name');
-  if(gr){e.stopPropagation();jumpToGenreByName(gr.getAttribute('data-genre'));return;}
   var fl=e.target.closest('.formula-link');
   if(fl){e.stopPropagation();jumpToCard(parseInt(fl.getAttribute('data-card'),10));return;}
+  // 分野モード: 関連公式ボタン
+  var gp=e.target.closest('.gen-pattern');
+  if(gp){e.stopPropagation();jumpToFormulaByQuery(gp.getAttribute('data-pattern'));return;}
+  // 分野モード: 関連分野チップ
+  var grn=e.target.closest('.gen-rel-name');
+  if(grn){e.stopPropagation();jumpToGenreByName(grn.getAttribute('data-genre'));return;}
   var rc=e.target.closest('.rel-card');
   if(rc){
     e.stopPropagation();
@@ -2085,7 +3586,7 @@ function toast(msg){el.toast.textContent=msg;el.toast.classList.add('on');clearT
 try{var sm=localStorage.getItem(LS_MODE);if(sm==='formula'||sm==='grammar'||sm==='genre')st.mode=sm;}catch(e){}
 applyModeUI();
 renderTabs();
-if(st.mode==='formula'||st.mode==='genre'){recompute({reset:true});}
+if(st.mode==='formula'){recompute({reset:true});}
 else{
   var act='';try{act=localStorage.getItem(LS_ACTIVE)||'';}catch(e){}
   var startSet=savedSets.find(function(x){return x.id===act;});
