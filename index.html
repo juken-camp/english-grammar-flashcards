@@ -106,7 +106,7 @@ button{font-family:inherit;cursor:pointer}
 .front-accent.g3{background:linear-gradient(90deg,var(--g3c),var(--mint))}
 .front-top{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:16px 18px 0}
 .front-no{font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;color:var(--muted);letter-spacing:1px}
-.front-body{flex:1;text-align:center;padding:14px 22px 30px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.front-body{flex:1;text-align:center;padding:14px 22px 14px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .front-topic{font-weight:800;font-size:27px;line-height:1.32;letter-spacing:.3px;word-break:auto-phrase;overflow-wrap:anywhere}
 .front-ja{margin-top:18px;font-size:16.5px;line-height:1.65;color:var(--text);font-weight:600;max-width:100%;word-break:auto-phrase}
 .front-ja:empty{display:none}
@@ -373,14 +373,14 @@ button{font-family:inherit;cursor:pointer}
 .gen-front-name{font-weight:800;font-size:24px;line-height:1.3;letter-spacing:.3px;color:var(--text);text-align:center;word-break:auto-phrase;margin-bottom:8px}
 .gen-front-name .fnote,.gen-front-name .gen-name-paren{display:block;margin-top:7px;font-size:.55em;font-weight:500;color:var(--dim);letter-spacing:0;line-height:1.5;font-style:italic}
 .gen-front-grade{display:inline-block;align-self:center;font-family:'Outfit';font-size:10.5px;font-weight:700;color:var(--purple);background:var(--purple-bg);border:1px solid var(--purple-l);padding:2px 9px;border-radius:10px;letter-spacing:.5px;margin-bottom:14px}
-.gen-basic{margin:0 auto 16px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 14px;font-weight:800;font-size:15.5px;line-height:1.85;color:var(--text);text-align:center;letter-spacing:.2px;max-width:100%;word-break:auto-phrase}
+.gen-basic{margin:0 auto 12px;background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 14px;font-weight:800;font-size:15.5px;line-height:1.85;color:var(--text);text-align:center;letter-spacing:.2px;max-width:100%;word-break:auto-phrase}
 .gen-basic b{color:var(--purple)}
 .gen-basic .gen-basic-sub{display:block;font-size:.78em;font-weight:600;color:var(--dim);margin-top:4px;line-height:1.55;letter-spacing:0}
 .gen-basic .gen-basic-sub b{color:var(--purple);font-weight:700}
 .gen-basic .gen-basic-line{display:inline-block;max-width:100%;transform-origin:50% 50%}
 .gen-basic .ant{display:inline-block;border:2px solid currentColor;border-radius:5px;padding:0 6px;margin:0 1px;line-height:1.25}
-.gen-headlines{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:9px 12px;line-height:1.65;text-align:left}
+.gen-headlines{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.gen-hline{background:#fff;border:1.5px solid var(--surface);border-radius:11px;padding:8px 12px;line-height:1.65;text-align:left}
 .gen-hline-u{font-weight:800;font-size:13.5px;color:var(--purple);letter-spacing:.2px;margin-right:9px;vertical-align:baseline}
 .gen-hline-k{font-size:12.5px;color:var(--dim);font-weight:600;vertical-align:baseline;word-break:auto-phrase;display:inline-block;max-width:100%}
 .gen-usage{background:var(--purple-bg);border:1.5px solid var(--purple-l);border-radius:13px;padding:12px 13px;margin-bottom:11px}
@@ -1253,7 +1253,7 @@ var genres = [
 
   // ========== 中2 (10枚) ==========
   {no:14, grade:"中2", name:"接続詞",
-   basic:"<b>等位接続詞</b>（and, but, or, so）／ <b>従位接続詞</b>（when, if, because など）",
+   basic:"<b>等位接続詞</b> ／ <b>従位接続詞</b>",
    headlines:[
      {u:"等位接続詞", k:"and / but / or / so"},
      {u:"時・条件", k:"when / if / while"},
@@ -1455,7 +1455,7 @@ var genres = [
   },
 
   {no:18, grade:"中2", name:"比較",
-   basic:"<b>原級</b>（as ~ as）／ <b>比較級</b>（-er than / more ~ than）／ <b>最上級</b>（the -est / the most）",
+   basic:"<b>原級</b> ／ <b>比較級</b> ／ <b>最上級</b>",
    headlines:[
      {u:"原級比較", k:"as ~ as"},
      {u:"比較級", k:"-er than / more ~ than"},
@@ -1514,7 +1514,7 @@ var genres = [
    headlines:[
      {u:"SVC", k:"S = C（look / become）"},
      {u:"SVOO", k:"人にモノを"},
-     {u:"SVOC", k:"A = B（call A B）"}
+     {u:"SVOC", k:"call A B（A = B）"}
    ],
    usages:[
      {label:"主語 ＋ 動詞 ＋ 補語（SVC）",
@@ -1555,7 +1555,7 @@ var genres = [
   },
 
   {no:20, grade:"中2", name:"受動態",
-   basic:"主語 ＋ <b>be動詞</b> ＋ <b>過去分詞</b>",
+   basic:"<b>be動詞 ＋ 過去分詞</b>",
    headlines:[
      {u:"be ＋ 過去分詞", k:"〜される"},
      {u:"by ＋ 人", k:"〜によって"},
@@ -1786,7 +1786,7 @@ var genres = [
   },
 
   {no:25, grade:"中3", name:"後置修飾",
-   basic:"<b>名詞 ＋ 修飾語</b>（名詞を後ろから修飾する5パターン）",
+   basic:"<b>名詞 ＋ 修飾語</b>",
    headlines:[
      {u:"前置詞句", k:"the book on the desk"},
      {u:"現在分詞", k:"the boy running 〜"},
@@ -1935,14 +1935,14 @@ var genres = [
   },
 
   {no:28, grade:"中3", name:"間接疑問文",
-   basic:"<b>動詞 ＋ 疑問詞 ＋ 主語 ＋ 動詞</b>（疑問文の語順ではない）",
+   basic:"<b>疑問詞 ＋ 主語 ＋ 動詞</b>（疑問文の語順ではない）",
    headlines:[
      {u:"疑問詞", k:"what / who / where / when / why / how"},
      {u:"語順", k:"主語 ＋ 動詞（普通の文の語順）"},
      {u:"if / whether", k:"〜かどうか"}
    ],
    usages:[
-     {label:"動詞 ＋ 疑問詞 ＋ 主語 ＋ 動詞",
+     {label:"疑問詞 ＋ 主語 ＋ 動詞",
       trans:"〜が何か／誰か／どこか 〜知る",
       role:"疑問文が文の<b>一部</b>として組み込まれる",
       keys:["I know 〜","I don't know 〜","Do you know 〜?","Tell me 〜"],
